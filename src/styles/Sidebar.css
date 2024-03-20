@@ -1,0 +1,61 @@
+.logocontainer {
+  width: 160px;
+  height: auto;
+  padding-bottom: 10px;
+}
+.logocontainer > img {
+  width: 100%;
+  height: 100%;
+}
+.account {
+  display: flex;
+  align-items: center;
+}
+.fa-envelope-open-o {
+  margin-right: 10px;
+  padding-bottom: 1px;
+  font-size: 13px;
+  color: white;
+}
+.fa-hashtag,
+.fa-signal,
+.fa-magnifying-glass-dollar,
+.fa-connectdevelop,
+.fa-book,
+.fa-plus-square-o,
+.fa-exchange,
+.fa-power-off {
+  margin-right: 13px;
+  line-height: 32px;
+  padding-bottom: 1px;
+  font-size: 13px;
+  color: white;
+  cursor: pointer;
+}
+.account > span {
+  margin-right: 10px;
+}
+.message {
+  color: #56c74a;
+}
+.submenu > ul {
+  list-style: none;
+  padding-left: 25px;
+}
+.submenu > ul > li {
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.submenu > ul > li:hover {
+  border-bottom: 1px solid #ffffff;
+  cursor: pointer;
+}
+.account {
+  padding: 8px 0px;
+}
+.bb {
+  border-top: thin solid rgba(255, 255, 255, 0.1);
+}
+.account > span{
+    cursor: pointer;
+}
