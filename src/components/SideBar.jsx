@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Sidebar.css";
+import { Link } from "react-router-dom";
 const SideBar = () => {
   const [openSubMenu, setOpenSubMenu] = useState(null);
 
@@ -41,10 +42,20 @@ const SideBar = () => {
       {openSubMenu === 1 && (
         <div className="submenu">
           <ul>
-            <li className="smang">Manage Campaigns</li>
-            <li>New Campaigns</li>
-            <li>Conversion Uploads</li>
-            <li>Big Automation Log</li>
+            <Route path="/mangecompaings" element={<ManageComapings />} />
+            <Link to="/">
+              {" "}
+              <li className="smang">Manage Campaigns</li>
+            </Link>
+            <Link to="/newcompaings">
+              <li>New Campaigns</li>
+            </Link>
+            <Link to="/coversionupload">
+              <li>Conversion Uploads</li>
+            </Link>
+            <Link to="/bigautomationlog">
+              <li>Big Automation Log</li>
+            </Link>
           </ul>
         </div>
       )}
@@ -152,6 +163,7 @@ const SideBar = () => {
         <i class="fa fa-exchange" aria-hidden="true"></i>
         <span>Switch to Publisher</span>
       </div>
+
       <div className="account bb">
         <i class="fa fa-power-off" aria-hidden="true"></i>
         <span>Logout</span>

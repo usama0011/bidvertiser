@@ -42,11 +42,11 @@
   list-style: none;
   padding-left: 25px;
 }
-.submenu > ul > li {
+.submenu > ul > a > li {
   margin-bottom: 10px;
   width: fit-content;
 }
-.submenu > ul > li:hover {
+.submenu > ul > a > li:hover {
   border-bottom: 1px solid #ffffff;
   cursor: pointer;
 }
@@ -56,6 +56,10 @@
 .bb {
   border-top: thin solid rgba(255, 255, 255, 0.1);
 }
-.account > span{
-    cursor: pointer;
+.account > span {
+  cursor: pointer;
+}
+.submenu > ul > a {
+  text-decoration: none;
+  color: unset;
 }
