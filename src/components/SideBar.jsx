@@ -42,7 +42,6 @@ const SideBar = () => {
       {openSubMenu === 1 && (
         <div className="submenu">
           <ul>
-            <Route path="/mangecompaings" element={<ManageComapings />} />
             <Link to="/">
               {" "}
               <li className="smang">Manage Campaigns</li>
