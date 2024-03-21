@@ -27,5 +27,5 @@ body {
 .content {
   flex: 1;
   margin-left: 14%; /* Same width as sidebar */
-  overflow-y: auto; /* Enable vertical scrolling */
+  height: 100%;
 }

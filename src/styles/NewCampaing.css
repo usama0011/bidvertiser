@@ -1,0 +1,186 @@
+.newcompaingsbody {
+  margin: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  max-width: 80%;
+}
+.newcompaingbreadcurmcontainer {
+  display: flex;
+  align-items: center;
+}
+.breadcrumItem {
+  width: 100px;
+  height: 40px;
+  background: red;
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  position: relative;
+}
+.breadcrumItem:before {
+  content: "";
+  position: absolute;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid green;
+  border-top: 20px solid transparent;
+  height: 0px;
+  width: 0px;
+  margin-left: -20px;
+}
+.fa-caret-right {
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: -2px;
+  top: 0;
+  line-height: 25px;
+  font-size: 41px;
+  color: white;
+}
+.breadcurmcontainer {
+  display: flex;
+  width: 1050px;
+  border-bottom: 1px solid gainsboro;
+  padding-bottom: 30px;
+}
+.breadcurmcontainer > div {
+  margin-right: 15px;
+}
+
+/* General Button */
+/* -------------- */
+.button {
+  position: relative;
+  margin: 0;
+  text-decoration: none;
+  padding-right: 14px;
+  padding-left: 15px;
+  padding-top: 3px;
+  margin-right: 30px;
+  padding-bottom: 3px;
+  background: #e7e8ea;
+  color: #808080;
+  font-size: 14px;
+}
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Arrow Buttons */
+/* ------------- */
+.next::after,
+.prev::after {
+  border-style: solid;
+}
+/* Next Button */
+/* ----------- */
+
+.next::after {
+  right: -22px;
+  border-width: 11px;
+  border-color: transparent transparent transparent #e7e8ea;
+}
+.compara {
+  color: #505050;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.button-group {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-width: 800px;
+  width: 1000px;
+  margin: 25px 0px;
+  height: 150px;
+  background-color: white;
+  border-radius: 7px;
+  padding: 4px;
+}
+
+.button-group > div {
+  flex: 1;
+  border: 0.5px solid lightgray;
+  display: flex;
+  padding-inline-start: 10px 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  transition: all 200ms ease-out;
+  box-shadow: 3px 3px 5px lightgrey;
+  color: #1173b7;
+  position: relative;
+  z-index: 2;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.activeee {
+  background-color: #003264;
+}
+.TABLE_STYLE {
+  display: block;
+  margin: 8px;
+}
+
+.featureTypes {
+  white-space: nowrap;
+  color: #1173b7;
+  font-size: 13px;
+}
+
+.featureDescription {
+  padding-left: 20px;
+}
+
+.targetingList {
+  padding-left: 20px;
+  color: #1173b7;
+  padding-right: 5px;
+}
+
+.targetingColumn {
+  width: 150px;
+  border-left: 1px solid #1173b7;
+  padding-left: 10px;
+}
+
+.targetingList li {
+  list-style-type: disc;
+  margin-left: 15px;
+  color: #505050;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.targetingContainer {
+  padding-top: 2px;
+}
+.adsTypes {
+  min-width: 800px;
+  width: 992px;
+  padding: 4px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: table;
+}
+.buttonlargetow {
+  display: block;
+  width: 1008px;
+}
+
+.function-button {
+  background-color: #1173b7;
+  border: 1px solid #1173b7;
+  min-width: 145px;
+  padding: 7px 10px;
+  color: #ffffff;
+}
+.tritem{
+  border-bottom: 1px solid red !important;
+}

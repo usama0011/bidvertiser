@@ -1,8 +1,30 @@
 .headercontainer {
   background-image: linear-gradient(#1b3a5e, #1170b2);
-  padding: 25px 40px;
+  padding: 15px 30px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
-
+.headerleft > h3{
+  color: #ffffff;
+  font-weight: normal;
+}
 .fa-square-caret-right {
   margin-right: 10px;
+}
+.fa-info-circle {
+  color: #5d86c9;
+  font-size: 13px;
+}
+.headerrirhg {
+  width: 250px;
+  background-color: #f65151;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  color: #ffffff;
 }

@@ -4,15 +4,15 @@ const Header = ({ routename }) => {
   return (
     <div className="headercontainer">
       <div className="headerleft">
-        <i
-          id="collapse_img_title"
-          class="fa-regular fa-square-caret-right"
-         
-          aria-hidden="true"
-        ></i>
-        <div>{routename}</div>
+        <h3>{routename}</h3>
       </div>
-      <div className="headerright"></div>
+      <div className="headerrirhg">
+        <div>
+          <p>Current Balance:</p>
+          {/* <i class="fa fa-info-circle fa-stack-1x" aria-hidden="true"></i> */}
+        </div>
+        <p>$-0.12</p>
+      </div>
     </div>
   );
 };

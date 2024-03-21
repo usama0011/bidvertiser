@@ -49,7 +49,7 @@ const SideBar = () => {
             <Link to="/newcompaings">
               <li>New Campaigns</li>
             </Link>
-            <Link to="/coversionupload">
+            <Link to="/conversionupload">
               <li>Conversion Uploads</li>
             </Link>
             <Link to="/bigautomationlog">
@@ -69,9 +69,15 @@ const SideBar = () => {
       {openSubMenu === 2 && (
         <div className="submenu">
           <ul>
-            <li>Daily Activity</li>
-            <li>Summary</li>
-            <li>Analytics</li>
+            <Link to="/summery">
+              <li>Daily Activity</li>
+            </Link>
+            <Link to="/summery">
+              <li>Summary</li>
+            </Link>
+            <Link to="/analytics">
+              <li>Analytics</li>
+            </Link>
           </ul>
         </div>
       )}
@@ -86,10 +92,18 @@ const SideBar = () => {
       {openSubMenu === 3 && (
         <div className="submenu">
           <ul>
-            <li>Mange Postbacks</li>
-            <li>Multi-step</li>
-            <li>Test Postbacks</li>
-            <li>Errors Log</li>
+            <Link to="/managepostbacks">
+              <li>Mange Postbacks</li>
+            </Link>
+            <Link to="/multistep">
+              <li>Multi-step</li>
+            </Link>
+            <Link to="/testpostback">
+              <li>Test Postbacks</li>
+            </Link>
+            <Link to="/errorlogs">
+              <li>Errors Log</li>
+            </Link>
           </ul>
         </div>
       )}
