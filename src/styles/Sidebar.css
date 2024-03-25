@@ -45,6 +45,7 @@
 .submenu > ul > a > li {
   margin-bottom: 10px;
   width: fit-content;
+  font-size: 13px;
 }
 .submenu > ul > a > li:hover {
   border-bottom: 1px solid #ffffff;

@@ -1,0 +1,64 @@
+.editprofilebodyContianer {
+  padding: 25px;
+}
+.ediptprofilebodypart {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  max-width: 80%;
+}
+.ediptprofilebodypart > form > h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #505050;
+}
+.editpagetextarea {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  color: var(--black);
+  padding: 5px;
+}
+.ediptpageinputItme {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  height: 35px;
+  color: var(--black);
+  padding: 5px;
+}
+.updpdp {
+  margin-top: 20px;
+}
+.accountColouser {
+  display: block;
+  font-size: 1.1em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  color: #505050;
+}
+
+.mybuttonbelow {
+  background-color: #cc0000;
+  border: 1px solid #cc0000;
+  font-weight: bold;
+  padding: 6px 10px;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  color: white;
+}

@@ -137,14 +137,31 @@ const SideBar = () => {
       {openSubMenu === 5 && (
         <div className="submenu">
           <ul>
-            <li>Edit Profile</li>
-            <li>Change Password</li>
-            <li>Two Factor Authentication</li>
-            <li>Mange Devices</li>
-            <li>Domains Blacklist</li>
-            <li>Ip Blacklist</li>
-            <li>User Agent Blacklist</li>
-            <li>API Access</li>
+            <Link to="/editprofile">
+              <li>Edit Profile</li>
+            </Link>
+            <Link to="/changepassword">
+              <li>Change Password</li>
+            </Link>
+            <Link to="/twofectorauth">
+              <li>Two Factor Authentication</li>
+            </Link>
+            <Link to="/managedevices">
+              <li>Mange Devices</li>
+            </Link>
+            <Link to="/domainsblacklist">
+              <li>Domains Blacklist</li>
+            </Link>
+            <Link to="/ipblacklist">
+              <li>Ip Blacklist</li>
+            </Link>
+
+            <Link to="/useragentblacklist">
+              <li>User Agent Blacklist</li>
+            </Link>
+            <Link to="/apiaccess">
+              <li>API Access</li>
+            </Link>
           </ul>
         </div>
       )}

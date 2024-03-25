@@ -15,6 +15,14 @@ import TestPostBack from "./src/pages/TestPostBack.jsx";
 import ErrorLogs from "./src/pages/ErrorLogs.jsx";
 import Summery from "./src/pages/Summery.jsx";
 import Analytics from "./src/pages/Analytics.jsx";
+import IPAcces from "./src/pages/IPAcces.jsx";
+import UserAgentBlackList from "./src/pages/UserAgentBlackList.jsx";
+import IPBlackList from "./src/pages/IPBlackList.jsx";
+import DomainBlackList from "./src/pages/DomainBlackList.jsx";
+import ManageDevcies from "./src/pages/ManageDevcies.jsx";
+import TowFectorAuth from "./src/pages/TowFectorAuth.jsx";
+import Changepassword from "./src/pages/Changepassword.jsx";
+import EditProfile from "./src/pages/EditProfile.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -41,6 +49,15 @@ const InitializeApp = () => {
               <Route path="/errorlogs" element={<ErrorLogs />} />
               <Route path="/summery" element={<Summery />} />
               <Route path="/analytics" element={<Analytics />} />
+              <Route path="/twofectorauth" element={<TowFectorAuth />} />
+              <Route path="/changepassword" element={<Changepassword />} />
+              <Route path="/managedevices" element={<ManageDevcies />} />
+              <Route path="/editprofile" element={<EditProfile />} />
+              <Route path="/domainsblacklist" element={<DomainBlackList />} />
+              <Route path="/ipblacklist" element={<IPBlackList />} />
+              <Route path="/useragentblacklist" element={<UserAgentBlackList />} />
+              <Route path="/apiaccess" element={<IPAcces />} />
+              <Route path="/editprofile" element={<EditProfile />} />
             </Routes>
           </div>
         </>

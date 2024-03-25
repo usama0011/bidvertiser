@@ -1,3 +1,145 @@
-.maingecampaingsbody{
-    padding: 10px;
+:root {
+  --lightGrey: #fefefe;
+  --white: #f3f3f3;
+  --bgColor: #f6f8fa;
+  --lightBlue: #1173b7;
+  --halfBlue: rgba(14, 91, 152, 1);
+  --darkBlue: rgba(27, 58, 94, 1);
+  --darkBlue2: rgba(27, 58, 94, 0.7);
+  --greyBlue: #527196;
+  --lightGreen: #81d34a;
+  --darkGreen: #62a535;
+  --black: #505050;
+  --Purple: #c778c5;
+  --red: #fc7c7c;
+  --darkRed: #f65151;
+  --orange: #ffa500;
+  --yellow: #fdef7b;
+  --Grey: #bebebe;
+}
+.maingecampaingsbody {
+  padding: 10px;
+}
+.quantity {
+  position: relative;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.quantity input {
+  width: 65px;
+  float: left;
+  display: block;
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  border-radius: 0;
+  background: rgba(0, 0, 0, 0);
+  padding: 6px 0 5px 4px;
+  color: #505050;
+  font-size: 12px;
+  font-family: "Open Sans";
+}
+
+.quantity input:focus {
+  outline: 0;
+}
+
+.quantity-nav {
+  float: left;
+  position: relative;
+  height: 17px;
+  top: 2px;
+}
+
+.quantity-button {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  width: 15px;
+  text-align: center;
+  color: #505050;
+  font-size: 13px;
+  font-family: "FontAwesome" !important;
+  line-height: 20px;
+  padding: 0;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+.quantity-button:active {
+  background: rgba(0, 0, 0, 0);
+  color: var(--darkGreen);
+}
+.quantity-button:hover {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: var(--darkGreen);
+}
+.quantity-button.quantity-up {
+  position: absolute;
+  height: 50%;
+  top: -2px;
+  font-family: "FontAwesome";
+  border-radius: 0 0 0 0;
+  line-height: 1.5;
+  padding-bottom: 4px;
+}
+
+.quantity-button.quantity-down {
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  font-family: "FontAwesome";
+  border-radius: 0 0 0 0;
+  line-height: 1.5;
+}
+
+.vlad2 {
+  color: #505050;
+
+  padding: 5px 0 6px 0;
+
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.vlad2:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.vlad:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+#moreHelp {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.5s linear;
+}
+a:focus + #moreHelp {
+  max-height: 15em;
+}
+th {
+  cursor: pointer;
+}
+.fa-sort-asc {
+  position: relative;
+  top: 3px;
+}
+.fa-file-text-o {
+  color: var(--orange);
+}
+
+.fa-check-circle {
+  color: var(--greyBlue);
 }
