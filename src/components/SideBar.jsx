@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Sidebar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 const SideBar = () => {
   const [openSubMenu, setOpenSubMenu] = useState(null);
 
@@ -42,19 +42,55 @@ const SideBar = () => {
       {openSubMenu === 1 && (
         <div className="submenu">
           <ul>
-            <Link to="/">
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/"
+            >
               {" "}
-              <li className="smang">Manage Campaigns</li>
-            </Link>
-            <Link to="/newcompaings">
+              <li >Manage Campaigns</li>
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/newcompaings"
+            >
               <li>New Campaigns</li>
-            </Link>
-            <Link to="/conversionupload">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/conversionupload"
+            >
               <li>Conversion Uploads</li>
-            </Link>
-            <Link to="/bigautomationlog">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/bigautomationlog"
+            >
               <li>Big Automation Log</li>
-            </Link>
+            </NavLink>
           </ul>
         </div>
       )}
@@ -69,15 +105,42 @@ const SideBar = () => {
       {openSubMenu === 2 && (
         <div className="submenu">
           <ul>
-            <Link to="/summery">
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/summery"
+            >
               <li>Daily Activity</li>
-            </Link>
-            <Link to="/summery">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/summery"
+            >
               <li>Summary</li>
-            </Link>
-            <Link to="/analytics">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/analytics"
+            >
               <li>Analytics</li>
-            </Link>
+            </NavLink>
           </ul>
         </div>
       )}
@@ -92,18 +155,54 @@ const SideBar = () => {
       {openSubMenu === 3 && (
         <div className="submenu">
           <ul>
-            <Link to="/managepostbacks">
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/managepostbacks"
+            >
               <li>Mange Postbacks</li>
-            </Link>
-            <Link to="/multistep">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/multistep"
+            >
               <li>Multi-step</li>
-            </Link>
-            <Link to="/testpostback">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/testpostback"
+            >
               <li>Test Postbacks</li>
-            </Link>
-            <Link to="/errorlogs">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/errorlogs"
+            >
               <li>Errors Log</li>
-            </Link>
+            </NavLink>
           </ul>
         </div>
       )}
@@ -118,21 +217,66 @@ const SideBar = () => {
       {openSubMenu === 4 && (
         <div className="submenu">
           <ul>
-            <Link to="/addfund">
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/addfund"
+            >
               <li>Add Funds</li>
-            </Link>
-            <Link to="/automaticfunding">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/automaticfunding"
+            >
               <li>Automatic Funding</li>
-            </Link>
-            <Link to="/proformainvocies">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/proformainvocies"
+            >
               <li>Pro-Forma Invoices</li>
-            </Link>
-            <Link to="/transactionhistory">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/transactionhistory"
+            >
               <li>Transaction History</li>
-            </Link>
-            <Link to="/monthlyinvoice">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/monthlyinvoice"
+            >
               <li>Monthly Invocies</li>
-            </Link>
+            </NavLink>
           </ul>
         </div>
       )}
@@ -147,42 +291,122 @@ const SideBar = () => {
       {openSubMenu === 5 && (
         <div className="submenu">
           <ul>
-            <Link to="/editprofile">
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/editprofile"
+            >
               <li>Edit Profile</li>
-            </Link>
-            <Link to="/changepassword">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/changepassword"
+            >
               <li>Change Password</li>
-            </Link>
-            <Link to="/twofectorauth">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/twofectorauth"
+            >
               <li>Two Factor Authentication</li>
-            </Link>
-            <Link to="/managedevices">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/managedevices"
+            >
               <li>Mange Devices</li>
-            </Link>
-            <Link to="/domainsblacklist">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/domainsblacklist"
+            >
               <li>Domains Blacklist</li>
-            </Link>
-            <Link to="/ipblacklist">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/ipblacklist"
+            >
               <li>Ip Blacklist</li>
-            </Link>
+            </NavLink>
 
-            <Link to="/useragentblacklist">
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/useragentblacklist"
+            >
               <li>User Agent Blacklist</li>
-            </Link>
-            <Link to="/apiaccess">
+            </NavLink>
+            <NavLink
+              style={({ isActive, isPending, isTransitioning }) => {
+                return {
+                  fontWeight: isActive ? "bold" : "",
+                  backgroundColor: isActive ? "#8da2b7" : "unset",
+                  viewTransitionName: isTransitioning ? "slide" : "",
+                };
+              }}
+              to="/apiaccess"
+            >
               <li>API Access</li>
-            </Link>
+            </NavLink>
           </ul>
         </div>
       )}
       <div className="account bb">
         <i class="fa fa-signal" aria-hidden="true"></i>
-        <Link
-          style={{ color: "unset", textDecoration: "none" }}
+        <NavLink
+          style={({ isActive, isPending, isTransitioning }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              backgroundColor: isActive ? "#8da2b7" : "unset",
+              viewTransitionName: isTransitioning ? "slide" : "",
+              color: "unset",
+              textDecoration: "none",
+            };
+          }}
           to="/trafficestimator"
         >
           <span>Traffice Estimator</span>
-        </Link>
+        </NavLink>
       </div>
       <div className="account bb">
         <i
@@ -195,22 +419,38 @@ const SideBar = () => {
           }}
           aria-hidden="true"
         ></i>
-        <Link
-          style={{ color: "unset", textDecoration: "none" }}
+        <NavLink
+          style={({ isActive, isPending, isTransitioning }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              backgroundColor: isActive ? "#8da2b7" : "unset",
+              viewTransitionName: isTransitioning ? "slide" : "",
+              color: "unset",
+              textDecoration: "none",
+            };
+          }}
           to="/subbitresearch"
         >
           <span>Subid Research Tool</span>
-        </Link>
+        </NavLink>
       </div>
       <div className="account bb">
         <i class="fa fa-connectdevelop" aria-hidden="true"></i>
 
-        <Link
-          style={{ color: "unset", textDecoration: "none" }}
+        <NavLink
+          style={({ isActive, isPending, isTransitioning }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              backgroundColor: isActive ? "#8da2b7" : "unset",
+              viewTransitionName: isTransitioning ? "slide" : "",
+              color: "unset",
+              textDecoration: "none",
+            };
+          }}
           to="/refferalprogram"
         >
           <span>Referral Program</span>
-        </Link>
+        </NavLink>
       </div>
       <div className="account bb">
         <i class="fa fa-book" aria-hidden="true"></i>
