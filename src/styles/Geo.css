@@ -1,0 +1,87 @@
+:root {
+  --lightGrey: #fefefe;
+  --white: #f3f3f3;
+  --bgColor: #f6f8fa;
+  --lightBlue: #1173b7;
+  --halfBlue: rgba(14, 91, 152, 1);
+  --darkBlue: rgba(27, 58, 94, 1);
+  --darkBlue2: rgba(27, 58, 94, 0.7);
+  --greyBlue: #527196;
+  --lightGreen: #81d34a;
+  --darkGreen: #62a535;
+  --black: #505050;
+  --Purple: #c778c5;
+  --red: #fc7c7c;
+  --darkRed: #f65151;
+  --orange: #ffa500;
+  --yellow: #fdef7b;
+  --Grey: #bebebe;
+}
+
+.countirescontainerlist {
+  width: 250px;
+  height: 380px;
+  border-radius: 10px;
+}
+.countirescontainerlist > select {
+  padding: 5px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  color: var(--black);
+  padding: 5px;
+}
+.countirescontainerlist > select > option {
+  margin-bottom: 5px;
+  cursor: pointer;
+  padding-left: 3px;
+}
+.flexcoutnriesconatiner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 750px;
+  margin: 15px 0px;
+}
+.geobodycontainer {
+  padding: 0px 30px;
+}
+.geoflextop {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+}
+.buttonscoutnniresven > div > button {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: #1173b7;
+  border: 1px solid #1173b7;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
+  width: 160px;
+  margin-bottom: 10px;
+}
+.testkjk {
+  color: var(--black);
+  font-size: 12px;
+  line-height: 20px;
+}
+.bodytitlle {
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  font-size: 13px;
+  line-height: 30px;
+  font-weight: bold;
+}

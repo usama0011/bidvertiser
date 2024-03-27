@@ -23,6 +23,20 @@ import ManageDevcies from "./src/pages/ManageDevcies.jsx";
 import TowFectorAuth from "./src/pages/TowFectorAuth.jsx";
 import Changepassword from "./src/pages/Changepassword.jsx";
 import EditProfile from "./src/pages/EditProfile.jsx";
+import AddFund from "./src/pages/AddFund.jsx";
+import AutoMaticFunding from "./src/pages/AutoMaticFunding.jsx";
+import ProFormaInvocies from "./src/pages/ProFormaInvocies.jsx";
+import TranscationHistory from "./src/pages/TranscationHistory.jsx";
+import MonthlyInvoice from "./src/pages/MonthlyInvoice.jsx";
+import TrafficEstimator from "./src/pages/TrafficEstimator.jsx";
+import RefferalProgram from "./src/pages/RefferalProgram.jsx";
+import SubBitResearch from "./src/pages/SubBitResearch.jsx";
+import Geo from "./src/styles/Geo.jsx";
+import Targeting from "./src/pages/Targeting.jsx";
+import Quality from "./src/pages/Quality.jsx";
+import Bid from "./src/pages/Bid.jsx";
+import Creative from "./src/pages/Creative.jsx";
+import Budget from "./src/pages/Budget.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -55,9 +69,32 @@ const InitializeApp = () => {
               <Route path="/editprofile" element={<EditProfile />} />
               <Route path="/domainsblacklist" element={<DomainBlackList />} />
               <Route path="/ipblacklist" element={<IPBlackList />} />
-              <Route path="/useragentblacklist" element={<UserAgentBlackList />} />
+              <Route
+                path="/useragentblacklist"
+                element={<UserAgentBlackList />}
+              />
               <Route path="/apiaccess" element={<IPAcces />} />
               <Route path="/editprofile" element={<EditProfile />} />
+              <Route path="/addfund" element={<AddFund />} />
+              <Route path="/automaticfunding" element={<AutoMaticFunding />} />
+              <Route path="/proformainvocies" element={<ProFormaInvocies />} />
+              <Route
+                path="/transactionhistory"
+                element={<TranscationHistory />}
+              />
+              <Route path="/monthlyinvoice" element={<MonthlyInvoice />} />
+              <Route path="/trafficestimator" element={<TrafficEstimator />} />
+              <Route path="/refferalprogram" element={<RefferalProgram />} />
+              <Route path="/subbitresearch" element={<SubBitResearch />} />
+              <Route path="/bdv/BideVertiser/geo" element={<Geo />} />
+              <Route
+                path="/bdv/BideVertiser/targeting"
+                element={<Targeting />}
+              />
+              <Route path="/bdv/BideVertiser/quality" element={<Quality />} />
+              <Route path="/bdv/BideVertiser/bid" element={<Bid />} />
+              <Route path="/bdv/BideVertiser/creative" element={<Creative />} />
+              <Route path="/bdv/BideVertiser/budget" element={<Budget />} />
             </Routes>
           </div>
         </>

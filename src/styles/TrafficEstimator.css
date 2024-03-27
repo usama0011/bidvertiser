@@ -1,0 +1,70 @@
+:root {
+  --lightGrey: #fefefe;
+  --white: #f3f3f3;
+  --bgColor: #f6f8fa;
+  --lightBlue: #1173b7;
+  --halfBlue: rgba(14, 91, 152, 1);
+  --darkBlue: rgba(27, 58, 94, 1);
+  --darkBlue2: rgba(27, 58, 94, 0.7);
+  --greyBlue: #527196;
+  --lightGreen: #81d34a;
+  --darkGreen: #62a535;
+  --black: #505050;
+  --Purple: #c778c5;
+  --red: #fc7c7c;
+  --darkRed: #f65151;
+  --orange: #ffa500;
+  --yellow: #fdef7b;
+  --Grey: #bebebe;
+}
+
+.trafficeEstimatorbodyContainer {
+  padding: 25px;
+}
+.main_box_style > h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.trafficpresebody {
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  font-size: 13px;
+  line-height: 30px;
+}
+
+.traffestmiatorbutton {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: var(--lightGreen);
+  border: 1px solid var(--lightGreen);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
+}
+.selectcontainer {
+  margin: 15px 0px;
+}
+.selectonctinaertraffic {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  margin-right: 10px;
+  color: var(--black);
+  padding: 5px;
+}

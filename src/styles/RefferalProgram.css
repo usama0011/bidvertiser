@@ -1,0 +1,126 @@
+:root {
+  --lightGrey: #fefefe;
+  --white: #f3f3f3;
+  --bgColor: #f6f8fa;
+  --lightBlue: #1173b7;
+  --halfBlue: rgba(14, 91, 152, 1);
+  --darkBlue: rgba(27, 58, 94, 1);
+  --darkBlue2: rgba(27, 58, 94, 0.7);
+  --greyBlue: #527196;
+  --lightGreen: #81d34a;
+  --darkGreen: #62a535;
+  --black: #505050;
+  --Purple: #c778c5;
+  --red: #fc7c7c;
+  --darkRed: #f65151;
+  --orange: #ffa500;
+  --yellow: #fdef7b;
+  --Grey: #bebebe;
+}
+
+.refferalbodycontainer {
+  padding: 25px;
+}
+.refferralulis {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.refferralulis > li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  color: var(--black);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.bsfas {
+  font-weight: bold;
+}
+
+.tabltablerefferalProgram {
+  -webkit-border-horizontal-spacing: 5px;
+  -webkit-border-vertical-spacing: 5px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  width: 800px;
+}
+.tabltablerefferalProgramtable {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 2px;
+  border-color: gray;
+}
+.upperformreffere {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mainformcontainermain {
+  max-width: 800px;
+  padding: 10px;
+}
+.uppleftdonw {
+  display: flex;
+  flex-direction: column;
+}
+.uppleftdonw > span {
+  color: var(--black);
+  font-size: 12px;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+.bottomunderdown {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.selctinitemrefferen {
+  background-position: right center;
+  background-image: url("https://my.bidvertiser.com/BidVertiser/images/select_FF.png");
+  background-repeat: no-repeat;
+  min-width: 150px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  color: var(--black);
+  padding: 5px;
+}
+
+.refferrfasubmitbutton {
+  background-color: #1173b7;
+  border: 1px solid var(--darkBlue);
+  border: none;
+  outline: none;
+  min-width: 145px;
+  align-self: center;
+  margin-top: 20px;
+  color: white;
+  padding: 10px 0px;
+}
+
+.selectitemconainertextara {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  color: var(--black);
+  padding: 5px;
+}

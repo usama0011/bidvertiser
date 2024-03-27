@@ -1,0 +1,70 @@
+.rTable {
+  display: table;
+}
+.rTableRow {
+  display: table-row;
+  vertical-align: top;
+}
+.rTableHeading {
+  display: table-header-group;
+}
+.rTableBody {
+  display: table-row-group;
+}
+.rTableFoot {
+  display: table-footer-group;
+}
+.rTableCell,
+.rTableHead {
+  display: table-cell;
+  padding: 3px 10px;
+  border: 0px solid #999999;
+  vertical-align: top;
+}
+.colspan3 {
+  display: block;
+}
+.formRight select {
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px 5px 5px 5px;
+  box-shadow: 0 0 10px #e8e8e8 inset;
+  height: 30px;
+  margin: 0 0 0 15px;
+  padding: 5px;
+  width: 300px;
+}
+/* .buttonaddkeywork {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 2px;
+  left: 17px;
+} */
+/* .highlight {
+  width: 24px;
+  height: 13px;
+  background: red;
+  transform: perspective(12px) rotateX(45deg);
+} */
+
+.form-control-feedback {
+  padding: 11px;
+  width: 12px;
+  height: 12px;
+}
+.buttonaddkeywork {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: var(--lightGreen);
+  border: 1px solid var(--lightGreen);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
+}

@@ -1,0 +1,61 @@
+:root {
+  --lightGrey: #fefefe;
+  --white: #f3f3f3;
+  --bgColor: #f6f8fa;
+  --lightBlue: #1173b7;
+  --halfBlue: rgba(14, 91, 152, 1);
+  --darkBlue: rgba(27, 58, 94, 1);
+  --darkBlue2: rgba(27, 58, 94, 0.7);
+  --greyBlue: #527196;
+  --lightGreen: #81d34a;
+  --darkGreen: #62a535;
+  --black: #505050;
+  --Purple: #c778c5;
+  --red: #fc7c7c;
+  --darkRed: #f65151;
+  --orange: #ffa500;
+  --yellow: #fdef7b;
+  --Grey: #bebebe;
+}
+
+.conainertargetone,
+.conainertargettwo {
+  display: flex;
+  margin-bottom: 50px;
+  padding: 20px 30px;
+}
+.conainertargetone,
+.conainertargettwo > div > input,
+.conainertargetone > div > input {
+  margin-right: 25px;
+}
+
+.buttonaddkeywork {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: var(--lightGreen);
+  border: 1px solid var(--lightGreen);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
+}
+
+.buttonaddkeyworkk {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 2px;
+  left: 17px;
+}
+.highlightttt {
+  width: 24px;
+  height: 13px;
+  background: red;
+  transform: perspective(12px) rotateX(45deg);
+}

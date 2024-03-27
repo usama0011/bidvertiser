@@ -118,11 +118,21 @@ const SideBar = () => {
       {openSubMenu === 4 && (
         <div className="submenu">
           <ul>
-            <li>Add Funds</li>
-            <li>Automatic Funding</li>
-            <li>Pro-Forma Invoices</li>
-            <li>Transaction History</li>
-            <li>Monthly Invocies</li>
+            <Link to="/addfund">
+              <li>Add Funds</li>
+            </Link>
+            <Link to="/automaticfunding">
+              <li>Automatic Funding</li>
+            </Link>
+            <Link to="/proformainvocies">
+              <li>Pro-Forma Invoices</li>
+            </Link>
+            <Link to="/transactionhistory">
+              <li>Transaction History</li>
+            </Link>
+            <Link to="/monthlyinvoice">
+              <li>Monthly Invocies</li>
+            </Link>
           </ul>
         </div>
       )}
@@ -167,15 +177,40 @@ const SideBar = () => {
       )}
       <div className="account bb">
         <i class="fa fa-signal" aria-hidden="true"></i>
-        <span>Traffice Estimator</span>
+        <Link
+          style={{ color: "unset", textDecoration: "none" }}
+          to="/trafficestimator"
+        >
+          <span>Traffice Estimator</span>
+        </Link>
       </div>
       <div className="account bb">
-        <i class="fa-solid fa-magnifying-glass-dollar" aria-hidden="true"></i>
-        <span>Subid Research Tool</span>
+        <i
+          class="fa-solid fa-magnifying-glass-dollar"
+          style={{
+            marginRight: "10px",
+            paddingBottom: "1px",
+            fontSize: "13px",
+            color: "white",
+          }}
+          aria-hidden="true"
+        ></i>
+        <Link
+          style={{ color: "unset", textDecoration: "none" }}
+          to="/subbitresearch"
+        >
+          <span>Subid Research Tool</span>
+        </Link>
       </div>
       <div className="account bb">
         <i class="fa fa-connectdevelop" aria-hidden="true"></i>
-        <span>Referral Program</span>
+
+        <Link
+          style={{ color: "unset", textDecoration: "none" }}
+          to="/refferalprogram"
+        >
+          <span>Referral Program</span>
+        </Link>
       </div>
       <div className="account bb">
         <i class="fa fa-book" aria-hidden="true"></i>

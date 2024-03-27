@@ -1,7 +1,12 @@
 import React from "react";
 import Header from "../components/Header";
 import "../styles/NewCampaing.css";
+import { useNavigate } from "react-router-dom";
 const Newcompaings = () => {
+  const navigate = useNavigate()
+  const handleClickNext=()=>{
+   navigate("/bdv/BideVertiser/geo")
+  }
   return (
     <div>
       <Header routename="Create New Campaign" />
@@ -1197,7 +1202,7 @@ const Newcompaings = () => {
           </tbody>
         </table>
         <center id="ad_select" className="buttonlargetwo">
-          <button id="desk_select" class="function-button">
+          <button onClick={handleClickNext} id="desk_select" class="function-button">
             Create Desktop Ad
           </button>
           <button
