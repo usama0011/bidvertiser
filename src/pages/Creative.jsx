@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Creative.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 const Creative = () => {
   const navigate = useNavigate();
+  const [showurls, setshowUrls] = useState(false);
   const handleClickNext = () => {
     navigate("/bdv/BideVertiser/budget");
   };
+  const changeNote = (_note) => {
+    if (_note > 8) {
+      document.getElementById("freq_cap_note").innerHTML =
+        _note > 24 ? _note / 24 : "" + " day" + (_note > 24 ? "s" : "");
+      document.getElementById("freq_cap_alert_ID").style.display = "block";
+    } else {
+      document.getElementById("freq_cap_note").innerHTML =
+        _note > 1 ? _note : "" + " hour" + (_note > 1 ? "s" : "");
+      document.getElementById("freq_cap_alert_ID").style.display = "none";
+    }
+  };
+
+  React.useEffect(() => {
+    changeNote(document.getElementById("freq_cap_val").value);
+  }, []);
   return (
     <div>
       <Header routename="Create New Campaign" />
@@ -15,34 +31,54 @@ const Creative = () => {
           <div className="button-bar">
             <a
               href="#"
-              style={{ backgroundColor: "#81d34a", color: "white" }}
+              style={{ backgroundColor: "#1173b7", color: "white" }}
               className="button next"
             >
               Ad type
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               GEO
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Targeting
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Quality
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Bid
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#81d34a", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Creative
             </a>
           </div>
@@ -58,10 +94,7 @@ const Creative = () => {
           </div>
         </div>
         <br />
-        <p className="compara">
-          Each ad type will direct a different flow of visitors to your promoted
-          page. We strongly recommend testing all ad types:
-        </p>
+
         <table
           cellspacing="2"
           className="bdv_000000_Text_11"
@@ -175,6 +208,7 @@ const Creative = () => {
                             name="Name"
                             onKeyUp="update_char_num(this,'Identifier_Char_Num',25)"
                             value=""
+                            className="firtcreatinput"
                             maxLength="25"
                           />
                         </td>
@@ -226,11 +260,19 @@ const Creative = () => {
                         <td
                           align="left"
                           colSpan="7"
-                          nowrap=""
+                          nowrap
                           style={{ position: "relative" }}
                         >
                           Destination URL / Tel:
-                          <span className="fa-stack fa-lg">
+                          <span
+                            className="fa-stack fa-lg"
+                            onMouseOver={() =>
+                              alert(
+                                `Destination URL / Tel\n\nThe exact destination where you want the customer that clicks on the ad to be sent to. Any extensions (i.e. tracking code, inner website pages, affiliate IDs, etc.) should be used here.\n\nTelephone number:\nBe sure to use the proper format: Begin with tel: followed by the number.\nUse only digits. No hyphens, no parentheses.\n\nFor example, the proper format of (212) 555-8888 in the URL field is tel:2125558888.\n\nInternational numbers: use the plus symbol (+) followed by the country calling code and telephone number. A complete international number should begin with tel: followed by + followed by the country calling code and telephone number.\n\nFor example, the proper format of +1-300-555-8888 in the URL field is tel:+13005558888.`
+                              )
+                            }
+                            style={{ height: "1.2em", lineHeight: "20px" }}
+                          >
                             <i
                               className="fa fa-circle fa-stack-1x"
                               style={{
@@ -248,9 +290,28 @@ const Creative = () => {
                           </span>
                           <div>
                             <input
-                              type="Text"
+                              className="desurl"
+                              type="text"
                               tabIndex="6"
                               placeholder="https://"
+                              onKeyUp={(e) => {
+                                let qmark = "?";
+                                for (
+                                  let i = 0;
+                                  i < e.target.value.length;
+                                  i++
+                                ) {
+                                  if (e.target.value.charAt(i) === "?") {
+                                    if (i === e.target.value.length - 1)
+                                      qmark = "";
+                                    else qmark = "&";
+                                  } else if (
+                                    e.target.value.charAt(i) === "&" &&
+                                    i === e.target.value.length - 1
+                                  )
+                                    qmark = "";
+                                }
+                              }}
                               id="URLLINE"
                               style={{
                                 verticalAlign: "bottom",
@@ -260,13 +321,13 @@ const Creative = () => {
                               name="URL"
                               value=""
                               maxLength="490"
-                              onBlur="change_url_in_prev(this.value);"
                             />
                           </div>
                           <div style={{ float: "right" }}>
                             <div
-                              onClick="window.open(createTestLink(),'Preview');"
-                              target="_blank"
+                              onClick={() =>
+                                window.open(createTestLink(), "Preview")
+                              }
                               title="Test Link"
                               style={{
                                 position: "relative",
@@ -285,9 +346,272 @@ const Creative = () => {
                           </div>
                         </td>
                       </tr>
+                      <tr>
+                        <td
+                          colSpan="7"
+                          style={{ position: "relative", top: "-20px" }}
+                        >
+                          <span
+                            style={{
+                              textDecoration: "underline",
+                              cursor: "pointer",
+                            }}
+                            onClick={() => showurls(!showurls)}
+                          >
+                            Destination URL Macros
+                          </span>
+                          <span
+                            style={{
+                              textDecoration: "none",
+                              cursor: "pointer",
+                              fontSize: "9px",
+                              color: "black",
+                              marginLeft: "3px",
+                            }}
+                            id="destArrow_atag2"
+                          >
+                            ▶
+                          </span>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
+                  {showurls && (
+                    <table className="bdv_000000_Text_11">
+                      <tbody>
+                        <tr>
+                          <td></td>
+                          <td
+                            colSpan="5"
+                            id="atag2"
+                            style={{ display: "none" }}
+                          >
+                            We recommend using our various tracking macros,
+                            especially the traffic source parameter
+                            {` {BV_SRCID}`}, in order to track the performance
+                            of your campaign and optimize accordingly. Tracking
+                            {` {BV_SRCID}`} will help you identify well
+                            performing sources so you can allocate them more
+                            budget on behalf of such that do not perform as
+                            well.
+                            <br />
+                            <li
+                              onMouseOver={() => addCopy("SRCID", "visible")}
+                              onMouseOut={() => addCopy("SRCID", "hidden")}
+                            >
+                              Traffic source:{" "}
+                              <b>
+                                <span id="{BV_SRCID}">{`{BV_SRCID}`}</span>
+                              </b>
+                              <span
+                                style={{
+                                  visibility: "hidden",
+                                  cursor: "pointer",
+                                }}
+                                id="SRCID"
+                                className="btn btn-default btn-copy js-tooltip js-copy"
+                                data-toggle="tooltip"
+                                data-placement="bottom"
+                                data-copy="{BV_SRCID}"
+                              >
+                                <i
+                                  className="fa fa-clone"
+                                  aria-hidden="true"
+                                  style={{
+                                    color: "#1173b7",
+                                    fontSize: "12px",
+                                  }}
+                                ></i>
+                                <span
+                                  id="{BV_SRCID}_comment"
+                                  style={{
+                                    marginLeft: "5px",
+                                    visibility: "hidden",
+                                    color: "rgba(17,115,183,1)",
+                                  }}
+                                ></span>
+                              </span>
+                            </li>
+                            {/* Add other list items similarly */}
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  )}
                 </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7" height="25" valign="middle" width="100%">
+                <hr
+                  style={{
+                    display: "block",
+                    height: "1px",
+                    border: "0",
+                    borderTop: "1px dotted #1173b7",
+                    margin: "1em 0 1em 0",
+                    padding: "0",
+                  }}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="6">
+                <table
+                  cellpadding="0"
+                  cellspacing="0"
+                  width="100%"
+                  className="bdv_000000_Text_11"
+                >
+                  <tbody>
+                    <tr>
+                      <td
+                        width="15%"
+                        nowrap
+                        style={{
+                          paddingRight: "5px",
+                          display: "flex",
+                          alignItems: "center",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        Traffic Source Type:{" "}
+                        <span
+                          className="fa-stack fa-lg"
+                          onmouseover="return escape('<strong>Traffic Source Type</strong><br>The type of websites that will send traffic to this campaign - <img width=12 height=12 hspace=5 style=margin-bottom:3px src=https://my.bidvertiser.com/BidVertiser/Images/bdv_standard.png align=absmiddle>Mainstream or <img width=12 height=12 hspace=5 style=margin-bottom:3px src=https://my.bidvertiser.com/BidVertiser/Images/bdv_porn.png align=absmiddle>Porn.');"
+                          style={{ height: "1.2em", lineHeight: "20px" }}
+                        >
+                          <i
+                            className="fa fa-circle fa-stack-1x"
+                            style={{
+                              color: "white",
+                              fontSize: "13px",
+                              marginLeft: "20px",
+                              WebkitTextStrokeWidth: "2px",
+                              WebkitTextStrokeColor: "white",
+                            }}
+                          ></i>
+                          <i
+                            className="fa fa-info-circle fa-stack-1x"
+                            aria-hidden="true"
+                            style={{ color: "#5d86c9", fontSize: "13px" }}
+                          ></i>
+                        </span>
+                      </td>
+                      <td width="15%">
+                        <input
+                          type="radio"
+                          style={{
+                            height: "12px",
+                            position: "relative",
+                            bottom: "-2px",
+                            marginRight: "7px",
+                          }}
+                          name="isAdult"
+                          value="0"
+                          checked
+                        />
+                        Mainstream
+                      </td>
+                      <td width="15%">
+                        <input
+                          type="radio"
+                          style={{
+                            height: "12px",
+                            position: "relative",
+                            bottom: "-2px",
+                            marginRight: "7px",
+                          }}
+                          name="isAdult"
+                          value="2"
+                        />
+                        Porn
+                      </td>
+                      <td width="55%" nowrap>
+                        (Adult campaigns must use "Porn" traffic source type)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="7" height="25" valign="middle" width="100%">
+                <hr
+                  style={{
+                    display: "block",
+                    height: "1px",
+                    border: "0",
+                    borderTop: "1px dotted #1173b7",
+                    margin: "1em 0 1em 0",
+                    padding: "0",
+                  }}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Frequency filter:</strong>{" "}
+                <span
+                  className="fa-stack fa-lg"
+                  onmouseover="return escape('Frequency filter will allow you to control how often your campaign will be displayed to the same visitor');"
+                  style={{ height: "1.2em", lineHeight: "20px" }}
+                >
+                  <i
+                    className="fa fa-circle fa-stack-1x"
+                    style={{
+                      color: "white",
+                      fontSize: "13px",
+                      WebkitTextStrokeWidth: "2px",
+                      WebkitTextStrokeColor: "white",
+                    }}
+                  ></i>
+                  <i
+                    className="fa fa-info-circle fa-stack-1x"
+                    aria-hidden="true"
+                    style={{ color: "#5d86c9", fontSize: "13px" }}
+                  ></i>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select
+                  name="freq_cap" className="minputdoneonebiddi"
+                  id="freq_cap_val"
+                  onChange={(e) => changeNote(e.target.value)}
+                >
+                  <option value="1">1 Hour</option>
+                  <option value="4">4 Hours</option>
+                  <option value="8" selected>
+                    8 Hours
+                  </option>
+                  <option value="24">1 Day</option>
+                  <option value="48">2 Days</option>
+                  <option value="72">3 Days</option>
+                  <option value="96">4 Days</option>
+                  <option value="120">5 Days</option>
+                  <option value="144">6 Days</option>
+                  <option value="168">7 Days</option>
+                </select>
+                &nbsp;- Your campaign will receive the same visitor no more than
+                once per <span id="freq_cap_note">8 hours</span>
+                <div id="freq_cap_alert_ID" style={{ display: "none" }}></div>
+              </td>
+            </tr>
+            <br />
+            <tr>
+              <td colspan="7" height="25" valign="middle" width="100%">
+                <hr
+                  style={{
+                    display: "block",
+                    height: "1px",
+                    border: "0",
+                    borderTop: "1px dotted #1173b7",
+                    margin: "1em 0 1em 0",
+                    padding: "0",
+                  }}
+                />
               </td>
             </tr>
           </tbody>

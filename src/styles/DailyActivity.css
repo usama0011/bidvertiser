@@ -17,8 +17,11 @@
   --yellow: #fdef7b;
   --Grey: #bebebe;
 }
+.dailyactiviybodycontainer {
+  padding: 25px;
+}
 
-.mybidinput {
+.myselesele {
   border: 1px solid lightgrey;
   border-radius: 3px;
   background: rgba(255, 255, 255, 1);
@@ -29,7 +32,19 @@
   color: var(--black);
   padding: 5px;
 }
-.myankar {
-    color: var(--black);
-    margin-left: 10px;
+.dailyactivitygeneratebutton {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: var(--lightGreen);
+  border: 1px solid var(--lightGreen);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
 }

@@ -113,7 +113,7 @@ const SideBar = () => {
                   viewTransitionName: isTransitioning ? "slide" : "",
                 };
               }}
-              to="/summery"
+              to="/reporting/dailyactivity"
             >
               <li>Daily Activity</li>
             </NavLink>

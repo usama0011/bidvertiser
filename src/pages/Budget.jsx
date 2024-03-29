@@ -19,39 +19,63 @@ const Budget = () => {
           <div className="button-bar">
             <a
               href="#"
-              style={{ backgroundColor: "#81d34a", color: "white" }}
+              style={{ backgroundColor: "#1173b7", color: "white" }}
               className="button next"
             >
               Ad type
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               GEO
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Targeting
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Quality
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Bid
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Creative
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#81d34a", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Budget
             </a>
           </div>
@@ -86,7 +110,7 @@ const Budget = () => {
           <tbody>
             <tr>
               <td width="10" nowrap="">
-                <input type="Radio" name="capping" value="0" checked="" />
+                <input type="Radio" name="look" value="0" checked="" />
               </td>
               <td>No Daily Limit</td>
             </tr>
@@ -94,7 +118,7 @@ const Budget = () => {
               <td>
                 <input
                   type="Radio"
-                  name="capping"
+                  name="look"
                   value="1"
                   id="docap"
                   checked=""
@@ -104,7 +128,7 @@ const Budget = () => {
                 Set Daily Ad Budget: $
                 <input
                   type="Text"
-                  className="form-field"
+                  className="form-field binput"
                   name="Daily_Cap"
                   value=""
                   size="7"
@@ -131,6 +155,7 @@ const Budget = () => {
             </tr>
           </tbody>
         </table>
+        <br />
         <center id="ad_select" className="buttonlargetwo">
           <button id="desk_select" class="function-button">
             Complete and Start Campaign

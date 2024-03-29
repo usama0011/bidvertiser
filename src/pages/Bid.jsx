@@ -16,29 +16,45 @@ const Bid = () => {
           <div className="button-bar">
             <a
               href="#"
-              style={{ backgroundColor: "#81d34a", color: "white" }}
+              style={{ backgroundColor: "#1173b7", color: "white" }}
               className="button next"
             >
               Ad type
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               GEO
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Targeting
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Quality
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#81d34a", color: "white" }}
+              href="#"
+              className="button next"
+            >
               Bid
             </a>
           </div>
@@ -59,10 +75,7 @@ const Bid = () => {
           </div>
         </div>
         <br />
-        <p className="compara">
-          Each ad type will direct a different flow of visitors to your promoted
-          page. We strongly recommend testing all ad types:
-        </p>
+
         <table
           border="0"
           cellpadding="3"
@@ -73,17 +86,18 @@ const Bid = () => {
           <tbody>
             <tr>
               <td valign="top">
-                <p>Set the cost per visitor (CPV) bid for your campaign.</p>
                 <p>
-                  Your bid will determine the exposure of your ad. Increasing
-                  your bid will improve your ad's exposure.
+                  Set the cost per visitor (CPV) bid for your campaign Your bid
+                  will determine the exposure of your ad. Increasing your bid
+                  will improve your ad's exposure..
                 </p>
+                <br />
                 <p>
                   Real time bid Analyzer - Get current top bid based on your
                   campaign's targeting
                 </p>
                 <br />
-                <br />
+                
                 <p>Click "Next" to continue.</p>
                 <br />
                 <br />
@@ -124,6 +138,7 @@ const Bid = () => {
                                   value="0.0010"
                                   size="10"
                                   maxLength="8"
+                                  className="mybidinput"
                                   style={{ textAlign: "center" }}
                                 />
                               </td>
@@ -168,6 +183,7 @@ const Bid = () => {
                                 style={{ padding: "8px" }}
                               >
                                 <a
+                                  className="myankar"
                                   href="javascript:void(0);"
                                   onClick={BidAnalyzerFunc}
                                 >

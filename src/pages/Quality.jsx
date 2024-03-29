@@ -22,24 +22,33 @@ const Quality = () => {
           <div className="button-bar">
             <a
               href="#"
-              style={{ backgroundColor: "#81d34a", color: "white" }}
+              style={{ backgroundColor: "#1173b7", color: "white" }}
               className="button next"
             >
               Ad type
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#1173b7", color: "white" }}
+              href="#"
+              className="button next"
+            >
               GEO
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+             style={{ backgroundColor: "#1173b7", color: "white" }}
+            
+              href="#"
+              className="button next"
+            >
               Targeting
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a    style={{ backgroundColor: "#81d34a", color: "white" }} href="#" className="button next">
               Quality
             </a>
           </div>
@@ -80,7 +89,7 @@ const Quality = () => {
                 <span style={{ paddingRight: "100px" }}>
                   <strong>Select quality score:</strong>
                 </span>
-                <select
+                <select className="selectbackgroud"
                   name="Quality_score"
                   onChange={handleChange}
                   id="Quality_score_drop"
@@ -152,6 +161,8 @@ const Quality = () => {
             </tr>
           </tbody>
         </table>
+        <br />
+        <br />
         <center id="ad_select" className="buttonlargetwo">
           <button id="desk_select" class="function-button">
             Back

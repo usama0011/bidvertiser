@@ -1,0 +1,54 @@
+:root {
+  --lightGrey: #fefefe;
+  --white: #f3f3f3;
+  --bgColor: #f6f8fa;
+  --lightBlue: #1173b7;
+  --halfBlue: rgba(14, 91, 152, 1);
+  --darkBlue: rgba(27, 58, 94, 1);
+  --darkBlue2: rgba(27, 58, 94, 0.7);
+  --greyBlue: #527196;
+  --lightGreen: #81d34a;
+  --darkGreen: #62a535;
+  --black: #505050;
+  --Purple: #c778c5;
+  --red: #fc7c7c;
+  --darkRed: #f65151;
+  --orange: #ffa500;
+  --yellow: #fdef7b;
+  --Grey: #bebebe;
+}
+.firtcreatinput {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 35px;
+  outline: none;
+  color: var(--black);
+  padding: 5px;
+}
+
+.desurl {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 35px;
+  outline: none;
+  color: var(--black);
+  padding: 5px;
+}
+
+.minputdoneonebiddi {
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 1);
+    background-position: 0 0;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 25px;
+    outline: none;
+    color: var(--black);
+    padding: 5px 20px;
+}

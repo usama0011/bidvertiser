@@ -17,14 +17,18 @@ const Geo = () => {
           <div className="button-bar">
             <a
               href="#"
-              style={{ backgroundColor: "#81d34a", color: "white" }}
+              style={{ backgroundColor: "#1173b7", color: "white" }}
               className="button next"
             >
               Ad type
             </a>
           </div>
           <div className="button-bar">
-            <a href="#" className="button next">
+            <a
+              style={{ backgroundColor: "#81d34a", color: "white" }}
+              href="#"
+              className="button next"
+            >
               GEO
             </a>
           </div>
@@ -476,7 +480,7 @@ const Geo = () => {
             >
               <input
                 type="checkbox"
-                style={{ position: "relative", top: "2px", }}
+                style={{ position: "relative", top: "2px" }}
                 id="Enable_Zip_Targeting_ID"
                 name="Enable_Zip_Targeting"
                 value=""
@@ -498,7 +502,7 @@ const Geo = () => {
                   fontSize: "17px",
                 }}
               ></i>
-              <strong style={{ color: "var(--lightGreen)",marginLeft:"5px" }}>Go Local</strong> -
+              <strong style={{ color: "var(--lightGreen)" }}>Go Local</strong> -
               Target users around you! (Max 1 country selected)
             </label>
           </td>

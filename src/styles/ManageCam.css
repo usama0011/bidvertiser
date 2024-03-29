@@ -143,3 +143,15 @@ th {
 .fa-check-circle {
   color: var(--greyBlue);
 }
+.highlight {
+  width: 80px;
+  height: 20px;
+  background: var(--darkRed);
+  transform: perspective(40px) rotateX(45deg);
+}
+.highlight-new {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 18px;
+  left: -12px;
+}

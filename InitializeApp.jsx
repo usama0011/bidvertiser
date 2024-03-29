@@ -37,6 +37,7 @@ import Quality from "./src/pages/Quality.jsx";
 import Bid from "./src/pages/Bid.jsx";
 import Creative from "./src/pages/Creative.jsx";
 import Budget from "./src/pages/Budget.jsx";
+import DailyActivity from "./src/pages/DailyActivity.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -95,6 +96,7 @@ const InitializeApp = () => {
               <Route path="/bdv/BideVertiser/bid" element={<Bid />} />
               <Route path="/bdv/BideVertiser/creative" element={<Creative />} />
               <Route path="/bdv/BideVertiser/budget" element={<Budget />} />
+              <Route path="/reporting/dailyactivity" element={<DailyActivity />} />
             </Routes>
           </div>
         </>
