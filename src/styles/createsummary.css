@@ -1,0 +1,43 @@
+.createsummarybodycontainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+.summaryform {
+  display: flex;
+  flex-direction: column;
+}
+
+.formgroupp {
+  margin-bottom: 15px;
+}
+
+.labell {
+  margin-bottom: 5px;
+}
+
+.forminputt {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.submitbtnn {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submitbtnn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

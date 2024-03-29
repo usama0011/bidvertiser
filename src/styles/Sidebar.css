@@ -1,3 +1,23 @@
+:root {
+  --lightGrey: #fefefe;
+  --white: #f3f3f3;
+  --bgColor: #f6f8fa;
+  --lightBlue: #1173b7;
+  --halfBlue: rgba(14, 91, 152, 1);
+  --darkBlue: rgba(27, 58, 94, 1);
+  --darkBlue2: rgba(27, 58, 94, 0.7);
+  --greyBlue: #527196;
+  --lightGreen: #81d34a;
+  --darkGreen: #62a535;
+  --black: #505050;
+  --Purple: #c778c5;
+  --red: #fc7c7c;
+  --darkRed: #f65151;
+  --orange: #ffa500;
+  --yellow: #fdef7b;
+  --Grey: #bebebe;
+}
+
 .logocontainer {
   width: 160px;
   height: auto;
@@ -32,11 +52,18 @@
   color: white;
   cursor: pointer;
 }
-.account > span {
+.codecode {
   margin-right: 10px;
+  font-family: Copse, serif;
+  margin-left: 5px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: var(--white);
 }
 .message {
-  color: #56c74a;
+  color: var(--lightGreen) !important;
+  margin-left: 10px !important;
+  font-size: 13px !important;
 }
 .submenu > ul {
   list-style: none;

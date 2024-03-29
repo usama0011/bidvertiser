@@ -19,7 +19,7 @@ const SideBar = () => {
       </div>
       <div className="account bb">
         <i class="fa fa-hashtag" aria-hidden="true"></i>
-        <span>ACCOUNT</span> <span>1737127</span>
+        <span>ACCOUNT</span> <span className="codecode">1737127</span>
       </div>
       <div className="account bb">
         <i
@@ -53,7 +53,7 @@ const SideBar = () => {
               to="/"
             >
               {" "}
-              <li >Manage Campaigns</li>
+              <li>Manage Campaigns</li>
             </NavLink>
             <NavLink
               style={({ isActive, isPending, isTransitioning }) => {
@@ -65,7 +65,7 @@ const SideBar = () => {
               }}
               to="/newcompaings"
             >
-              <li>New Campaigns</li>
+              <li>Create New Campaign</li>
             </NavLink>
             <NavLink
               style={({ isActive, isPending, isTransitioning }) => {
@@ -466,7 +466,20 @@ const SideBar = () => {
       </div>
       <div className="account bb">
         <i class="fa fa-exchange" aria-hidden="true"></i>
-        <span>Switch to Publisher</span>
+        <NavLink
+          style={({ isActive, isPending, isTransitioning }) => {
+            return {
+              fontWeight: isActive ? "bold" : "",
+              backgroundColor: isActive ? "#8da2b7" : "unset",
+              viewTransitionName: isTransitioning ? "slide" : "",
+              color: "unset",
+              textDecoration: "none",
+            };
+          }}
+          to="/publisher"
+        >
+          <span>Switch to Publisher</span>
+        </NavLink>
       </div>
 
       <div className="account bb">

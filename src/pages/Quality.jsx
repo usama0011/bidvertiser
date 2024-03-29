@@ -164,13 +164,13 @@ const Quality = () => {
         <br />
         <br />
         <center id="ad_select" className="buttonlargetwo">
-          <button id="desk_select" class="function-button">
+          <button id="desk_select" className="function-button">
             Back
           </button>
           <button
             onClick={handleClickNext}
             id="mob_select"
-            class="function-button"
+            className="function-button"
             style={{ margin: "5px" }}
           >
             Next

@@ -155,3 +155,33 @@ th {
   top: 18px;
   left: -12px;
 }
+.button-group > div {
+  cursor: pointer;
+  flex: 1;
+  border: 0.5px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  transition: all 200ms ease-out;
+  box-shadow: 3px 3px 5px lightgrey;
+  color: #1173b7;
+  position: relative;
+  z-index: 2;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.mainhighlight {
+  width: 80px;
+  height: 20px;
+  background: var(--darkRed);
+  transform: perspective(40px) rotateX(45deg);
+}
+.mainhighlight-new {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 18px;
+  left: -12px;
+}

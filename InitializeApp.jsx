@@ -38,6 +38,10 @@ import Bid from "./src/pages/Bid.jsx";
 import Creative from "./src/pages/Creative.jsx";
 import Budget from "./src/pages/Budget.jsx";
 import DailyActivity from "./src/pages/DailyActivity.jsx";
+import SwitchPublisher from "./src/pages/SwitchPublisher.jsx";
+import CreateNewSummary from "./src/pages/CreateNewSummary.jsx";
+import UpdateSummary from "./src/pages/UpdateSummary.jsx";
+import UpdateSingle from "./src/pages/UpdateSingle.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -97,6 +101,10 @@ const InitializeApp = () => {
               <Route path="/bdv/BideVertiser/creative" element={<Creative />} />
               <Route path="/bdv/BideVertiser/budget" element={<Budget />} />
               <Route path="/reporting/dailyactivity" element={<DailyActivity />} />
+              <Route path="/publisher" element={<SwitchPublisher />} />
+              <Route path="/createnewsummary" element={<CreateNewSummary />} />
+              <Route path="/updatesummary" element={<UpdateSummary />} />
+              <Route path="/updatesummaryitem/:id" element={<UpdateSingle />} />
             </Routes>
           </div>
         </>

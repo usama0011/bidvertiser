@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Summery.css";
 import Header from "../components/Header";
-import Datepicker from "../components/DatePicker";
+import axios from "axios";
 
 const Summery = () => {
   const [showdatepicker, setShowDatePicker] = useState(false);
   const [startDate, setStartDate] = useState("03/28/2024");
   const [endDate, setEndDate] = useState("03/28/2024");
+  const [summaries, setSummaries] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const $ = window.$;
     const jQuery = window.jQuery;
@@ -14,9 +16,24 @@ const Summery = () => {
     $(function () {
       $("#datepicker").datepicker();
     });
-   
   }, []);
+  useEffect(() => {
+    const fetchSummaries = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/api/summary");
+        setSummaries(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching summaries:", error.message);
+      }
+    };
 
+    fetchSummaries();
+  }, []);
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
   return (
     <div className="summbermainconainer">
       <Header routename="Summary" />
@@ -131,7 +148,7 @@ const Summery = () => {
                                         .focus()
                                     }
                                   ></i>
-{/* 
+
                                   <p
                                     style={{
                                       display: "flex",
@@ -153,7 +170,7 @@ const Summery = () => {
                                       type="text"
                                       id="datepickerr"
                                     />
-                                  </p> */}
+                                  </p>
 
                                   <i
                                     className="fa fa-calendar"
@@ -182,6 +199,7 @@ const Summery = () => {
                                   type="submit"
                                   name="Create_button"
                                   value="Generate"
+                                  style={{ marginTop: "-4px" }}
                                 />
                               </div>
                             </div>
@@ -194,94 +212,106 @@ const Summery = () => {
               </tbody>
             </table>
           </form>
-          <table
-            width="100%"
-            border="0"
-            cellspacing="0"
-            cellpadding="0"
-            bgcolor="#FFFFFF"
-          >
-            <tbody>
-              <tr>
-                <td width="100%">
-                  <table
-                    border="0"
-                    cellpadding="2"
-                    cellspacing="1"
-                    width="100%"
-                    bgcolor="#CED8E2"
-                    className="bdv_000000_Text_10"
-                  >
-                    <tbody>
-                      <tr bgcolor="#FFFFFF">
-                        <td align="center" rowspan="2" valign="top">
-                          <b style={{ color: "#505050", fontSize: "12px" }}>
-                            Start Date
-                          </b>
-                        </td>
-                        <td align="center" rowspan="2" valign="top">
-                          <b style={{ color: "#505050", fontSize: "12px" }}>
-                            End Date
-                          </b>
-                        </td>
-                        <td align="center" colspan="3" valign="top">
-                          <b style={{ color: "#505050", fontSize: "12px" }}>
-                            Total
-                          </b>
-                        </td>
-                        <td align="center" rowspan="2" valign="top">
-                          <b style={{ color: "#505050", fontSize: "12px" }}>
-                            CPC
-                          </b>
-                        </td>
-                      </tr>
-                      <tr bgcolor="#FFFFFF">
-                        <td align="center">
-                          <b style={{ color: "#505050", fontSize: "12px" }}>
-                            Ad Requests
-                          </b>
-                        </td>
-                        <td align="center">
-                          <b style={{ color: "#505050", fontSize: "12px" }}>
-                            Visits
-                          </b>
-                        </td>
-                        <td align="center">
-                          <b style={{ color: "#505050", fontSize: "12px" }}>
-                            Cost
-                          </b>
-                        </td>
-                      </tr>
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <table
+              width="100%"
+              border="0"
+              cellspacing="0"
+              cellpadding="0"
+              bgcolor="#FFFFFF"
+            >
+              <tbody>
+                <tr>
+                  <td width="100%">
+                    <table
+                      border="0"
+                      cellpadding="2"
+                      cellspacing="1"
+                      width="100%"
+                      bgcolor="#CED8E2"
+                      className="bdv_000000_Text_10"
+                    >
+                      <tbody>
+                        <tr bgcolor="#FFFFFF">
+                          <td align="center" rowspan="2" valign="top">
+                            <b style={{ color: "#505050", fontSize: "12px" }}>
+                              Start Date
+                            </b>
+                          </td>
+                          <td align="center" rowspan="2" valign="top">
+                            <b style={{ color: "#505050", fontSize: "12px" }}>
+                              End Date
+                            </b>
+                          </td>
+                          <td align="center" colspan="3" valign="top">
+                            <b style={{ color: "#505050", fontSize: "12px" }}>
+                              Total
+                            </b>
+                          </td>
+                          <td align="center" rowspan="2" valign="top">
+                            <b style={{ color: "#505050", fontSize: "12px" }}>
+                              CPC
+                            </b>
+                          </td>
+                        </tr>
+                        <tr bgcolor="#FFFFFF">
+                          <td align="center">
+                            <b style={{ color: "#505050", fontSize: "12px" }}>
+                              Ad Requests
+                            </b>
+                          </td>
+                          <td align="center">
+                            <b style={{ color: "#505050", fontSize: "12px" }}>
+                              Visits
+                            </b>
+                          </td>
+                          <td align="center">
+                            <b style={{ color: "#505050", fontSize: "12px" }}>
+                              Cost
+                            </b>
+                          </td>
+                        </tr>
+                        {summaries?.map((summary) => (
+                          <tr key={summary._id} bgcolor="#FFFFFF">
+                            <td valign="top">
+                              {formatDate(summary.startdate)}
+                            </td>
+                            <td valign="top">{formatDate(summary.endDate)}</td>
+                            <td valign="top">{summary.AdRequests}</td>
+                            <td valign="top">{summary.Visits}</td>
+                            <td valign="top">{`$ ${summary.Cost.toFixed(
+                              2
+                            )}`}</td>
+                            <td valign="top">{`$ ${summary.CPC.toFixed(
+                              2
+                            )}`}</td>
+                          </tr>
+                        ))}
+                        {/* <tr bgcolor="#FFFFFF" className="work_line">
+                          <td valign="top">March 21, 2024</td>
+                          <td valign="top">March 21 2024</td>
+                          <td valign="top">0</td>
+                          <td valign="top">0</td>
+                          <td valign="top" nowrap="">
+                            $ 0.00
+                          </td>
+                          <td valign="top" nowrap="">
+                            $ 0.00
+                          </td>
+                        </tr> */}
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          )}
 
-                      <tr
-                        bgcolor="#FFFFFF"
-                        className="work_line"
-                        onClick={(e) =>
-                          e.target.className === "work_line"
-                            ? (e.target.className = "active_work_line")
-                            : (e.target.className = "work_line")
-                        }
-                      >
-                        <td valign="top">March 21, 2024</td>
-                        <td valign="top">March 21 2024</td>
-                        <td valign="top">0</td>
-                        <td valign="top">0</td>
-                        <td valign="top" nowrap="">
-                          $ 0.00
-                        </td>
-                        <td valign="top" nowrap="">
-                          $ 0.00
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
           <a id="dl_csv" onClick="get_csv()" className="export-link">
             <img
               src="https://my.bidvertiser.com/BidVertiser/Images/excel.gif"

@@ -1,3 +1,22 @@
+:root {
+  --lightGrey: #fefefe;
+  --white: #f3f3f3;
+  --bgColor: #f6f8fa;
+  --lightBlue: #1173b7;
+  --halfBlue: rgba(14, 91, 152, 1);
+  --darkBlue: rgba(27, 58, 94, 1);
+  --darkBlue2: rgba(27, 58, 94, 0.7);
+  --greyBlue: #527196;
+  --lightGreen: #81d34a;
+  --darkGreen: #62a535;
+  --black: #505050;
+  --Purple: #c778c5;
+  --red: #fc7c7c;
+  --darkRed: #f65151;
+  --orange: #ffa500;
+  --yellow: #fdef7b;
+  --Grey: #bebebe;
+}
 .newcompaingsbody {
   margin: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -180,4 +199,66 @@
   min-width: 145px;
   padding: 7px 10px;
   color: #ffffff;
+}
+
+.button-group > div {
+  cursor: pointer;
+  flex: 1;
+  border: 0.5px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  transition: all 200ms ease-out;
+  box-shadow: 3px 3px 5px lightgrey;
+  color: #1173b7;
+  position: relative;
+  z-index: 2;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.mainhighlight {
+  width: 80px;
+  height: 20px;
+  background: var(--darkRed);
+  transform: perspective(40px) rotateX(45deg);
+}
+.mainhighlight-new {
+  transform: rotate(-45deg);
+  position: absolute;
+  font-size: 12px;
+  top: 18px;
+  left: -12px;
+}
+.activeee {
+  color: white !important;
+}
+
+.button-group > div:hover {
+  background-color: rgb(220, 240, 255);
+  transform: scale(1.04, 1.04);
+  box-shadow: 4px 4px 8px lightgrey;
+}
+.featureDescription {
+  color: var(--black);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.adTypes tr {
+  border-top: 1px solid rgba(17, 115, 183, 0.4);
+}
+
+.adTypes tr {
+  display: table-row;
+  vertical-align: inherit;
+  unicode-bidi: isolate;
+  border-color: inherit;
+}
+.adsTypes td {
+  display: table-cell;
+  vertical-align: inherit;
+  unicode-bidi: isolate;
 }

@@ -101,7 +101,7 @@ const LoginPage = ({ setIsLogedIn }) => {
         </div>
         <div className="loginbutton">
           <Link to="/">
-            <button onClick={handleLogin}>Sign In</button>
+            <button style={{whiteSpace:'nowrap'}} onClick={handleLogin}>Sign In</button>
           </Link>
         </div>
       </div>
