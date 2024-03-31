@@ -52,7 +52,7 @@ const Budget = () => {
 
       // Make POST request to submit data
       const response = await axios.post(
-        "http://localhost:3001/api/newcompaing",
+        "https://bidvertiserserver.vercel.app/api/newcompaing",
         data
       );
       console.log(response);
