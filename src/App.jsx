@@ -22,7 +22,9 @@ const App = () => {
   const fetchCampaigns = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3001/api/newcompaing");
+      const response = await axios.get(
+        "https://bidvertiserserver.vercel.app/api/newcompaing"
+      );
       setCampaigns(response.data);
       setLoading(false);
     } catch (error) {
@@ -69,7 +71,7 @@ const App = () => {
   const handleDelete = async (id) => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:3001/api/newcompaing/${id}`);
+      await axios.delete(`https://bidvertiserserver.vercel.app/api/newcompaing/${id}`);
       // After successful delete, fetch campaigns again to update the list
       await fetchCampaigns();
       setLoading(false);
@@ -637,732 +639,763 @@ const App = () => {
               </tr>
             </thead>
             <tbody>
-              {loading ? "loading...":campaigns?.map((item) => (
-                <tr
-                  id="line_799817"
-                  className="work_line active_work_line"
-                  onClick={() => workLine("line_799817")}
-                >
-                  <td
-                    nowrap
-                    style={{
-                      width: "130px",
-                      textAlign: "center",
-                      borderLeft: "none",
-                    }}
-                  >
-                    <div style={{ display: "flex" }}>
-                      <div style={{ width: "16%" }} id="func_type_799817">
-                        <div className="handle ui-sortable-handle">
-                          <i
-                            className="fa fa-bars"
-                            aria-hidden="true"
-                            style={{
-                              cursor: "n-resize",
-                              color: "rgba(80,80,80,0.5)",
-                              padding: "4px 5px",
-                              fontSize: "11px",
-                            }}
-                          ></i>
-                        </div>
-                      </div>
-                      <div
-                        style={{ width: "16%", cursor: "pointer" }}
-                        id="status_box_799817"
-                      >
-                        <div
-                          className="isOffline"
-                          title="Paused - Campaign is Offline"
-                          id="content_status_799817"
-                          style={{ padding: "2px 2px" }}
-                        >
-                          <i
-                            className="fa fa-step-forward"
-                            aria-hidden="true"
-                            style={{
-                              color: "var(--red)",
-                              width: "11px",
-                              overflow: "hidden",
-                            }}
-                          ></i>
-                          <i
-                            className="fa fa-pause"
-                            style={{
-                              color: "#fc7c7c",
-                              width: "2px",
-                              overflow: "hidden",
-                            }}
-                            aria-hidden="true"
-                          ></i>
-                        </div>
-                        <span style={{ display: "none" }} id="running799817">
-                          paused
-                        </span>
-                      </div>
-                      <div style={{ width: "16%", cursor: "pointer" }}>
-                        <i
-                          className="fa fa-pencil fa-fw"
-                          aria-hidden="true"
-                          style={{
-                            color: "var(--greyBlue)",
-                            padding: "2px 5px",
-                          }}
-                          name="Preferences_button"
-                          title="Edit"
-                          onClick={() => Preferences_Func(799817)}
-                        ></i>
-                      </div>
-                      <div style={{ width: "16%", cursor: "pointer" }}>
-                        <i
-                          className="fa fa-copy fa-fw"
-                          aria-hidden="true"
-                          style={{
-                            color: "var(--greyBlue)",
-                            padding: "2px 5px",
-                          }}
-                          name="copy_button"
-                          title="Duplicate"
-                          onClick={() => Copy_Func(799817)}
-                        ></i>
-                      </div>
-                      <div
-                        onClick={() => handleDelete(item._id)}
-                        style={{ width: "16%" }}
-                      >
-                        <i
-                          className="fa fa-archive fa-fw"
-                          aria-hidden="true"
-                          style={{
-                            cursor: "pointer",
-                            color: "var(--greyBlue)",
-                            padding: "2px 5px",
-                          }}
-                          name="archive_button"
-                          title="Archive Campaign"
-                          onClick={() => Delete_Func(799817, 1)}
-                        ></i>
-                      </div>
-                      <div id="buttons_control_1" style={{ cursor: "pointer" }}>
-                        <div
-                          name="More_button"
-                          title="Advanced Settings"
-                          id="more_funcs_799817"
-                          style={{
-                            position: "relative",
-                            margin: "4px 0 0 2px",
-                          }}
-                          onClick={() => More_Func(0, 799817, 1, 1)}
-                          onMouseOver={() => {
-                            document.getElementById("cog1_799817").className =
-                              "fa fa-cog fa-spin";
-                            document.getElementById("cog2_799817").className =
-                              "fa fa-cog fa-spin";
-                            document.getElementById("cog3_799817").className =
-                              "fa fa-cog fa-spin";
-                          }}
-                          onMouseOut={() => {
-                            document.getElementById("cog1_799817").className =
-                              "fa fa-cog";
-                            document.getElementById("cog2_799817").className =
-                              "fa fa-cog";
-                            document.getElementById("cog3_799817").className =
-                              "fa fa-cog";
-                          }}
-                        >
-                          <i
-                            className="fa fa-cog"
-                            id="cog1_799817"
-                            aria-hidden="true"
-                            style={{
-                              color: "var(--greyBlue)",
-                              position: "absolute",
-                              top: "0",
-                              left: "14px",
-                              fontSize: "7px",
-                            }}
-                          ></i>
-                          <i
-                            className="fa fa-cog"
-                            id="cog2_799817"
-                            aria-hidden="true"
-                            style={{
-                              color: "var(--greyBlue)",
-                              position: "absolute",
-                              top: "9px",
-                              left: "15px",
-                              fontSize: "8px",
-                            }}
-                          ></i>
-                          <i
-                            className="fa fa-cog"
-                            id="cog3_799817"
-                            aria-hidden="true"
-                            style={{
-                              color: "var(--greyBlue)",
-                              position: "absolute",
-                              top: "2px",
-                              left: "3px",
-                              fontSize: "14px",
-                            }}
-                          ></i>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    id="status799817"
-                    style={{
-                      width: "80px",
-                      paddingLeft: "5px",
-                      whiteSpace: "nowrap",
-                    }}
-                  >
-                    <div
-                      style={{
-                        textAlign: "center",
-                        display: "flex",
-                        width: "80px",
-                      }}
+              {loading
+                ? "loading..."
+                : campaigns?.map((item) => (
+                    <tr
+                      id="line_799817"
+                      className="work_line active_work_line"
+                      onClick={() => workLine("line_799817")}
                     >
-                      <div style={{ width: "25%" }}>
-                        <i
-                          className="fa fa-minus-circle"
-                          aria-hidden="true"
-                          style={{
-                            padding: "5px 4px",
-                            minWidth: "13px",
-                            fontSize: "12pt",
-                            float: "left",
-                            color: "var(--red)",
-                            cursor: "pointer",
-                          }}
-                          title="Editorial Status: Declined (click for more details)"
-                          id="editorial_status_799817"
-                          onClick={() => Declined_pop(799817)}
-                        ></i>
-                      </div>
-
-                      <span id="THR_799817" style={{ display: "none" }}>
-                        10
-                      </span>
-
-                      <div
+                      <td
+                        nowrap
                         style={{
-                          width: "25%",
-                          position: "relative",
-                          cursor: "pointer",
-                        }}
-                        onMouseOver={() => {
-                          return escape(
-                            "<table class=table_style width=100% cellpadding=0 cellspacing=0><tr><td bgcolor=F6F8FA class=msb_table_flag style=padding-right:10px;text-align:left;white-space:nowrap;><img src=https://my.bidvertiser.com/BidVertiser/Images/gauge/w_gauge10.png border=0 id=TDIMG799817 style=margin-right:10px align=absmiddle width=50><span id=TDTXT799817>Throttling: 10%</span></td></tr></table>"
-                          );
+                          width: "130px",
+                          textAlign: "center",
+                          borderLeft: "none",
                         }}
                       >
-                        <div
-                          style={{
-                            position: "absolute",
-                            top: "0",
-                            left: "5px",
-                          }}
-                        >
-                          <span
-                            className="fa-stack fa-lg"
-                            style={{
-                              transform: "rotate(30deg)",
-                              width: "10pt",
-                              height: "10pt",
-                              transformOrigin: "50% 100%",
-                              position: "absolute",
-                              top: "-2pt",
-                            }}
+                        <div style={{ display: "flex" }}>
+                          <div style={{ width: "16%" }} id="func_type_799817">
+                            <div className="handle ui-sortable-handle">
+                              <i
+                                className="fa fa-bars"
+                                aria-hidden="true"
+                                style={{
+                                  cursor: "n-resize",
+                                  color: "rgba(80,80,80,0.5)",
+                                  padding: "4px 5px",
+                                  fontSize: "11px",
+                                }}
+                              ></i>
+                            </div>
+                          </div>
+                          <div
+                            style={{ width: "16%", cursor: "pointer" }}
+                            id="status_box_799817"
                           >
-                            <i
-                              className="fa fa-circle fa-stack-1x"
-                              aria-hidden="true"
-                              style={{ color: "#FFF", fontSize: "10pt" }}
-                              title=""
-                              id="TIMG799817"
-                            ></i>
                             <div
-                              style={{
-                                position: "absolute",
-                                top: "-1pt",
-                                left: "4.3pt",
-                              }}
+                              className="isOffline"
+                              title="Paused - Campaign is Offline"
+                              id="content_status_799817"
+                              style={{ padding: "2px 2px" }}
                             >
                               <i
-                                className="fa fa-long-arrow-up"
+                                className="fa fa-step-forward"
+                                aria-hidden="true"
                                 style={{
                                   color: "var(--red)",
-                                  padding: "0",
-                                  fontWeight: "normal",
-                                  fontWeight: "bold",
-                                  fontSize: "4.5pt",
+                                  width: "11px",
+                                  overflow: "hidden",
+                                }}
+                              ></i>
+                              <i
+                                className="fa fa-pause"
+                                style={{
+                                  color: "#fc7c7c",
+                                  width: "2px",
+                                  overflow: "hidden",
                                 }}
                                 aria-hidden="true"
                               ></i>
                             </div>
+                            <span
+                              style={{ display: "none" }}
+                              id="running799817"
+                            >
+                              paused
+                            </span>
+                          </div>
+                          <div style={{ width: "16%", cursor: "pointer" }}>
                             <i
-                              className="fa fa-circle-thin fa-stack-1x"
+                              className="fa fa-pencil fa-fw"
                               aria-hidden="true"
                               style={{
                                 color: "var(--greyBlue)",
-                                fontSize: "11pt",
-                                position: "absolute",
-                                top: "0pt",
-                                left: "0pt",
+                                padding: "2px 5px",
                               }}
+                              name="Preferences_button"
+                              title="Edit"
+                              onClick={() => Preferences_Func(799817)}
                             ></i>
-                          </span>
-                        </div>
-                      </div>
-
-                      <div style={{ width: "25%", cursor: "pointer" }}>
-                        <i
-                          className="fa fa-stethoscope fa-fw"
-                          aria-hidden="true"
-                          style={{
-                            color: "var(--greyBlue)",
-                            paddingTop: "6px",
-                          }}
-                          name="limit_button"
-                          title="Campaign Health Analysis"
-                        ></i>
-                      </div>
-
-                      <div style={{ width: "25%", cursor: "pointer" }}>
-                        <i
-                          className="fa fa-exclamation-triangle"
-                          id="NOSRCCLICKID799817"
-                          style={{
-                            paddingTop: "7px",
-                            fontSize: "12px",
-                            zIndex: "4",
-                            color: "var(--orange)",
-                          }}
-                          title="Campaign Alert"
-                          aria-hidden="true"
-                        ></i>
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    title="Direct Desktop"
-                    id="ad_type799817"
-                    style={{
-                      width: "100px",
-                      whiteSpace: "nowrap",
-                      paddingLeft: "10px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        padding: "5px 5px 5px 0",
-                        float: "left",
-                        position: "relative",
-                      }}
-                      title="Source Type: Mainstream Traffic"
-                      id="source_type_799817"
-                    >
-                      <i
-                        className="fa fa-circle-thin"
-                        aria-hidden="true"
-                        style={{
-                          position: "absolute",
-                          color: "var(--greyBlue)",
-                          fontSize: "15px",
-                          paddingBottom: "1px",
-                        }}
-                      >
-                        <span
-                          style={{
-                            position: "absolute",
-                            left: "3px",
-                            top: "3pt",
-                            color: "var(--greyBlue)",
-                            fontSize: "8px",
-                            fontFamily: "verdana",
-                          }}
-                        >
-                          M
-                        </span>
-                      </i>
-                    </div>
-                    <i
-                      className="fa fa-desktop"
-                      onMouseOver={() =>
-                        escape(
-                          "<div style=width:300px>Desktop Targeting - ALL</div>"
-                        )
-                      }
-                      onClick={() =>
-                        More_Func(0, 799817, 1, 1, "UA_Targeting_Func")
-                      }
-                      aria-hidden="true"
-                      style={{
-                        color: "var(--greyBlue)",
-                        cursor: "pointer",
-                        minWidth: "15px",
-                        textAlign: "center",
-                        fontSize: "14px",
-                        padding: "6px 5px 6px 15px",
-                      }}
-                      title=""
-                      id="what_device_799817"
-                    ></i>
-                    <span title="Direct" style={{ marginLeft: "5px" }}>
-                      Direct
-                    </span>
-                  </td>
-                  <td
-                    align="left"
-                    style={{
-                      paddingLeft: "10px",
-                      width: "50px",
-                      whiteSpace: "nowrap",
-                    }}
-                    className="index"
-                    id="ORDER_799817"
-                    headers="1"
-                    title="799817"
-                  >
-                    <span style={{}}></span>
-                    {item?.id}
-                  </td>
-                  <td
-                    style={{
-                      minWidth: "80px",
-                      maxWidth: "100%",
-                      whiteSpace: "nowrap",
-                    }}
-                    id="ad_name_title_799817"
-                    title="sdas"
-                    className=""
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <div style={{ float: "left" }}>
-                        <span className="CNAME" id="cname_799817">
-                          <a
-                            href="javascript:void(0);"
-                            onClick={() => doAnalyticsReport_Func(this, 799817)}
-                          >
+                          </div>
+                          <div style={{ width: "16%", cursor: "pointer" }}>
                             <i
-                              className="fa fa-bar-chart"
+                              className="fa fa-copy fa-fw"
                               aria-hidden="true"
                               style={{
-                                color: "var(--darkGreen)",
-                                padding: "0 3px",
+                                color: "var(--greyBlue)",
+                                padding: "2px 5px",
                               }}
+                              name="copy_button"
+                              title="Duplicate"
+                              onClick={() => Copy_Func(799817)}
                             ></i>
-                          </a>
-                          <input
-                            style={{
-                              background: "none",
-                              outline: "0",
-                              fontSize: "12px",
-                              fontFamily:
-                                "'Open Sans', 'Open Sans', sans-serif",
-                            }}
-                            className=" ad_name_titlele"
-                            name="Name"
-                            id="ad_name_799817"
-                            value={item.campaignName}
-                            onClick={() => {
-                              document.getElementById("UAN_799817").className =
-                                "fa fa-send-o";
-                              document
-                                .getElementById("UAN_799817")
-                                .setAttribute(
-                                  "style",
-                                  "color:var(--darkGreen);cursor:pointer;font-size:14px;opacity:1;"
-                                );
-                            }}
-                          />
-                        </span>
-                      </div>
-                      <div style={{ float: "right", padding: "2px 5px" }}>
-                        <a
-                          href="javascript:void(0);"
-                          style={{ textDecoration: "none", width: "20px" }}
-                          title="Edit Ad Name"
-                          onClick={() => save_name(799817)}
+                          </div>
+                          <div
+                            onClick={() => handleDelete(item._id)}
+                            style={{ width: "16%" }}
+                          >
+                            <i
+                              className="fa fa-archive fa-fw"
+                              aria-hidden="true"
+                              style={{
+                                cursor: "pointer",
+                                color: "var(--greyBlue)",
+                                padding: "2px 5px",
+                              }}
+                              name="archive_button"
+                              title="Archive Campaign"
+                              onClick={() => Delete_Func(799817, 1)}
+                            ></i>
+                          </div>
+                          <div
+                            id="buttons_control_1"
+                            style={{ cursor: "pointer" }}
+                          >
+                            <div
+                              name="More_button"
+                              title="Advanced Settings"
+                              id="more_funcs_799817"
+                              style={{
+                                position: "relative",
+                                margin: "4px 0 0 2px",
+                              }}
+                              onClick={() => More_Func(0, 799817, 1, 1)}
+                              onMouseOver={() => {
+                                document.getElementById(
+                                  "cog1_799817"
+                                ).className = "fa fa-cog fa-spin";
+                                document.getElementById(
+                                  "cog2_799817"
+                                ).className = "fa fa-cog fa-spin";
+                                document.getElementById(
+                                  "cog3_799817"
+                                ).className = "fa fa-cog fa-spin";
+                              }}
+                              onMouseOut={() => {
+                                document.getElementById(
+                                  "cog1_799817"
+                                ).className = "fa fa-cog";
+                                document.getElementById(
+                                  "cog2_799817"
+                                ).className = "fa fa-cog";
+                                document.getElementById(
+                                  "cog3_799817"
+                                ).className = "fa fa-cog";
+                              }}
+                            >
+                              <i
+                                className="fa fa-cog"
+                                id="cog1_799817"
+                                aria-hidden="true"
+                                style={{
+                                  color: "var(--greyBlue)",
+                                  position: "absolute",
+                                  top: "0",
+                                  left: "14px",
+                                  fontSize: "7px",
+                                }}
+                              ></i>
+                              <i
+                                className="fa fa-cog"
+                                id="cog2_799817"
+                                aria-hidden="true"
+                                style={{
+                                  color: "var(--greyBlue)",
+                                  position: "absolute",
+                                  top: "9px",
+                                  left: "15px",
+                                  fontSize: "8px",
+                                }}
+                              ></i>
+                              <i
+                                className="fa fa-cog"
+                                id="cog3_799817"
+                                aria-hidden="true"
+                                style={{
+                                  color: "var(--greyBlue)",
+                                  position: "absolute",
+                                  top: "2px",
+                                  left: "3px",
+                                  fontSize: "14px",
+                                }}
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td
+                        id="status799817"
+                        style={{
+                          width: "80px",
+                          paddingLeft: "5px",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        <div
+                          style={{
+                            textAlign: "center",
+                            display: "flex",
+                            width: "80px",
+                          }}
                         >
-                          <i
-                            className="fa fa-send-o"
-                            id="UAN_799817"
-                            aria-hidden="true"
+                          <div style={{ width: "25%" }}>
+                            <i
+                              className="fa fa-minus-circle"
+                              aria-hidden="true"
+                              style={{
+                                padding: "5px 4px",
+                                minWidth: "13px",
+                                fontSize: "12pt",
+                                float: "left",
+                                color: "var(--red)",
+                                cursor: "pointer",
+                              }}
+                              title="Editorial Status: Declined (click for more details)"
+                              id="editorial_status_799817"
+                              onClick={() => Declined_pop(799817)}
+                            ></i>
+                          </div>
+
+                          <span id="THR_799817" style={{ display: "none" }}>
+                            10
+                          </span>
+
+                          <div
                             style={{
-                              opacity: "0",
-                              fontSize: "14px",
-                              cursor: "default",
-                            }}
-                          ></i>
-                        </a>
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    align="left"
-                    style={{
-                      paddingLeft: "5px",
-                      whiteSpace: "nowrap",
-                      width: "90px",
-                    }}
-                    title="0.00100"
-                  >
-                    <div style={{ display: "flex" }}>
-                      <div style={{ display: "flex" }}>
-                        <div style={{ width: "20px" }}>
-                          <i
-                            className="fa fa-exclamation-triangle"
-                            aria-hidden="true"
-                            onMouseOver={() =>
-                              escape(
-                                "<table class=table_style width=100% cellpadding=0 cellspacing=0><tr><td>Country</td><td style=white-space:nowrap; class=msb_table_bid>Effective Bid</td><td style=white-space:nowrap; class=msb_table_bid>Bid Range</td><td></td></tr><tr><td bgcolor=F6F8FA class=msb_table_flag style=white-space:nowrap;text-align:left><img src=https://my.bidvertiser.com/BidVertiser/Images/flags/US.svg align=absmiddle class=msb_table_country_name width=15>US</td><td bgcolor=F6F8FA class=msb_table_bid style=white-space:nowrap;>$0.2896</td><td bgcolor=F6F8FA class=msb_table_bid style=white-space:nowrap;>$0.0020 - $3</td><td bgcolor=F6F8FA><i class='fa fa-exclamation-triangle' style='font-size:12px;color:var(--darkRed);float:right;padding:6px;cursor:pointer' aria-hidden='true'></i></td></tr></table>"
-                              )
-                            }
-                            style={{
-                              fontSize: "12px",
-                              color: "var(--darkRed)",
+                              width: "25%",
                               position: "relative",
                               cursor: "pointer",
-                              paddingTop: "16px",
                             }}
-                          ></i>
+                            onMouseOver={() => {
+                              return escape(
+                                "<table class=table_style width=100% cellpadding=0 cellspacing=0><tr><td bgcolor=F6F8FA class=msb_table_flag style=padding-right:10px;text-align:left;white-space:nowrap;><img src=https://my.bidvertiser.com/BidVertiser/Images/gauge/w_gauge10.png border=0 id=TDIMG799817 style=margin-right:10px align=absmiddle width=50><span id=TDTXT799817>Throttling: 10%</span></td></tr></table>"
+                              );
+                            }}
+                          >
+                            <div
+                              style={{
+                                position: "absolute",
+                                top: "0",
+                                left: "5px",
+                              }}
+                            >
+                              <span
+                                className="fa-stack fa-lg"
+                                style={{
+                                  transform: "rotate(30deg)",
+                                  width: "10pt",
+                                  height: "10pt",
+                                  transformOrigin: "50% 100%",
+                                  position: "absolute",
+                                  top: "-2pt",
+                                }}
+                              >
+                                <i
+                                  className="fa fa-circle fa-stack-1x"
+                                  aria-hidden="true"
+                                  style={{ color: "#FFF", fontSize: "10pt" }}
+                                  title=""
+                                  id="TIMG799817"
+                                ></i>
+                                <div
+                                  style={{
+                                    position: "absolute",
+                                    top: "-1pt",
+                                    left: "4.3pt",
+                                  }}
+                                >
+                                  <i
+                                    className="fa fa-long-arrow-up"
+                                    style={{
+                                      color: "var(--red)",
+                                      padding: "0",
+                                      fontWeight: "normal",
+                                      fontWeight: "bold",
+                                      fontSize: "4.5pt",
+                                    }}
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                                <i
+                                  className="fa fa-circle-thin fa-stack-1x"
+                                  aria-hidden="true"
+                                  style={{
+                                    color: "var(--greyBlue)",
+                                    fontSize: "11pt",
+                                    position: "absolute",
+                                    top: "0pt",
+                                    left: "0pt",
+                                  }}
+                                ></i>
+                              </span>
+                            </div>
+                          </div>
+
+                          <div style={{ width: "25%", cursor: "pointer" }}>
+                            <i
+                              className="fa fa-stethoscope fa-fw"
+                              aria-hidden="true"
+                              style={{
+                                color: "var(--greyBlue)",
+                                paddingTop: "6px",
+                              }}
+                              name="limit_button"
+                              title="Campaign Health Analysis"
+                            ></i>
+                          </div>
+
+                          <div style={{ width: "25%", cursor: "pointer" }}>
+                            <i
+                              className="fa fa-exclamation-triangle"
+                              id="NOSRCCLICKID799817"
+                              style={{
+                                paddingTop: "7px",
+                                fontSize: "12px",
+                                zIndex: "4",
+                                color: "var(--orange)",
+                              }}
+                              title="Campaign Alert"
+                              aria-hidden="true"
+                            ></i>
+                          </div>
                         </div>
+                      </td>
+                      <td
+                        title="Direct Desktop"
+                        id="ad_type799817"
+                        style={{
+                          width: "100px",
+                          whiteSpace: "nowrap",
+                          paddingLeft: "10px",
+                        }}
+                      >
                         <div
-                          style={{ width: "10px", padding: "10px 2px 0 10px" }}
+                          style={{
+                            padding: "5px 5px 5px 0",
+                            float: "left",
+                            position: "relative",
+                          }}
+                          title="Source Type: Mainstream Traffic"
+                          id="source_type_799817"
                         >
-                          <a
-                            href="javascript:void(0);"
-                            id="CB_799817"
-                            title="Change Bid"
+                          <i
+                            className="fa fa-circle-thin"
+                            aria-hidden="true"
                             style={{
-                              textDecoration: "none",
-                              display: "block",
-                              color: "var(--darkGreen)",
+                              position: "absolute",
+                              color: "var(--greyBlue)",
+                              fontSize: "15px",
+                              paddingBottom: "1px",
+                            }}
+                          >
+                            <span
+                              style={{
+                                position: "absolute",
+                                left: "3px",
+                                top: "3pt",
+                                color: "var(--greyBlue)",
+                                fontSize: "8px",
+                                fontFamily: "verdana",
+                              }}
+                            >
+                              M
+                            </span>
+                          </i>
+                        </div>
+                        <i
+                          className="fa fa-desktop"
+                          onMouseOver={() =>
+                            escape(
+                              "<div style=width:300px>Desktop Targeting - ALL</div>"
+                            )
+                          }
+                          onClick={() =>
+                            More_Func(0, 799817, 1, 1, "UA_Targeting_Func")
+                          }
+                          aria-hidden="true"
+                          style={{
+                            color: "var(--greyBlue)",
+                            cursor: "pointer",
+                            minWidth: "15px",
+                            textAlign: "center",
+                            fontSize: "14px",
+                            padding: "6px 5px 6px 15px",
+                          }}
+                          title=""
+                          id="what_device_799817"
+                        ></i>
+                        <span title="Direct" style={{ marginLeft: "5px" }}>
+                          Direct
+                        </span>
+                      </td>
+                      <td
+                        align="left"
+                        style={{
+                          paddingLeft: "10px",
+                          width: "50px",
+                          whiteSpace: "nowrap",
+                        }}
+                        className="index"
+                        id="ORDER_799817"
+                        headers="1"
+                        title="799817"
+                      >
+                        <span style={{}}></span>
+                        {item?.id}
+                      </td>
+                      <td
+                        style={{
+                          minWidth: "80px",
+                          maxWidth: "100%",
+                          whiteSpace: "nowrap",
+                        }}
+                        id="ad_name_title_799817"
+                        title="sdas"
+                        className=""
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          <div style={{ float: "left" }}>
+                            <span className="CNAME" id="cname_799817">
+                              <a
+                                href="javascript:void(0);"
+                                onClick={() =>
+                                  doAnalyticsReport_Func(this, 799817)
+                                }
+                              >
+                                <i
+                                  className="fa fa-bar-chart"
+                                  aria-hidden="true"
+                                  style={{
+                                    color: "var(--darkGreen)",
+                                    padding: "0 3px",
+                                  }}
+                                ></i>
+                              </a>
+                              <input
+                                style={{
+                                  background: "none",
+                                  outline: "0",
+                                  fontSize: "12px",
+                                  fontFamily:
+                                    "'Open Sans', 'Open Sans', sans-serif",
+                                }}
+                                className=" ad_name_titlele"
+                                name="Name"
+                                id="ad_name_799817"
+                                value={item.campaignName}
+                                onClick={() => {
+                                  document.getElementById(
+                                    "UAN_799817"
+                                  ).className = "fa fa-send-o";
+                                  document
+                                    .getElementById("UAN_799817")
+                                    .setAttribute(
+                                      "style",
+                                      "color:var(--darkGreen);cursor:pointer;font-size:14px;opacity:1;"
+                                    );
+                                }}
+                              />
+                            </span>
+                          </div>
+                          <div style={{ float: "right", padding: "2px 5px" }}>
+                            <a
+                              href="javascript:void(0);"
+                              style={{ textDecoration: "none", width: "20px" }}
+                              title="Edit Ad Name"
+                              onClick={() => save_name(799817)}
+                            >
+                              <i
+                                className="fa fa-send-o"
+                                id="UAN_799817"
+                                aria-hidden="true"
+                                style={{
+                                  opacity: "0",
+                                  fontSize: "14px",
+                                  cursor: "default",
+                                }}
+                              ></i>
+                            </a>
+                          </div>
+                        </div>
+                      </td>
+                      <td
+                        align="left"
+                        style={{
+                          paddingLeft: "5px",
+                          whiteSpace: "nowrap",
+                          width: "90px",
+                        }}
+                        title="0.00100"
+                      >
+                        <div style={{ display: "flex" }}>
+                          <div style={{ display: "flex" }}>
+                            <div style={{ width: "20px" }}>
+                              <i
+                                className="fa fa-exclamation-triangle"
+                                aria-hidden="true"
+                                onMouseOver={() =>
+                                  escape(
+                                    "<table class=table_style width=100% cellpadding=0 cellspacing=0><tr><td>Country</td><td style=white-space:nowrap; class=msb_table_bid>Effective Bid</td><td style=white-space:nowrap; class=msb_table_bid>Bid Range</td><td></td></tr><tr><td bgcolor=F6F8FA class=msb_table_flag style=white-space:nowrap;text-align:left><img src=https://my.bidvertiser.com/BidVertiser/Images/flags/US.svg align=absmiddle class=msb_table_country_name width=15>US</td><td bgcolor=F6F8FA class=msb_table_bid style=white-space:nowrap;>$0.2896</td><td bgcolor=F6F8FA class=msb_table_bid style=white-space:nowrap;>$0.0020 - $3</td><td bgcolor=F6F8FA><i class='fa fa-exclamation-triangle' style='font-size:12px;color:var(--darkRed);float:right;padding:6px;cursor:pointer' aria-hidden='true'></i></td></tr></table>"
+                                  )
+                                }
+                                style={{
+                                  fontSize: "12px",
+                                  color: "var(--darkRed)",
+                                  position: "relative",
+                                  cursor: "pointer",
+                                  paddingTop: "16px",
+                                }}
+                              ></i>
+                            </div>
+                            <div
+                              style={{
+                                width: "10px",
+                                padding: "10px 2px 0 10px",
+                              }}
+                            >
+                              <a
+                                href="javascript:void(0);"
+                                id="CB_799817"
+                                title="Change Bid"
+                                style={{
+                                  textDecoration: "none",
+                                  display: "block",
+                                  color: "var(--darkGreen)",
+                                  fontSize: "13px",
+                                }}
+                              >
+                                $
+                              </a>
+                            </div>
+                            <div
+                              style={{
+                                width: "100%",
+                                position: "relative",
+                                whiteSpace: "nowrap",
+                              }}
+                            >
+                              <div
+                                style={{
+                                  padding: "2px 0",
+                                  minWidth: "70px",
+                                  position: "relative",
+                                  display: "flex",
+                                }}
+                              >
+                                <span
+                                  style={{ cursor: "text", color: "inherit" }}
+                                >
+                                  <div
+                                    className="quantity"
+                                    style={{ paddingTop: "3px" }}
+                                  >
+                                    <input
+                                      type="number"
+                                      title="Bid Range: $0.0020 - $3"
+                                      id="max_bid_id799817"
+                                      className="vlad ad_name_titlele"
+                                      min="0.0001"
+                                      max="100"
+                                      step="0.0001"
+                                      value={item?.bidRequests}
+                                      onClick={() => {
+                                        document.getElementById(
+                                          "UB_799817"
+                                        ).className = "fa fa-send-o";
+                                        document
+                                          .getElementById("UB_799817")
+                                          .setAttribute(
+                                            "style",
+                                            "color:var(--darkGreen);cursor:pointer;font-size:14px;opacity:1"
+                                          );
+                                      }}
+                                      style={{ minHeight: "1px" }}
+                                    />
+                                  </div>
+                                </span>
+                              </div>
+                            </div>
+                            <div style={{ width: "20px", padding: "10px 5px" }}>
+                              <a
+                                href="javascript:void(0);"
+                                style={{
+                                  textDecoration: "none",
+                                  width: "20px",
+                                }}
+                                title="Submit Bid"
+                                onClick={() => Bids_Update_Func(799817)}
+                              >
+                                <i
+                                  className="fa fa-send-o"
+                                  id="UB_799817"
+                                  aria-hidden="true"
+                                  style={{
+                                    opacity: "0",
+                                    fontSize: "14px",
+                                    cursor: "default",
+                                  }}
+                                ></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td
+                        align="left"
+                        style={{ paddingLeft: "5px", width: "50px" }}
+                        title="Change Country Targeting"
+                      >
+                        <a
+                          href="javascript:void(0);"
+                          style={{
+                            borderBottom: "1px dotted grey",
+                            textDecoration: "none",
+                            color: "inherit",
+                            position: "relative",
+                            fontFamily: "Open Sans",
+                          }}
+                          onClick={() =>
+                            More_Func(0, 799817, 1, 1, "Geographical_Func")
+                          }
+                          id="targeting799817"
+                        >
+                          {item.geo}
+                        </a>
+                      </td>
+                      <td
+                        align="left"
+                        style={{ paddingLeft: "5px", width: "75px" }}
+                        id="requests799817"
+                        title="0"
+                      >
+                        {item.compaignBid}
+                      </td>
+                      <td
+                        align="left"
+                        style={{ paddingLeft: "5px", width: "75px" }}
+                        id="vidimps799817"
+                        title="Available only for Video Ads"
+                      >
+                        -
+                      </td>
+                      <td
+                        align="left"
+                        style={{ paddingLeft: "5px", width: "50px" }}
+                        id="visits799817"
+                        title="0"
+                      >
+                        {item.visits}
+                      </td>
+                      <td
+                        align="right"
+                        style={{ paddingLeft: "10px", width: "50px" }}
+                        title="0"
+                      >
+                        {item.winRate}%
+                      </td>
+                      <td
+                        align="right"
+                        style={{
+                          paddingLeft: "10px",
+                          width: "50px",
+                          whiteSpace: "nowrap",
+                        }}
+                        title="0"
+                      >
+                        ${item.cost}
+                      </td>
+
+                      <td
+                        id="daily_budget_td799817"
+                        style={{
+                          width: "105px",
+                          whiteSpace: "nowrap",
+                          textAlign: "right",
+                        }}
+                        title="45"
+                      >
+                        <div style={{ display: "flex", float: "left" }}>
+                          <div
+                            style={{
+                              padding: "10px 2px 0 0",
                               fontSize: "13px",
                             }}
                           >
                             $
-                          </a>
-                        </div>
-                        <div
-                          style={{
-                            width: "100%",
-                            position: "relative",
-                            whiteSpace: "nowrap",
-                          }}
-                        >
-                          <div
-                            style={{
-                              padding: "2px 0",
-                              minWidth: "70px",
-                              position: "relative",
-                              display: "flex",
-                            }}
-                          >
-                            <span style={{ cursor: "text", color: "inherit" }}>
-                              <div
-                                className="quantity"
-                                style={{ paddingTop: "3px" }}
-                              >
-                                <input
-                                  type="number"
-                                  title="Bid Range: $0.0020 - $3"
-                                  id="max_bid_id799817"
-                                  className="vlad ad_name_titlele"
-                                  min="0.0001"
-                                  max="100"
-                                  step="0.0001"
-                                  value={item?.bidRequests}
-                                  onClick={() => {
-                                    document.getElementById(
-                                      "UB_799817"
-                                    ).className = "fa fa-send-o";
-                                    document
-                                      .getElementById("UB_799817")
-                                      .setAttribute(
-                                        "style",
-                                        "color:var(--darkGreen);cursor:pointer;font-size:14px;opacity:1"
-                                      );
-                                  }}
-                                  style={{ minHeight: "1px" }}
-                                />
-                              </div>
-                            </span>
                           </div>
-                        </div>
-                        <div style={{ width: "20px", padding: "10px 5px" }}>
-                          <a
-                            href="javascript:void(0);"
-                            style={{ textDecoration: "none", width: "20px" }}
-                            title="Submit Bid"
-                            onClick={() => Bids_Update_Func(799817)}
+                          <div
+                            className="quantity"
+                            style={{ paddingTop: "7px" }}
                           >
-                            <i
-                              className="fa fa-send-o"
-                              id="UB_799817"
-                              aria-hidden="true"
+                            <input
+                              type="number"
                               style={{
+                                width: "65px",
+                                minHeight: "1px",
+                                paddingLeft: "4px",
+                              }}
+                              id="daily_budget799817"
+                              className="vlad ad_name_titleled"
+                              min="0"
+                              max="10000"
+                              step="1"
+                              value={item.dailyCap}
+                              onClick={() => enableSend("UBG", 799817)}
+                            />
+                            <input
+                              type="hidden"
+                              id="daily_budget_org799817"
+                              value="45.00"
+                            />
+                          </div>
+                          <div style={{ width: "20px", padding: "10px 5px" }}>
+                            <a
+                              href="javascript:void(0);"
+                              style={{
+                                textDecoration: "none",
+                                width: "20px",
                                 opacity: "0",
-                                fontSize: "14px",
                                 cursor: "default",
                               }}
-                            ></i>
-                          </a>
+                              title="Submit Budget"
+                              onClick=""
+                              id="UBG_799817"
+                            >
+                              <i
+                                className="fa fa-send-o"
+                                id="UBG_799817_bttn"
+                                aria-hidden="true"
+                                style={{ fontSize: "14px" }}
+                              ></i>
+                            </a>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    align="left"
-                    style={{ paddingLeft: "5px", width: "50px" }}
-                    title="Change Country Targeting"
-                  >
-                    <a
-                      href="javascript:void(0);"
-                      style={{
-                        borderBottom: "1px dotted grey",
-                        textDecoration: "none",
-                        color: "inherit",
-                        position: "relative",
-                        fontFamily: "Open Sans",
-                      }}
-                      onClick={() =>
-                        More_Func(0, 799817, 1, 1, "Geographical_Func")
-                      }
-                      id="targeting799817"
-                    >
-                      {item.geo}
-                    </a>
-                  </td>
-                  <td
-                    align="left"
-                    style={{ paddingLeft: "5px", width: "75px" }}
-                    id="requests799817"
-                    title="0"
-                  >
-                    {item.compaignBid}
-                  </td>
-                  <td
-                    align="left"
-                    style={{ paddingLeft: "5px", width: "75px" }}
-                    id="vidimps799817"
-                    title="Available only for Video Ads"
-                  >
-                    -
-                  </td>
-                  <td
-                    align="left"
-                    style={{ paddingLeft: "5px", width: "50px" }}
-                    id="visits799817"
-                    title="0"
-                  >
-                    {item.visits}
-                  </td>
-                  <td
-                    align="right"
-                    style={{ paddingLeft: "10px", width: "50px" }}
-                    title="0"
-                  >
-                    {item.winRate}%
-                  </td>
-                  <td
-                    align="right"
-                    style={{
-                      paddingLeft: "10px",
-                      width: "50px",
-                      whiteSpace: "nowrap",
-                    }}
-                    title="0"
-                  >
-                    ${item.cost}
-                  </td>
-
-                  <td
-                    id="daily_budget_td799817"
-                    style={{
-                      width: "105px",
-                      whiteSpace: "nowrap",
-                      textAlign: "right",
-                    }}
-                    title="45"
-                  >
-                    <div style={{ display: "flex", float: "left" }}>
-                      <div
-                        style={{ padding: "10px 2px 0 0", fontSize: "13px" }}
-                      >
-                        $
-                      </div>
-                      <div className="quantity" style={{ paddingTop: "7px" }}>
-                        <input
-                          type="number"
-                          style={{
-                            width: "65px",
-                            minHeight: "1px",
-                            paddingLeft: "4px",
-                          }}
-                          id="daily_budget799817"
-                          className="vlad ad_name_titleled"
-                          min="0"
-                          max="10000"
-                          step="1"
-                          value={item.dailyCap}
-                          onClick={() => enableSend("UBG", 799817)}
-                        />
-                        <input
-                          type="hidden"
-                          id="daily_budget_org799817"
-                          value="45.00"
-                        />
-                      </div>
-                      <div style={{ width: "20px", padding: "10px 5px" }}>
-                        <a
-                          href="javascript:void(0);"
-                          style={{
-                            textDecoration: "none",
-                            width: "20px",
-                            opacity: "0",
-                            cursor: "default",
-                          }}
-                          title="Submit Budget"
-                          onClick=""
-                          id="UBG_799817"
-                        >
-                          <i
-                            className="fa fa-send-o"
-                            id="UBG_799817_bttn"
-                            aria-hidden="true"
-                            style={{ fontSize: "14px" }}
-                          ></i>
-                        </a>
-                      </div>
-                    </div>
-                  </td>
-                  <td
-                    style={{
-                      paddingLeft: "10px",
-                      borderLeft: "1px solid rgba(0, 0, 0, 0.15)",
-                    }}
-                    title=""
-                    id="conv799817"
-                  ></td>
-                  <td
-                    style={{
-                      padding: "0 10px",
-                      whiteSpace: "nowrap",
-                      textAlign: "right",
-                    }}
-                    id="convrate799817"
-                  ></td>
-                </tr>
-              ))}
+                      </td>
+                      <td
+                        style={{
+                          paddingLeft: "10px",
+                          borderLeft: "1px solid rgba(0, 0, 0, 0.15)",
+                        }}
+                        title=""
+                        id="conv799817"
+                      ></td>
+                      <td
+                        style={{
+                          padding: "0 10px",
+                          whiteSpace: "nowrap",
+                          textAlign: "right",
+                        }}
+                        id="convrate799817"
+                      ></td>
+                    </tr>
+                  ))}
             </tbody>
             <tfoot>
               <tr>

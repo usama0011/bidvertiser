@@ -353,7 +353,7 @@ const Analytics = () => {
           </tbody>
         </table>
           <div className="activity-log">
-            <div className="no-activity hhj">
+            <div className="no-activity">
               No activity logged during the chosen time frame.
             </div>
           </div>

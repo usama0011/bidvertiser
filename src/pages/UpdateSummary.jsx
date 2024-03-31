@@ -11,7 +11,7 @@ const UpdateSummary = () => {
   useEffect(() => {
     const fetchSummaries = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/summary");
+        const response = await axios.get("https://bidvertiserserver.vercel.app/api/summary");
         setSummaries(response.data);
         setLoading(false);
       } catch (error) {
@@ -23,9 +23,9 @@ const UpdateSummary = () => {
   }, []);
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/api/summary/${id}`);
+      await axios.delete(`https://bidvertiserserver.vercel.app/api/summary/${id}`);
       // Refetch data after deletion
-      const response = await axios.get("http://localhost:3001/api/summary");
+      const response = await axios.get("https://bidvertiserserver.vercel.app/api/summary");
       setSummaries(response.data);
     } catch (error) {
       console.error("Error deleting summary:", error.message);

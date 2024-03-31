@@ -13,7 +13,7 @@ const ViewCompaings = () => {
   const fetchCampaigns = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3001/api/newcompaing");
+      const response = await axios.get("https://bidvertiserserver.vercel.app/api/newcompaing");
       setCampaigns(response.data);
       setLoading(false);
     } catch (error) {
@@ -25,7 +25,7 @@ const ViewCompaings = () => {
   const handleDelete = async (id) => {
     try {
       setLoading(true);
-      await axios.delete(`http://localhost:3001/api/newcompaing/${id}`);
+      await axios.delete(`https://bidvertiserserver.vercel.app/api/newcompaing/${id}`);
       // After successful delete, fetch campaigns again to update the list
       await fetchCampaigns();
       setLoading(false);

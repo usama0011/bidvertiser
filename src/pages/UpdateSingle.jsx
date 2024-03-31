@@ -22,7 +22,7 @@ const UpdateSingle = () => {
     const fetchSummary = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/api/summary/${id}`
+          `https://bidvertiserserver.vercel.app/api/summary/${id}`
         );
         setSummary(response.data);
         setFormData({
@@ -50,7 +50,7 @@ const UpdateSingle = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      await axios.put(`http://localhost:3001/api/summary/${id}`, formData);
+      await axios.put(`https://bidvertiserserver.vercel.app/api/summary/${id}`, formData);
       console.log("Summary updated successfully!");
     } catch (error) {
       console.error("Error updating summary:", error.message);

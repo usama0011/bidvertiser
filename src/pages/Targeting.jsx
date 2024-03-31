@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Targeting = () => {
   const [showkeyworks, setshowKeywords] = useState(false);
   const [showbottoms, setshowbottoms] = useState(false);
-
   const navigate = useNavigate();
   const handleClickNext = () => {
     navigate("/bdv/BideVertiser/quality");

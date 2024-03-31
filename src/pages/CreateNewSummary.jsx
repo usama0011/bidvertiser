@@ -15,7 +15,7 @@ const CreateNewSummary = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:3001/api/summary", {
+      await axios.post("https://bidvertiserserver.vercel.app/api/summary", {
         startdate,
         endDate,
         AdRequests: adRequests,

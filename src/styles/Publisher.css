@@ -25,7 +25,8 @@
   padding: 20px;
 }
 
-.publisherbodycontainer > button,.desibutton {
+.publisherbodycontainer > button,
+.desibutton {
   margin-left: 10px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
   background-position: 0 0;
@@ -42,20 +43,20 @@
   min-height: 30px;
   min-width: 100px;
 }
-.delsidelete{
-    margin-left: 10px;
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
-    background-position: 0 0;
-    background-color: crimson;
-    border: 1px solid var(--lightGreen);
-    display: inline-block;
-    cursor: pointer;
-    color: white;
-    font-family: "Open Sans", sans-serif;
-    font-size: 13px;
-    font-weight: normal;
-    font-style: normal;
-    padding: 3px 12px;
-    min-height: 30px;
-    min-width: 100px; 
+.delsidelete {
+  margin-left: 10px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: crimson;
+  border: 1px solid var(--lightGreen);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
 }

@@ -16,7 +16,7 @@ const UpdateSingleCompaing = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:3001/api/newcompaing/${id}`
+        `https://bidvertiserserver.vercel.app/api/newcompaing/${id}`
       );
       setCampaign(response.data);
       setLoading(false);
@@ -34,7 +34,10 @@ const UpdateSingleCompaing = () => {
   const handleUpdateCampaign = async () => {
     try {
       setLoading(true);
-      await axios.put(`http://localhost:3001/api/newcompaing/${id}`, campaign);
+      await axios.put(
+        `https://bidvertiserserver.vercel.app/api/newcompaing/${id}`,
+        campaign
+      );
       // Optionally, you can fetch the updated campaign after the update request
       await fetchCampaign();
       setLoading(false);
@@ -46,7 +49,7 @@ const UpdateSingleCompaing = () => {
 
   return (
     <>
-    <Header routename={id}/>
+      <Header routename={id} />
       <div style={{ margin: "20px" }}>
         <h2 style={{ marginBottom: "10px" }}>Update Campaign</h2>
         {loading ? (
