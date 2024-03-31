@@ -912,7 +912,6 @@ const App = () => {
                                     style={{
                                       color: "var(--red)",
                                       padding: "0",
-                                      fontWeight: "normal",
                                       fontWeight: "bold",
                                       fontSize: "4.5pt",
                                     }}
@@ -1028,7 +1027,7 @@ const App = () => {
                           id="what_device_799817"
                         ></i>
                         <span title="Direct" style={{ marginLeft: "5px" }}>
-                          Direct
+                          {item.adFormat}
                         </span>
                       </td>
                       <td

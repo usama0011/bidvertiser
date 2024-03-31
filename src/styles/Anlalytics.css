@@ -1,3 +1,23 @@
+:root {
+  --lightGrey: #fefefe;
+  --white: #f3f3f3;
+  --bgColor: #f6f8fa;
+  --lightBlue: #1173b7;
+  --halfBlue: rgba(14, 91, 152, 1);
+  --darkBlue: rgba(27, 58, 94, 1);
+  --darkBlue2: rgba(27, 58, 94, 0.7);
+  --greyBlue: #527196;
+  --lightGreen: #81d34a;
+  --darkGreen: #62a535;
+  --black: #505050;
+  --Purple: #c778c5;
+  --red: #fc7c7c;
+  --darkRed: #f65151;
+  --orange: #ffa500;
+  --yellow: #fdef7b;
+  --Grey: #bebebe;
+}
+
 .analytics-body-container {
   padding: 30px;
 }
@@ -48,11 +68,6 @@
   font-size: 14px;
 }
 
-/* Styles for .date-picker */
-.date-picker {
-  /* Add your date picker styles here */
-}
-
 /* Styles for .campaign-filter */
 .campaign-filter {
   margin-left: 20px;
@@ -81,3 +96,35 @@
   padding: 15px 10px;
 }
 
+.anaylitcstalble > table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  unicode-bidi: isolate;
+  border-spacing: 2px;
+  border-color: gray;
+}
+
+.anaylitcstalble table tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  unicode-bidi: isolate;
+  border-color: inherit;
+}
+.main_table_style {
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  font-size: 12px;
+  min-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+.main_table_style tbody tr:nth-of-type(odd) {
+  background-color: #fff;
+}
+
+.main_table_style th, .main_table_style td {
+  padding: 2px 5px;
+}
