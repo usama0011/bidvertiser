@@ -25,6 +25,7 @@ const App = () => {
       const response = await axios.get(
         "https://bidvertiserserver.vercel.app/api/newcompaing"
       );
+      console.log(response)
       setCampaigns(response.data);
       setLoading(false);
     } catch (error) {
