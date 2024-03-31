@@ -20,7 +20,7 @@ const Summery = () => {
   useEffect(() => {
     const fetchSummaries = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/api/summary");
+        const response = await axios.get("https://bidvertiserserver.vercel.app/api/summary");
         setSummaries(response.data);
         setLoading(false);
       } catch (error) {
