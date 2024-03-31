@@ -43,7 +43,7 @@ const Budget = () => {
       visits: state.visits,
       winRate: state.winRate,
       cost: state.cost,
-      dailyCap: budget,
+      dailyCap: state.budget,
     };
 
     try {
