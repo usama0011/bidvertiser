@@ -1,11 +1,53 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Header from "../components/Header";
 import "../styles/NewCampaing.css";
 import { useNavigate } from "react-router-dom";
+import { NewCampaignDetailsContext } from "../context/NewCompaingContext";
 const Newcompaings = () => {
   const navigate = useNavigate();
   const [currenttable, setcurrentTable] = useState("directads");
+  const { state, dispatch } = useContext(NewCampaignDetailsContext);
+
+  const handleUpdateState = (field, value) => {
+    dispatch({ type: "UPDATE_STATE", payload: { field, value } });
+  };
+
   const handleClickNext = () => {
+    if (currenttable === "directads") {
+      handleUpdateState("adFormat", "Direct");
+    } else if (currenttable === "popuptable") {
+      handleUpdateState("adFormat", "PopUp");
+    } else if (currenttable === "inpagepushads") {
+      handleUpdateState("adFormat", "InPage");
+    } else if (currenttable === "nativeads") {
+      handleUpdateState("adFormat", "Native");
+    } else if (currenttable === "vedioads") {
+      handleUpdateState("adFormat", "Vedio");
+    } else if (currenttable === "pushads") {
+      handleUpdateState("adFormat", "Push");
+    } else {
+      handleUpdateState("adFormat", "Contextual");
+    }
+
+    navigate("/bdv/BideVertiser/geo");
+  };
+  const handleMobileCompaingAd = () => {
+    if (currenttable === "directads") {
+      handleUpdateState("adFormat", "Direct");
+    } else if (currenttable === "popuptable") {
+      handleUpdateState("adFormat", "PopUp");
+    } else if (currenttable === "inpagepushads") {
+      handleUpdateState("adFormat", "InPage");
+    } else if (currenttable === "nativeads") {
+      handleUpdateState("adFormat", "Native");
+    } else if (currenttable === "vedioads") {
+      handleUpdateState("adFormat", "Vedio");
+    } else if (currenttable === "pushads") {
+      handleUpdateState("adFormat", "Push");
+    } else {
+      handleUpdateState("adFormat", "Contextual");
+    }
+
     navigate("/bdv/BideVertiser/geo");
   };
 
@@ -1020,6 +1062,7 @@ const Newcompaings = () => {
             Create Desktop Ad
           </button>
           <button
+            onClick={handleMobileCompaingAd}
             id="mob_select"
             className="function-button"
             style={{ margin: "5px" }}

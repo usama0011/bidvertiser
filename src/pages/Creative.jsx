@@ -1,11 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/Creative.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import { NewCampaignDetailsContext } from "../context/NewCompaingContext";
 const Creative = () => {
   const navigate = useNavigate();
   const [showurls, setshowUrls] = useState(false);
+  const [destinationUrl, setDestinationURL] = useState("");
+  const [comapingname, setcompaingname] = useState("");
+  const { state, dispatch } = useContext(NewCampaignDetailsContext);
+  console.log(state);
+  const handleUpdateState = (field, value) => {
+    dispatch({ type: "UPDATE_STATE", payload: { field, value } });
+  };
   const handleClickNext = () => {
+    handleUpdateState("campaignName", comapingname);
     navigate("/bdv/BideVertiser/budget");
   };
   const changeNote = (_note) => {
@@ -202,12 +211,12 @@ const Creative = () => {
                           <input
                             type="Text"
                             id="AdName"
+                            required
                             data-meteor-emoji="true"
                             tabIndex="1"
                             size="48"
-                            name="Name"
-                            onKeyUp="update_char_num(this,'Identifier_Char_Num',25)"
-                            value=""
+                            value={comapingname}
+                            onChange={(e) => setcompaingname(e.target.value)}
                             className="firtcreatinput"
                             maxLength="25"
                           />
@@ -293,33 +302,18 @@ const Creative = () => {
                               className="desurl"
                               type="text"
                               tabIndex="6"
+                              required
                               placeholder="https://"
-                              onKeyUp={(e) => {
-                                let qmark = "?";
-                                for (
-                                  let i = 0;
-                                  i < e.target.value.length;
-                                  i++
-                                ) {
-                                  if (e.target.value.charAt(i) === "?") {
-                                    if (i === e.target.value.length - 1)
-                                      qmark = "";
-                                    else qmark = "&";
-                                  } else if (
-                                    e.target.value.charAt(i) === "&" &&
-                                    i === e.target.value.length - 1
-                                  )
-                                    qmark = "";
-                                }
-                              }}
                               id="URLLINE"
                               style={{
                                 verticalAlign: "bottom",
                                 paddingRight: "34px",
                                 width: "805px",
                               }}
-                              name="URL"
-                              value=""
+                              value={destinationUrl}
+                              onChange={(e) =>
+                                setDestinationURL(e.target.value)
+                              }
                               maxLength="490"
                             />
                           </div>
@@ -577,7 +571,8 @@ const Creative = () => {
             <tr>
               <td>
                 <select
-                  name="freq_cap" className="minputdoneonebiddi"
+                  name="freq_cap"
+                  className="minputdoneonebiddi"
                   id="freq_cap_val"
                   onChange={(e) => changeNote(e.target.value)}
                 >

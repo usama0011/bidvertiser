@@ -93,7 +93,7 @@ const UpdateSingle = () => {
           <label style={{ marginBottom: "5px" }}>Ad Requests:</label>
           <input
             className="forminputt"
-            type="number"
+            type="text"
             name="AdRequests"
             value={formData.AdRequests}
             onChange={handleChange}
@@ -101,7 +101,7 @@ const UpdateSingle = () => {
           <label style={{ marginBottom: "5px" }}>Visits:</label>
           <input
             className="forminputt"
-            type="number"
+            type="text"
             name="Visits"
             value={formData.Visits}
             onChange={handleChange}
@@ -109,7 +109,7 @@ const UpdateSingle = () => {
           <label style={{ marginBottom: "5px" }}>Cost:</label>
           <input
             className="forminputt"
-            type="number"
+            type="text"
             name="Cost"
             value={formData.Cost}
             onChange={handleChange}
@@ -117,7 +117,7 @@ const UpdateSingle = () => {
           <label style={{ marginBottom: "5px" }}>CPC:</label>
           <input
             className="forminputt"
-            type="number"
+            type="text"
             name="CPC"
             value={formData.CPC}
             onChange={handleChange}

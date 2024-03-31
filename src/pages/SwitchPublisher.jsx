@@ -11,10 +11,10 @@ const SwitchPublisher = () => {
         <button onClick={() => navigate("/createnewsummary")}>
           Create summary
         </button>
-        <button onClick={() => navigate("/updatesummary")}>
-          View summary
+        <button onClick={() => navigate("/updatesummary")}>View summary</button>
+        <button onClick={() => navigate("/viewcompaings")}>
+          View Comapaings
         </button>
-        <button>button</button>
         <button>button</button>
         <button>button</button>
         <button>button</button>

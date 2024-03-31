@@ -1,16 +1,83 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../styles/Budget.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import { NewCampaignDetailsContext } from "../context/NewCompaingContext";
+import axios from "axios";
 const Budget = () => {
-  const navigate = useNavigate();
-  const handleClickNext = () => {
-    navigate("/");
+  const [budget, setBudget] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [Id, setID] = useState("");
+  const { state, dispatch } = useContext(NewCampaignDetailsContext);
+  const handleUpdateState = (field, value) => {
+    dispatch({ type: "UPDATE_STATE", payload: { field, value } });
   };
+  const navigate = useNavigate();
+  const generateRandomId = () => {
+    const min = 100000;
+    const max = 999999;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  // Usage
+
+  const handleClickNext = async () => {
+    // Generate random ID
+    let newID = generateRandomId();
+
+    // Update state with the generated ID
+    setID(newID);
+
+    // Update state with the budget value
+    handleUpdateState("dailyCap", budget);
+
+    // Prepare data object to submit
+    const data = {
+      adFormat: state.adFormat,
+      id: newID,
+      campaignName: state.campaignName,
+      campaignBid: state.campaignBid,
+      geo: state.geo,
+      bidRequests: state.bidRequests,
+      videoImp: state.videoImp,
+      visits: state.visits,
+      winRate: state.winRate,
+      cost: state.cost,
+      dailyCap: budget,
+    };
+
+    try {
+      // Set loading state to true
+      setLoading(true);
+
+      // Make POST request to submit data
+      const response = await axios.post(
+        "http://localhost:3001/api/newcompaing",
+        data
+      );
+      console.log(response);
+      // Handle success response here if needed
+      dispatch({ type: "RESET_STATE" });
+
+      // Set loading state to false
+      setLoading(false);
+
+      // Navigate to the next page or perform any other actions
+      navigate("/");
+    } catch (error) {
+      // Handle error here if needed
+      console.error("Error submitting data:", error.message);
+
+      // Set loading state to false
+      setLoading(false);
+    }
+  };
+
   const handleSubmit = () => {
     // Handle form submission here
   };
 
+  console.log(state);
   return (
     <div>
       <Header routename="Create New Campaign" />
@@ -129,9 +196,10 @@ const Budget = () => {
                 <input
                   type="Text"
                   className="form-field binput"
-                  name="Daily_Cap"
-                  value=""
                   size="7"
+                  required
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
                   onfocus="document.getElementById('docap').checked='true'"
                   maxlength="10"
                 />{" "}
@@ -157,10 +225,16 @@ const Budget = () => {
         </table>
         <br />
         <center id="ad_select" className="buttonlargetwo">
-          <button id="desk_select" class="function-button">
+          <button
+            onClick={handleClickNext}
+            disabled={loading}
+            id="desk_select"
+            class="function-button"
+          >
             Complete and Start Campaign
           </button>
           <button
+            disabled={loading}
             onClick={handleClickNext}
             id="mob_select"
             class="function-button"

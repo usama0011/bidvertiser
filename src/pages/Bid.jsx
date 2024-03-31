@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../styles/Bid.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import { NewCampaignDetailsContext } from "../context/NewCompaingContext";
 const Bid = () => {
   const navigate = useNavigate();
+  const [bid, setBid] = useState("0.0010");
+  const { state, dispatch } = useContext(NewCampaignDetailsContext);
+  console.log(state);
+  const handleUpdateState = (field, value) => {
+    dispatch({ type: "UPDATE_STATE", payload: { field, value } });
+    setBid("0.0010");
+  };
   const handleClickNext = () => {
+    handleUpdateState("bidRequests", bid);
     navigate("/bdv/BideVertiser/creative");
   };
+
   const BidAnalyzerFunc = () => {};
   return (
     <div>
@@ -97,7 +107,7 @@ const Bid = () => {
                   campaign's targeting
                 </p>
                 <br />
-                
+
                 <p>Click "Next" to continue.</p>
                 <br />
                 <br />
@@ -135,7 +145,8 @@ const Bid = () => {
                                   type="Text"
                                   id="curr_max_bidID"
                                   name="curr_max_bid"
-                                  value="0.0010"
+                                  value={bid}
+                                  onChange={(e) => setBid(e.target.value)}
                                   size="10"
                                   maxLength="8"
                                   className="mybidinput"

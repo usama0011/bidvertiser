@@ -42,6 +42,8 @@ import SwitchPublisher from "./src/pages/SwitchPublisher.jsx";
 import CreateNewSummary from "./src/pages/CreateNewSummary.jsx";
 import UpdateSummary from "./src/pages/UpdateSummary.jsx";
 import UpdateSingle from "./src/pages/UpdateSingle.jsx";
+import ViewCompaings from "./src/pages/ViewCompaings.jsx";
+import UpdateSingleCompaing from "./src/pages/UpdateSingleCompaing.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -100,11 +102,19 @@ const InitializeApp = () => {
               <Route path="/bdv/BideVertiser/bid" element={<Bid />} />
               <Route path="/bdv/BideVertiser/creative" element={<Creative />} />
               <Route path="/bdv/BideVertiser/budget" element={<Budget />} />
-              <Route path="/reporting/dailyactivity" element={<DailyActivity />} />
+              <Route
+                path="/reporting/dailyactivity"
+                element={<DailyActivity />}
+              />
               <Route path="/publisher" element={<SwitchPublisher />} />
               <Route path="/createnewsummary" element={<CreateNewSummary />} />
               <Route path="/updatesummary" element={<UpdateSummary />} />
               <Route path="/updatesummaryitem/:id" element={<UpdateSingle />} />
+              <Route path="/viewcompaings" element={<ViewCompaings />} />
+              <Route
+                path="/updatecompaing/:id"
+                element={<UpdateSingleCompaing />}
+              />
             </Routes>
           </div>
         </>

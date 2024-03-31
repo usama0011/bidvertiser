@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "../styles/Geo.css";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
+import { NewCampaignDetailsContext } from "../context/NewCompaingContext";
 const Geo = () => {
+  const [selectCountry, setSelectCountry] = useState("");
+  const [selectRemoveCountry, setSelectRemoveCountry] = useState("");
+  const [selectedCountries, setSelectedCountries] = useState(["US"]);
   const navigate = useNavigate();
+  const { state, dispatch } = useContext(NewCampaignDetailsContext);
+  const handleUpdateState = (field, value) => {
+    dispatch({ type: "UPDATE_STATE", payload: { field, value } });
+  };
   const handleClickNext = () => {
+    if (selectedCountries.length === 1) {
+      handleUpdateState("geo", "US");
+    } else {
+      handleUpdateState("geo", "Globe");
+    }
     navigate("/bdv/BideVertiser/targeting");
   };
   const checkCitiesDisabled = () => {};
   const checkZipDisabled = () => {};
+  const handleAddcountry = (newcountry) => {
+    setSelectedCountries((prev) => [...prev, newcountry]);
+  };
+  console.log(selectedCountries);
+  const handleRemoveCountry = (removecountry) => {
+    const filterCountries = selectedCountries.filter(
+      (item) => item !== removecountry
+    );
+    setSelectedCountries(filterCountries);
+  };
   return (
     <div>
       <Header routename="Create New Campaign" />
@@ -88,9 +111,10 @@ const Geo = () => {
               <strong className="bodytitlle">Available Counties</strong>
               <div className="countirescontainerlist">
                 <select
+                  onChange={(e) => setSelectCountry(e.target.value)}
                   id="all_countries"
                   name="all_countries"
-                  multiple=""
+                  multiple
                   size="18"
                   style={{ width: "250px", height: "380px" }}
                   className="bdv_000000_Text_11"
@@ -388,10 +412,14 @@ const Geo = () => {
             </div>
             <div className="buttonscoutnniresven">
               <div>
-                <button>{`Add >>`}</button>
+                <button
+                  onClick={() => handleAddcountry(selectCountry)}
+                >{`Add >>`}</button>
               </div>
               <div>
-                <button>{`<< Remove`}</button>
+                <button
+                  onClick={() => handleRemoveCountry(selectRemoveCountry)}
+                >{`<< Remove`}</button>
               </div>
             </div>
             <div className="selectedcountr">
@@ -400,28 +428,30 @@ const Geo = () => {
                 <select
                   id="all_countries"
                   name="all_countries"
-                  multiple=""
+                  onChange={(e) => setSelectRemoveCountry(e.target.value)}
                   size="18"
                   style={{ width: "250px", height: "380px" }}
                   className="bdv_000000_Text_11"
                   ondblclick="move(this.form.all_countries,this.form.selected_countries, 1);"
                 >
-                  <option
-                    value="US"
-                    className="bdv_000000_Text_11"
-                    cont="North &amp; Central America"
-                    cont2=""
-                    selected=""
-                    style={{
-                      background:
-                        "url('https://my.bidvertiser.com/BidVertiser/Images/flags/US.svg') no-repeat",
-                      backgroundSize: "17px 15px",
-                      backgroundPosition: "2px 2px",
-                      paddingLeft: "23px",
-                    }}
-                  >
-                    UNITED STATE
-                  </option>
+                  {selectedCountries?.map((item) => (
+                    <option
+                      value={item}
+                      className="bdv_000000_Text_11"
+                      cont="North &amp; Central America"
+                      cont2=""
+                      selected=""
+                      style={{
+                        background:
+                          "url('https://my.bidvertiser.com/BidVertiser/Images/flags/US.svg') no-repeat",
+                        backgroundSize: "17px 15px",
+                        backgroundPosition: "2px 2px",
+                        paddingLeft: "23px",
+                      }}
+                    >
+                      {item}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
