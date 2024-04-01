@@ -281,26 +281,11 @@ const Summery = () => {
                             <td valign="top">{formatDate(summary.endDate)}</td>
                             <td valign="top">{summary.AdRequests}</td>
                             <td valign="top">{summary.Visits}</td>
-                            <td valign="top">{`$ ${summary.Cost.toFixed(
-                              2
-                            )}`}</td>
-                            <td valign="top">{`$ ${summary.CPC.toFixed(
-                              2
-                            )}`}</td>
+                            <td valign="top">{`$ ${summary?.Cost}`}</td>
+                            <td valign="top">{`$ ${summary?.CPC}`}</td>
                           </tr>
                         ))}
-                        {/* <tr bgcolor="#FFFFFF" className="work_line">
-                          <td valign="top">March 21, 2024</td>
-                          <td valign="top">March 21 2024</td>
-                          <td valign="top">0</td>
-                          <td valign="top">0</td>
-                          <td valign="top" nowrap="">
-                            $ 0.00
-                          </td>
-                          <td valign="top" nowrap="">
-                            $ 0.00
-                          </td>
-                        </tr> */}
+                      
                       </tbody>
                     </table>
                   </td>

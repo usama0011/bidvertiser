@@ -15,9 +15,18 @@ const SwitchPublisher = () => {
         <button onClick={() => navigate("/viewcompaings")}>
           View Comapaings
         </button>
-        <button>button</button>
-        <button>button</button>
-        <button>button</button>
+        <button onClick={() => navigate("/viewanalytics")}>
+          View Analytics
+        </button>
+        <button onClick={() => navigate("/viewdailyactivity")}>
+          Daily Activity
+        </button>
+        <button onClick={() => navigate("/createanalytics")}>
+          Create Analytics
+        </button>
+        <button onClick={() => navigate("/createdailyactivity")}>
+          Create Daily Activity
+        </button>
       </div>
     </div>
   );

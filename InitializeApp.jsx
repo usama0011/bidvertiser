@@ -44,6 +44,10 @@ import UpdateSummary from "./src/pages/UpdateSummary.jsx";
 import UpdateSingle from "./src/pages/UpdateSingle.jsx";
 import ViewCompaings from "./src/pages/ViewCompaings.jsx";
 import UpdateSingleCompaing from "./src/pages/UpdateSingleCompaing.jsx";
+import ViewDailyActivity from "./src/pages/ViewDailyActivity.jsx";
+import ViewDailyAnalytics from "./src/pages/ViewDailyAnalytics.jsx";
+import CreateAnalytics from "./src/pages/CreateAnalytics.jsx";
+import CreateDailyActivity from "./src/pages/CreateDailyActivity.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -114,6 +118,22 @@ const InitializeApp = () => {
               <Route
                 path="/updatecompaing/:id"
                 element={<UpdateSingleCompaing />}
+              />
+              <Route
+                path="/viewanalytics"
+                element={<ViewDailyAnalytics />}
+              />
+              <Route
+                path="/viewdailyactivity"
+                element={<ViewDailyActivity />}
+              />
+              <Route
+                path="/createanalytics"
+                element={<CreateAnalytics />}
+              />
+              <Route
+                path="/createdailyactivity"
+                element={<CreateDailyActivity />}
               />
             </Routes>
           </div>

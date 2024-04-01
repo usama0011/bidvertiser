@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "../styles/Anlalytics.css";
+import axios from "axios";
 
 const Analytics = () => {
+  const [analytics, setAnalytics] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchAnalytics = async () => {
+      try {
+        const response = await axios.get(
+          "https://bidvertiserserver.vercel.app/api/analytics"
+        );
+        setAnalytics(response?.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching analytics:", error);
+      }
+    };
+
+    fetchAnalytics();
+  }, []);
   return (
     <div className="analytics-container">
       <Header routename="Analytics" />
@@ -502,519 +521,85 @@ const Analytics = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="work_line" style={{ lineHeight: "45px" }}>
-                  <td
-                    valign="top"
-                    style={{ paddingLeft: "15px", width: "10%" }}
-                  >
-                    January 01 2024
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    1,251,455
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    9,375
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    0.75%
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $8.87
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $0.0009
-                  </td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr className="work_line" style={{ lineHeight: "45px" }}>
-                  <td
-                    valign="top"
-                    style={{ paddingLeft: "15px", width: "10%" }}
-                  >
-                    January 01 2024
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    1,251,455
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    9,375
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    0.75%
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $8.87
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $0.0009
-                  </td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr className="work_line" style={{ lineHeight: "45px" }}>
-                  <td
-                    valign="top"
-                    style={{ paddingLeft: "15px", width: "10%" }}
-                  >
-                    January 01 2024
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    1,251,455
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    9,375
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    0.75%
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $8.87
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $0.0009
-                  </td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr className="work_line" style={{ lineHeight: "45px" }}>
-                  <td
-                    valign="top"
-                    style={{ paddingLeft: "15px", width: "10%" }}
-                  >
-                    January 01 2024
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    1,251,455
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    9,375
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    0.75%
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $8.87
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $0.0009
-                  </td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr className="work_line" style={{ lineHeight: "45px" }}>
-                  <td
-                    valign="top"
-                    style={{ paddingLeft: "15px", width: "10%" }}
-                  >
-                    January 01 2024
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    1,251,455
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    9,375
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    0.75%
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $8.87
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $0.0009
-                  </td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr className="work_line" style={{ lineHeight: "45px" }}>
-                  <td
-                    valign="top"
-                    style={{ paddingLeft: "15px", width: "10%" }}
-                  >
-                    January 01 2024
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    1,251,455
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    9,375
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    0.75%
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $8.87
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $0.0009
-                  </td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr className="work_line" style={{ lineHeight: "45px" }}>
-                  <td
-                    valign="top"
-                    style={{ paddingLeft: "15px", width: "10%" }}
-                  >
-                    January 01 2024
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    1,251,455
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    9,375
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    0.75%
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $8.87
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $0.0009
-                  </td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-                <tr className="work_line" style={{ lineHeight: "45px" }}>
-                  <td
-                    valign="top"
-                    style={{ paddingLeft: "15px", width: "10%" }}
-                  >
-                    January 01 2024
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    1,251,455
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    9,375
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    0.75%
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $8.87
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    $0.0009
-                  </td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
-                {/* Add other rows here */}
+                {analytics?.length > 0 ? (
+                  analytics?.map((analytic) => (
+                    <tr className="work_line" style={{ lineHeight: "45px" }}>
+                      <td
+                        valign="top"
+                        style={{ paddingLeft: "15px", width: "10%" }}
+                      >
+                        {analytic?.Date}
+                      </td>
+                      <td
+                        valign="top"
+                        style={{
+                          paddingLeft: "5px",
+                          width: "10%",
+                          textAlign: "right",
+                        }}
+                      >
+                        {analytic.BidRequest}
+                      </td>
+                      <td
+                        valign="top"
+                        style={{
+                          paddingLeft: "5px",
+                          width: "10%",
+                          textAlign: "right",
+                        }}
+                      >
+                        {analytic.Vistis}
+                      </td>
+                      <td
+                        valign="top"
+                        style={{
+                          paddingLeft: "5px",
+                          width: "10%",
+                          textAlign: "right",
+                        }}
+                        nowrap
+                      >
+                        {analytic.WinRate}%
+                      </td>
+                      <td
+                        valign="top"
+                        style={{
+                          paddingLeft: "5px",
+                          width: "10%",
+                          textAlign: "right",
+                        }}
+                        nowrap
+                      >
+                        ${analytic.Cost}
+                      </td>
+                      <td
+                        valign="top"
+                        style={{
+                          paddingLeft: "5px",
+                          width: "10%",
+                          textAlign: "right",
+                        }}
+                        nowrap
+                      >
+                        ${analytic.CPC}
+                      </td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>Loading...</tr>
+                  // <tr>
+                  //   <div className="activity-log">
+                  //     <div className="no-activity">
+                  //       No activity logged during the chosen time frame.
+                  //     </div>
+                  //   </div>
+                  // </tr>
+                )}
+              </tbody>
+              <tbody>
                 <tr style={{ lineHeight: "45px" }}>
                   <td
                     valign="top"
@@ -1090,11 +675,6 @@ const Analytics = () => {
                 </tr>
               </tbody>
             </table>
-          </div>
-          <div className="activity-log">
-            <div className="no-activity">
-              No activity logged during the chosen time frame.
-            </div>
           </div>
         </div>
       </div>
