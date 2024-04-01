@@ -13,7 +13,9 @@ const ViewCompaings = () => {
   const fetchCampaigns = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("https://bidvertiserserver.vercel.app/api/newcompaing");
+      const response = await axios.get(
+        "https://bidvertiserserver.vercel.app/api/newcompaing"
+      );
       setCampaigns(response.data);
       setLoading(false);
     } catch (error) {
@@ -25,7 +27,9 @@ const ViewCompaings = () => {
   const handleDelete = async (id) => {
     try {
       setLoading(true);
-      await axios.delete(`https://bidvertiserserver.vercel.app/api/newcompaing/${id}`);
+      await axios.delete(
+        `https://bidvertiserserver.vercel.app/api/newcompaing/${id}`
+      );
       // After successful delete, fetch campaigns again to update the list
       await fetchCampaigns();
       setLoading(false);
@@ -49,6 +53,7 @@ const ViewCompaings = () => {
                 marginBottom: "10px",
                 borderBottom: "1px solid #ccc",
                 paddingBottom: "10px",
+              
               }}
             >
               <span style={{ marginRight: "10px" }}>
@@ -67,9 +72,14 @@ const ViewCompaings = () => {
                 to={`/updatecompaing/${campaign._id}`}
                 style={{ marginRight: "10px", textDecoration: "none" }}
               >
-                Update
+                <button className="desibutton">Update</button>
               </Link>
-              <button onClick={() => handleDelete(campaign._id)}>Delete</button>
+              <button
+                className="delsidelete"
+                onClick={() => handleDelete(campaign._id)}
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>

@@ -7,7 +7,7 @@ const initialState = {
   campaignBid: 0,
   geo: "",
   bidRequests: 0,
-  videoImp: null,
+  videoImp: 0,
   visits: 0,
   winRate: 0.00,
   cost: 0.00,

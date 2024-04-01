@@ -25,7 +25,7 @@ const App = () => {
       const response = await axios.get(
         "https://bidvertiserserver.vercel.app/api/newcompaing"
       );
-      console.log(response)
+      console.log(response);
       setCampaigns(response.data);
       setLoading(false);
     } catch (error) {
@@ -72,7 +72,9 @@ const App = () => {
   const handleDelete = async (id) => {
     try {
       setLoading(true);
-      await axios.delete(`https://bidvertiserserver.vercel.app/api/newcompaing/${id}`);
+      await axios.delete(
+        `https://bidvertiserserver.vercel.app/api/newcompaing/${id}`
+      );
       // After successful delete, fetch campaigns again to update the list
       await fetchCampaigns();
       setLoading(false);
@@ -656,7 +658,7 @@ const App = () => {
                           borderLeft: "none",
                         }}
                       >
-                        <div style={{ display: "flex" }}>
+                        <div style={{ display: "flex", alignItems: "center" }}>
                           <div style={{ width: "16%" }} id="func_type_799817">
                             <div className="handle ui-sortable-handle">
                               <i
@@ -672,14 +674,23 @@ const App = () => {
                             </div>
                           </div>
                           <div
-                            style={{ width: "16%", cursor: "pointer" }}
+                            style={{
+                              width: "16%",
+                              cursor: "pointer",
+                              display: "flex",
+                              alignItems: "center",
+                            }}
                             id="status_box_799817"
                           >
                             <div
                               className="isOffline"
                               title="Paused - Campaign is Offline"
                               id="content_status_799817"
-                              style={{ padding: "2px 2px" }}
+                              style={{
+                                padding: "2px 2px",
+                                display: "flex",
+                                alignItems: "center",
+                              }}
                             >
                               <i
                                 className="fa fa-step-forward"
@@ -752,15 +763,21 @@ const App = () => {
                           </div>
                           <div
                             id="buttons_control_1"
-                            style={{ cursor: "pointer" }}
+                            style={{
+                              cursor: "pointer",
+                              display: "flex",
+                              alignItems: "center",
+                            }}
                           >
                             <div
                               name="More_button"
                               title="Advanced Settings"
                               id="more_funcs_799817"
                               style={{
+                                display: "flex",
+                                alignItems: "center",
                                 position: "relative",
-                                margin: "4px 0 0 2px",
+                                margin: "0px 0 0 2px",
                               }}
                               onClick={() => More_Func(0, 799817, 1, 1)}
                               onMouseOver={() => {
@@ -793,7 +810,7 @@ const App = () => {
                                 style={{
                                   color: "var(--greyBlue)",
                                   position: "absolute",
-                                  top: "0",
+                                  top: "-13",
                                   left: "14px",
                                   fontSize: "7px",
                                 }}
@@ -805,7 +822,7 @@ const App = () => {
                                 style={{
                                   color: "var(--greyBlue)",
                                   position: "absolute",
-                                  top: "9px",
+                                  top: "0px",
                                   left: "15px",
                                   fontSize: "8px",
                                 }}
@@ -817,7 +834,7 @@ const App = () => {
                                 style={{
                                   color: "var(--greyBlue)",
                                   position: "absolute",
-                                  top: "2px",
+                                  top: "-7px",
                                   left: "3px",
                                   fontSize: "14px",
                                 }}
@@ -1061,7 +1078,7 @@ const App = () => {
                             justifyContent: "space-between",
                           }}
                         >
-                          <div style={{ float: "left" }}>
+                          <div style={{ float: "left", minWidth: "140px" }}>
                             <span className="CNAME" id="cname_799817">
                               <a
                                 href="javascript:void(0);"
@@ -1083,6 +1100,7 @@ const App = () => {
                                   background: "none",
                                   outline: "0",
                                   fontSize: "12px",
+                                  minWidth: "100px",
                                   fontFamily:
                                     "'Open Sans', 'Open Sans', sans-serif",
                                 }}
@@ -1178,6 +1196,7 @@ const App = () => {
                               style={{
                                 width: "100%",
                                 position: "relative",
+                                marginLeft: "10px",
                                 whiteSpace: "nowrap",
                               }}
                             >
@@ -1275,7 +1294,7 @@ const App = () => {
                         id="requests799817"
                         title="0"
                       >
-                        {item.compaignBid}
+                        {item.campaignBid}
                       </td>
                       <td
                         align="left"

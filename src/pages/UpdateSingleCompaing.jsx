@@ -77,12 +77,72 @@ const UpdateSingleCompaing = () => {
               />
             </div>
             <div style={{ marginBottom: "10px" }}>
-              <label htmlFor="geo">Geo:</label>
+              <label htmlFor="adFormat">Ad Format:</label>
               <input
                 type="text"
-                id="geo"
-                name="geo"
-                value={campaign.geo || ""}
+                id="adFormat"
+                name="adFormat"
+                value={campaign.adFormat || ""}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div style={{ marginBottom: "10px" }}>
+              <label htmlFor="campaignBid">Campaign Bid:</label>
+              <input
+                type="text"
+                id="campaignBid"
+                name="campaignBid"
+                value={campaign.campaignBid || ""}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div style={{ marginBottom: "10px" }}>
+              <label htmlFor="bidRequests">Bid Requests:</label>
+              <input
+                type="text"
+                id="bidRequests"
+                name="bidRequests"
+                value={campaign.bidRequests || ""}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div style={{ marginBottom: "10px" }}>
+              <label htmlFor="videoImp">Video Impressions:</label>
+              <input
+                type="text"
+                id="videoImp"
+                name="videoImp"
+                value={campaign.videoImp || ""}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div style={{ marginBottom: "10px" }}>
+              <label htmlFor="visits">Visits:</label>
+              <input
+                type="text"
+                id="visits"
+                name="visits"
+                value={campaign.visits || ""}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div style={{ marginBottom: "10px" }}>
+              <label htmlFor="winRate">Win Rate:</label>
+              <input
+                type="text"
+                id="winRate"
+                name="winRate"
+                value={campaign.winRate || ""}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div style={{ marginBottom: "10px" }}>
+              <label htmlFor="cost">Cost:</label>
+              <input
+                type="text"
+                id="cost"
+                name="cost"
+                value={campaign.cost || ""}
                 onChange={handleInputChange}
               />
             </div>
