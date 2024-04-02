@@ -18,57 +18,449 @@ const Targeting = () => {
       <Header routename="Create New Campaign" />
       <div className="newcompaingsbody">
         <div className="breadcurmcontainer">
-          <div className="button-bar">
-            <a
-              href="#"
-              style={{ backgroundColor: "#1173b7", color: "white" }}
-              className="button next"
+          <div style={{ display: "flex", marginRight: "10px" }}>
+            <div
+              style={{
+                position: "relative",
+                width: "85px",
+                height: "25px",
+                zIndex: "2",
+                textAlign: "center",
+                backgroundColor: "#1173b7",
+              }}
             >
-              Ad type
-            </a>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  margin: "0",
+                  position: "absolute",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  color: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+              <span
+                style={{
+                  lineHeight: "25px",
+                  paddingLeft: "13px",
+                  fontSize: "13px",
+                  color: "white",
+                }}
+              >
+                Ad Type
+              </span>
+            </div>
+            <div style={{ float: "right", position: "relative" }}>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  position: "relative",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  zIndex: "1",
+                  color: "#1173b7",
+                  backgroundColor: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+            </div>
           </div>
-          <div className="button-bar">
-            <a
-              style={{ backgroundColor: "#1173b7", color: "white" }}
-              href="#"
-              className="button next"
+          <div style={{ display: "flex", marginRight: "10px" }}>
+            <div
+              style={{
+                position: "relative",
+                width: "85px",
+                height: "25px",
+                zIndex: "2",
+                textAlign: "center",
+                backgroundColor: "#1173b7",
+              }}
             >
-              GEO
-            </a>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  margin: "0",
+                  position: "absolute",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  color: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+              <span
+                style={{
+                  lineHeight: "25px",
+                  paddingLeft: "13px",
+                  fontSize: "13px",
+                  color: "white",
+                }}
+              >
+                Geo
+              </span>
+            </div>
+            <div style={{ float: "right", position: "relative" }}>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  position: "relative",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  zIndex: "1",
+                  color: "#1173b7",
+                  backgroundColor: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+            </div>
           </div>
-          <div className="button-bar">
-            <a
-              style={{ backgroundColor: "#81d34a", color: "white" }}
-              href="#"
-              className="button next"
+          <div style={{ display: "flex", marginRight: "10px" }}>
+            <div
+              style={{
+                position: "relative",
+                width: "85px",
+                height: "25px",
+                zIndex: "2",
+                textAlign: "center",
+                backgroundColor: "#81d34a",
+                color: "black",
+              }}
             >
-              Targeting
-            </a>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  margin: "0",
+                  position: "absolute",
+
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  color: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+              <span
+                style={{
+                  lineHeight: "25px",
+                  paddingLeft: "13px",
+                  fontSize: "13px",
+                  color: "white",
+                }}
+              >
+                Targeting
+              </span>
+            </div>
+            <div style={{ float: "right", position: "relative" }}>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  position: "relative",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  zIndex: "1",
+                  color: "#81d34a",
+                  backgroundColor: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+            </div>
           </div>
-          <div className="button-bar">
-            <a href="#" className="button next">
-              Quality
-            </a>
+          <div style={{ display: "flex", marginRight: "10px" }}>
+            <div
+              style={{
+                position: "relative",
+                width: "85px",
+                height: "25px",
+                zIndex: "2",
+                textAlign: "center",
+                backgroundColor: "#e7e8ea",
+                color: "black",
+              }}
+            >
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  margin: "0",
+                  position: "absolute",
+
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  color: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+              <span
+                style={{
+                  lineHeight: "25px",
+                  paddingLeft: "13px",
+                  fontSize: "13px",
+                  color: "gray",
+                }}
+              >
+                Quality
+              </span>
+            </div>
+            <div style={{ float: "right", position: "relative" }}>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  position: "relative",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  zIndex: "1",
+                  color: "#e7e8ea",
+                  backgroundColor: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+            </div>
           </div>
-          <div className="button-bar">
-            <a href="#" className="button next">
-              Bid
-            </a>
+          <div style={{ display: "flex", marginRight: "10px" }}>
+            <div
+              style={{
+                position: "relative",
+                width: "85px",
+                height: "25px",
+                zIndex: "2",
+                textAlign: "center",
+                backgroundColor: "#e7e8ea",
+                color: "black",
+              }}
+            >
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  margin: "0",
+                  position: "absolute",
+
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  color: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+              <span
+                style={{
+                  lineHeight: "25px",
+                  paddingLeft: "13px",
+                  fontSize: "13px",
+                  color: "gray",
+                }}
+              >
+                Bid
+              </span>
+            </div>
+            <div style={{ float: "right", position: "relative" }}>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  position: "relative",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  zIndex: "1",
+                  color: "#e7e8ea",
+                  backgroundColor: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+            </div>
           </div>
-          <div className="button-bar">
-            <a href="#" className="button next">
-              Creative
-            </a>
+          <div style={{ display: "flex", marginRight: "10px" }}>
+            <div
+              style={{
+                position: "relative",
+                width: "85px",
+                height: "25px",
+                zIndex: "2",
+                textAlign: "center",
+                backgroundColor: "#e7e8ea",
+                color: "black",
+              }}
+            >
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  margin: "0",
+                  position: "absolute",
+
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  color: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+              <span
+                style={{
+                  lineHeight: "25px",
+                  paddingLeft: "13px",
+                  fontSize: "13px",
+                  color: "gray",
+                }}
+              >
+                Creative
+              </span>
+            </div>
+            <div style={{ float: "right", position: "relative" }}>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  position: "relative",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  zIndex: "1",
+                  color: "#e7e8ea",
+                  backgroundColor: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+            </div>
           </div>
-          <div className="button-bar">
-            <a href="#" className="button next">
-              Budget
-            </a>
+          <div style={{ display: "flex", marginRight: "10px" }}>
+            <div
+              style={{
+                position: "relative",
+                width: "85px",
+                height: "25px",
+                zIndex: "2",
+                textAlign: "center",
+                backgroundColor: "#e7e8ea",
+                color: "black",
+              }}
+            >
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  margin: "0",
+                  position: "absolute",
+
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  color: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+              <span
+                style={{
+                  lineHeight: "25px",
+                  paddingLeft: "13px",
+                  fontSize: "13px",
+                  color: "gray",
+                }}
+              >
+                Budget
+              </span>
+            </div>
+            <div style={{ float: "right", position: "relative" }}>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  position: "relative",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  zIndex: "1",
+                  color: "#e7e8ea",
+                  backgroundColor: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+            </div>
           </div>
-          <div className="button-bar">
-            <a href="#" className="button next">
-              Advanced Settings
-            </a>
+          <div style={{ display: "flex", marginRight: "10px" }}>
+            <div
+              style={{
+                position: "relative",
+                width: "160px",
+                height: "25px",
+                zIndex: "2",
+                textAlign: "center",
+                backgroundColor: "#e7e8ea",
+                color: "black",
+              }}
+            >
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  margin: "0",
+                  position: "absolute",
+
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  color: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+              <span
+                style={{
+                  lineHeight: "25px",
+                  paddingLeft: "13px",
+                  fontSize: "13px",
+                  color: "gray",
+                }}
+              >
+                Advanced Settings
+              </span>
+            </div>
+            <div style={{ float: "right", position: "relative" }}>
+              <i
+                className="fa fa-caret-right"
+                style={{
+                  padding: "0",
+                  position: "relative",
+                  left: "-2px",
+                  top: "0",
+                  lineHeight: "25px",
+                  fontSize: "41px",
+                  zIndex: "1",
+                  color: "#e7e8ea",
+                  backgroundColor: "white",
+                }}
+                aria-hidden="true"
+              ></i>
+            </div>
           </div>
         </div>
         <br />
