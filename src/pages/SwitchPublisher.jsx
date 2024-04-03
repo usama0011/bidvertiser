@@ -27,6 +27,9 @@ const SwitchPublisher = () => {
         <button onClick={() => navigate("/createdailyactivity")}>
           Create Daily Activity
         </button>
+        <button onClick={() => navigate("/test")}>
+          Test
+        </button>
       </div>
     </div>
   );

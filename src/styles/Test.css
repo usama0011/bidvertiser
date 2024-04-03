@@ -1,0 +1,19 @@
+.Wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  .DatePicker {
+    margin: 8px;
+    margin-top: 24px;
+    padding: 8px;
+  }
+  .DateDetails {
+    margin: 8px;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: lightslategray;
+    color: #000;
+    line-height: 28px;
+    font-weight: 600;
+  }
+  

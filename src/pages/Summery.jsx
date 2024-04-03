@@ -4,25 +4,33 @@ import Header from "../components/Header";
 import axios from "axios";
 import $ from "jquery"; // Import jQuery
 import "jquery-ui/ui/widgets/datepicker"; // Import datepicker widget
-
+import Test from "./Test";
 const Summery = () => {
-  const [showdatepicker, setShowDatePicker] = useState(false);
+  const [showstartdatePicker, setshowstartdatepicker] = useState(false);
+  const [showendtdatePicker, setshowendtdatepicker] = useState(false);
   const [startDate, setStartDate] = useState("03/28/2024");
   const [endDate, setEndDate] = useState("03/28/2024");
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    const $ = window.$;
-    const jQuery = window.jQuery;
-
-    $(function () {
-      $("#datepicker").datepicker();
-    });
-  }, []);
+  const handlestartDateClick = () => {
+    if (showendtdatePicker) {
+      setshowendtdatepicker(false);
+    }
+    setshowstartdatepicker((prev) => !prev);
+  };
+  console.log(showstartdatePicker);
+  const hanleEndDateclick = () => {
+    if (showstartdatePicker) {
+      setshowstartdatepicker(false);
+    }
+    setshowendtdatepicker((prev) => !prev);
+  };
   useEffect(() => {
     const fetchSummaries = async () => {
       try {
-        const response = await axios.get("https://bidvertiserserver.vercel.app/api/summary");
+        const response = await axios.get(
+          "https://bidvertiserserver.vercel.app/api/summary"
+        );
         setSummaries(response.data);
         setLoading(false);
       } catch (error) {
@@ -32,10 +40,12 @@ const Summery = () => {
 
     fetchSummaries();
   }, []);
+
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
+
   return (
     <div className="summbermainconainer">
       <Header routename="Summary" />
@@ -111,28 +121,42 @@ const Summery = () => {
                                     <option value="6">Last 30 days</option>
                                     <option value="7">Select Date Range</option>
                                   </select>
-                                  <p
-                                    style={{
-                                      display: "flex",
-                                      alignItems: "center",
-                                    }}
-                                  >
-                                    <input
-                                      className="hasDatepicker"
-                                      onFocus={() =>
-                                        (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                      }
-                                      size="8"
-                                      value={startDate}
+                                  <div className="maindatecontainermain">
+                                    <p
                                       style={{
-                                        all: "unset",
-                                        borderLeft: "1px dashed grey",
-                                        padding: "0 40px 0 10px",
+                                        display: "flex",
+                                        alignItems: "center",
                                       }}
-                                      type="text"
-                                      id="datepicker"
-                                    />
-                                  </p>
+                                    >
+                                      <input
+                                        className="hasDatepicker"
+                                        onFocus={() =>
+                                          (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                        }
+                                        onClick={handlestartDateClick}
+                                        size="8"
+                                        value={startDate}
+                                        onChange={(e) =>
+                                          setStartDate(e.target.value)
+                                        }
+                                        style={{
+                                          all: "unset",
+                                          borderLeft: "1px dashed grey",
+                                          padding: "0 40px 0 10px",
+                                        }}
+                                        type="text"
+                                        id="datepicker"
+                                      />
+                                    </p>
+                                    {showstartdatePicker && (
+                                      <div className="ablutecatecontainer">
+                                        <Test
+                                          selectedDate={startDate}
+                                          setSelectedDate={setStartDate}
+                                        />
+                                      </div>
+                                    )}
+                                  </div>
 
                                   <i
                                     className="fa fa-calendar"
@@ -144,36 +168,43 @@ const Summery = () => {
                                       color: "var(--lightGreen)",
                                       padding: "3px",
                                     }}
-                                    onClick={() =>
-                                      document
-                                        .getElementById("Start_Date")
-                                        .focus()
-                                    }
+                                    // Handle click event
                                   ></i>
-
-                                  <p
-                                    style={{
-                                      display: "flex",
-                                      alignItems: "center",
-                                    }}
-                                  >
-                                    <input
-                                      className="hasDatepicker"
-                                      onFocus={() =>
-                                        (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                      }
-                                      size="8"
-                                      value={endDate}
+                                  <div className="maindatecontainermainn">
+                                    <p
                                       style={{
-                                        all: "unset",
-                                        borderLeft: "1px dashed grey",
-                                        padding: "0 40px 0 10px",
+                                        display: "flex",
+                                        alignItems: "center",
                                       }}
-                                      type="text"
-                                      id="datepickerr"
-                                    />
-                                  </p>
-
+                                    >
+                                      <input
+                                        className="hasDatepicker"
+                                        onFocus={() =>
+                                          (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                        }
+                                        onClick={hanleEndDateclick}
+                                        size="8"
+                                        value={endDate}
+                                        onChange={(e) =>
+                                          setEndDate(e.target.value)
+                                        }
+                                        style={{
+                                          all: "unset",
+                                          borderLeft: "1px dashed grey",
+                                          padding: "0 40px 0 10px",
+                                        }}
+                                        type="text"
+                                      />
+                                    </p>
+                                    {showendtdatePicker && (
+                                      <div className="ablutecatecontainerr">
+                                        <Test
+                                          selectedDate={endDate}
+                                          setSelectedDate={setEndDate}
+                                        />
+                                      </div>
+                                    )}
+                                  </div>
                                   <i
                                     className="fa fa-calendar"
                                     aria-hidden="true"
@@ -287,7 +318,6 @@ const Summery = () => {
                             <td valign="top">{`$ ${summary?.CPC}`}</td>
                           </tr>
                         ))}
-                      
                       </tbody>
                     </table>
                   </td>
