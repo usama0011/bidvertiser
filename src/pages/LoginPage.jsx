@@ -55,7 +55,7 @@ const LoginPage = ({ setIsLogedIn }) => {
         <p>Login As:</p>
         <div className="buttonslogincotnaienr">
           <div>
-            <input type="radio" name="one" id="one" />
+            <input type="radio" checked name="one" id="one" />
             <label htmlFor="">Advertiser</label>
           </div>
           <div>
@@ -95,13 +95,16 @@ const LoginPage = ({ setIsLogedIn }) => {
         </div>
         <div className="rechapchabox">
           <ReCAPTCHA
-            sitekey="6Lc6c54pAAAAAP3r7Qb2H57EgLzAbN5K9g5AKMmy"
+            sitekey="6LdGv60pAAAAAAVqocqP9G1hl904CXCFiGcxlEi_
+            "
             onChange={handleRecaptchaVerify}
           />
         </div>
         <div className="loginbutton">
           <Link to="/">
-            <button style={{whiteSpace:'nowrap'}} onClick={handleLogin}>Sign In</button>
+            <button style={{ whiteSpace: "nowrap" }} onClick={handleLogin}>
+              Sign In
+            </button>
           </Link>
         </div>
       </div>

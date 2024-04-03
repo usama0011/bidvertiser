@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../styles/Summery.css";
 import Header from "../components/Header";
 import axios from "axios";
+import $ from "jquery"; // Import jQuery
+import "jquery-ui/ui/widgets/datepicker"; // Import datepicker widget
 
 const Summery = () => {
   const [showdatepicker, setShowDatePicker] = useState(false);

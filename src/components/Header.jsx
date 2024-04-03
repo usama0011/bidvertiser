@@ -4,12 +4,13 @@ const Header = ({ routename }) => {
   return (
     <div className="headercontainer">
       <div className="headerleft">
-        <i
+        <i class="far fa-caret-square-right" style={{marginRight:"10px"}}></i>
+        {/* <i
           id="collapse_img_title"
           class="fa-regular fa-square-caret-right"
           style={{ marginRight: "10px" }}
           aria-hidden="true"
-        ></i>
+        ></i> */}
         {routename}
       </div>
       <div className="headerrirhg">

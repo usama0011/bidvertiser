@@ -91,7 +91,8 @@ const App = () => {
       <div className="mangeconbianbodycontainer">
         <div className="uppermange">
           <div className="mangecomapingnuppercontainer ">
-            <div className="selectmangecontainer">
+           <div style={{display:"flex",alignItems:'center'}}>
+           <div className="selectmangecontainer">
               <select
                 name="statistic_option"
                 className="date_picker_item selectdatapickerfirst"
@@ -185,7 +186,10 @@ const App = () => {
                   }}
                 />
               </div>
-              <input
+
+            </div>
+            <div>
+            <input
                 className="generatebutton"
                 id="content-button"
                 style={{
@@ -195,6 +199,7 @@ const App = () => {
                 type="submit"
                 name="Create_button"
                 value="Generate"
+
               />
               <input
                 type="button"
@@ -232,6 +237,7 @@ const App = () => {
                 Bulk Actions
               </button>
             </div>
+           </div>
             <div>
               <div style={{ float: "right" }}>
                 <input
@@ -279,10 +285,16 @@ const App = () => {
                 </td>
 
                 <td width="150" nowrap="">
-                  <div style={{ display: "flex", marginLeft: "30px" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      marginLeft: "30px",
+                    }}
+                  >
                     <div style={{ marginRight: "5px" }}>
                       <i
-                        className="fab fa-youtube"
+                        class="fa fa-youtube-play"
                         style={{ fontSize: "14px", color: "var(--darkRed)" }}
                       ></i>
                     </div>
@@ -658,7 +670,10 @@ const App = () => {
                           borderLeft: "none",
                         }}
                       >
-                        <div style={{ display: "flex", alignItems: "center" }}>
+                        <div
+                          className="myworkbest"
+                          style={{ display: "flex", alignItems: "center" }}
+                        >
                           <div style={{ width: "16%" }} id="func_type_799817">
                             <div className="handle ui-sortable-handle">
                               <i
@@ -822,7 +837,7 @@ const App = () => {
                                 style={{
                                   color: "var(--greyBlue)",
                                   position: "absolute",
-                                  top: "0px",
+                                  top: "-10px",
                                   left: "15px",
                                   fontSize: "8px",
                                 }}
@@ -853,13 +868,13 @@ const App = () => {
                       >
                         <div
                           style={{
-                            textAlign: "center",
                             display: "flex",
+                            textAlign: "center",
                             width: "80px",
                           }}
                         >
                           <div style={{ width: "25%" }}>
-                            <i
+                            {/* <i
                               className="fa fa-minus-circle"
                               aria-hidden="true"
                               style={{
@@ -873,6 +888,20 @@ const App = () => {
                               title="Editorial Status: Declined (click for more details)"
                               id="editorial_status_799817"
                               onClick={() => Declined_pop(799817)}
+                            ></i> */}
+                            <i
+                              class="fa fa-check-circle"
+                              aria-hidden="true"
+                              style={{
+                                padding: "5px 4px",
+                                minWidth: "13px",
+                                fontSize: "11pt",
+                                float: "left",
+                                color: "var(--greyBlue)",
+                                cursor: "pointer",
+                              }}
+                              title="Editorial Status: Approved"
+                              id="editorial_status_783468"
                             ></i>
                           </div>
 
@@ -936,7 +965,7 @@ const App = () => {
                                   ></i>
                                 </div>
                                 <i
-                                  className="fa fa-circle-thin fa-stack-1x"
+                                  class="fa fa-circle-thin fa-stack-1x"
                                   aria-hidden="true"
                                   style={{
                                     color: "var(--greyBlue)",
@@ -946,6 +975,17 @@ const App = () => {
                                     left: "0pt",
                                   }}
                                 ></i>
+                                {/* <i
+                                  className="fa fa-circle-thin fa-stack-1x"
+                                  aria-hidden="true"
+                                  style={{
+                                    color: "var(--greyBlue)",
+                                    fontSize: "11pt",
+                                    position: "absolute",
+                                    top: "0pt",
+                                    left: "0pt",
+                                  }}
+                                ></i> */}
                               </span>
                             </div>
                           </div>
@@ -1155,7 +1195,7 @@ const App = () => {
                         <div style={{ display: "flex" }}>
                           <div style={{ display: "flex" }}>
                             <div style={{ width: "20px" }}>
-                              <i
+                              {/* <i
                                 className="fa fa-exclamation-triangle"
                                 aria-hidden="true"
                                 onMouseOver={() =>
@@ -1170,7 +1210,7 @@ const App = () => {
                                   cursor: "pointer",
                                   paddingTop: "16px",
                                 }}
-                              ></i>
+                              ></i> */}
                             </div>
                             <div
                               style={{

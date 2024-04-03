@@ -22,6 +22,11 @@ const DailyActivity = () => {
 
     fetchAnalytics();
   }, []);
+  const calculateTotal = (field) => {
+    return analytics.reduce((acc, curr) => {
+      return acc + parseFloat(curr[field]);
+    }, 0);
+  };
   return (
     <div className="Dailyactiviycontainer">
       <Header routename="Daily Activity" />
@@ -473,7 +478,7 @@ const DailyActivity = () => {
                     textAlign: "right",
                   }}
                 >
-                  <b>4,129,903</b>
+                  <b>{calculateTotal("BidRequest").toFixed(2)}</b>
                 </td>
                 <td
                   valign="top"
@@ -483,7 +488,7 @@ const DailyActivity = () => {
                     textAlign: "right",
                   }}
                 >
-                  <b>24,567</b>
+                  <b>{calculateTotal("Vistis").toFixed(2)}</b>
                 </td>
                 <td
                   valign="top"
@@ -505,7 +510,7 @@ const DailyActivity = () => {
                   }}
                   nowrap
                 >
-                  <b>$25.48</b>
+                  <b>${calculateTotal("Cost").toFixed(2)}</b>
                 </td>
                 <td
                   valign="top"
@@ -516,7 +521,7 @@ const DailyActivity = () => {
                   }}
                   nowrap
                 >
-                  <b>$0.0010</b>
+                  <b>${calculateTotal("CPC").toFixed(4)}</b>
                 </td>
                 <td
                   style={{

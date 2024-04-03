@@ -22,6 +22,11 @@ const Analytics = () => {
 
     fetchAnalytics();
   }, []);
+  const calculateTotal = (field) => {
+    return analytics.reduce((acc, curr) => {
+      return acc + parseFloat(curr[field]);
+    }, 0);
+  };
   return (
     <div className="analytics-container">
       <Header routename="Analytics" />
@@ -189,7 +194,7 @@ const Analytics = () => {
                               >
                                 <select
                                   name="statistic_option"
-                                  className="myselesele"
+                                  className="eeeeeeeee"
                                   onChange={(e) => setTimeFrame(e.target.value)}
                                   style={{
                                     all: "unset",
@@ -204,6 +209,8 @@ const Analytics = () => {
                                     backgroundImage:
                                       'url("https://my.bidvertiser.com/BidVertiser/Images/select_FF.png")',
                                     backgroundRepeat: "no-repeat",
+                                    border:"1px solild lightgrey",
+                                    outline:'none'
                                   }}
                                 >
                                   <option value="1" selected>
@@ -600,79 +607,76 @@ const Analytics = () => {
                 )}
               </tbody>
               <tbody>
-                <tr style={{ lineHeight: "45px" }}>
-                  <td
-                    valign="top"
-                    style={{ paddingLeft: "15px", width: "10%" }}
-                  >
-                    <b>Total</b>
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    <b>4,129,903</b>
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                  >
-                    <b>24,567</b>
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    <b>0.59%</b>
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    <b>$25.48</b>
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    <b>$0.0010</b>
-                  </td>
-                  <td
-                    style={{
-                      paddingLeft: "5px",
-                      textAlign: "right",
-                      width: "8%",
-                    }}
-                    align="right"
-                  >
-                    <strong>0</strong>
-                  </td>
-                  <td>&nbsp;</td>
-                  <td>&nbsp;</td>
-                </tr>
+              <tr style={{ lineHeight: "45px" }}>
+                <td valign="top" style={{ paddingLeft: "15px", width: "10%" }}>
+                  <b>Total</b>
+                </td>
+                <td
+                  valign="top"
+                  style={{
+                    paddingLeft: "5px",
+                    width: "10%",
+                    textAlign: "right",
+                  }}
+                >
+                  <b>{calculateTotal("BidRequest").toFixed(2)}</b>
+                </td>
+                <td
+                  valign="top"
+                  style={{
+                    paddingLeft: "5px",
+                    width: "10%",
+                    textAlign: "right",
+                  }}
+                >
+                  <b>{calculateTotal("Vistis").toFixed(2)}</b>
+                </td>
+                <td
+                  valign="top"
+                  style={{
+                    paddingLeft: "5px",
+                    width: "10%",
+                    textAlign: "right",
+                  }}
+                  nowrap
+                >
+                  <b>0.59%</b>
+                </td>
+                <td
+                  valign="top"
+                  style={{
+                    paddingLeft: "5px",
+                    width: "10%",
+                    textAlign: "right",
+                  }}
+                  nowrap
+                >
+                  <b>${calculateTotal("Cost").toFixed(2)}</b>
+                </td>
+                <td
+                  valign="top"
+                  style={{
+                    paddingLeft: "5px",
+                    width: "10%",
+                    textAlign: "right",
+                  }}
+                  nowrap
+                >
+                  <b>${calculateTotal("CPC").toFixed(4)}</b>
+                </td>
+                <td
+                  style={{
+                    paddingLeft: "5px",
+                    textAlign: "right",
+                    width: "8%",
+                  }}
+                  align="right"
+                >
+                  <strong>0</strong>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
               </tbody>
             </table>
           </div>

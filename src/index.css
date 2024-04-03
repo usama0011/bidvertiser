@@ -22,7 +22,12 @@ body {
   background-image: linear-gradient(#1b3a5e, #136bab);
   padding: 15px 14px;
   color: #e4e1e6;
+  overflow-y: scroll;
 }
+.sidebar::-webkit-scrollbar{
+  display: none;
+}
+
 
 .content {
   flex: 1;
