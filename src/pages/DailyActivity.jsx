@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import "../styles/DailyActivity.css";
 import Header from "../components/Header";
 import axios from "axios";
+import Test from "./Test";
 
 const DailyActivity = () => {
   const [analytics, setAnalytics] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [showstartdatePicker, setshowstartdatepicker] = useState(false);
+  const [showendtdatePicker, setshowendtdatepicker] = useState(false);
+  const [startDate, setStartDate] = useState("03/28/2024");
+  const [endDate, setEndDate] = useState("03/28/2024");
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
@@ -26,6 +30,19 @@ const DailyActivity = () => {
     return analytics.reduce((acc, curr) => {
       return acc + parseFloat(curr[field]);
     }, 0);
+  };
+  const handlestartDateClick = () => {
+    if (showendtdatePicker) {
+      setshowendtdatepicker(false);
+    }
+    setshowstartdatepicker((prev) => !prev);
+  };
+  console.log(showstartdatePicker);
+  const hanleEndDateclick = () => {
+    if (showstartdatePicker) {
+      setshowstartdatepicker(false);
+    }
+    setshowendtdatepicker((prev) => !prev);
   };
   return (
     <div className="Dailyactiviycontainer">
@@ -90,29 +107,43 @@ const DailyActivity = () => {
                                 <option value="6">Last 30 days</option>
                                 <option value="7">Select Date Range</option>
                               </select>
-                              <input
-                                type="text"
-                                style={{
-                                  all: "unset",
-                                  borderLeft: "1px dashed grey",
-                                  padding: "0 40px 0 10px",
-                                }}
-                                id="Start_Date"
-                                onChange={() =>
-                                  $("#End_Date").datepicker(
-                                    "option",
-                                    "maxDate",
-                                    addMonths(this.value, 2)
-                                  )
-                                }
-                                name="Start_Date"
-                                size="8"
-                                onFocus={() =>
-                                  (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                }
-                                value="03/28/2024"
-                                className="hasDatepicker"
-                              />
+                              <div className="maindatecontainermain">
+                                <p
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <input
+                                    className="hasDatepicker"
+                                    onFocus={() =>
+                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                    }
+                                    onClick={handlestartDateClick}
+                                    size="8"
+                                    value={startDate}
+                                    onChange={(e) =>
+                                      setStartDate(e.target.value)
+                                    }
+                                    style={{
+                                      all: "unset",
+                                      borderLeft: "1px dashed grey",
+                                      padding: "0 40px 0 10px",
+                                    }}
+                                    type="text"
+                                    id="datepicker"
+                                  />
+                                </p>
+                                {showstartdatePicker && (
+                                  <div className="ablutecatecontainer">
+                                    <Test
+                                      selectedDate={startDate}
+                                      setSelectedDate={setStartDate}
+                                    />
+                                  </div>
+                                )}
+                              </div>
+
                               <i
                                 className="fa fa-calendar"
                                 aria-hidden="true"
@@ -123,26 +154,41 @@ const DailyActivity = () => {
                                   color: "var(--lightGreen)",
                                   padding: "3px",
                                 }}
-                                onClick={() =>
-                                  document.getElementById("Start_Date").focus()
-                                }
+                                // Handle click event
                               ></i>
-                              <input
-                                type="text"
-                                style={{
-                                  all: "unset",
-                                  borderLeft: "1px dashed grey",
-                                  padding: "0 40px 0 10px",
-                                }}
-                                id="End_Date"
-                                name="End_Date"
-                                size="8"
-                                onFocus={() =>
-                                  (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                }
-                                value="03/28/2024"
-                                className="hasDatepicker"
-                              />
+                              <div className="maindatecontainermainn">
+                                <p
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <input
+                                    className="hasDatepicker"
+                                    onFocus={() =>
+                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                    }
+                                    onClick={hanleEndDateclick}
+                                    size="8"
+                                    value={endDate}
+                                    onChange={(e) => setEndDate(e.target.value)}
+                                    style={{
+                                      all: "unset",
+                                      borderLeft: "1px dashed grey",
+                                      padding: "0 40px 0 10px",
+                                    }}
+                                    type="text"
+                                  />
+                                </p>
+                                {showendtdatePicker && (
+                                  <div className="ablutecatecontainerr">
+                                    <Test
+                                      selectedDate={endDate}
+                                      setSelectedDate={setEndDate}
+                                    />
+                                  </div>
+                                )}
+                              </div>
                               <i
                                 className="fa fa-calendar"
                                 aria-hidden="true"
@@ -153,9 +199,6 @@ const DailyActivity = () => {
                                   color: "var(--lightGreen)",
                                   padding: "3px",
                                 }}
-                                onClick={() =>
-                                  document.getElementById("End_Date").focus()
-                                }
                               ></i>
                             </div>
                           </div>

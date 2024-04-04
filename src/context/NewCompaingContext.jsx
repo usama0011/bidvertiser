@@ -2,6 +2,7 @@ import React, { createContext, useReducer } from "react";
 
 const initialState = {
   adFormat: 0,
+  adFor:"",
   id: "",
   campaignName: "",
   campaignBid: 0,

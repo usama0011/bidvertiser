@@ -15,18 +15,25 @@ const Newcompaings = () => {
   const handleClickNext = () => {
     if (currenttable === "directads") {
       handleUpdateState("adFormat", "Direct");
+      handleUpdateState("adFor", "Desktop");
     } else if (currenttable === "popuptable") {
       handleUpdateState("adFormat", "PopUp");
+      handleUpdateState("adFor", "Desktop");
     } else if (currenttable === "inpagepushads") {
       handleUpdateState("adFormat", "InPage");
+      handleUpdateState("adFor", "Desktop");
     } else if (currenttable === "nativeads") {
       handleUpdateState("adFormat", "Native");
+      handleUpdateState("adFor", "Desktop");
     } else if (currenttable === "vedioads") {
       handleUpdateState("adFormat", "Vedio");
+      handleUpdateState("adFor", "Desktop");
     } else if (currenttable === "pushads") {
       handleUpdateState("adFormat", "Push");
+      handleUpdateState("adFor", "Desktop");
     } else {
       handleUpdateState("adFormat", "Contextual");
+      handleUpdateState("adFor", "Desktop");
     }
 
     navigate("/bdv/BideVertiser/geo");
@@ -34,18 +41,25 @@ const Newcompaings = () => {
   const handleMobileCompaingAd = () => {
     if (currenttable === "directads") {
       handleUpdateState("adFormat", "Direct");
+      handleUpdateState("adFor", "Mobile");
     } else if (currenttable === "popuptable") {
       handleUpdateState("adFormat", "PopUp");
+      handleUpdateState("adFor", "Mobile");
     } else if (currenttable === "inpagepushads") {
       handleUpdateState("adFormat", "InPage");
+      handleUpdateState("adFor", "Mobile");
     } else if (currenttable === "nativeads") {
       handleUpdateState("adFormat", "Native");
+      handleUpdateState("adFor", "Mobile");
     } else if (currenttable === "vedioads") {
       handleUpdateState("adFormat", "Vedio");
+      handleUpdateState("adFor", "Mobile");
     } else if (currenttable === "pushads") {
       handleUpdateState("adFormat", "Push");
+      handleUpdateState("adFor", "Mobile");
     } else {
       handleUpdateState("adFormat", "Contextual");
+      handleUpdateState("adFor", "Mobile");
     }
 
     navigate("/bdv/BideVertiser/geo");

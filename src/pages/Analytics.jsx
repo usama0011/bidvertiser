@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "../styles/Anlalytics.css";
 import axios from "axios";
+import Test from "./Test";
 
 const Analytics = () => {
   const [analytics, setAnalytics] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [showstartdatePicker, setshowstartdatepicker] = useState(false);
+  const [showendtdatePicker, setshowendtdatepicker] = useState(false);
+  const [startDate, setStartDate] = useState("03/28/2024");
+  const [endDate, setEndDate] = useState("03/28/2024");
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
@@ -26,6 +30,19 @@ const Analytics = () => {
     return analytics.reduce((acc, curr) => {
       return acc + parseFloat(curr[field]);
     }, 0);
+  };
+  const handlestartDateClick = () => {
+    if (showendtdatePicker) {
+      setshowendtdatepicker(false);
+    }
+    setshowstartdatepicker((prev) => !prev);
+  };
+  console.log(showstartdatePicker);
+  const hanleEndDateclick = () => {
+    if (showstartdatePicker) {
+      setshowstartdatepicker(false);
+    }
+    setshowendtdatepicker((prev) => !prev);
   };
   return (
     <div className="analytics-container">
@@ -209,8 +226,8 @@ const Analytics = () => {
                                     backgroundImage:
                                       'url("https://my.bidvertiser.com/BidVertiser/Images/select_FF.png")',
                                     backgroundRepeat: "no-repeat",
-                                    border:"1px solild lightgrey",
-                                    outline:'none'
+                                    border: "1px solild lightgrey",
+                                    outline: "none",
                                   }}
                                 >
                                   <option value="1" selected>
@@ -223,75 +240,98 @@ const Analytics = () => {
                                   <option value="6">Last 30 days</option>
                                   <option value="7">Select Date Range</option>
                                 </select>
-                                <input
-                                  type="text"
+                                <div className="maindatecontainermain">
+                                <p
                                   style={{
-                                    all: "unset",
-                                    borderLeft: "1px dashed grey",
-                                    padding: "0 40px 0 10px",
+                                    display: "flex",
+                                    alignItems: "center",
                                   }}
-                                  id="Start_Date"
-                                  onChange={() =>
-                                    $("#End_Date").datepicker(
-                                      "option",
-                                      "maxDate",
-                                      addMonths(this.value, 2)
-                                    )
-                                  }
-                                  name="Start_Date"
-                                  size="8"
-                                  onFocus={() =>
-                                    (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                  }
-                                  value="03/28/2024"
-                                  className="hasDatepicker"
-                                />
-                                <i
-                                  className="fa fa-calendar"
-                                  aria-hidden="true"
+                                >
+                                  <input
+                                    className="hasDatepicker"
+                                    onFocus={() =>
+                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                    }
+                                    onClick={handlestartDateClick}
+                                    size="8"
+                                    value={startDate}
+                                    onChange={(e) =>
+                                      setStartDate(e.target.value)
+                                    }
+                                    style={{
+                                      all: "unset",
+                                      borderLeft: "1px dashed grey",
+                                      padding: "0 40px 0 10px",
+                                    }}
+                                    type="text"
+                                    id="datepicker"
+                                  />
+                                </p>
+                                {showstartdatePicker && (
+                                  <div className="ablutecatecontainer">
+                                    <Test
+                                      selectedDate={startDate}
+                                      setSelectedDate={setStartDate}
+                                    />
+                                  </div>
+                                )}
+                              </div>
+                              <i
+                                className="fa fa-calendar"
+                                aria-hidden="true"
+                                style={{
+                                  cursor: "pointer",
+                                  margin: "2px 10px 0 -25px",
+                                  fontSize: "16px",
+                                  color: "var(--lightGreen)",
+                                  padding: "3px",
+                                }}
+                                // Handle click event
+                              ></i>
+                              <div className="maindatecontainermainn">
+                                <p
                                   style={{
-                                    cursor: "pointer",
-                                    margin: "2px 10px 0 -25px",
-                                    fontSize: "16px",
-                                    color: "var(--lightGreen)",
-                                    padding: "3px",
+                                    display: "flex",
+                                    alignItems: "center",
                                   }}
-                                  onClick={() =>
-                                    document
-                                      .getElementById("Start_Date")
-                                      .focus()
-                                  }
-                                ></i>
-                                <input
-                                  type="text"
-                                  style={{
-                                    all: "unset",
-                                    borderLeft: "1px dashed grey",
-                                    padding: "0 40px 0 10px",
-                                  }}
-                                  id="End_Date"
-                                  name="End_Date"
-                                  size="8"
-                                  onFocus={() =>
-                                    (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                  }
-                                  value="03/28/2024"
-                                  className="hasDatepicker"
-                                />
-                                <i
-                                  className="fa fa-calendar"
-                                  aria-hidden="true"
-                                  style={{
-                                    cursor: "pointer",
-                                    margin: "2px 10px 0 -25px",
-                                    fontSize: "16px",
-                                    color: "var(--lightGreen)",
-                                    padding: "3px",
-                                  }}
-                                  onClick={() =>
-                                    document.getElementById("End_Date").focus()
-                                  }
-                                ></i>
+                                >
+                                  <input
+                                    className="hasDatepicker"
+                                    onFocus={() =>
+                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                    }
+                                    onClick={hanleEndDateclick}
+                                    size="8"
+                                    value={endDate}
+                                    onChange={(e) => setEndDate(e.target.value)}
+                                    style={{
+                                      all: "unset",
+                                      borderLeft: "1px dashed grey",
+                                      padding: "0 40px 0 10px",
+                                    }}
+                                    type="text"
+                                  />
+                                </p>
+                                {showendtdatePicker && (
+                                  <div className="ablutecatecontainerr">
+                                    <Test
+                                      selectedDate={endDate}
+                                      setSelectedDate={setEndDate}
+                                    />
+                                  </div>
+                                )}
+                              </div>
+                              <i
+                                className="fa fa-calendar"
+                                aria-hidden="true"
+                                style={{
+                                  cursor: "pointer",
+                                  margin: "2px 10px 0 -25px",
+                                  fontSize: "16px",
+                                  color: "var(--lightGreen)",
+                                  padding: "3px",
+                                }}
+                              ></i>
                               </div>
                             </div>
                             <div style={{ float: "left" }}>
@@ -607,76 +647,79 @@ const Analytics = () => {
                 )}
               </tbody>
               <tbody>
-              <tr style={{ lineHeight: "45px" }}>
-                <td valign="top" style={{ paddingLeft: "15px", width: "10%" }}>
-                  <b>Total</b>
-                </td>
-                <td
-                  valign="top"
-                  style={{
-                    paddingLeft: "5px",
-                    width: "10%",
-                    textAlign: "right",
-                  }}
-                >
-                  <b>{calculateTotal("BidRequest").toFixed(2)}</b>
-                </td>
-                <td
-                  valign="top"
-                  style={{
-                    paddingLeft: "5px",
-                    width: "10%",
-                    textAlign: "right",
-                  }}
-                >
-                  <b>{calculateTotal("Vistis").toFixed(2)}</b>
-                </td>
-                <td
-                  valign="top"
-                  style={{
-                    paddingLeft: "5px",
-                    width: "10%",
-                    textAlign: "right",
-                  }}
-                  nowrap
-                >
-                  <b>0.59%</b>
-                </td>
-                <td
-                  valign="top"
-                  style={{
-                    paddingLeft: "5px",
-                    width: "10%",
-                    textAlign: "right",
-                  }}
-                  nowrap
-                >
-                  <b>${calculateTotal("Cost").toFixed(2)}</b>
-                </td>
-                <td
-                  valign="top"
-                  style={{
-                    paddingLeft: "5px",
-                    width: "10%",
-                    textAlign: "right",
-                  }}
-                  nowrap
-                >
-                  <b>${calculateTotal("CPC").toFixed(4)}</b>
-                </td>
-                <td
-                  style={{
-                    paddingLeft: "5px",
-                    textAlign: "right",
-                    width: "8%",
-                  }}
-                  align="right"
-                >
-                  <strong>0</strong>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-              </tr>
+                <tr style={{ lineHeight: "45px" }}>
+                  <td
+                    valign="top"
+                    style={{ paddingLeft: "15px", width: "10%" }}
+                  >
+                    <b>Total</b>
+                  </td>
+                  <td
+                    valign="top"
+                    style={{
+                      paddingLeft: "5px",
+                      width: "10%",
+                      textAlign: "right",
+                    }}
+                  >
+                    <b>{calculateTotal("BidRequest").toFixed(2)}</b>
+                  </td>
+                  <td
+                    valign="top"
+                    style={{
+                      paddingLeft: "5px",
+                      width: "10%",
+                      textAlign: "right",
+                    }}
+                  >
+                    <b>{calculateTotal("Vistis").toFixed(2)}</b>
+                  </td>
+                  <td
+                    valign="top"
+                    style={{
+                      paddingLeft: "5px",
+                      width: "10%",
+                      textAlign: "right",
+                    }}
+                    nowrap
+                  >
+                    <b>0.59%</b>
+                  </td>
+                  <td
+                    valign="top"
+                    style={{
+                      paddingLeft: "5px",
+                      width: "10%",
+                      textAlign: "right",
+                    }}
+                    nowrap
+                  >
+                    <b>${calculateTotal("Cost").toFixed(2)}</b>
+                  </td>
+                  <td
+                    valign="top"
+                    style={{
+                      paddingLeft: "5px",
+                      width: "10%",
+                      textAlign: "right",
+                    }}
+                    nowrap
+                  >
+                    <b>${calculateTotal("CPC").toFixed(4)}</b>
+                  </td>
+                  <td
+                    style={{
+                      paddingLeft: "5px",
+                      textAlign: "right",
+                      width: "8%",
+                    }}
+                    align="right"
+                  >
+                    <strong>0</strong>
+                  </td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
               </tbody>
             </table>
           </div>

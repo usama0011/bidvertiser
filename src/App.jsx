@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { useNavigate } from "react-router-dom";
 import ChartComponent from "./components/ChartComponent";
 import axios from "axios";
+import Test from "./pages/Test";
 const App = () => {
   const navigate = useNavigate();
   const [timeframe, setTimeFrame] = useState("");
@@ -11,7 +12,10 @@ const App = () => {
   const [campaignsPerPage, setCampaignsPerPage] = useState("50");
   const [campaigns, setCampaigns] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const [showstartdatePicker, setshowstartdatepicker] = useState(false);
+  const [showendtdatePicker, setshowendtdatepicker] = useState(false);
+  const [startDate, setStartDate] = useState("03/28/2024");
+  const [endDate, setEndDate] = useState("03/28/2024");
   const handleNewCompaings = () => {
     navigate("/newcompaings");
   };
@@ -83,7 +87,19 @@ const App = () => {
       setLoading(false);
     }
   };
-
+  const handlestartDateClick = () => {
+    if (showendtdatePicker) {
+      setshowendtdatepicker(false);
+    }
+    setshowstartdatepicker((prev) => !prev);
+  };
+  console.log(showstartdatePicker);
+  const hanleEndDateclick = () => {
+    if (showstartdatePicker) {
+      setshowstartdatepicker(false);
+    }
+    setshowendtdatepicker((prev) => !prev);
+  };
   return (
     <div className="appcontainer">
       <Header routename="Mange Campaings" />
@@ -91,153 +107,167 @@ const App = () => {
       <div className="mangeconbianbodycontainer">
         <div className="uppermange">
           <div className="mangecomapingnuppercontainer ">
-           <div style={{display:"flex",alignItems:'center'}}>
-           <div className="selectmangecontainer">
-              <select
-                name="statistic_option"
-                className="date_picker_item selectdatapickerfirst"
-                onChange={(e) => setTimeFrame(e.target.value)}
-                style={{
-                  all: "unset",
-                  textAlign: "left",
-                  paddingLeft: "10px",
-                  WebkitAppearance: "none",
-                  lineHeight: "28px",
-                  height: "28px",
-                  width: "195px",
-                  MozAppearance: "none",
-                  backgroundPosition: "right",
-                  backgroundImage:
-                    "url('https://my.bidvertiser.com/BidVertiser/Images/select_FF.png')",
-                  backgroundRepeat: "no-repeat",
-                }}
-              >
-                <option value="1" selected>
-                  Today
-                </option>
-                <option value="2">Yesterday</option>
-                <option value="3">Last 7 days</option>
-                <option value="4">This Month</option>
-                <option value="5">Last Month</option>
-                <option value="6">Last 30 days</option>
-                <option value="7">Select Date Range</option>
-              </select>
-              <div>
-                <input
-                  type="text"
-                  id="Start_Date"
-                  name="Start_Date"
-                  size="8"
-                  onFocus={() => {
-                    document.forms.report_form2.statistic_option.selectedIndex = 6;
-                  }}
-                  value="03/27/2024"
-                  className="hasDatepicker"
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div className="selectmangecontainer">
+                <select
+                  name="statistic_option"
+                  className="date_picker_item selectdatapickerfirst"
+                  onChange={(e) => setTimeFrame(e.target.value)}
                   style={{
                     all: "unset",
-                    borderLeft: "1px dashed grey",
-                    padding: "0 40px 0 10px",
+                    textAlign: "left",
+                    paddingLeft: "10px",
+                    WebkitAppearance: "none",
+                    lineHeight: "28px",
+                    height: "28px",
+                    width: "195px",
+                    MozAppearance: "none",
+                    backgroundPosition: "right",
+                    backgroundImage:
+                      "url('https://my.bidvertiser.com/BidVertiser/Images/select_FF.png')",
+                    backgroundRepeat: "no-repeat",
                   }}
-                />
-                <i
-                  className="fa fa-calendar"
-                  aria-hidden="true"
-                  style={{
-                    cursor: "pointer",
-                    margin: "2px 10px 0 -25px",
-                    fontSize: "16px",
-                    color: "var(--lightGreen)",
-                    padding: "3px",
-                  }}
-                  onClick={() => {
-                    document.getElementById("Start_Date").focus();
-                  }}
-                />
+                >
+                  <option value="1" selected>
+                    Today
+                  </option>
+                  <option value="2">Yesterday</option>
+                  <option value="3">Last 7 days</option>
+                  <option value="4">This Month</option>
+                  <option value="5">Last Month</option>
+                  <option value="6">Last 30 days</option>
+                  <option value="7">Select Date Range</option>
+                </select>
+                <div className="maindatecontainermain">
+                  <input
+                    type="text"
+                    id="Start_Date"
+                    onClick={handlestartDateClick}
+                    name="Start_Date"
+                    size="8"
+                    onChange={(e) => setStartDate(e.target.value)}
+                    value={startDate}
+                    className="hasDatepicker"
+                    style={{
+                      all: "unset",
+                      borderLeft: "1px dashed grey",
+                      padding: "0 40px 0 10px",
+                    }}
+                  />
+                  {showstartdatePicker && (
+                    <div className="ablutecatecontainer">
+                      <Test
+                        selectedDate={startDate}
+                        setSelectedDate={setStartDate}
+                      />
+                    </div>
+                  )}
+                  <i
+                    className="fa fa-calendar"
+                    aria-hidden="true"
+                    style={{
+                      cursor: "pointer",
+                      margin: "2px 10px 0 -25px",
+                      fontSize: "16px",
+                      color: "var(--lightGreen)",
+                      padding: "3px",
+                    }}
+                    onClick={() => {
+                      document.getElementById("Start_Date").focus();
+                    }}
+                  />
+                </div>
+                <div className="maindatecontainermainn">
+                  <input
+                    type="text"
+                    id="Start_Date"
+                    name="Start_Date"
+                    size="8"
+                    onFocus={() => {
+                      document.forms.report_form2.statistic_option.selectedIndex = 6;
+                    }}
+                    onClick={hanleEndDateclick}
+                    value={endDate}
+                    className="hasDatepicker"
+                    style={{
+                      all: "unset",
+                      borderLeft: "1px dashed grey",
+                      padding: "0 40px 0 10px",
+                    }}
+                  />
+                  {showendtdatePicker && (
+                    <div className="ablutecatecontainerr">
+                      <Test
+                        selectedDate={endDate}
+                        setSelectedDate={setEndDate}
+                      />
+                    </div>
+                  )}
+                  <i
+                    className="fa fa-calendar"
+                    aria-hidden="true"
+                    style={{
+                      cursor: "pointer",
+                      margin: "2px 10px 0 -25px",
+                      fontSize: "16px",
+                      color: "var(--lightGreen)",
+                      padding: "3px",
+                    }}
+                    onClick={() => {
+                      document.getElementById("Start_Date").focus();
+                    }}
+                  />
+                </div>
               </div>
               <div>
                 <input
-                  type="text"
-                  id="Start_Date"
-                  name="Start_Date"
-                  size="8"
-                  onFocus={() => {
-                    document.forms.report_form2.statistic_option.selectedIndex = 6;
-                  }}
-                  value="03/27/2024"
-                  className="hasDatepicker"
+                  className="generatebutton"
+                  id="content-button"
                   style={{
-                    all: "unset",
-                    borderLeft: "1px dashed grey",
-                    padding: "0 40px 0 10px",
+                    float: "right",
+                    marginLeft: "10px",
+                  }}
+                  type="submit"
+                  name="Create_button"
+                  value="Generate"
+                />
+                <input
+                  type="button"
+                  className="function-button"
+                  name="f_nam"
+                  value="Filters"
+                  style={{
+                    float: "left",
+                    marginLeft: "10px",
+                    minWidth: "100px",
+                    background:
+                      "url('https://my.bidvertiser.com/BidVertiser/Images/bdv_action_filter.png') no-repeat",
+                    backgroundSize: "13px 13px",
+                    backgroundPosition: "17px 9px",
+                    paddingLeft: "23px",
+                    backgroundColor: "var(--lightBlue)",
                   }}
                 />
-                <i
-                  className="fa fa-calendar"
-                  aria-hidden="true"
+                <button
+                  className="function-button"
+                  id="b_nam"
                   style={{
-                    cursor: "pointer",
-                    margin: "2px 10px 0 -25px",
-                    fontSize: "16px",
-                    color: "var(--lightGreen)",
-                    padding: "3px",
+                    float: "left",
+                    margin: "0px 10px",
+                    minWidth: "100px",
+                    width: "115px",
+                    backgroundColor: "var(--lightBlue)",
                   }}
-                  onClick={() => {
-                    document.getElementById("Start_Date").focus();
-                  }}
-                />
+                >
+                  <i
+                    className="fa fa-asterisk"
+                    aria-hidden="true"
+                    style={{ fontSize: "12px", marginRight: "3px" }}
+                  ></i>
+                  Bulk Actions
+                </button>
               </div>
-
             </div>
-            <div>
-            <input
-                className="generatebutton"
-                id="content-button"
-                style={{
-                  float: "right",
-                  marginLeft: "10px",
-                }}
-                type="submit"
-                name="Create_button"
-                value="Generate"
-
-              />
-              <input
-                type="button"
-                className="function-button"
-                name="f_nam"
-                value="Filters"
-                style={{
-                  float: "left",
-                  marginLeft: "10px",
-                  minWidth: "100px",
-                  background:
-                    "url('https://my.bidvertiser.com/BidVertiser/Images/bdv_action_filter.png') no-repeat",
-                  backgroundSize: "13px 13px",
-                  backgroundPosition: "17px 9px",
-                  paddingLeft: "23px",
-                  backgroundColor: "var(--lightBlue)",
-                }}
-              />
-              <button
-                className="function-button"
-                id="b_nam"
-                style={{
-                  float: "left",
-                  margin: "0px 10px",
-                  minWidth: "100px",
-                  width: "115px",
-                  backgroundColor: "var(--lightBlue)",
-                }}
-              >
-                <i
-                  className="fa fa-asterisk"
-                  aria-hidden="true"
-                  style={{ fontSize: "12px", marginRight: "3px" }}
-                ></i>
-                Bulk Actions
-              </button>
-            </div>
-           </div>
             <div>
               <div style={{ float: "right" }}>
                 <input
@@ -1061,28 +1091,48 @@ const App = () => {
                             </span>
                           </i>
                         </div>
-                        <i
-                          className="fa fa-desktop"
-                          onMouseOver={() =>
-                            escape(
-                              "<div style=width:300px>Desktop Targeting - ALL</div>"
-                            )
-                          }
-                          onClick={() =>
-                            More_Func(0, 799817, 1, 1, "UA_Targeting_Func")
-                          }
-                          aria-hidden="true"
-                          style={{
-                            color: "var(--greyBlue)",
-                            cursor: "pointer",
-                            minWidth: "15px",
-                            textAlign: "center",
-                            fontSize: "14px",
-                            padding: "6px 5px 6px 15px",
-                          }}
-                          title=""
-                          id="what_device_799817"
-                        ></i>
+                        {item.adFor === "Desktop" ? (
+                          <i
+                            className="fa fa-desktop"
+                            onMouseOver={() =>
+                              escape(
+                                "<div style=width:300px>Desktop Targeting - ALL</div>"
+                              )
+                            }
+                            onClick={() =>
+                              More_Func(0, 799817, 1, 1, "UA_Targeting_Func")
+                            }
+                            aria-hidden="true"
+                            style={{
+                              color: "var(--greyBlue)",
+                              cursor: "pointer",
+                              minWidth: "15px",
+                              textAlign: "center",
+                              fontSize: "14px",
+                              padding: "6px 5px 6px 15px",
+                            }}
+                            title=""
+                            id="what_device_799817"
+                          ></i>
+                        ) : (
+                          <i
+                            class="fa fa-mobile"
+                            onmouseover="return escape('<div style= width:300px>Mobile Targeting - ALL</div>')"
+                            onclick="More_Func(1,783468,2,3,'UA_Targeting_Func');"
+                            aria-hidden="true"
+                            style={{
+                              color: "var(--greyBlue)",
+                              cursor: "pointer",
+                              minWidth: "15px",
+                              textAlign: "center",
+                              fontSize: "17px",
+                              padding: "4px 5px 4px 15px",
+                            }}
+                            title=""
+                            id="what_device_783468"
+                          ></i>
+                        )}
+
                         <span title="Direct" style={{ marginLeft: "5px" }}>
                           {item.adFormat}
                         </span>
@@ -1325,7 +1375,16 @@ const App = () => {
                           }
                           id="targeting799817"
                         >
-                          {item.geo}
+                          {item?.geo === "Globe" ? (
+                            <i
+                              class="fa fa-globe"
+                              aria-hidden="true"
+                              style={{ color: "var(--greyBlue)" }}
+                              onmouseover="return escape('<span style=font-family:Courier>US   CA</span>')"
+                            ></i>
+                          ) : (
+                            item?.geo
+                          )}
                         </a>
                       </td>
                       <td
@@ -1334,7 +1393,7 @@ const App = () => {
                         id="requests799817"
                         title="0"
                       >
-                        {item.campaignBid}
+                        {item?.campaignBid}
                       </td>
                       <td
                         align="left"
