@@ -5,10 +5,12 @@ import { useNavigate } from "react-router-dom";
 import ChartComponent from "./components/ChartComponent";
 import axios from "axios";
 import Test from "./pages/Test";
-const App = () => {
+import PopUpItem from "./components/PopUpItem";
+const App = ({handlepopupclick}) => {
   const navigate = useNavigate();
   const [timeframe, setTimeFrame] = useState("");
   const [showcharts, setshowCharts] = useState(false);
+
   const [campaignsPerPage, setCampaignsPerPage] = useState("50");
   const [campaigns, setCampaigns] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -100,6 +102,7 @@ const App = () => {
     }
     setshowendtdatepicker((prev) => !prev);
   };
+ 
   return (
     <div className="appcontainer">
       <Header routename="Mange Campaings" />
@@ -763,7 +766,7 @@ const App = () => {
                               paused
                             </span>
                           </div>
-                          <div style={{ width: "16%", cursor: "pointer" }}>
+                          <div onClick={()=>handlepopupclick(item)} style={{ width: "16%", cursor: "pointer" }}>
                             <i
                               className="fa fa-pencil fa-fw"
                               aria-hidden="true"
@@ -1799,6 +1802,7 @@ const App = () => {
             </tbody>
           </table>
         </div>
+       
       </div>
     </div>
   );

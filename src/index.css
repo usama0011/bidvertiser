@@ -24,13 +24,26 @@ body {
   color: #e4e1e6;
   overflow-y: scroll;
 }
-.sidebar::-webkit-scrollbar{
+.sidebar::-webkit-scrollbar {
   display: none;
 }
-
 
 .content {
   flex: 1;
   margin-left: 14%; /* Same width as sidebar */
   height: 100%;
+}
+
+.popupmaincontainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999999;
 }

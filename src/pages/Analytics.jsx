@@ -241,97 +241,99 @@ const Analytics = () => {
                                   <option value="7">Select Date Range</option>
                                 </select>
                                 <div className="maindatecontainermain">
-                                <p
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  <input
-                                    className="hasDatepicker"
-                                    onFocus={() =>
-                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                    }
-                                    onClick={handlestartDateClick}
-                                    size="8"
-                                    value={startDate}
-                                    onChange={(e) =>
-                                      setStartDate(e.target.value)
-                                    }
+                                  <p
                                     style={{
-                                      all: "unset",
-                                      borderLeft: "1px dashed grey",
-                                      padding: "0 40px 0 10px",
+                                      display: "flex",
+                                      alignItems: "center",
                                     }}
-                                    type="text"
-                                    id="datepicker"
-                                  />
-                                </p>
-                                {showstartdatePicker && (
-                                  <div className="ablutecatecontainer">
-                                    <Test
-                                      selectedDate={startDate}
-                                      setSelectedDate={setStartDate}
+                                  >
+                                    <input
+                                      className="hasDatepicker"
+                                      onFocus={() =>
+                                        (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                      }
+                                      onClick={handlestartDateClick}
+                                      size="8"
+                                      value={startDate}
+                                      onChange={(e) =>
+                                        setStartDate(e.target.value)
+                                      }
+                                      style={{
+                                        all: "unset",
+                                        borderLeft: "1px dashed grey",
+                                        padding: "0 40px 0 10px",
+                                      }}
+                                      type="text"
+                                      id="datepicker"
                                     />
-                                  </div>
-                                )}
-                              </div>
-                              <i
-                                className="fa fa-calendar"
-                                aria-hidden="true"
-                                style={{
-                                  cursor: "pointer",
-                                  margin: "2px 10px 0 -25px",
-                                  fontSize: "16px",
-                                  color: "var(--lightGreen)",
-                                  padding: "3px",
-                                }}
-                                // Handle click event
-                              ></i>
-                              <div className="maindatecontainermainn">
-                                <p
+                                  </p>
+                                  {showstartdatePicker && (
+                                    <div className="ablutecatecontainer">
+                                      <Test
+                                        selectedDate={startDate}
+                                        setSelectedDate={setStartDate}
+                                      />
+                                    </div>
+                                  )}
+                                </div>
+                                <i
+                                  className="fa fa-calendar"
+                                  aria-hidden="true"
                                   style={{
-                                    display: "flex",
-                                    alignItems: "center",
+                                    cursor: "pointer",
+                                    margin: "2px 10px 0 -25px",
+                                    fontSize: "16px",
+                                    color: "var(--lightGreen)",
+                                    padding: "3px",
                                   }}
-                                >
-                                  <input
-                                    className="hasDatepicker"
-                                    onFocus={() =>
-                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                    }
-                                    onClick={hanleEndDateclick}
-                                    size="8"
-                                    value={endDate}
-                                    onChange={(e) => setEndDate(e.target.value)}
+                                  // Handle click event
+                                ></i>
+                                <div className="maindatecontainermainn">
+                                  <p
                                     style={{
-                                      all: "unset",
-                                      borderLeft: "1px dashed grey",
-                                      padding: "0 40px 0 10px",
+                                      display: "flex",
+                                      alignItems: "center",
                                     }}
-                                    type="text"
-                                  />
-                                </p>
-                                {showendtdatePicker && (
-                                  <div className="ablutecatecontainerr">
-                                    <Test
-                                      selectedDate={endDate}
-                                      setSelectedDate={setEndDate}
+                                  >
+                                    <input
+                                      className="hasDatepicker"
+                                      onFocus={() =>
+                                        (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                      }
+                                      onClick={hanleEndDateclick}
+                                      size="8"
+                                      value={endDate}
+                                      onChange={(e) =>
+                                        setEndDate(e.target.value)
+                                      }
+                                      style={{
+                                        all: "unset",
+                                        borderLeft: "1px dashed grey",
+                                        padding: "0 40px 0 10px",
+                                      }}
+                                      type="text"
                                     />
-                                  </div>
-                                )}
-                              </div>
-                              <i
-                                className="fa fa-calendar"
-                                aria-hidden="true"
-                                style={{
-                                  cursor: "pointer",
-                                  margin: "2px 10px 0 -25px",
-                                  fontSize: "16px",
-                                  color: "var(--lightGreen)",
-                                  padding: "3px",
-                                }}
-                              ></i>
+                                  </p>
+                                  {showendtdatePicker && (
+                                    <div className="ablutecatecontainerr">
+                                      <Test
+                                        selectedDate={endDate}
+                                        setSelectedDate={setEndDate}
+                                      />
+                                    </div>
+                                  )}
+                                </div>
+                                <i
+                                  className="fa fa-calendar"
+                                  aria-hidden="true"
+                                  style={{
+                                    cursor: "pointer",
+                                    margin: "2px 10px 0 -25px",
+                                    fontSize: "16px",
+                                    color: "var(--lightGreen)",
+                                    padding: "3px",
+                                  }}
+                                ></i>
                               </div>
                             </div>
                             <div style={{ float: "left" }}>

@@ -4,7 +4,8 @@ import { Route, Routes } from "react-router-dom";
 
 import SideBar from "./src/components/SideBar.jsx";
 import LoginPage from "./src/pages/LoginPage.jsx";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+
 import ManageComapings from "./src/pages/ManageComapings.jsx";
 import Newcompaings from "./src/pages/Newcompaings.jsx";
 import ConversionUploads from "./src/pages/ConversionUploads.jsx";
@@ -49,9 +50,22 @@ import ViewDailyAnalytics from "./src/pages/ViewDailyAnalytics.jsx";
 import CreateAnalytics from "./src/pages/CreateAnalytics.jsx";
 import CreateDailyActivity from "./src/pages/CreateDailyActivity.jsx";
 import Test from "./src/pages/Test.jsx";
+import PopUpItem from "./src/components/PopUpItem.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
+  const [showpopup, setShowPopUp] = useState(false);
+  const [currentItem, setCurrentItem] = useState({});
+  const popupContainerRef = useRef(null);
+
+  const handlepopupclick = (id) => {
+    setCurrentItem(id)
+    setShowPopUp(true);
+  };
+  const handleClosePopup = (e) => {
+    setShowPopUp(false);
+  };
+ console.log(currentItem)
   return (
     <div className="main-container">
       {islogedIn === false ? (
@@ -63,7 +77,10 @@ const InitializeApp = () => {
           </div>
           <div className="content">
             <Routes>
-              <Route path="/" element={<App />} />
+              <Route
+                path="/"
+                element={<App handlepopupclick={handlepopupclick} />}
+              />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/managecompaings" element={<ManageComapings />} />
               <Route path="/newcompaings" element={<Newcompaings />} />
@@ -121,24 +138,23 @@ const InitializeApp = () => {
                 path="/updatecompaing/:id"
                 element={<UpdateSingleCompaing />}
               />
-              <Route
-                path="/viewanalytics"
-                element={<ViewDailyAnalytics />}
-              />
+              <Route path="/viewanalytics" element={<ViewDailyAnalytics />} />
               <Route
                 path="/viewdailyactivity"
                 element={<ViewDailyActivity />}
               />
-              <Route
-                path="/createanalytics"
-                element={<CreateAnalytics />}
-              />
+              <Route path="/createanalytics" element={<CreateAnalytics />} />
               <Route
                 path="/createdailyactivity"
                 element={<CreateDailyActivity />}
               />
             </Routes>
           </div>
+          {showpopup && (
+            <div className="popupmaincontainer">
+              <PopUpItem handlepopupclick={handleClosePopup} currentItem={currentItem} />
+            </div>
+          )}
         </>
       )}
     </div>

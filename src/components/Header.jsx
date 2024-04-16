@@ -4,7 +4,10 @@ const Header = ({ routename }) => {
   return (
     <div className="headercontainer">
       <div className="headerleft">
-        <i class="far fa-caret-square-right" style={{marginRight:"10px"}}></i>
+        <i
+          class="far fa-caret-square-right"
+          style={{ marginRight: "10px" }}
+        ></i>
         {/* <i
           id="collapse_img_title"
           class="fa-regular fa-square-caret-right"
