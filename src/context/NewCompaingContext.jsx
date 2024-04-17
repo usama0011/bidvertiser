@@ -2,17 +2,22 @@ import React, { createContext, useReducer } from "react";
 
 const initialState = {
   adFormat: 0,
-  adFor:"",
+  adFor: "",
   id: "",
   campaignName: "",
+  compaignImage: "",
   campaignBid: 0,
   geo: "",
   bidRequests: 0,
   videoImp: 0,
   visits: 0,
-  winRate: 0.00,
-  cost: 0.00,
+  winRate: 0.0,
+  cost: 0.0,
   dailyCap: "",
+  title: "",
+  descriptionone: "",
+  descriptiontwo: "",
+  displayURL:""
 };
 
 const NewCampaignDetailsContext = createContext(initialState);

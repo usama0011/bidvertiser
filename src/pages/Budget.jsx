@@ -35,7 +35,7 @@ const Budget = () => {
     const data = {
       adFormat: state.adFormat,
       id: newID,
-      adFor:state.adFor,
+      adFor: state.adFor,
       campaignName: state.campaignName,
       campaignBid: state.campaignBid,
       geo: state.geo,
@@ -45,6 +45,11 @@ const Budget = () => {
       winRate: state.winRate,
       cost: state.cost,
       dailyCap: budget,
+      compaignImage: state.compaignImage,
+      title: state.title,
+      descriptionone: state.descriptionone,
+      descriptiontwo: state.descriptiontwo,
+      displayURL: state.displayURL,
     };
 
     try {

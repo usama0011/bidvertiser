@@ -207,7 +207,9 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                             />
                           </td>
                         </tr>
-                        {currentItem?.adFormat === "Native" ? (
+                        {currentItem?.adFormat === "Native" ||
+                        currentItem?.adFormat === "PopUp" ||
+                        currentItem?.adFormat === "InPage" ? (
                           <>
                             <table>
                               <tr>
@@ -237,7 +239,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                       onKeyUp={
                                         () => {} /* update function here */
                                       }
-                                      value={title}
+                                      value={currentItem?.title}
                                       placeholder="Ad title"
                                       maxLength="25"
                                       onChange={handleTitleChange}
@@ -297,7 +299,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                       onKeyUp={
                                         () => {} /* update function here */
                                       }
-                                      value={descriptionLine1}
+                                      value={currentItem?.descriptionone}
                                       placeholder="First line of description"
                                       maxLength="35"
                                       onChange={handleDescriptionLine1Change}
@@ -356,7 +358,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                       onKeyUp={
                                         () => {} /* update function here */
                                       }
-                                      value={descriptionLine2}
+                                      value={currentItem?.descriptiontwo}
                                       placeholder="Second line of description"
                                       maxLength="35"
                                       onChange={handleDescriptionLine2Change}
@@ -474,7 +476,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                           <div style={{ width: 300 }}>
                                             <img
                                               id="img_id_1"
-                                              src={DownloadImage}
+                                              src={currentItem?.compaignImage}
                                               width="300"
                                               alt="Ad Image"
                                             />
@@ -487,7 +489,6 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                               bottom: -2,
                                               width: 300,
                                               height: 55,
-                                              
                                             }}
                                           >
                                             <div
@@ -809,7 +810,9 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                 </td>
               </tr>
               {/* here  */}
-              {currentItem?.adFormat === "Native" ? (
+              {currentItem?.adFormat === "Native" ||
+              currentItem?.adFormat === "PopUp" ||
+              currentItem?.adFormat === "InPage" ? (
                 <table
                   style={{
                     width: "100%",
@@ -1009,7 +1012,11 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
           </table>
 
           <center id="ad_select" className="buttonlargetwo">
-            <button onClick={handlepopupclick} id="desk_select" class="function-button">
+            <button
+              onClick={handlepopupclick}
+              id="desk_select"
+              class="function-button"
+            >
               Update
             </button>
           </center>

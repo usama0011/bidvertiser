@@ -3,18 +3,36 @@ import "../styles/Creative.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { NewCampaignDetailsContext } from "../context/NewCompaingContext";
+
 const Creative = () => {
   const navigate = useNavigate();
   const [showurls, setshowUrls] = useState(false);
   const [destinationUrl, setDestinationURL] = useState("");
   const [comapingname, setcompaingname] = useState("");
+  const [displayUrl, setDisplayURL] = useState("www.yourwebsite.com");
   const { state, dispatch } = useContext(NewCampaignDetailsContext);
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [preview, setPreview] = useState(null);
+  const [title, setTitle] = useState("Ad title");
+  const [descriptionLine1, setDescriptionLine1] = useState(
+    "First line of description"
+  );
+  const [descriptionLine2, setDescriptionLine2] = useState(
+    "a sescond line of description"
+  );
   console.log(state);
   const handleUpdateState = (field, value) => {
     dispatch({ type: "UPDATE_STATE", payload: { field, value } });
   };
   const handleClickNext = () => {
     handleUpdateState("campaignName", comapingname);
+    handleUpdateState("compaignImage", url);
+    handleUpdateState("title", title);
+    handleUpdateState("descriptionone", descriptionLine1);
+    handleUpdateState("descriptiontwo", descriptionLine2);
+    handleUpdateState("displayURL", displayUrl);
     navigate("/bdv/BideVertiser/budget");
   };
   const changeNote = (_note) => {
@@ -32,12 +50,65 @@ const Creative = () => {
   React.useEffect(() => {
     changeNote(document.getElementById("freq_cap_val").value);
   }, []);
+
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
+  };
+
+  const handleDescriptionLine1Change = (event) => {
+    setDescriptionLine1(event.target.value);
+  };
+
+  const handleDescriptionLine2Change = (event) => {
+    setDescriptionLine2(event.target.value);
+  };
+  const openPreview = () => {
+    const testLink = createTestLink(); // This function needs to be defined elsewhere or replaced with actual logic
+    window.open(testLink, "Preview");
+  };
+  const uploadImage = async () => {
+    setLoading(true);
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "bidevertiser");
+    data.append("cloud_name", "usamaahmad");
+    data.append("folder", "bidevertiser");
+
+    try {
+      const response = await fetch(
+        `https://api.cloudinary.com/v1_1/usamaahmad/image/upload`,
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      const res = await response.json();
+      setUrl(res.secure_url);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setPreview(reader.result);
+    };
+  };
+  const handleResetClick = () => {
+    setPreview(null);
+    setImage(null);
+  };
+
   return (
     <div>
       <Header routename="Create New Campaign" />
       <div className="newcompaingsbody">
-      <div className="breadcurmcontainer">
-      <div style={{ display: "flex", marginRight: "10px" }}>
+        <div className="breadcurmcontainer">
+          <div style={{ display: "flex", marginRight: "10px" }}>
             <div
               style={{
                 position: "relative",
@@ -643,6 +714,400 @@ const Creative = () => {
                           />
                         </td>
                       </tr>
+                      {state?.adFormat === "Native" ||
+                      state?.adFormat === "PopUp" ||
+                      state?.adFormat === "InPage	" ? (
+                        <>
+                          <table>
+                            <tr>
+                              <td
+                                align="left"
+                                style={{
+                                  width: "130px",
+                                  verticalAlign: "top",
+                                }}
+                              >
+                                Title:
+                                <br />
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <input
+                                    type="text"
+                                    tabIndex="2"
+                                    size="48"
+                                    className="popupinputItem"
+                                    style={{ width: "348px" }}
+                                    id="title"
+                                    name="Title"
+                                    onKeyUp={
+                                      () => {} /* update function here */
+                                    }
+                                    value={title}
+                                    placeholder="Ad title"
+                                    maxLength="25"
+                                    onChange={handleTitleChange}
+                                  />
+                                  <div
+                                    style={{
+                                      height: "37px",
+                                      width: "37px",
+                                      color: "rgb(17, 115, 183)",
+                                      borderLeft:
+                                        "1px solid rgb(211, 211, 211)",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <i
+                                      className="fa fa-smile-o"
+                                      style={{ fontSize: "14px" }}
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                </div>
+                              </td>
+                              <td
+                                style={{
+                                  width: "40px",
+                                  textAlign: "right",
+                                  paddingTop: "25px",
+                                  verticalAlign: "top",
+                                }}
+                              >
+                                20/25
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="left" style={{ verticalAlign: "top" }}>
+                                Description line 1:
+                                <br />
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <input
+                                    className="popupinputItem"
+                                    type="text"
+                                    tabIndex="3"
+                                    size="48"
+                                    style={{ width: "348px" }}
+                                    id="desc_line_1"
+                                    name="Line_1"
+                                    onKeyUp={
+                                      () => {} /* update function here */
+                                    }
+                                    value={descriptionLine1}
+                                    placeholder="First line of description"
+                                    maxLength="35"
+                                    onChange={handleDescriptionLine1Change}
+                                  />
+                                  <div
+                                    style={{
+                                      height: "37px",
+                                      width: "37px",
+                                      color: "rgb(17, 115, 183)",
+                                      borderLeft:
+                                        "1px solid rgb(211, 211, 211)",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <i
+                                      className="fa fa-smile-o"
+                                      style={{ fontSize: "14px" }}
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                </div>
+                              </td>
+                              <td
+                                style={{
+                                  textAlign: "right",
+                                  paddingTop: "25px",
+                                  verticalAlign: "top",
+                                }}
+                              >
+                                30/35
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="left" style={{ verticalAlign: "top" }}>
+                                Description line 2:
+                                <br />
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <input
+                                    className="popupinputItem"
+                                    type="text"
+                                    tabIndex="4"
+                                    size="48"
+                                    style={{ width: "348px" }}
+                                    id="desc_line_2"
+                                    name="Line_2"
+                                    onKeyUp={
+                                      () => {} /* update function here */
+                                    }
+                                    value={descriptionLine2}
+                                    placeholder="Second line of description"
+                                    maxLength="35"
+                                    onChange={handleDescriptionLine2Change}
+                                  />
+                                  <div
+                                    style={{
+                                      height: "37px",
+                                      width: "37px",
+                                      color: "rgb(17, 115, 183)",
+                                      borderLeft:
+                                        "1px solid rgb(211, 211, 211)",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <i
+                                      className="fa fa-smile-o"
+                                      style={{ fontSize: "14px" }}
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                </div>
+                              </td>
+                              <td
+                                style={{
+                                  textAlign: "right",
+                                  paddingTop: "25px",
+                                  verticalAlign: "top",
+                                }}
+                              >
+                                34/35
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="left" style={{ verticalAlign: "top" }}>
+                                Display URL:
+                                <br />
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                  }}
+                                >
+                                  <input
+                                    className="popupinputItem"
+                                    type="text"
+                                    tabIndex="4"
+                                    size="48"
+                                    style={{ width: "348px" }}
+                                    id="desc_line_2"
+                                    name="Line_2"
+                                    onKeyUp={
+                                      () => {} /* update function here */
+                                    }
+                                    value={displayUrl}
+                                    placeholder="www.yourwebsite.com"
+                                    maxLength="35"
+                                    onChange={(e) =>
+                                      setDisplayURL(e.target.value)
+                                    }
+                                  />
+                                  <div
+                                    style={{
+                                      height: "37px",
+                                      width: "37px",
+                                      color: "rgb(17, 115, 183)",
+                                      borderLeft:
+                                        "1px solid rgb(211, 211, 211)",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <i
+                                      className="fa fa-smile-o"
+                                      style={{ fontSize: "14px" }}
+                                      aria-hidden="true"
+                                    ></i>
+                                  </div>
+                                </div>
+                              </td>
+                              <td
+                                style={{
+                                  textAlign: "right",
+                                  paddingTop: "25px",
+                                  verticalAlign: "top",
+                                }}
+                              >
+                                34/35
+                              </td>
+                            </tr>
+                          </table>
+                          <td
+                            valign="top"
+                            align="center"
+                            style={{ width: "100%" }}
+                          >
+                            <table
+                              cellPadding="0"
+                              cellSpacing="0"
+                              border="0"
+                              style={{ width: 240, paddingLeft: "50px" }}
+                            >
+                              <tbody>
+                                <tr>
+                                  <td align="left">
+                                    <span
+                                      style={{
+                                        fontSize: 11,
+                                        lineHeight: "20px",
+                                        margin: 0,
+                                        padding: 0,
+                                      }}
+                                    >
+                                      Ad Preview: (with Macros replacement
+                                      <span
+                                        className="fa-stack fa-lg"
+                                        onMouseOver={() =>
+                                          alert(
+                                            "Creative Macros replaced for demo purposes only:\n- {BV_CITY} replaced with 'Rochester'\n- {BV_REGION} replaced with 'New York'\n- {BV_COUNTRY} replaced with 'United States'"
+                                          )
+                                        }
+                                        style={{ height: "1.2em" }}
+                                      >
+                                        <i
+                                          className="fa fa-circle fa-stack-1x"
+                                          style={{
+                                            color: "white",
+                                            fontSize: 13,
+                                            WebkitTextStrokeWidth: 2,
+                                            WebkitTextStrokeColor: "white",
+                                          }}
+                                        ></i>
+                                        <i
+                                          className="fa fa-info-circle fa-stack-1x"
+                                          style={{
+                                            color: "#5d86c9",
+                                            fontSize: 13,
+                                          }}
+                                        ></i>
+                                      </span>
+                                      )
+                                    </span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td align="center">
+                                    <input
+                                      type="hidden"
+                                      name="tempIMG"
+                                      value="1\131707.jpg"
+                                    />
+                                    <div
+                                      onClick={openPreview}
+                                      style={{
+                                        textDecoration: "none",
+                                        cursor: "pointer",
+                                      }}
+                                    >
+                                      <div
+                                        id="nativetxt_link_240x160_0"
+                                        style={{
+                                          overflow: "hidden",
+                                          textAlign: "left",
+                                          width: 300,
+                                          height: 255,
+                                          position: "relative",
+                                          padding: 1,
+                                          border: "1px solid rgba(0,0,0,0.2)",
+                                        }}
+                                      >
+                                        {image && (
+                                          <div
+                                            style={{
+                                              width: 300,
+                                              backgroundSize: "cover",
+                                              objectFit: "cover",
+                                            }}
+                                          >
+                                            <img
+                                              id="img_id_1"
+                                              src={preview}
+                                              width="300"
+                                              alt="Ad Image"
+                                            />
+                                          </div>
+                                        )}
+
+                                        <div
+                                          style={{
+                                            backgroundColor: "rgba(0,0,0,0)",
+                                            padding: "0 2px",
+                                            position: "absolute",
+                                            bottom: -2,
+                                            width: 300,
+                                            height: 55,
+                                          }}
+                                        >
+                                          <div
+                                            id="title_id_1"
+                                            style={{
+                                              letterSpacing: 1,
+                                              lineHeight: "15px",
+                                              fontSize: 12,
+                                              fontFamily: "Poppins, sans-serif",
+                                              color: "black",
+                                              fontWeight: "bold",
+                                              textDecoration: "none",
+                                            }}
+                                          >
+                                            {title}
+                                          </div>
+                                          <div
+                                            id="content_1_id_1"
+                                            style={{
+                                              lineHeight: "13px",
+                                              fontSize: 11,
+                                              fontFamily: "Poppins, sans-serif",
+                                              color: "#333333",
+                                            }}
+                                          >
+                                            {descriptionLine1}
+                                            <br />
+                                            {descriptionLine2}
+                                          </div>
+                                          <div
+                                            id="link_id_1"
+                                            style={{
+                                              letterSpacing: 1,
+                                              lineHeight: "11px",
+                                              fontSize: 9,
+                                              fontFamily: "Poppins, sans-serif",
+                                              color: "grey",
+                                            }}
+                                          >
+                                            {displayUrl}
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </>
+                      ) : null}
                       <tr>
                         <td
                           align="left"
@@ -907,6 +1372,7 @@ const Creative = () => {
                 </table>
               </td>
             </tr>
+
             <tr>
               <td colspan="7" height="25" valign="middle" width="100%">
                 <hr
@@ -921,6 +1387,151 @@ const Creative = () => {
                 />
               </td>
             </tr>
+            {state?.adFormat === "Native" ||
+            state?.adFormat === "PopUp" ||
+            state?.adFormat === "InPage	" ? (
+              <table
+                style={{
+                  width: "100%",
+                  borderSpacing: "0",
+                  borderCollapse: "collapse",
+                  border: "0",
+                }}
+              >
+                <tbody>
+                  <tr>
+                    <td colSpan="3">
+                      <em>
+                        <strong>Optional:</strong> Upload an image in a format
+                        of GIF / JPG / JPEG / PNG [recommended image size: 300 x
+                        200]
+                      </em>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colSpan="3" style={{ fontSize: "0.8em" }}>
+                      <ul>
+                        <li>
+                          You can crop your image to the correct size on the
+                          next page
+                        </li>
+                        <li>Maximum file size to upload for cropping is 2MB</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <br />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style={{ width: "*", float: "left" }}>
+                      <div>
+                        <input
+                          type="file"
+                          id="upload_na_image" // Ensure this id matches the htmlFor attribute in the label
+                          hidden // This hides the input
+                          onChange={handleFileChange} // Handles file selection
+                          style={{ display: "none" }}
+                          accept="image/*"
+                        />
+                        <label
+                          className="function-button"
+                          htmlFor="upload_na_image" // Links this label to the input
+                          style={{
+                            lineHeight: "28px",
+                            padding: "0",
+                            textAlign: "center",
+                            float: "left",
+                            cursor: "pointer", // Changes the cursor to suggest clickable area
+                          }}
+                        >
+                          Choose an Image
+                        </label>
+                      </div>
+                      <div
+                        style={{
+                          lineHeight: "30px",
+                          width: "450px",
+                          whiteSpace: "nowrap",
+                          paddingLeft: "10px",
+                          overflow: "hidden",
+                          float: "left",
+                        }}
+                        id="filename"
+                      >
+                        {image?.name}
+                      </div>
+                    </td>
+                    <td
+                      style={{
+                        width: "250px",
+                        textAlign: "right",
+                        verticalAlign: "top",
+                      }}
+                    >
+                      <div
+                        id="upload_status"
+                        style={{
+                          width: "120px",
+                          display: "none",
+                          float: "left",
+                          lineHeight: "30px",
+                          textAlign: "center",
+                        }}
+                      >
+                        Uploading...
+                      </div>
+                      <input
+                        type="button"
+                        style={{
+                          width: "120px",
+                          display: "none",
+                          float: "left",
+                        }}
+                        tabIndex="5"
+                        id="upload_button"
+                        name="upload_button"
+                        value="Crop & Replace"
+                        onClick={() => get_image()}
+                      />
+                      {image !== ""}
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        <input
+                          className="generatebutton"
+                          type="button"
+                          style={{
+                            width: "120px",
+                            marginLeft: "10px",
+                            float: "right",
+                          }}
+                          tabIndex="5"
+                          id="delete_button"
+                          name="delete_button"
+                          disabled={!image}
+                          value={loading ? "loading..." : "Crop and Upload"}
+                          onClick={uploadImage}
+                        />
+                        <input
+                          className="generatebutton"
+                          type="button"
+                          style={{
+                            width: "120px",
+                            marginLeft: "10px",
+                            float: "right",
+                          }}
+                          tabIndex="5"
+                          id="delete_button"
+                          name="delete_button"
+                          value="Delete"
+                          onClick={handleResetClick}
+                        />
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            ) : null}
             <tr>
               <td>
                 <strong>Frequency filter:</strong>{" "}
