@@ -942,6 +942,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                   />
                 </td>
               </tr>
+              <br />
               <tr>
                 <td>
                   <strong>Frequency filter:</strong>{" "}

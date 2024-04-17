@@ -1396,6 +1396,7 @@ const Creative = () => {
                   borderSpacing: "0",
                   borderCollapse: "collapse",
                   border: "0",
+                  paddingBottom: "30px",
                 }}
               >
                 <tbody>
@@ -1532,6 +1533,7 @@ const Creative = () => {
                 </tbody>
               </table>
             ) : null}
+            <br />
             <tr>
               <td>
                 <strong>Frequency filter:</strong>{" "}
