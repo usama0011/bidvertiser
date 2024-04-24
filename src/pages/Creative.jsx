@@ -715,8 +715,8 @@ const Creative = () => {
                         </td>
                       </tr>
                       {state?.adFormat === "Native" ||
-                      state?.adFormat === "PopUp" ||
-                      state?.adFormat === "InPage	" ? (
+                      state?.adFormat === "Push" ||
+                      state?.adFormat === "InPage" ? (
                         <>
                           <table>
                             <tr>
@@ -1388,8 +1388,7 @@ const Creative = () => {
               </td>
             </tr>
             {state?.adFormat === "Native" ||
-            state?.adFormat === "PopUp" ||
-            state?.adFormat === "InPage	" ? (
+            state?.adFormat === "InPage" ? (
               <table
                 style={{
                   width: "100%",

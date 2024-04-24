@@ -51,6 +51,7 @@ import CreateAnalytics from "./src/pages/CreateAnalytics.jsx";
 import CreateDailyActivity from "./src/pages/CreateDailyActivity.jsx";
 import Test from "./src/pages/Test.jsx";
 import PopUpItem from "./src/components/PopUpItem.jsx";
+import UpdateDailyActivity from "./src/pages/UpdateDailyActivity.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -137,6 +138,10 @@ const InitializeApp = () => {
               <Route
                 path="/updatecompaing/:id"
                 element={<UpdateSingleCompaing />}
+              />
+              <Route
+                path="/updatedailyactivity/:id"
+                element={<UpdateDailyActivity />}
               />
               <Route path="/viewanalytics" element={<ViewDailyAnalytics />} />
               <Route

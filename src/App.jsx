@@ -1464,11 +1464,9 @@ const App = ({handlepopupclick}) => {
                               }}
                               id="daily_budget799817"
                               className="vlad ad_name_titleled"
-                              min="0"
-                              max="10000"
                               step="1"
                               value={item.dailyCap}
-                              onClick={() => enableSend("UBG", 799817)}
+                              
                             />
                             <input
                               type="hidden"

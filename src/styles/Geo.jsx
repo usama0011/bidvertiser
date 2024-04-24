@@ -532,7 +532,7 @@ const Geo = () => {
                       paddingLeft: "23px",
                     }}
                   >
-                    UNITED STATE
+                    UNITED STATES
                   </option>
                   <option
                     value="AU"

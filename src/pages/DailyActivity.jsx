@@ -44,6 +44,8 @@ const DailyActivity = () => {
     }
     setshowendtdatepicker((prev) => !prev);
   };
+  console.log(analytics)
+  //usamahamd is ierer
   return (
     <div className="Dailyactiviycontainer">
       <Header routename="Daily Activity" />
