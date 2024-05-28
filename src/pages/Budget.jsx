@@ -50,8 +50,9 @@ const Budget = () => {
       descriptionone: state.descriptionone,
       descriptiontwo: state.descriptiontwo,
       displayURL: state.displayURL,
+      entryDate: state.entryDate
     };
-
+    console.log(data)
     try {
       // Set loading state to true
       setLoading(true);

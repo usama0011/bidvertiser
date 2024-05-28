@@ -17,7 +17,8 @@ const initialState = {
   title: "",
   descriptionone: "",
   descriptiontwo: "",
-  displayURL:""
+  displayURL: "",
+  entryDate: new Date(),
 };
 
 const NewCampaignDetailsContext = createContext(initialState);

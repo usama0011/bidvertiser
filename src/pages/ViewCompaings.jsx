@@ -53,7 +53,7 @@ const ViewCompaings = () => {
                 marginBottom: "10px",
                 borderBottom: "1px solid #ccc",
                 paddingBottom: "10px",
-              
+
               }}
             >
               <span style={{ marginRight: "10px" }}>
@@ -67,6 +67,9 @@ const ViewCompaings = () => {
               </span>
               <span style={{ marginRight: "10px" }}>
                 <strong>Daily Cap:</strong> {campaign.dailyCap}
+              </span>
+              <span style={{ marginRight: "10px" }}>
+                <strong>Entry Date:</strong> {campaign.entryDate}
               </span>
               <Link
                 to={`/updatecompaing/${campaign._id}`}
