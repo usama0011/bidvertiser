@@ -4,6 +4,7 @@ import { NewCampaignDetailsContext } from "../context/NewCompaingContext";
 import { useNavigate } from "react-router-dom";
 import DownloadImage from "../assets/download.gif";
 const PopUpItem = ({ handlepopupclick, currentItem }) => {
+  console.log("currentItem", currentItem);
   const { state, dispatch } = useContext(NewCampaignDetailsContext);
   const navigate = useNavigate();
   const [showurls, setshowUrls] = useState(false);
@@ -588,7 +589,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                   paddingRight: "34px",
                                   width: "805px",
                                 }}
-                                value={destinationUrl}
+                                value={currentItem?.destinationURL}
                                 onChange={(e) =>
                                   setDestinationURL(e.target.value)
                                 }

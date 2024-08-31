@@ -31,6 +31,7 @@ const Creative = () => {
     handleUpdateState("compaignImage", url);
     handleUpdateState("title", title);
     handleUpdateState("descriptionone", descriptionLine1);
+    handleUpdateState("destinationURL", destinationUrl);
     handleUpdateState("descriptiontwo", descriptionLine2);
     handleUpdateState("displayURL", displayUrl);
     navigate("/bdv/BideVertiser/budget");
@@ -1387,8 +1388,7 @@ const Creative = () => {
                 />
               </td>
             </tr>
-            {state?.adFormat === "Native" ||
-            state?.adFormat === "InPage" ? (
+            {state?.adFormat === "Native" || state?.adFormat === "InPage" ? (
               <table
                 style={{
                   width: "100%",

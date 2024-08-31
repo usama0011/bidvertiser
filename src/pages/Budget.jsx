@@ -44,15 +44,16 @@ const Budget = () => {
       visits: state.visits,
       winRate: state.winRate,
       cost: state.cost,
+      destinationURL: state.destinationURL,
       dailyCap: budget,
       compaignImage: state.compaignImage,
       title: state.title,
       descriptionone: state.descriptionone,
       descriptiontwo: state.descriptiontwo,
       displayURL: state.displayURL,
-      entryDate: state.entryDate
+      entryDate: state.entryDate,
     };
-    console.log(data)
+    console.log(data);
     try {
       // Set loading state to true
       setLoading(true);

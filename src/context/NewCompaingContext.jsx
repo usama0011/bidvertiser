@@ -6,6 +6,7 @@ const initialState = {
   id: "",
   campaignName: "",
   compaignImage: "",
+  destinationURL: "",
   campaignBid: 0,
   geo: "",
   bidRequests: 0,
