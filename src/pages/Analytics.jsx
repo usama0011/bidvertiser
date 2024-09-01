@@ -72,6 +72,7 @@ const Analytics = () => {
           params: {
             startDate,
             endDate,
+            selectedCampaign,
           },
         }
       );

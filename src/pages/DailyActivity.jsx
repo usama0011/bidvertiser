@@ -94,6 +94,7 @@ const DailyActivity = () => {
           params: {
             startDate,
             endDate,
+            selectedCampaign,
           },
         }
       );
