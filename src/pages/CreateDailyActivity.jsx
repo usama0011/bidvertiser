@@ -9,6 +9,7 @@ const CreateDailyActivity = () => {
     Vistis: "",
     WinRate: "",
     Cost: "",
+    campaignname: "",
     CPC: "",
     CoversionRate: "",
     CostConversion: "",
@@ -37,6 +38,7 @@ const CreateDailyActivity = () => {
         Date: "",
         BidRequest: "",
         Vistis: "",
+        campaignname: "",
         WinRate: "",
         Cost: "",
         CPC: "",
@@ -78,6 +80,17 @@ const CreateDailyActivity = () => {
               type="text"
               name="BidRequest"
               value={formData.BidRequest}
+              onChange={handleChange}
+              required
+              style={{ marginLeft: "10px", padding: "5px" }}
+            />
+          </div>
+          <div style={{ marginBottom: "15px" }}>
+            <label>Campaign name:</label>
+            <input
+              type="text"
+              name="campaignname"
+              value={formData.campaignname}
               onChange={handleChange}
               required
               style={{ marginLeft: "10px", padding: "5px" }}

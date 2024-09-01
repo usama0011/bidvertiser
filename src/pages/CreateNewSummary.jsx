@@ -5,6 +5,7 @@ import "../styles/createsummary.css";
 const CreateNewSummary = () => {
   const [startdate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [campaingname, setcampaingname] = useState("");
   const [adRequests, setAdRequests] = useState("");
   const [visits, setVisits] = useState("");
   const [cost, setCost] = useState("");
@@ -22,6 +23,7 @@ const CreateNewSummary = () => {
         Visits: visits,
         Cost: cost,
         CPC: cpc,
+        campaignname: campaingname,
       });
       alert("Form Submit Successfully");
       // If successful, you might want to redirect the user or show a success message
@@ -70,6 +72,16 @@ const CreateNewSummary = () => {
               type="number"
               value={adRequests}
               onChange={(e) => setAdRequests(e.target.value)}
+              className="forminputt"
+            />
+          </div>
+          <div className="formgroupp">
+            <label className="labell">Campaign name:</label>
+            <input
+              required
+              type="number"
+              value={campaingname}
+              onChange={(e) => setcampaingname(e.target.value)}
               className="forminputt"
             />
           </div>

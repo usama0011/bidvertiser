@@ -10,6 +10,7 @@ const CreateAnalytics = () => {
     WinRate: "",
     Cost: "",
     CPC: "",
+    campaignname: "",
     CoversionRate: "",
     CostConversion: "",
   });
@@ -36,6 +37,7 @@ const CreateAnalytics = () => {
       setFormData({
         Date: "",
         BidRequest: "",
+        campaignname: "",
         Vistis: "",
         WinRate: "",
         Cost: "",
@@ -100,6 +102,17 @@ const CreateAnalytics = () => {
               type="text"
               name="WinRate"
               value={formData.WinRate}
+              onChange={handleChange}
+              required
+              style={{ marginLeft: "10px", padding: "5px" }}
+            />
+          </div>
+          <div style={{ marginBottom: "15px" }}>
+            <label>Campaign name:</label>
+            <input
+              type="text"
+              name="campaignname"
+              value={formData.campaignname}
               onChange={handleChange}
               required
               style={{ marginLeft: "10px", padding: "5px" }}

@@ -11,6 +11,8 @@ const DailyActivity = () => {
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
   const [startDate, setStartDate] = useState("03/28/2024");
   const [endDate, setEndDate] = useState("03/28/2024");
+  const [selectedOption, setSelectedOption] = useState("NWL AUTO");
+
   const calculateTotal = (field) => {
     return analytics.reduce((acc, curr) => {
       return acc + parseFloat(curr[field]);
@@ -23,6 +25,20 @@ const DailyActivity = () => {
     setshowstartdatepicker((prev) => !prev);
   };
   console.log(showstartdatePicker);
+
+  // Define the new options
+  const options = [
+    "NWL AUTO",
+    "NWL HOME",
+    "NWL ROOFING",
+    "NWL SOLAR",
+    "NWL WINDOW",
+    "S1 AUTO INSURANCE",
+    "S1 MEDICARE",
+    "S1 SOLAR",
+    "TN ROOFING",
+    "TN WINDOW",
+  ];
   const hanleEndDateclick = () => {
     if (showstartdatePicker) {
       setshowstartdatepicker(false);
@@ -219,57 +235,19 @@ const DailyActivity = () => {
                             </span>
                             <br />
                             <select
-                              name="Selected_Content"
                               style={{
-                                minWidth: "277px",
-                                maxWidth: "450px",
                                 height: "30px",
                               }}
-                              onChange={(e) => {
-                                if (e.target.value === "All")
-                                  document.getElementById(
-                                    "extnd"
-                                  ).style.display = "block";
-                                else {
-                                  document.getElementById(
-                                    "extnd"
-                                  ).style.display = "none";
-                                  document.getElementById(
-                                    "extended_report"
-                                  ).checked = false;
-                                }
-                              }}
+                              value={selectedOption}
+                              onChange={(e) =>
+                                setSelectedOption(e.target.value)
+                              }
                             >
-                              <option value="All">All Ads</option>
-                              <option value="783397">UNI 3</option>
-                              <option
-                                value="783900"
-                                style={{ color: "fc7c7c" }}
-                              >
-                                Uni 4 [Deleted]
-                              </option>
-                              <option value="783468">Uni Test 3</option>
-                              <option value="783296">UniBot Solar</option>
-                              <option
-                                value="799822"
-                                style={{ color: "fc7c7c" }}
-                              >
-                                Usama Ahmad [Deleted]
-                              </option>
-                              <option
-                                value="799823"
-                                style={{ color: "fc7c7c" }}
-                              >
-                                Usama Ahmad [Deleted]
-                              </option>
-                              <option value="800106">Usama Ahmad</option>
-                              <option
-                                value="755621"
-                                style={{ color: "fc7c7c" }}
-                              >
-                                new 1 [Deleted]
-                              </option>
-                              <option value="799817">sdas</option>
+                              {options.map((option) => (
+                                <option key={option} value={option}>
+                                  {option}
+                                </option>
+                              ))}
                             </select>
                           </div>
                           <div
