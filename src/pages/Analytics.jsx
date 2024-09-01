@@ -6,26 +6,84 @@ import Test from "./Test";
 
 const Analytics = () => {
   const [analytics, setAnalytics] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
-  const [startDate, setStartDate] = useState("03/28/2024");
-  const [endDate, setEndDate] = useState("03/28/2024");
-  useEffect(() => {
-    const fetchAnalytics = async () => {
-      try {
-        const response = await axios.get(
-          "https://bidvertiserserver.vercel.app/api/analytics"
-        );
-        setAnalytics(response?.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching analytics:", error);
-      }
-    };
+  const currentDate = new Date();
 
+  // Calculate the first day of the current month
+  const firstDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    1
+  );
+
+  // Calculate the last day of the current month
+  const lastDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  );
+
+  // Format the dates as 'MM/DD/YYYY'
+  const formattedStartDate = `${(firstDayOfMonth.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}/${firstDayOfMonth
+    .getDate()
+    .toString()
+    .padStart(2, "0")}/${firstDayOfMonth.getFullYear()}`;
+  const formattedEndDate = `${(lastDayOfMonth.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}/${lastDayOfMonth
+    .getDate()
+    .toString()
+    .padStart(2, "0")}/${lastDayOfMonth.getFullYear()}`;
+
+  // Set state variables
+  const [startDate, setStartDate] = useState(formattedStartDate);
+  const [endDate, setEndDate] = useState(formattedEndDate);
+  const [campaignNames, setCampaignNames] = useState([]);
+  const [selectedCampaign, setSelectedCampaign] = useState("");
+  // Function to fetch campaign names from the backend API
+  const handleChange = (event) => {
+    setSelectedCampaign(event.target.value);
+  };
+  const fetchCampaignNames = async () => {
+    try {
+      const response = await axios.get(
+        "https://bidvertiserserver.vercel.app/api/analytics/fetchcampaignnames/analytics"
+      );
+      setCampaignNames(response.data);
+    } catch (error) {
+      console.error("Error fetching campaign names:", error);
+    }
+  };
+
+  // Use useEffect to call fetchCampaignNames when the component mounts
+  useEffect(() => {
+    fetchCampaignNames();
+  }, []);
+  const fetchAnalytics = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get("http://localhost:3001/api/analytics", {
+        params: {
+          startDate,
+          endDate,
+        },
+      });
+      setAnalytics(response?.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching analytics:", error);
+    }
+  };
+  useEffect(() => {
     fetchAnalytics();
   }, []);
+  const handleGenreateCampaings = () => {
+    fetchAnalytics();
+  };
   const calculateTotal = (field) => {
     return analytics.reduce((acc, curr) => {
       return acc + parseFloat(curr[field]);
@@ -341,58 +399,24 @@ const Analytics = () => {
                                 Filter by Campaign:
                               </span>
                               <br />
+
                               <select
-                                name="Selected_Content"
                                 style={{
-                                  minWidth: "277px",
-                                  maxWidth: "450px",
                                   height: "30px",
+                                  outline: "none",
                                 }}
-                                onChange={(e) => {
-                                  if (e.target.value === "All")
-                                    document.getElementById(
-                                      "extnd"
-                                    ).style.display = "block";
-                                  else {
-                                    document.getElementById(
-                                      "extnd"
-                                    ).style.display = "none";
-                                    document.getElementById(
-                                      "extended_report"
-                                    ).checked = false;
-                                  }
-                                }}
+                                id="campaign-select"
+                                value={selectedCampaign}
+                                onChange={handleChange}
                               >
-                                <option value="All">All Ads</option>
-                                <option value="783397">UNI 3</option>
-                                <option
-                                  value="783900"
-                                  style={{ color: "fc7c7c" }}
-                                >
-                                  Uni 4 [Deleted]
+                                <option value="">
+                                  -- Select a Campaign --
                                 </option>
-                                <option value="783468">Uni Test 3</option>
-                                <option value="783296">UniBot Solar</option>
-                                <option
-                                  value="799822"
-                                  style={{ color: "fc7c7c" }}
-                                >
-                                  Usama Ahmad [Deleted]
-                                </option>
-                                <option
-                                  value="799823"
-                                  style={{ color: "fc7c7c" }}
-                                >
-                                  Usama Ahmad [Deleted]
-                                </option>
-                                <option value="800106">Usama Ahmad</option>
-                                <option
-                                  value="755621"
-                                  style={{ color: "fc7c7c" }}
-                                >
-                                  new 1 [Deleted]
-                                </option>
-                                <option value="799817">sdas</option>
+                                {campaignNames.map((name, index) => (
+                                  <option key={index} value={name}>
+                                    {name}
+                                  </option>
+                                ))}
                               </select>
                             </div>
                             <div
@@ -418,6 +442,7 @@ const Analytics = () => {
                                 id="content-button"
                                 type="submit"
                                 name="Create_button"
+                                onClick={handleGenreateCampaings}
                                 value="Generate"
                               />
                             </div>

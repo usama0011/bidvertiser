@@ -8,8 +8,39 @@ import Test from "./Test";
 const Summery = () => {
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
-  const [startDate, setStartDate] = useState("03/28/2024");
-  const [endDate, setEndDate] = useState("03/28/2024");
+  const currentDate = new Date();
+
+  // Calculate the first day of the current month
+  const firstDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    1
+  );
+
+  // Calculate the last day of the current month
+  const lastDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  );
+
+  // Format the dates as 'MM/DD/YYYY'
+  const formattedStartDate = `${(firstDayOfMonth.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}/${firstDayOfMonth
+    .getDate()
+    .toString()
+    .padStart(2, "0")}/${firstDayOfMonth.getFullYear()}`;
+  const formattedEndDate = `${(lastDayOfMonth.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}/${lastDayOfMonth
+    .getDate()
+    .toString()
+    .padStart(2, "0")}/${lastDayOfMonth.getFullYear()}`;
+
+  // Set state variables
+  const [startDate, setStartDate] = useState(formattedStartDate);
+  const [endDate, setEndDate] = useState(formattedEndDate);
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(true);
   const handlestartDateClick = () => {
@@ -29,7 +60,13 @@ const Summery = () => {
     const fetchSummaries = async () => {
       try {
         const response = await axios.get(
-          "https://bidvertiserserver.vercel.app/api/summary"
+          "https://bidvertiserserver.vercel.app/api/summary",
+          {
+            params: {
+              startDate,
+              endDate,
+            },
+          }
         );
         setSummaries(response.data);
         setLoading(false);

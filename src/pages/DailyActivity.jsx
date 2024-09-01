@@ -6,12 +6,44 @@ import Test from "./Test";
 
 const DailyActivity = () => {
   const [analytics, setAnalytics] = useState([]);
+  const [campaignNames, setCampaignNames] = useState([]);
+  const [selectedCampaign, setSelectedCampaign] = useState("");
   const [loading, setLoading] = useState(true);
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
-  const [startDate, setStartDate] = useState("03/28/2024");
-  const [endDate, setEndDate] = useState("03/28/2024");
-  const [selectedOption, setSelectedOption] = useState("NWL AUTO");
+  const currentDate = new Date();
+
+  // Calculate the first day of the current month
+  const firstDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    1
+  );
+
+  // Calculate the last day of the current month
+  const lastDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  );
+
+  // Format the dates as 'MM/DD/YYYY'
+  const formattedStartDate = `${(firstDayOfMonth.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}/${firstDayOfMonth
+    .getDate()
+    .toString()
+    .padStart(2, "0")}/${firstDayOfMonth.getFullYear()}`;
+  const formattedEndDate = `${(lastDayOfMonth.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}/${lastDayOfMonth
+    .getDate()
+    .toString()
+    .padStart(2, "0")}/${lastDayOfMonth.getFullYear()}`;
+
+  // Set state variables
+  const [startDate, setStartDate] = useState(formattedStartDate);
+  const [endDate, setEndDate] = useState(formattedEndDate);
 
   const calculateTotal = (field) => {
     return analytics.reduce((acc, curr) => {
@@ -26,25 +58,33 @@ const DailyActivity = () => {
   };
   console.log(showstartdatePicker);
 
-  // Define the new options
-  const options = [
-    "NWL AUTO",
-    "NWL HOME",
-    "NWL ROOFING",
-    "NWL SOLAR",
-    "NWL WINDOW",
-    "S1 AUTO INSURANCE",
-    "S1 MEDICARE",
-    "S1 SOLAR",
-    "TN ROOFING",
-    "TN WINDOW",
-  ];
   const hanleEndDateclick = () => {
     if (showstartdatePicker) {
       setshowstartdatepicker(false);
     }
     setshowendtdatepicker((prev) => !prev);
   };
+  const handleChange = (event) => {
+    setSelectedCampaign(event.target.value);
+  };
+
+  // Function to fetch campaign names from the backend API
+  const fetchCampaignNames = async () => {
+    try {
+      const response = await axios.get(
+        "https://bidvertiserserver.vercel.app/api/dailyactivity/fetchcampaignnames/dailiyactivity"
+      );
+      setCampaignNames(response.data);
+    } catch (error) {
+      console.error("Error fetching campaign names:", error);
+    }
+  };
+
+  // Use useEffect to call fetchCampaignNames when the component mounts
+  useEffect(() => {
+    fetchCampaignNames();
+  }, []);
+
   const fetchCampaigns = async () => {
     try {
       setLoading(true);
@@ -234,18 +274,20 @@ const DailyActivity = () => {
                               Filter by Campaign:
                             </span>
                             <br />
+
                             <select
                               style={{
                                 height: "30px",
+                                outline: "none",
                               }}
-                              value={selectedOption}
-                              onChange={(e) =>
-                                setSelectedOption(e.target.value)
-                              }
+                              id="campaign-select"
+                              value={selectedCampaign}
+                              onChange={handleChange}
                             >
-                              {options.map((option) => (
-                                <option key={option} value={option}>
-                                  {option}
+                              <option value="">-- Select a Campaign --</option>
+                              {campaignNames.map((name, index) => (
+                                <option key={index} value={name}>
+                                  {name}
                                 </option>
                               ))}
                             </select>

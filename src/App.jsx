@@ -18,8 +18,8 @@ const App = ({ handlepopupclick }) => {
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
   // Set default start and end date to the current month's first and last date
-  const [startDate, setStartDate] = useState("03/28/2024");
-  const [endDate, setEndDate] = useState("03/28/2024");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   console.log(startDate, endDate);
   const handleNewCompaings = () => {
     navigate("/newcompaings");
@@ -94,13 +94,15 @@ const App = ({ handlepopupclick }) => {
   const fetchCampaigns = async () => {
     try {
       setLoading(true);
+      const params = {};
+      if (startDate && endDate) {
+        params.startDate = startDate;
+        params.endDate = endDate;
+      }
       const response = await axios.get(
         "https://bidvertiserserver.vercel.app/api/newcompaing",
         {
-          params: {
-            startDate,
-            endDate,
-          },
+          params,
         }
       );
       console.log(response.data);
