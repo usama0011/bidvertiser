@@ -66,12 +66,15 @@ const Analytics = () => {
   const fetchAnalytics = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:3001/api/analytics", {
-        params: {
-          startDate,
-          endDate,
-        },
-      });
+      const response = await axios.get(
+        "https://bidvertiserserver.vercel.app/api/analytics",
+        {
+          params: {
+            startDate,
+            endDate,
+          },
+        }
+      );
       setAnalytics(response?.data);
       setLoading(false);
     } catch (error) {
