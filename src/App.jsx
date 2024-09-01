@@ -18,9 +18,16 @@ const App = ({ handlepopupclick }) => {
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
   // Set default start and end date to the current month's first and last date
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  console.log(startDate, endDate);
+  const [startDate, setStartDate] = useState(() => {
+    const today = new Date();
+    return `01/01/${today.getFullYear()}`; // Default to January 1st of the current year
+  });
+
+  const [endDate, setEndDate] = useState(() => {
+    const today = new Date();
+    return `12/31/${today.getFullYear()}`; // Default to December 31st of the current year
+  });
+
   const handleNewCompaings = () => {
     navigate("/newcompaings");
   };
