@@ -11,21 +11,6 @@ const DailyActivity = () => {
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
   const [startDate, setStartDate] = useState("03/28/2024");
   const [endDate, setEndDate] = useState("03/28/2024");
-  useEffect(() => {
-    const fetchAnalytics = async () => {
-      try {
-        const response = await axios.get(
-          "https://bidvertiserserver.vercel.app/api/dailyactivity"
-        );
-        setAnalytics(response?.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching analytics:", error);
-      }
-    };
-
-    fetchAnalytics();
-  }, []);
   const calculateTotal = (field) => {
     return analytics.reduce((acc, curr) => {
       return acc + parseFloat(curr[field]);
@@ -44,8 +29,32 @@ const DailyActivity = () => {
     }
     setshowendtdatepicker((prev) => !prev);
   };
-  console.log(analytics)
-  //usamahamd is ierer
+  const fetchCampaigns = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        "https://bidvertiserserver.vercel.app/api/dailyactivity",
+        {
+          params: {
+            startDate,
+            endDate,
+          },
+        }
+      );
+      console.log(response.data);
+      setAnalytics(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching campaigns:", error.message);
+      setLoading(false);
+    }
+  };
+  const handleGenreateCampaings = () => {
+    fetchCampaigns();
+  };
+  useEffect(() => {
+    fetchCampaigns();
+  }, []);
   return (
     <div className="Dailyactiviycontainer">
       <Header routename="Daily Activity" />
@@ -287,6 +296,7 @@ const DailyActivity = () => {
                               type="submit"
                               name="Create_button"
                               value="Generate"
+                              onClick={handleGenreateCampaings}
                             />
                           </div>
                         </div>
