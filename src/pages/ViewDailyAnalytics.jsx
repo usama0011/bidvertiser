@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const ViewDailyAnalytics = () => {
   const [analytics, setAnalytics] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -77,7 +78,11 @@ const ViewDailyAnalytics = () => {
                       <td style={tableCellStyle}>{analytic.CoversionRate}</td>
                       <td style={tableCellStyle}>{analytic.CostConversion}</td>
                       <td style={tableCellStyle}>
-                        <button className="desibutton">Edit</button>
+                        <button className="desibutton">
+                          <Link to={`/editanalytics/${analytic._id}`}>
+                            Edit
+                          </Link>
+                        </button>
                       </td>
                       <td style={tableCellStyle}>
                         <button

@@ -52,6 +52,7 @@ import CreateDailyActivity from "./src/pages/CreateDailyActivity.jsx";
 import Test from "./src/pages/Test.jsx";
 import PopUpItem from "./src/components/PopUpItem.jsx";
 import UpdateDailyActivity from "./src/pages/UpdateDailyActivity.jsx";
+import EditAnalytics from "./src/pages/EditAnalytics.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -60,13 +61,13 @@ const InitializeApp = () => {
   const popupContainerRef = useRef(null);
 
   const handlepopupclick = (id) => {
-    setCurrentItem(id)
+    setCurrentItem(id);
     setShowPopUp(true);
   };
   const handleClosePopup = (e) => {
     setShowPopUp(false);
   };
- console.log(currentItem)
+  console.log(currentItem);
   return (
     <div className="main-container">
       {islogedIn === false ? (
@@ -149,6 +150,7 @@ const InitializeApp = () => {
                 element={<ViewDailyActivity />}
               />
               <Route path="/createanalytics" element={<CreateAnalytics />} />
+              <Route path="/editanalytics/:id" element={<EditAnalytics />} />
               <Route
                 path="/createdailyactivity"
                 element={<CreateDailyActivity />}
@@ -157,7 +159,10 @@ const InitializeApp = () => {
           </div>
           {showpopup && (
             <div className="popupmaincontainer">
-              <PopUpItem handlepopupclick={handleClosePopup} currentItem={currentItem} />
+              <PopUpItem
+                handlepopupclick={handleClosePopup}
+                currentItem={currentItem}
+              />
             </div>
           )}
         </>
