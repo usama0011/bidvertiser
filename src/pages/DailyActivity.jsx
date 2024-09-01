@@ -89,7 +89,7 @@ const DailyActivity = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "http://localhost:3001/api/dailyactivity",
+        "https://bidvertiserserver.vercel.app/api/dailyactivity",
         {
           params: {
             startDate,
