@@ -31,6 +31,7 @@ const CreateNewSummary = () => {
       setStartDate("");
       setEndDate("");
       setAdRequests("");
+      setcampaingname("");
       setVisits("");
       setCost("");
       setCPC("");
@@ -79,7 +80,7 @@ const CreateNewSummary = () => {
             <label className="labell">Campaign name:</label>
             <input
               required
-              type="number"
+              type="string"
               value={campaingname}
               onChange={(e) => setcampaingname(e.target.value)}
               className="forminputt"
