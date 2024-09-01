@@ -6,6 +6,7 @@ import ChartComponent from "./components/ChartComponent";
 import axios from "axios";
 import Test from "./pages/Test";
 import PopUpItem from "./components/PopUpItem";
+import moment from "moment";
 const App = ({ handlepopupclick }) => {
   const navigate = useNavigate();
   const [timeframe, setTimeFrame] = useState("");
@@ -16,29 +17,14 @@ const App = ({ handlepopupclick }) => {
   const [loading, setLoading] = useState(false);
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
+  // Set default start and end date to the current month's first and last date
   const [startDate, setStartDate] = useState("03/28/2024");
   const [endDate, setEndDate] = useState("03/28/2024");
+  console.log(startDate, endDate);
   const handleNewCompaings = () => {
     navigate("/newcompaings");
   };
-  useEffect(() => {
-    fetchCampaigns();
-  }, []);
 
-  const fetchCampaigns = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        "https://bidvertiserserver.vercel.app/api/newcompaing"
-      );
-      console.log(response);
-      setCampaigns(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching campaigns:", error.message);
-      setLoading(false);
-    }
-  };
   const handleChange = (e) => {
     const value = e.target.value;
     setCampaignsPerPage(value);
@@ -105,7 +91,32 @@ const App = ({ handlepopupclick }) => {
   const handlefilterbuttons = () => {
     console.log(startDate, endDate);
   };
-  console.log(campaigns);
+  const fetchCampaigns = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        "https://bidvertiserserver.vercel.app/api/newcompaing",
+        {
+          params: {
+            startDate,
+            endDate,
+          },
+        }
+      );
+      console.log(response.data);
+      setCampaigns(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching campaigns:", error.message);
+      setLoading(false);
+    }
+  };
+  const handleGenreateCampaings = () => {
+    fetchCampaigns();
+  };
+  useEffect(() => {
+    fetchCampaigns();
+  }, []);
   return (
     <div className="appcontainer">
       <Header routename="Mange Campaings" />
@@ -236,6 +247,7 @@ const App = ({ handlepopupclick }) => {
                   type="submit"
                   name="Create_button"
                   value="Generate"
+                  onClick={handleGenreateCampaings}
                 />
                 <input
                   onClick={handlefilterbuttons}
