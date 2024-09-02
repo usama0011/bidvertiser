@@ -21,7 +21,7 @@ const Header = ({ routename }) => {
           <p>Current Balance:</p>
           {/* <i class="fa fa-info-circle fa-stack-1x" aria-hidden="true"></i> */}
         </div>
-        <p>$ 1700</p>
+        <p>$ 17,000</p>
       </div>
     </div>
   );
