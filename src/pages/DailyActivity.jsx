@@ -47,9 +47,12 @@ const DailyActivity = () => {
 
   const calculateTotal = (field) => {
     return analytics.reduce((acc, curr) => {
-      return acc + parseFloat(curr[field]);
+      // Remove commas from the value
+      const value = curr[field]?.replace(/,/g, "") || "0";
+      return acc + parseFloat(value);
     }, 0);
   };
+
   const handlestartDateClick = () => {
     if (showendtdatePicker) {
       setshowendtdatepicker(false);

@@ -89,7 +89,7 @@ const UpdateDailyActivity = () => {
           <input
             className="forminputt"
             type="text"
-            name="AdRequests"
+            name="BidRequest"
             value={formData.BidRequest}
             onChange={handleChange}
           />
