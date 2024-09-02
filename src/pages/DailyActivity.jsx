@@ -53,6 +53,13 @@ const DailyActivity = () => {
     }, 0);
   };
 
+  const formatNumberWithCommas = (number) => {
+    return parseFloat(number).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  };
+
   const handlestartDateClick = () => {
     if (showendtdatePicker) {
       setshowendtdatepicker(false);
@@ -562,7 +569,11 @@ const DailyActivity = () => {
                     textAlign: "right",
                   }}
                 >
-                  <b>{calculateTotal("BidRequest").toFixed(2)}</b>
+                  <b>
+                    {formatNumberWithCommas(
+                      calculateTotal("BidRequest").toFixed(2)
+                    )}
+                  </b>
                 </td>
                 <td
                   valign="top"
@@ -572,29 +583,11 @@ const DailyActivity = () => {
                     textAlign: "right",
                   }}
                 >
-                  <b>{calculateTotal("Vistis").toFixed(2)}</b>
-                </td>
-                <td
-                  valign="top"
-                  style={{
-                    paddingLeft: "5px",
-                    width: "10%",
-                    textAlign: "right",
-                  }}
-                  nowrap
-                >
-                  <b>0.59%</b>
-                </td>
-                <td
-                  valign="top"
-                  style={{
-                    paddingLeft: "5px",
-                    width: "10%",
-                    textAlign: "right",
-                  }}
-                  nowrap
-                >
-                  <b>${calculateTotal("Cost").toFixed(2)}</b>
+                  <b>
+                    {formatNumberWithCommas(
+                      calculateTotal("Vistis").toFixed(2)
+                    )}
+                  </b>
                 </td>
                 <td
                   valign="top"
@@ -605,7 +598,33 @@ const DailyActivity = () => {
                   }}
                   nowrap
                 >
-                  <b>${calculateTotal("CPC").toFixed(4)}</b>
+                  <b>{formatNumberWithCommas(calculateTotal("WinRate"))}%</b>
+                </td>
+                <td
+                  valign="top"
+                  style={{
+                    paddingLeft: "5px",
+                    width: "10%",
+                    textAlign: "right",
+                  }}
+                  nowrap
+                >
+                  <b>
+                    ${formatNumberWithCommas(calculateTotal("Cost").toFixed(2))}
+                  </b>
+                </td>
+                <td
+                  valign="top"
+                  style={{
+                    paddingLeft: "5px",
+                    width: "10%",
+                    textAlign: "right",
+                  }}
+                  nowrap
+                >
+                  <b>
+                    ${formatNumberWithCommas(calculateTotal("CPC").toFixed(4))}
+                  </b>
                 </td>
                 <td
                   style={{
