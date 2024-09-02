@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import SideBar from "./src/components/SideBar.jsx";
 import LoginPage from "./src/pages/LoginPage.jsx";
 import { useState, useRef, useEffect } from "react";
-
+import NewSummery from "./src/pages/NewSummery.jsx";
 import ManageComapings from "./src/pages/ManageComapings.jsx";
 import Newcompaings from "./src/pages/Newcompaings.jsx";
 import ConversionUploads from "./src/pages/ConversionUploads.jsx";
@@ -14,7 +14,6 @@ import ManagePostBack from "./src/pages/ManagePostBack.jsx";
 import MultStep from "./src/pages/MultStep.jsx";
 import TestPostBack from "./src/pages/TestPostBack.jsx";
 import ErrorLogs from "./src/pages/ErrorLogs.jsx";
-import Summery from "./src/pages/Summery.jsx";
 import Analytics from "./src/pages/Analytics.jsx";
 import IPAcces from "./src/pages/IPAcces.jsx";
 import UserAgentBlackList from "./src/pages/UserAgentBlackList.jsx";
@@ -92,7 +91,6 @@ const InitializeApp = () => {
               <Route path="/multistep" element={<MultStep />} />
               <Route path="/testpostback" element={<TestPostBack />} />
               <Route path="/errorlogs" element={<ErrorLogs />} />
-              <Route path="/summery" element={<Summery />} />
               <Route path="/analytics" element={<Analytics />} />
               <Route path="/twofectorauth" element={<TowFectorAuth />} />
               <Route path="/changepassword" element={<Changepassword />} />
@@ -131,6 +129,7 @@ const InitializeApp = () => {
                 element={<DailyActivity />}
               />
               <Route path="/publisher" element={<SwitchPublisher />} />
+              <Route path="/summery" element={<NewSummery />} />
               <Route path="/createnewsummary" element={<CreateNewSummary />} />
               <Route path="/updatesummary" element={<UpdateSummary />} />
               <Route path="/updatesummaryitem/:id" element={<UpdateSingle />} />

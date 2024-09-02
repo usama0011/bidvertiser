@@ -5,7 +5,7 @@ import axios from "axios";
 import $ from "jquery"; // Import jQuery
 import "jquery-ui/ui/widgets/datepicker"; // Import datepicker widget
 import Test from "./Test";
-const Summery = () => {
+const NewSummery = () => {
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
   const currentDate = new Date();
@@ -49,7 +49,6 @@ const Summery = () => {
     }
     setshowstartdatepicker((prev) => !prev);
   };
-  console.log(showstartdatePicker);
   const hanleEndDateclick = () => {
     if (showstartdatePicker) {
       setshowstartdatepicker(false);
@@ -266,13 +265,14 @@ const Summery = () => {
                               <div
                                 style={{ float: "left", marginLeft: "15px" }}
                               >
-                                <span className="bdv_000000_Text_10">
-                                  &nbsp;
-                                </span>
+                                <span className="">&nbsp;</span>
                                 <br />
+
                                 <button
-                                  style={{ marginTop: "-4px" }}
+                                  type="button"
+                                  style={{ marginTop: "" }}
                                   className="dailyactivitygeneratebutton"
+                                  onClick={handleGenreateSummery}
                                 >
                                   Generate
                                 </button>
@@ -388,4 +388,4 @@ const Summery = () => {
   );
 };
 
-export default Summery;
+export default NewSummery;
