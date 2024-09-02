@@ -84,7 +84,6 @@ const DailyActivity = () => {
   useEffect(() => {
     fetchCampaignNames();
   }, []);
-
   const fetchCampaigns = async () => {
     try {
       setLoading(true);
@@ -207,6 +206,9 @@ const DailyActivity = () => {
                                     <Test
                                       selectedDate={startDate}
                                       setSelectedDate={setStartDate}
+                                      onClose={() =>
+                                        setshowstartdatepicker(false)
+                                      }
                                     />
                                   </div>
                                 )}
@@ -253,6 +255,9 @@ const DailyActivity = () => {
                                     <Test
                                       selectedDate={endDate}
                                       setSelectedDate={setEndDate}
+                                      onClose={() =>
+                                        setshowendtdatepicker(false)
+                                      }
                                     />
                                   </div>
                                 )}

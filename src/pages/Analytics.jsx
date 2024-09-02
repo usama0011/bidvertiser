@@ -334,6 +334,9 @@ const Analytics = () => {
                                       <Test
                                         selectedDate={startDate}
                                         setSelectedDate={setStartDate}
+                                        onClose={() =>
+                                          setshowstartdatepicker(false)
+                                        }
                                       />
                                     </div>
                                   )}
@@ -381,6 +384,9 @@ const Analytics = () => {
                                       <Test
                                         selectedDate={endDate}
                                         setSelectedDate={setEndDate}
+                                        onClose={() =>
+                                          setshowendtdatepicker(false)
+                                        }
                                       />
                                     </div>
                                   )}

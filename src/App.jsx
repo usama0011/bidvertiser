@@ -128,7 +128,7 @@ const App = ({ handlepopupclick }) => {
   }, []);
   return (
     <div className="appcontainer">
-      <Header routename="Mange Campaings" />
+      <Header routename="Manage Campaings" />
       <br />
       <div className="mangeconbianbodycontainer">
         <div className="uppermange">
@@ -185,6 +185,7 @@ const App = ({ handlepopupclick }) => {
                       <Test
                         selectedDate={startDate}
                         setSelectedDate={setStartDate}
+                        onClose={() => setshowstartdatepicker(false)} // Hide calendar on date select
                       />
                     </div>
                   )}
@@ -226,6 +227,7 @@ const App = ({ handlepopupclick }) => {
                       <Test
                         selectedDate={endDate}
                         setSelectedDate={setEndDate}
+                        onClose={() => setshowendtdatepicker(false)}
                       />
                     </div>
                   )}

@@ -190,6 +190,9 @@ const Summery = () => {
                                         <Test
                                           selectedDate={startDate}
                                           setSelectedDate={setStartDate}
+                                          onClose={() =>
+                                            setshowstartdatepicker(false)
+                                          }
                                         />
                                       </div>
                                     )}
@@ -238,6 +241,9 @@ const Summery = () => {
                                         <Test
                                           selectedDate={endDate}
                                           setSelectedDate={setEndDate}
+                                          onClose={() =>
+                                            setshowendtdatepicker(false)
+                                          }
                                         />
                                       </div>
                                     )}

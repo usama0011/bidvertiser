@@ -1,12 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../styles/Test.css";
 
-function Test({ selectedDate, setSelectedDate }) {
+function Test({ selectedDate, setSelectedDate, onClose }) {
   return (
     <div className="">
       <div className="">
         <DatePicker
-          onDateChange={(date) => setSelectedDate(date)}
+          onDateChange={(date) => {
+            setSelectedDate(date);
+            onClose(); // Close the calendar after selecting a date
+          }}
           initialDate={selectedDate}
         />
       </div>
@@ -18,11 +21,15 @@ function DatePicker({ onDateChange, initialDate }) {
   const datepickerContainer = useRef();
 
   useEffect(() => {
+    // Initialize jQuery datepicker
     window.$(datepickerContainer.current).datepicker({
-      onSelect: onDateChange,
+      onSelect: (date) => {
+        onDateChange(date); // Trigger date change
+      },
       defaultDate: initialDate,
     });
 
+    // Cleanup function to destroy datepicker on unmount
     return () => {
       window.$(datepickerContainer.current).datepicker("destroy");
     };
@@ -32,4 +39,3 @@ function DatePicker({ onDateChange, initialDate }) {
 }
 
 export default Test;
-
