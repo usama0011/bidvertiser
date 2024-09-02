@@ -90,9 +90,12 @@ const Analytics = () => {
   };
   const calculateTotal = (field) => {
     return analytics.reduce((acc, curr) => {
-      return acc + parseFloat(curr[field]);
+      // Remove commas from the value
+      const value = curr[field]?.replace(/,/g, "") || "0";
+      return acc + parseFloat(value);
     }, 0);
   };
+
   const handlestartDateClick = () => {
     if (showendtdatePicker) {
       setshowendtdatepicker(false);
@@ -106,6 +109,22 @@ const Analytics = () => {
     }
     setshowendtdatepicker((prev) => !prev);
   };
+
+  const formatNumberWithCommas = (number) => {
+    return parseFloat(number).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  };
+  const calculateMaxWinRate = () => {
+    // Iterate through the analytics data to find the maximum win rate
+    return analytics.reduce((max, curr) => {
+      // Remove commas and parse as float, default to 0 if not present
+      const value = parseFloat(curr.WinRate?.replace(/,/g, "") || "0");
+      return value > max ? value : max;
+    }, 0);
+  };
+
   return (
     <div className="analytics-container">
       <Header routename="Analytics" />
@@ -699,7 +718,11 @@ const Analytics = () => {
                       textAlign: "right",
                     }}
                   >
-                    <b>{calculateTotal("BidRequest").toFixed(2)}</b>
+                    <b>
+                      {formatNumberWithCommas(
+                        calculateTotal("BidRequest").toFixed(2)
+                      )}
+                    </b>
                   </td>
                   <td
                     valign="top"
@@ -709,29 +732,11 @@ const Analytics = () => {
                       textAlign: "right",
                     }}
                   >
-                    <b>{calculateTotal("Vistis").toFixed(2)}</b>
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    <b>0.59%</b>
-                  </td>
-                  <td
-                    valign="top"
-                    style={{
-                      paddingLeft: "5px",
-                      width: "10%",
-                      textAlign: "right",
-                    }}
-                    nowrap
-                  >
-                    <b>${calculateTotal("Cost").toFixed(2)}</b>
+                    <b>
+                      {formatNumberWithCommas(
+                        calculateTotal("Vistis").toFixed(2)
+                      )}
+                    </b>
                   </td>
                   <td
                     valign="top"
@@ -742,7 +747,40 @@ const Analytics = () => {
                     }}
                     nowrap
                   >
-                    <b>${calculateTotal("CPC").toFixed(4)}</b>
+                    <b>
+                      {formatNumberWithCommas(calculateMaxWinRate().toFixed(2))}
+                      %
+                    </b>
+                  </td>
+                  <td
+                    valign="top"
+                    style={{
+                      paddingLeft: "5px",
+                      width: "10%",
+                      textAlign: "right",
+                    }}
+                    nowrap
+                  >
+                    <b>
+                      $
+                      {formatNumberWithCommas(
+                        calculateTotal("Cost").toFixed(2)
+                      )}
+                    </b>
+                  </td>
+                  <td
+                    valign="top"
+                    style={{
+                      paddingLeft: "5px",
+                      width: "10%",
+                      textAlign: "right",
+                    }}
+                    nowrap
+                  >
+                    <b>
+                      $
+                      {formatNumberWithCommas(calculateTotal("CPC").toFixed(4))}
+                    </b>
                   </td>
                   <td
                     style={{

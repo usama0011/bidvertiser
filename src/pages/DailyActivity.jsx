@@ -77,7 +77,14 @@ const DailyActivity = () => {
   const handleChange = (event) => {
     setSelectedCampaign(event.target.value);
   };
-
+  const calculateMaxWinRate = () => {
+    // Iterate through the analytics data to find the maximum win rate
+    return analytics.reduce((max, curr) => {
+      // Remove commas and parse as float, default to 0 if not present
+      const value = parseFloat(curr.WinRate?.replace(/,/g, "") || "0");
+      return value > max ? value : max;
+    }, 0);
+  };
   // Function to fetch campaign names from the backend API
   const fetchCampaignNames = async () => {
     try {
@@ -598,7 +605,9 @@ const DailyActivity = () => {
                   }}
                   nowrap
                 >
-                  <b>{formatNumberWithCommas(calculateTotal("WinRate"))}%</b>
+                  <b>
+                    {formatNumberWithCommas(calculateMaxWinRate().toFixed(2))}%
+                  </b>
                 </td>
                 <td
                   valign="top"
