@@ -56,33 +56,34 @@ const Summery = () => {
     }
     setshowendtdatepicker((prev) => !prev);
   };
+  const fetchSummaries = async () => {
+    try {
+      const response = await axios.get(
+        "https://bidvertiserserver.vercel.app/api/summary",
+        {
+          params: {
+            startDate,
+            endDate,
+          },
+        }
+      );
+      setSummaries(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching summaries:", error.message);
+    }
+  };
   useEffect(() => {
-    const fetchSummaries = async () => {
-      try {
-        const response = await axios.get(
-          "https://bidvertiserserver.vercel.app/api/summary",
-          {
-            params: {
-              startDate,
-              endDate,
-            },
-          }
-        );
-        setSummaries(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching summaries:", error.message);
-      }
-    };
-
     fetchSummaries();
-  }, []);
+  }, [startDate, endDate]);
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-
+  const handleGenreateSummery = () => {
+    fetchSummaries();
+  };
   return (
     <div className="summbermainconainer">
       <Header routename="Summary" />
@@ -269,14 +270,12 @@ const Summery = () => {
                                   &nbsp;
                                 </span>
                                 <br />
-                                <input
-                                  className="dailyactivitygeneratebutton"
-                                  id="content-button"
-                                  type="submit"
-                                  name="Create_button"
-                                  value="Generate"
+                                <button
                                   style={{ marginTop: "-4px" }}
-                                />
+                                  className="dailyactivitygeneratebutton"
+                                >
+                                  Generate
+                                </button>
                               </div>
                             </div>
                           </td>
