@@ -52,6 +52,9 @@ import Test from "./src/pages/Test.jsx";
 import PopUpItem from "./src/components/PopUpItem.jsx";
 import UpdateDailyActivity from "./src/pages/UpdateDailyActivity.jsx";
 import EditAnalytics from "./src/pages/EditAnalytics.jsx";
+import UploadDailyActivity from "./src/pages/UploadDailyActivity.jsx";
+import UploadSummery from "./src/pages/UploadSummery.jsx";
+import UploadDailyAnalytics from "./src/pages/UploadDailyAnalytics.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -150,6 +153,15 @@ const InitializeApp = () => {
               />
               <Route path="/createanalytics" element={<CreateAnalytics />} />
               <Route path="/editanalytics/:id" element={<EditAnalytics />} />
+              <Route
+                path="/uploaddailyactivity"
+                element={<UploadDailyActivity />}
+              />
+              <Route path="/uploadsummery" element={<UploadSummery />} />
+              <Route
+                path="/uploadanalytics"
+                element={<UploadDailyAnalytics />}
+              />
               <Route
                 path="/createdailyactivity"
                 element={<CreateDailyActivity />}
