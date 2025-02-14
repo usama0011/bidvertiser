@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import "../styles/PopupItem.css";
 import { NewCampaignDetailsContext } from "../context/NewCompaingContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DownloadImage from "../assets/download.gif";
 const PopUpItem = ({ handlepopupclick, currentItem }) => {
   console.log("currentItem", currentItem);
@@ -614,7 +614,13 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                   paddingTop: "7px",
                                 }}
                               >
-                                <i className="fa fa-eye" aria-hidden="true"></i>
+                                <Link to={currentItem?.destinationURL}>
+                                  {" "}
+                                  <i
+                                    className="fa fa-eye"
+                                    aria-hidden="true"
+                                  ></i>
+                                </Link>
                               </div>
                             </div>
                           </td>
