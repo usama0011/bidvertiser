@@ -811,9 +811,9 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                           />
                           Entertainment
                         </td>
-                        {/* <td width="55%" nowrap>
-                          (Adult campaigns must use "Porn" traffic source type)
-                        </td> */}
+                        <td style={{ visibility: "hidden" }} width="55%" nowrap>
+                          dd
+                        </td>
                       </tr>
                     </tbody>
                   </table>

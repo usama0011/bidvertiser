@@ -1363,10 +1363,10 @@ const Creative = () => {
                           name="isAdult"
                           value="2"
                         />
-                        Porn
+                        Entertainment
                       </td>
-                      <td width="55%" nowrap>
-                        (Adult campaigns must use "Porn" traffic source type)
+                      <td style={{ visibility: "hidden" }} width="55%" nowrap>
+                        dd
                       </td>
                     </tr>
                   </tbody>
