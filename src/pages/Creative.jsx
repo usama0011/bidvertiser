@@ -1141,7 +1141,13 @@ const Creative = () => {
                               style={{ color: "#5d86c9", fontSize: "13px" }}
                             ></i>
                           </span>
-                          <div>
+                          <div
+                            style={{
+                              position: "relative",
+                              display: "flex",
+                              alignItems: "center",
+                            }}
+                          >
                             <input
                               className="desurl"
                               type="text"
@@ -1153,6 +1159,8 @@ const Creative = () => {
                                 verticalAlign: "bottom",
                                 paddingRight: "34px",
                                 width: "805px",
+                                borderTopRightRadius: "0px",
+                                borderBottomRightRadius: "0px",
                               }}
                               value={destinationUrl}
                               onChange={(e) =>
@@ -1160,22 +1168,23 @@ const Creative = () => {
                               }
                               maxLength="490"
                             />
-                          </div>
-                          <div style={{ float: "right" }}>
+
                             <div
                               onClick={() =>
                                 window.open(createTestLink(), "Preview")
                               }
                               title="Test Link"
                               style={{
-                                top: "-33px",
-                                right: "109px",
+                                bottom: "30px",
                                 cursor: "pointer",
+                                right: "30px",
                                 color: "#1173b7",
-                                borderLeft: "1px solid #d3d3d3",
-                                paddingLeft: "10px",
-                                height: "29px",
-                                paddingTop: "7px",
+                                border: "1px solid #d3d3d3",
+                                height: "35px",
+                                padding: "0px 10px",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
                               }}
                             >
                               <i className="fa fa-eye" aria-hidden="true"></i>
@@ -1186,7 +1195,7 @@ const Creative = () => {
                       <tr>
                         <td
                           colSpan="7"
-                          style={{ position: "relative", top: "-20px" }}
+                          style={{ position: "relative", top: "-0px" }}
                         >
                           <span
                             style={{
