@@ -1168,9 +1168,8 @@ const Creative = () => {
                               }
                               title="Test Link"
                               style={{
-                                position: "relative",
-                                top: "-36px",
-                                right: "12px",
+                                top: "-33px",
+                                right: "109px",
                                 cursor: "pointer",
                                 color: "#1173b7",
                                 borderLeft: "1px solid #d3d3d3",
