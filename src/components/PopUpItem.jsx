@@ -614,7 +614,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                   paddingTop: "7px",
                                 }}
                               >
-                                <Link to={currentItem?.destinationURL}>
+                                <Link target="_blank" to={currentItem?.destinationURL}>
                                   {" "}
                                   <i
                                     className="fa fa-eye"
