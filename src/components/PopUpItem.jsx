@@ -614,7 +614,10 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                   paddingTop: "7px",
                                 }}
                               >
-                                <Link target="_blank" to={currentItem?.destinationURL}>
+                                <Link
+                                  target="_blank"
+                                  to={currentItem?.destinationURL}
+                                >
                                   {" "}
                                   <i
                                     className="fa fa-eye"
@@ -806,11 +809,11 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                             name="isAdult"
                             value="2"
                           />
-                          Porn
+                          Entertainment
                         </td>
-                        <td width="55%" nowrap>
+                        {/* <td width="55%" nowrap>
                           (Adult campaigns must use "Porn" traffic source type)
-                        </td>
+                        </td> */}
                       </tr>
                     </tbody>
                   </table>
