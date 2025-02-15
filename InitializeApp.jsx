@@ -1,7 +1,7 @@
 import App from "./src/App.jsx";
 import "./src/index.css";
 import { Route, Routes } from "react-router-dom";
-
+import UploadMonthlyInvoices from "./src/pages/UPloadMonthlyInvoices.jsx";
 import SideBar from "./src/components/SideBar.jsx";
 import LoginPage from "./src/pages/LoginPage.jsx";
 import { useState, useRef, useEffect } from "react";
@@ -55,6 +55,7 @@ import EditAnalytics from "./src/pages/EditAnalytics.jsx";
 import UploadDailyActivity from "./src/pages/UploadDailyActivity.jsx";
 import UploadSummery from "./src/pages/UploadSummery.jsx";
 import UploadDailyAnalytics from "./src/pages/UploadDailyAnalytics.jsx";
+import UploadTransaction from "./src/pages/UploadTransactionCSV.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -87,6 +88,14 @@ const InitializeApp = () => {
               />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/managecompaings" element={<ManageComapings />} />
+              <Route
+                path="/uploadmontlyinvocies"
+                element={<UploadMonthlyInvoices />}
+              />
+              <Route
+                path="/uploadtransactions"
+                element={<UploadTransaction />}
+              />
               <Route path="/newcompaings" element={<Newcompaings />} />
               <Route path="/conversionupload" element={<ConversionUploads />} />
               <Route path="/bigautomationlog" element={<BigAutoMation />} />

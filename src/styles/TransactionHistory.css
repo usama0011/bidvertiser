@@ -1,0 +1,373 @@
+@font-face {
+  font-family: "FontAwesome";
+  src: url("https://my.bidvertiser.com/BidVertiser/Css/font-awesome-4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("https://my.bidvertiser.com/BidVertiser/Css/font-awesome-4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0")
+      format("embedded-opentype"),
+    url("https://my.bidvertiser.com/BidVertiser/Css/font-awesome-4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0")
+      format("woff"),
+    url("https://my.bidvertiser.com/BidVertiser/Css/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0")
+      format("truetype"),
+    url("https://my.bidvertiser.com/BidVertiser/Css/font-awesome-4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-regular-400.woff2)
+      format("woff2"),
+    url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-regular-400.ttf)
+      format("truetype");
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-solid-900.woff2)
+      format("woff2"),
+    url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-solid-900.ttf)
+      format("truetype");
+}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-solid-900.woff2)
+      format("woff2"),
+    url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-solid-900.ttf)
+      format("truetype");
+}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-brands-400.woff2)
+      format("woff2"),
+    url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-brands-400.ttf)
+      format("truetype");
+}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-regular-400.woff2)
+      format("woff2"),
+    url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-regular-400.ttf)
+      format("truetype");
+  unicode-range: u+f003, u+f006, u+f014, u+f016-f017, u+f01a-f01b, u+f01d,
+    u+f022, u+f03e, u+f044, u+f046, u+f05c-f05d, u+f06e, u+f070, u+f087-f088,
+    u+f08a, u+f094, u+f096-f097, u+f09d, u+f0a0, u+f0a2, u+f0a4-f0a7, u+f0c5,
+    u+f0c7, u+f0e5-f0e6, u+f0eb, u+f0f6-f0f8, u+f10c, u+f114-f115, u+f118-f11a,
+    u+f11c-f11d, u+f133, u+f147, u+f14e, u+f150-f152, u+f185-f186, u+f18e,
+    u+f190-f192, u+f196, u+f1c1-f1c9, u+f1d9, u+f1db, u+f1e3, u+f1ea, u+f1f7,
+    u+f1f9, u+f20a, u+f247-f248, u+f24a, u+f24d, u+f255-f25b, u+f25d,
+    u+f271-f274, u+f278, u+f27b, u+f28c, u+f28e, u+f29c, u+f2b5, u+f2b7, u+f2ba,
+    u+f2bc, u+f2be, u+f2c0-f2c1, u+f2c3, u+f2d0, u+f2d2, u+f2d4, u+f2dc;
+}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-v4compatibility.woff2)
+      format("woff2"),
+    url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-v4compatibility.ttf)
+      format("truetype");
+  unicode-range: u+f041, u+f047, u+f065-f066, u+f07d-f07e, u+f080, u+f08b,
+    u+f08e, u+f090, u+f09a, u+f0ac, u+f0ae, u+f0b2, u+f0d0, u+f0d6, u+f0e4,
+    u+f0ec, u+f10a-f10b, u+f123, u+f13e, u+f148-f149, u+f14c, u+f156, u+f15e,
+    u+f160-f161, u+f163, u+f175-f178, u+f195, u+f1f8, u+f219, u+f27a;
+}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800,300i,400i,500i,600i,700i,800i&display=swap");
+@font-face {
+  font-family: "FontAwesome";
+  src: url("https://my.bidvertiser.com/bdv/BidVertiser/css/font-awesome-4.7.0/fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("https://my.bidvertiser.com/bdv/BidVertiser/css/font-awesome-4.7.0/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0")
+      format("embedded-opentype"),
+    url("https://my.bidvertiser.com/bdv/BidVertiser/css/font-awesome-4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0")
+      format("woff"),
+    url("https://my.bidvertiser.com/bdv/BidVertiser/css/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf?v=4.7.0")
+      format("truetype"),
+    url("https://my.bidvertiser.com/bdv/BidVertiser/css/font-awesome-4.7.0/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: "Open Sans";
+  color: var(--black);
+  font-size: 12px;
+  line-height: 18px;
+}
+body {
+  overflow: hidden;
+  font-family: "Open Sans";
+  color: var(--black);
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0;
+}
+
+:root {
+  --lightBlue: #1173b7;
+  --lightGreen: #81d34a;
+  --black: #505050;
+}
+
+#content {
+  height: calc(100vh - 71px);
+  overflow: auto;
+  text-align: left;
+  background-color: white;
+  margin-top: 71px;
+}
+
+#page {
+  background-color: white;
+  padding: 20px;
+}
+
+.loading_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 20px;
+  margin: -40px 0 0 -100px;
+}
+
+.table_style {
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  font-size: 13px;
+  line-height: 30px;
+}
+
+.table_style {
+  line-height: 25px;
+}
+
+.fa {
+  font-family: var(--fa-style-family, "Font Awesome 6 Free");
+  font-weight: var(--fa-style, 900);
+}
+
+.fa {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: var(--fa-display, inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-pulse {
+  -webkit-animation-name: fa-spin;
+  animation-name: fa-spin;
+  -webkit-animation-direction: var(--fa-animation-direction, normal);
+  animation-direction: var(--fa-animation-direction, normal);
+  -webkit-animation-duration: var(--fa-animation-duration, 1s);
+  animation-duration: var(--fa-animation-duration, 1s);
+  -webkit-animation-iteration-count: var(
+    --fa-animation-iteration-count,
+    infinite
+  );
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  -webkit-animation-timing-function: var(--fa-animation-timing, steps(8));
+  animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
+}
+
+.fa-spinner:before {
+  content: "\f110";
+}
+
+a {
+  color: var(--black);
+}
+
+input[type="button"] {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: var(--lightGreen);
+  border: 1px solid var(--lightGreen);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
+}
+
+input[type="button"].function-button {
+  background-color: var(--lightBlue);
+  border: 1px solid var(--lightBlue);
+  min-width: 145px;
+}
+
+.fa-download:before {
+  content: "\f019";
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+/* These were inline style tags. Uses id+class to override almost everything */
+#loaderDiv.style-EMmjK {
+  display: none;
+  position: absolute;
+  width: calc(100vw - 220px);
+  height: calc(100vh - 71px);
+  background-color: white;
+  z-index: 9999999995;
+  opacity: 0.8;
+  margin: 0;
+}
+#style-nBJek.style-nBJek {
+  color: #1b3a5e;
+  font-size: 40px;
+}
+#style-UavWx.style-UavWx {
+  font-size: 18px;
+  line-height: 20px;
+  padding-left: 10px;
+  color: #1b3a5e;
+}
+#style-6ZWVf.style-6ZWVf {
+  float: right;
+  font-size: 11px;
+}
+#style-hViME.style-hViME {
+  padding-left: 10px;
+}
+#style-CG2y6.style-CG2y6 {
+  padding-left: 10px;
+}
+#style-J7Kyt.style-J7Kyt {
+  padding-left: 10px;
+}
+#style-ioNLE.style-ioNLE {
+  padding-left: 10px;
+}
+#style-tSIUk.style-tSIUk {
+  padding-left: 10px;
+}
+#style-jyA4K.style-jyA4K {
+  padding-left: 10px;
+}
+#style-orY1B.style-orY1B {
+  padding-left: 10px;
+}
+#style-THsBz.style-THsBz {
+  padding-left: 10px;
+}
+#style-8oMx8.style-8oMx8 {
+  padding-left: 10px;
+}
+#style-1gvHN.style-1gvHN {
+  padding-left: 10px;
+}
+#style-kWihF.style-kWihF {
+  padding-left: 10px;
+}
+#style-rSThp.style-rSThp {
+  padding-left: 10px;
+}
+#style-7cVSx.style-7cVSx {
+  padding-left: 10px;
+  font-family: "courier";
+  font-size: 13px;
+}
+#style-5TfUG.style-5TfUG {
+  padding-left: 10px;
+  font-family: "courier";
+  font-size: 13px;
+}
+#ps_1.style-xqzgI {
+  padding: 0 10px;
+}
+#style-rU1ow.style-rU1ow {
+  padding-left: 10px;
+}
+#style-iUaKA.style-iUaKA {
+  padding-left: 10px;
+  width: 250px;
+}
+#style-8dYGL.style-8dYGL {
+  padding-left: 10px;
+}
+#style-gSgmd.style-gSgmd {
+  padding-left: 10px;
+}
+#style-XKBDp.style-XKBDp {
+  padding-left: 10px;
+}
+#style-79cgm.style-79cgm {
+  padding-left: 10px;
+}
+#style-ZJ1oi.style-ZJ1oi {
+  padding-left: 10px;
+}
+#style-Jo19R.style-Jo19R {
+  padding-left: 10px;
+  font-family: "courier";
+  font-size: 13px;
+}
+#style-ZSXx6.style-ZSXx6 {
+  padding-left: 10px;
+  font-family: "courier";
+  font-size: 13px;
+}
+#ps_2.style-IMmPp {
+  padding: 0 10px;
+}
+#style-oNohM.style-oNohM {
+  padding-left: 10px;
+}
+#style-F54ZV.style-F54ZV {
+  padding-left: 10px;
+  width: 250px;
+}
+#style-CtyZI.style-CtyZI {
+  padding-left: 10px;
+}

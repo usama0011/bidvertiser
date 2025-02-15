@@ -92,6 +92,20 @@ const SwitchPublisher = () => {
             <Button
               type="primary"
               block
+              onClick={() => navigate("/viewdailyactivity")}
+              style={{
+                marginBottom: "16px",
+                height: "50px",
+                fontWeight: "500",
+              }}
+            >
+              Monthly Invoices
+            </Button>
+          </Col>
+          <Col span={8}>
+            <Button
+              type="primary"
+              block
               onClick={() => navigate("/createanalytics")}
               style={{
                 marginBottom: "16px",
@@ -160,6 +174,38 @@ const SwitchPublisher = () => {
               }}
             >
               Upload Daily Activity CSV
+            </Button>
+          </Col>
+        </Row>
+        <Row gutter={16}>
+          <Col span={8}>
+            <Button
+              type="primary"
+              block
+              onClick={() => navigate("/uploadmontlyinvocies")}
+              style={{
+                marginBottom: "16px",
+                height: "50px",
+                fontWeight: "500",
+              }}
+            >
+              Upload Monthly Invoices CSV
+            </Button>
+          </Col>
+        </Row>
+        <Row gutter={16}>
+          <Col span={8}>
+            <Button
+              type="primary"
+              block
+              onClick={() => navigate("/uploadtransactions")}
+              style={{
+                marginBottom: "16px",
+                height: "50px",
+                fontWeight: "500",
+              }}
+            >
+              Upload Transactions CSV
             </Button>
           </Col>
         </Row>
