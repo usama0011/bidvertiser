@@ -1,82 +1,305 @@
+@font-face {
+  font-family: "cryptofont";
+  src: url("https://my.bidvertiser.com/BidVertiser/Css/fonts/cryptofont.eot?r6g6a6");
+  src: url("https://my.bidvertiser.com/BidVertiser/Css/fonts/cryptofont.eot?r6g6a6#iefix")
+      format("embedded-opentype"),
+    url("https://my.bidvertiser.com/BidVertiser/Css/fonts/cryptofont.ttf?r6g6a6")
+      format("truetype"),
+    url("https://my.bidvertiser.com/BidVertiser/Css/fonts/cryptofont.woff?r6g6a6")
+      format("woff"),
+    url("https://my.bidvertiser.com/BidVertiser/Css/fonts/cryptofont.svg?r6g6a6#cryptofont")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-regular-400.woff2)
+      format("woff2"),
+    url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-regular-400.ttf)
+      format("truetype");
+}
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 900;
+  font-display: block;
+  src: url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-solid-900.woff2)
+      format("woff2"),
+    url(https://my.bidvertiser.com/BidVertiser/webfonts/fa-solid-900.ttf)
+      format("truetype");
+}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800,300i,400i,500i,600i,700i,800i&display=swap");
+@font-face {
+  font-family: PaymentFont;
+  src: url(https://my.bidvertiser.com/BidVertiser/fonts/paymentfont-webfont.eot);
+  src: url(https://my.bidvertiser.com/BidVertiser/fonts/paymentfont-webfont.eot?#iefix)
+      format("embedded-opentype"),
+    url(https://my.bidvertiser.com/BidVertiser/fonts/paymentfont-webfont.woff)
+      format("woff"),
+    url(https://my.bidvertiser.com/BidVertiser/fonts/paymentfont-webfont.ttf)
+      format("truetype"),
+    url(https://my.bidvertiser.com/BidVertiser/fonts/paymentfont-webfont.svg#paymentfont-webfont)
+      format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  text-align: left;
+  font-family: "Open Sans";
+  color: var(--black);
+  font-size: 12px;
+  line-height: 18px;
+}
+body {
+  overflow: hidden;
+  font-family: "Open Sans";
+  color: var(--black);
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0;
+}
+
 :root {
-  --lightGrey: #fefefe;
-  --white: #f3f3f3;
-  --bgColor: #f6f8fa;
   --lightBlue: #1173b7;
-  --halfBlue: rgba(14, 91, 152, 1);
   --darkBlue: rgba(27, 58, 94, 1);
-  --darkBlue2: rgba(27, 58, 94, 0.7);
-  --greyBlue: #527196;
   --lightGreen: #81d34a;
   --darkGreen: #62a535;
   --black: #505050;
-  --Purple: #c778c5;
-  --red: #fc7c7c;
-  --darkRed: #f65151;
-  --orange: #ffa500;
-  --yellow: #fdef7b;
-  --Grey: #bebebe;
 }
-.ccno_class {
-  width: 250px;
+
+#page {
+  background-color: white;
+  padding: 20px;
 }
-.cc_type_class {
-  width: 250px;
+
+.main_box_style {
+  margin: 8px 0;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  font-size: 12px;
+  max-width: 1050px;
+  min-height: 85vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
-.nonus_cc_type_class {
-  width: 250px;
+
+.bdv_000000_Text_11 {
+  color: var(--black);
+  font-size: 12px;
+  line-height: 20px;
 }
-.holder_name_class {
-  width: 250px;
+
+.pf {
+  display: inline-block;
+  font: normal normal normal 14px/1 PaymentFont;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.stripe_ccno_class {
-  width: 240px;
+
+.pf {
+  line-height: 30px;
 }
-.stripe_exp_class {
-  width: 70px;
+
+.pf-bank-transfer:before {
+  content: "\f005";
 }
-.stripe_cvc_class {
-  width: 50px;
+
+i {
+  font-family: "cryptofont";
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.exp_month_class,
-.zip_class,
-.exp_year_class {
-  width: 119px;
-  min-width: 119px;
+
+.cf {
+  line-height: 30px;
 }
-.cvv_class {
-  width: 50px;
+
+.cf-busd:before {
+  content: "\e9bb";
 }
-.StripeElement {
-  font-family: "sans-serif";
-  font-size: 16px;
-  padding-left: 3px;
+
+.cf-tusd:before {
+  content: "\ed49";
 }
-.address1_class,
-.address2_class,
-.city_class,
-.state_class,
-.country_class,
-.tel_class,
-.fax_class {
-  width: 250px;
+
+.cf-ada:before {
+  content: "\e910";
 }
-/*addition for firefox only*/
-@-moz-document url-prefix() {
-  .padder {
-    padding-top: 7px;
-    padding-bottom: 8px;
-    line-height: 6px;
-  }
+
+.cf-atom:before {
+  content: "\e954";
 }
-.Limited {
-  pointer-events: none;
-  opacity: 0.5;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
+
+.cf-dash:before {
+  content: "\ea24";
 }
+
+.cf-doge:before {
+  content: "\ea50";
+}
+
+.cf-etc:before {
+  content: "\ea95";
+}
+
+.cf-dot:before {
+  content: "\ea52";
+}
+
+.cf-eos:before {
+  content: "\ea87";
+}
+
+.cf-fil:before {
+  content: "\eaaa";
+}
+
+.cf-hbar:before {
+  content: "\eaf5";
+}
+
+.cf-link:before {
+  content: "\eb72";
+}
+
+.cf-matic:before {
+  content: "\eb91";
+}
+
+.cf-neo:before {
+  content: "\ebde";
+}
+
+.cf-pax:before {
+  content: "\ec2d";
+}
+
+.cf-qtum:before {
+  content: "\ec73";
+}
+
+.cf-sxp:before {
+  content: "\ed10";
+}
+
+.cf-trx:before {
+  content: "\ed42";
+}
+
+.cf-uni:before {
+  content: "\ed5a";
+}
+
+.cf-vet:before {
+  content: "\ed71";
+}
+
+.cf-wrx:before {
+  content: "\ed98";
+}
+
+.cf-xlm:before {
+  content: "\edb1";
+}
+
+.cf-xmr:before {
+  content: "\edb7";
+}
+
+.cf-xtz:before {
+  content: "\edce";
+}
+
+.cf-xvg:before {
+  content: "\edcf";
+}
+
+.cf-zec:before {
+  content: "\eddc";
+}
+
+.table_style {
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  font-size: 13px;
+  line-height: 30px;
+}
+
+.table_style {
+  line-height: 25px;
+}
+
+input[type="button"] {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: var(--lightGreen);
+  border: 1px solid var(--lightGreen);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
+}
+
+input[type="button"].function-button {
+  background-color: var(--lightBlue);
+  border: 1px solid var(--lightBlue);
+  min-width: 145px;
+}
+
+.fund_button {
+  height: 30px;
+  color: #1b3a5e;
+  moz-border-radius: 7px;
+  border: 0 none black;
+  -webkit-border-radius: 7px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.form-field {
+  color: var(--black);
+  font-size: 13px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"] {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  color: var(--black);
+  padding: 5px;
+}
+
+input[type="number"] {
+  font-size: 20px;
+}
+
 .pay_line {
-  /* background-color: rgba(0, 0, 0, 0.02); */
   box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.1);
   padding: 7px;
   display: flex;
@@ -86,6 +309,13 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
+
+.paypal-button {
+  position: relative;
+  width: 800px;
+  height: 43px;
+}
+
 .pay_line > * {
   align: left;
   width: 250px;
@@ -93,33 +323,28 @@
   vertical-align: middle;
   line-height: 30px;
 }
+
 .pay_line div:nth-of-type(1) {
   font-weight: bold;
   width: 100px;
   color: var(--darkBlue);
 }
+
 .pay_line div:nth-of-type(2) {
   color: var(--darkBlue);
   font-size: 10px;
 }
+
 .pay_line div:nth-of-type(3) {
   align: left;
   width: 400px;
 }
+
 .pay_line div:nth-of-type(4) {
   align: right;
   width: 10px;
 }
-.fas,
-.pf,
-.cf {
-  line-height: 30px;
-}
-.paypal-button {
-  position: relative;
-  width: 800px;
-  height: 43px;
-}
+
 .cover-paypal-button {
   position: absolute;
   top: 0;
@@ -129,6 +354,1160 @@
   z-index: 9999;
   pointer-events: none;
 }
-.addufundcontainerbody {
-  padding: 25px;
+
+.fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: var(--fa-display, inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fas {
+  font-family: "Font Awesome 6 Free";
+}
+
+.fas {
+  font-weight: 900;
+}
+
+.fas {
+  line-height: 30px;
+}
+
+.fa-chevron-right:before {
+  content: "\f054";
+}
+
+#zoid-paypal-buttons-uid_b1447ef61d_mte6ndg6mdg {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 25px;
+  min-width: 150px;
+  font-size: 0;
+}
+
+.pf-skrill:before {
+  content: "\f03b";
+}
+
+.pf-visa {
+  color: blue;
+}
+
+.pf-visa:before {
+  content: "\f045";
+}
+
+.pf-mastercard-alt {
+  background: -webkit-linear-gradient(
+    left,
+    #eb001b,
+    #eb001b,
+    #eb001b,
+    #ff5f00,
+    #f79e1b,
+    #f79e1b,
+    #f79e1b,
+    #f79e1b
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pf-mastercard-alt:before {
+  content: "\f02e";
+}
+
+.pf-american-express-alt {
+  color: #016fd0;
+}
+
+.pf-american-express-alt:before {
+  content: "\f002";
+}
+
+.pf-diners:before {
+  content: "\f013";
+}
+
+.pf-jcb {
+  background: -webkit-linear-gradient(
+    left,
+    blue,
+    blue,
+    blue,
+    blue,
+    red,
+    red,
+    green,
+    green,
+    green,
+    green
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pf-jcb:before {
+  content: "\f028";
+}
+
+#zoid-paypal-buttons-uid_b1447ef61d_mte6ndg6mdg > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#zoid-paypal-buttons-uid_b1447ef61d_mte6ndg6mdg > iframe.component-frame {
+  z-index: 100;
+}
+
+#zoid-paypal-buttons-uid_b1447ef61d_mte6ndg6mdg > iframe.visible {
+  opacity: 1;
+}
+
+#zoid-paypal-buttons-uid_b1447ef61d_mte6ndg6mdg > .smart-menu {
+  position: absolute;
+  z-index: 300;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.pf-paypal {
+  background: -webkit-linear-gradient(
+    left,
+    #113189,
+    #113189,
+    #113189,
+    #369de1,
+    #369de1,
+    #369de1
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.pf-paypal:before {
+  content: "\f033";
+}
+
+.fa-solid {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: var(--fa-display, inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fa-solid {
+  font-family: "Font Awesome 6 Free";
+}
+
+.fa-solid {
+  font-weight: 900;
+}
+
+.fa-dollar-sign:before,
+.fa-dollar:before,
+.fa-usd:before {
+  content: "\24";
+}
+
+.cf-btc:before {
+  content: "\e9a8";
+}
+
+.fa-circle:before {
+  content: "\f111";
+}
+
+.cf-usdt:before {
+  content: "\ed66";
+}
+
+.cf-eth:before {
+  content: "\ea96";
+}
+
+.cf-dai:before {
+  content: "\ea21";
+}
+
+.cf-cake:before {
+  content: "\e9c4";
+}
+
+.cf-shib:before {
+  content: "\ecc0";
+}
+
+.cf-ape:before {
+  content: "\e938";
+}
+
+.cf-zen:before {
+  content: "\edde";
+}
+
+.cf-yfi:before {
+  content: "\edd3";
+}
+
+.cf-mco:before {
+  content: "\eb96";
+}
+
+.cf-fun:before {
+  content: "\eac1";
+}
+
+.cf-ltc:before {
+  content: "\eb84";
+}
+
+.pay_met {
+  display: block !important;
+  font-size: 20px;
+  line-height: 1;
+  background: 0 0;
+  border: 1px solid #1b3a5e;
+  border-radius: 5px;
+  width: 45px;
+  padding: 5px;
+  text-align: center;
+  margin: 2px;
+  float: left;
+}
+
+.padder_num {
+  padding: 8px;
+}
+
+input[type="text"] {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  color: var(--black);
+  padding: 5px;
+}
+
+button {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: var(--lightGreen);
+  border: 1px solid var(--lightGreen);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
+}
+
+button.function-button {
+  background-color: var(--lightBlue);
+  border: 1px solid var(--lightBlue);
+  min-width: 145px;
+}
+
+button:hover {
+  background-color: var(--darkGreen);
+  border: 1px solid var(--darkGreen);
+}
+
+button.function-button:hover {
+  background-color: var(--darkBlue);
+  border: 1px solid var(--darkBlue);
+}
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-GDaCQ.style-GDaCQ {
+  padding: 10px 25px;
+}
+#style-Io3bx.style-Io3bx {
+  margin: 0 8px;
+}
+#style-OqzoE.style-OqzoE {
+  font-size: 20px;
+  margin-left: 6px;
+}
+#adfElement_2.style-BCgNX {
+  position: relative;
+  top: 10px;
+}
+#style-EdlWR.style-EdlWR {
+  margin-left: 5px;
+  float: left;
+}
+#style-3QDRA.style-3QDRA {
+  color: black;
+  font-size: 13px;
+}
+#style-3avov.style-3avov {
+  margin-left: 5px;
+  float: left;
+}
+#style-ocMj9.style-ocMj9 {
+  color: black;
+  font-size: 13px;
+}
+#style-lzpN4.style-lzpN4 {
+  margin-left: 5px;
+  float: left;
+}
+#sum_3.style-1Z37G {
+  z-index: 2;
+  position: relative;
+}
+#style-ns74I.style-ns74I {
+  color: black;
+  font-size: 13px;
+}
+#style-Peoz4.style-Peoz4 {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  z-index: 1;
+  width: 53px;
+  color: white;
+  background-color: #ea3953;
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  line-height: 13px;
+  margin-left: 8px;
+  padding-left: 10px;
+  margin-top: -3px;
+}
+#style-edQ63.style-edQ63 {
+  margin-left: 5px;
+  float: left;
+}
+#style-D5oe3.style-D5oe3 {
+  color: black;
+  font-size: 13px;
+}
+#style-SyPhB.style-SyPhB {
+  margin-left: 5px;
+  float: left;
+}
+#style-Owmfs.style-Owmfs {
+  color: black;
+  font-size: 13px;
+}
+#style-qsMov.style-qsMov {
+  padding: 8px 4px;
+  float: left;
+}
+#dsign.style-E3MXB {
+  position: relative;
+  left: 20px;
+  top: 0;
+  padding-right: 5px;
+}
+#sum6.style-oNfRK {
+  font-size: 12px;
+  border-radius: 5px;
+  height: 30px;
+  border-left: 1px solid black;
+  width: 120px;
+  padding-left: 20px;
+  border: 1px solid #1b3a5e;
+}
+#style-hDo8D.style-hDo8D {
+  margin-left: 46px;
+}
+#style-8ROk7.style-8ROk7 {
+  margin: 2px;
+  width: 450px;
+}
+#couponID.style-cmaVX {
+  margin: 0 13px 0 0;
+  border-radius: 5px;
+  height: 30px;
+  width: 160px;
+  padding-left: 10px;
+}
+#cpnElement_3.style-kkHrW {
+  height: 30px;
+  margin-left: 15px;
+}
+#style-X6F18.style-X6F18 {
+  font-size: 13px;
+}
+#APS.style-8pJNZ {
+  display: block;
+}
+#showExistingTitle.style-zsaVF {
+  color: #62a535;
+  font-size: 15px;
+  display: none;
+}
+#style-Fpt8e.style-Fpt8e {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  row-gap: 10px;
+  margin-bottom: 30px;
+}
+#showExistingTitle.style-gOUff {
+  color: #62a535;
+  font-size: 15px;
+}
+#style-kq6tU.style-kq6tU {
+  display: flex;
+  flex-direction: column;
+  width: 800;
+  row-gap: 10px;
+}
+#style-Lobdg.style-Lobdg {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-jFNG6.style-jFNG6 {
+  display: grid;
+  grid-template-columns: 17% 17% 17% 17% 17% 17%;
+  gap: 5px;
+}
+#style-Tiinx.style-Tiinx {
+  color: #d00505;
+  font-weight: bold;
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-kfSyp.style-kfSyp {
+  display: grid;
+  grid-template-columns: 17% 17% 17% 17% 17% 17%;
+  gap: 5px;
+}
+#paypal-button-container.style-FlmL5 {
+  max-height: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0.01;
+}
+#zoid-paypal-buttons-uid_b1447ef61d_mte6ndg6mdg.style-wwE3X {
+  height: 51px;
+  transition: 0.2s ease-in-out;
+}
+#jsx-iframe-b153f7e7a0.style-r7kGn {
+  background-color: transparent;
+  border: none;
+}
+#style-NVewR.style-NVewR {
+  display: none;
+}
+#style-SvVxM.style-SvVxM {
+  color: #d00505;
+  font-weight: bold;
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-KzovG.style-KzovG {
+  font-size: 25px;
+  height: 20px;
+  margin-top: 2px;
+  float: left;
+}
+#paypal_status.style-a2hgf {
+  margin-left: 6px;
+  float: left;
+  font-size: 14px;
+  font-style: italic;
+  font-family: Cambria;
+  white-space: nowrap;
+}
+#style-6nSOQ.style-6nSOQ {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-NQsPh.style-NQsPh {
+  display: grid;
+  grid-template-columns: 30% 20% 20% 20% 10%;
+  gap: 5px;
+  font-size: 10px;
+  width: 425px;
+}
+#style-CSgOY.style-CSgOY {
+  cursor: pointer;
+  color: #94b923;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#style-iflU2.style-iflU2 {
+  object-fit: contain;
+  width: 90px;
+}
+#style-GzQ5m.style-GzQ5m {
+  color: #156bec;
+  font-size: 18px;
+}
+#style-oee25.style-oee25 {
+  cursor: pointer;
+  color: #94b923;
+  line-height: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+}
+#style-TEU2a.style-TEU2a {
+  color: #ef8100;
+  font-size: 18px;
+}
+#style-lYXwG.style-lYXwG {
+  cursor: pointer;
+  color: #94b923;
+  line-height: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+}
+#style-9iryp.style-9iryp {
+  color: #f74c24;
+  font-size: 17px;
+  position: relative;
+}
+#style-cd8Jj.style-cd8Jj {
+  color: #ffffff;
+  font-size: 12px;
+  position: relative;
+  left: -14px;
+}
+#style-I1g8R.style-I1g8R {
+  color: #94b923;
+  line-height: 20px;
+  align-items: center;
+  position: relative;
+  top: -3px;
+  left: -8px;
+}
+#style-RtGta.style-RtGta {
+  cursor: pointer;
+  color: #94b923;
+  line-height: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-left: -14px;
+}
+#style-hYOnF.style-hYOnF {
+  color: #50af95;
+  font-size: 18px;
+  margin-right: 5px;
+}
+#style-anCtw.style-anCtw {
+  color: #94b923;
+  line-height: 20px;
+  position: relative;
+  top: -6px;
+}
+#style-DJ6Ur.style-DJ6Ur {
+  cursor: pointer;
+  line-height: 20px;
+  align-items: right;
+  justify-content: right;
+  margin-left: 12px;
+}
+#style-Wdh5q.style-Wdh5q {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#CryptomusLogos.style-Y1TL9 {
+  display: grid;
+  grid-template-columns: 17% 17% 17% 17% 17% 17%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  gap: 5px;
+  row-gap: 15px;
+  max-height: 25px;
+  overflow: hidden;
+  transition: 0.2s linear;
+}
+#style-KcoAY.style-KcoAY {
+  color: #156bec;
+  font-size: 18px;
+}
+#style-U2MgF.style-U2MgF {
+  color: #ef8100;
+  font-size: 18px;
+}
+#style-I4b7K.style-I4b7K {
+  color: #9039ff;
+  font-size: 18px;
+}
+#style-2rGZN.style-2rGZN {
+  color: #50af95;
+  font-size: 18px;
+}
+#style-6L6ga.style-6L6ga {
+  color: #43c700;
+  font-size: 18px;
+}
+#CryptomusMore.style-TkW8h {
+  color: #1b3a5e;
+  font-size: 10px;
+}
+#style-cjaSv.style-cjaSv {
+  color: #efab35;
+  font-size: 18px;
+}
+#style-2O3Gt.style-2O3Gt {
+  color: #d1884f;
+  font-size: 18px;
+}
+#style-k2XrH.style-k2XrH {
+  color: #bca131;
+  font-size: 18px;
+}
+#style-dy1hR.style-dy1hR {
+  color: #f4a826;
+  font-size: 18px;
+}
+#style-7ATos.style-7ATos {
+  color: #2c61c7;
+  font-size: 18px;
+}
+#style-JdXsN.style-JdXsN {
+  color: #8247e5;
+  font-size: 18px;
+}
+#style-yr9iP.style-yr9iP {
+  color: #1aaac2;
+  font-size: 18px;
+}
+#style-gFoR1.style-gFoR1 {
+  color: #0090ff;
+  font-size: 18px;
+}
+#style-SeBXw.style-SeBXw {
+  color: #2c7df7;
+  font-size: 18px;
+}
+#style-24WZi.style-24WZi {
+  color: #2c61c7;
+  font-size: 18px;
+}
+#style-sfTa5.style-sfTa5 {
+  color: #000000;
+  font-size: 18px;
+}
+#style-iticv.style-iticv {
+  color: #103f68;
+  font-size: 18px;
+}
+#style-74bSF.style-74bSF {
+  color: #d3165b;
+  font-size: 18px;
+}
+#style-TrCEw.style-TrCEw {
+  color: #048ee2;
+  font-size: 18px;
+}
+#style-ZaBlz.style-ZaBlz {
+  color: #8cbf67;
+  font-size: 18px;
+}
+#style-4scFB.style-4scFB {
+  color: #ff6600;
+  font-size: 18px;
+}
+#style-oEVtb.style-oEVtb {
+  color: #b5bdc0;
+  font-size: 18px;
+}
+#style-XeY5I.style-XeY5I {
+  white-space: nowrap;
+  font-size: 10px;
+}
+#style-1pRb9.style-1pRb9 {
+  white-space: nowrap;
+  font-size: 10px;
+}
+#style-CoEPH.style-CoEPH {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-9LIJK.style-9LIJK {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-XYBdY.style-XYBdY {
+  color: #d00505;
+  font-weight: bold;
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-Xlzyq.style-Xlzyq {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-4GCQ9.style-4GCQ9 {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-Zjs9d.style-Zjs9d {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-3KfCV.style-3KfCV {
+  color: #4f2455;
+  font-size: 20px;
+}
+#style-a3TMC.style-a3TMC {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-jopLj.style-jopLj {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-tq8cS.style-tq8cS {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#InterKassaLogos.style-9PdOZ {
+  display: grid;
+  grid-template-columns: 17% 17% 17% 17% 17% 17%;
+  grid-template-rows: 25% 25%;
+  gap: 5px;
+  row-gap: 15px;
+  max-height: 30px;
+  overflow: hidden;
+  transition: 0.2s linear;
+}
+#style-gex2C.style-gex2C {
+  color: #d00505;
+  font-weight: bold;
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#style-OWLHV.style-OWLHV {
+  color: navy;
+  font-size: 25px;
+  height: 20px;
+  margin-top: 2px;
+}
+#style-4JIVJ.style-4JIVJ {
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#NowPaymentsLogos.style-W1JnE {
+  display: grid;
+  grid-template-columns: 17% 17% 17% 17% 17% 17%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  gap: 5px;
+  row-gap: 15px;
+  max-height: 25px;
+  overflow: hidden;
+  transition: 0.2s linear;
+}
+#style-79x1x.style-79x1x {
+  color: #156bec;
+  font-size: 18px;
+}
+#style-sMgdC.style-sMgdC {
+  color: #ef8100;
+  font-size: 18px;
+}
+#style-aqNai.style-aqNai {
+  color: #9039ff;
+  font-size: 18px;
+}
+#style-yeyYP.style-yeyYP {
+  color: #50af95;
+  font-size: 18px;
+}
+#style-Z4vel.style-Z4vel {
+  color: #43c700;
+  font-size: 18px;
+}
+#NowPaymentsMore.style-5ZxZf {
+  color: #1b3a5e;
+  font-size: 10px;
+}
+#style-RLGcU.style-RLGcU {
+  color: #efab35;
+  font-size: 18px;
+}
+#style-oSvmH.style-oSvmH {
+  color: #d1884f;
+  font-size: 18px;
+}
+#style-CFfnf.style-CFfnf {
+  color: #bca131;
+  font-size: 18px;
+}
+#style-KHfbP.style-KHfbP {
+  color: #f4a826;
+  font-size: 18px;
+}
+#style-JBvHV.style-JBvHV {
+  color: #2c61c7;
+  font-size: 18px;
+}
+#style-h5vlZ.style-h5vlZ {
+  color: #8247e5;
+  font-size: 18px;
+}
+#style-Ym9JU.style-Ym9JU {
+  color: #1aaac2;
+  font-size: 18px;
+}
+#style-ISjXK.style-ISjXK {
+  color: #0090ff;
+  font-size: 18px;
+}
+#style-34x3k.style-34x3k {
+  color: #2c7df7;
+  font-size: 18px;
+}
+#style-pplME.style-pplME {
+  color: #2c61c7;
+  font-size: 18px;
+}
+#style-BrolU.style-BrolU {
+  color: #000000;
+  font-size: 18px;
+}
+#style-sFkTy.style-sFkTy {
+  color: #103f68;
+  font-size: 18px;
+}
+#style-rvPgl.style-rvPgl {
+  color: #d3165b;
+  font-size: 18px;
+}
+#style-cMIwU.style-cMIwU {
+  color: #048ee2;
+  font-size: 18px;
+}
+#style-3FoWG.style-3FoWG {
+  color: #8cbf67;
+  font-size: 18px;
+}
+#style-TqDQU.style-TqDQU {
+  color: #ff6600;
+  font-size: 18px;
+}
+#style-aOwdi.style-aOwdi {
+  color: #b5bdc0;
+  font-size: 18px;
+}
+#style-tDdrT.style-tDdrT {
+  white-space: nowrap;
+  font-size: 10px;
+}
+#style-wnEqh.style-wnEqh {
+  white-space: nowrap;
+  font-size: 10px;
+}
+#style-JGIjF.style-JGIjF {
+  color: #d00505;
+  font-weight: bold;
+  float: right;
+  position: relative;
+  right: 40px;
+}
+#crypto2Logos.style-aRZ14 {
+  display: grid;
+  grid-template-columns: 17% 17% 17% 17% 17% 17%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+  gap: 5px;
+  row-gap: 15px;
+  max-height: 25px;
+  overflow: hidden;
+  transition: 0.2s linear;
+}
+#style-LNz5o.style-LNz5o {
+  color: rgb(232, 179, 11);
+  font-size: 18px;
+}
+#style-XjSQy.style-XjSQy {
+  color: #002868;
+  font-size: 18px;
+}
+#style-9j9kY.style-9j9kY {
+  color: #0031a8;
+  font-size: 18px;
+}
+#style-EoBa6.style-EoBa6 {
+  color: #2f2f49;
+  font-size: 18px;
+}
+#style-iHMkm.style-iHMkm {
+  color: #0089dd;
+  font-size: 18px;
+}
+#cryptoMore.style-YDiHr {
+  color: #1b3a5e;
+  font-size: 10px;
+}
+#style-xjWJK.style-xjWJK {
+  color: #edb027;
+  font-size: 18px;
+}
+#style-XeZbk.style-XeZbk {
+  color: #000000;
+  font-size: 18px;
+}
+#style-8RoZl.style-8RoZl {
+  color: #000000;
+  font-size: 18px;
+}
+#style-c2Nno.style-c2Nno {
+  color: #008bf7;
+  font-size: 18px;
+}
+#style-OrOot.style-OrOot {
+  color: #454545;
+  font-size: 18px;
+}
+#style-xgUOo.style-xgUOo {
+  color: #2957d3;
+  font-size: 18px;
+}
+#style-G9wqo.style-G9wqo {
+  color: #2bb6f0;
+  font-size: 18px;
+}
+#style-PaOpa.style-PaOpa {
+  color: #55b900;
+  font-size: 18px;
+}
+#style-kKqBU.style-kKqBU {
+  color: #e4df36;
+  font-size: 18px;
+}
+#style-HjBnk.style-HjBnk {
+  color: #2d95c9;
+  font-size: 18px;
+}
+#style-9Jmdg.style-9Jmdg {
+  color: #f74c24;
+  font-size: 18px;
+}
+#style-X9hwR.style-X9hwR {
+  color: #de0914;
+  font-size: 18px;
+}
+#style-Kykrg.style-Kykrg {
+  color: #ba41de;
+  font-size: 18px;
+}
+#style-J81Mc.style-J81Mc {
+  color: #14b7f7;
+  font-size: 18px;
+}
+#style-ztKOm.style-ztKOm {
+  color: #2e64e8;
+  font-size: 18px;
+}
+#style-zCRco.style-zCRco {
+  color: #000000;
+  font-size: 18px;
+}
+#style-RBF3t.style-RBF3t {
+  color: #f76300;
+  font-size: 18px;
+}
+#style-AXr1L.style-AXr1L {
+  color: #2b79ef;
+  font-size: 18px;
+}
+#style-PG6Jw.style-PG6Jw {
+  color: #35b7db;
+  font-size: 18px;
+}
+#firstSubmit.style-fMmZX {
+  width: 150px;
+  height: 30px;
+  display: none;
+}
+#bc_fillment_ext.style-xB1nN {
+  display: none;
+}
+#style-9WKWg.style-9WKWg {
+  font-size: 14px;
+}
+#style-dSAPS.style-dSAPS {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 17% 17% 17% 17% 17% 17%;
+  gap: 5px;
+  width: 750px;
+  font-size: 12px;
+}
+#style-moLpQ.style-moLpQ {
+  color: rgb(232, 179, 11);
+  margin-right: 10px;
+}
+#style-6IFrr.style-6IFrr {
+  color: #002868;
+  margin-right: 10px;
+}
+#style-1EMGg.style-1EMGg {
+  color: #0031a8;
+  margin-right: 10px;
+}
+#style-ODI3M.style-ODI3M {
+  color: #2f2f49;
+  margin-right: 10px;
+}
+#style-f9UAx.style-f9UAx {
+  color: #0089dd;
+  margin-right: 10px;
+}
+#style-ecym2.style-ecym2 {
+  color: #bca131;
+  margin-right: 10px;
+}
+#style-jM9Ic.style-jM9Ic {
+  color: #38b238;
+  margin-right: 10px;
+}
+#style-o2SO7.style-o2SO7 {
+  color: #000000;
+  margin-right: 10px;
+}
+#style-CTzxJ.style-CTzxJ {
+  color: #000000;
+  margin-right: 10px;
+}
+#style-15sNY.style-15sNY {
+  color: #008bf7;
+  margin-right: 10px;
+}
+#style-sqvkR.style-sqvkR {
+  color: #454545;
+  margin-right: 10px;
+}
+#style-E6Smj.style-E6Smj {
+  color: #2957d3;
+  margin-right: 10px;
+}
+#style-qRbBy.style-qRbBy {
+  color: #2bb6f0;
+  margin-right: 10px;
+}
+#style-Pe7KR.style-Pe7KR {
+  color: #55b900;
+  margin-right: 10px;
+}
+#style-XfAcc.style-XfAcc {
+  color: #e4df36;
+  margin-right: 10px;
+}
+#style-CZFYT.style-CZFYT {
+  color: #2d95c9;
+  margin-right: 10px;
+}
+#style-yxaZl.style-yxaZl {
+  color: #f74c24;
+  margin-right: 10px;
+}
+#style-CU6sI.style-CU6sI {
+  color: #de0914;
+  margin-right: 10px;
+}
+#style-DXq95.style-DXq95 {
+  color: #ba41de;
+  margin-right: 10px;
+}
+#style-VtbUK.style-VtbUK {
+  color: #14b7f7;
+  margin-right: 10px;
+}
+#style-n5ehd.style-n5ehd {
+  color: #2e64e8;
+  margin-right: 10px;
+}
+#style-MOUU1.style-MOUU1 {
+  color: #000000;
+  margin-right: 10px;
+}
+#style-Dq45Z.style-Dq45Z {
+  color: #f76300;
+  margin-right: 10px;
+}
+#style-ozzYm.style-ozzYm {
+  color: #2b79ef;
+  margin-right: 10px;
+}
+#style-8gGno.style-8gGno {
+  color: #35b7db;
+  margin-right: 10px;
+}
+#style-ZPI3B.style-ZPI3B {
+  color: #edb027;
+  margin-right: 10px;
+}
+#style-kwUCb.style-kwUCb {
+  line-height: 30px;
+}
+#bw_fillment_ny.style-xysXe {
+  display: none;
+}
+#style-dQBF6.style-dQBF6 {
+  font-size: 14px;
+}
+#style-6CVa8.style-6CVa8 {
+  float: right;
+  color: navy;
+  font-size: 50px;
+}
+#style-ogwSN.style-ogwSN {
+  line-height: 30px;
+}
+#style-GfykM.style-GfykM {
+  line-height: 17px;
+  font-family: verdana, "Inconsolata", monospace;
+  font-size: 12px;
+}
+#py_fillment.style-wjp4S {
+  display: none;
+}
+#style-JeBPY.style-JeBPY {
+  font-size: 14px;
+}
+#style-D1oYA.style-D1oYA {
+  line-height: 30px;
+}
+#skrill_fillment_frame.style-TcT8y {
+  display: none;
+}
+#pp_fillment_frame.style-9wKPF {
+  display: none;
 }

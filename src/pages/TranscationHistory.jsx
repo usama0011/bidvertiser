@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/TransactionHistory.css";
 import Header from "../components/Header";
-import { DownloadOutlined } from "@ant-design/icons";
-
+import axios from "axios";
 const TranscationHistory = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +11,7 @@ const TranscationHistory = () => {
     const fetchTransactions = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/transactionRoutes"
+          "https://bidvertiserserver.vercel.app/api/transactionRoutes/getalldata"
         );
         console.log(response.data);
         setTransactions(response.data);
@@ -24,7 +23,7 @@ const TranscationHistory = () => {
     };
     fetchTransactions();
   }, []);
-  console.log(transactions, "ddd");
+  console.log(transactions);
   return (
     <div>
       <Header routename="Transaction History" />
@@ -110,65 +109,63 @@ const TranscationHistory = () => {
                           <b>Invoice</b>
                         </td>
                       </tr>
-                      {transactions.map((transaction, index) => (
+                      {transactions?.map((item) => (
                         <tr
-                          key={index}
                           bgcolor="#FFFFFF"
-                          style={{ color: "#505050" }}
+                          style={{ color: "color:#505050" }}
                         >
-                          <td id="style-8oMx8" className="style-8oMx8">
-                            {transaction.date}
+                          <td id="style-gSgmd" class="style-gSgmd">
+                            {item.date}
                           </td>
-                          <td id="style-1gvHN" className="style-1gvHN">
-                            {transaction.startingBalance}
+                          <td id="style-XKBDp" class="style-XKBDp">
+                            ${item.startingBalance}
                           </td>
-                          <td id="style-kWihF" className="style-kWihF">
-                            {transaction.amount}
+                          <td id="style-79cgm" class="style-79cgm">
+                            ${item.amount}
                           </td>
-                          <td id="style-rSThp" className="style-rSThp">
-                            {transaction.bonus}
+                          <td id="style-ZJ1oi" class="style-ZJ1oi">
+                            ${item.bonus}
                           </td>
-                          <td id="style-7cVSx" className="style-7cVSx">
-                            {transaction.orderNumber}
+                          <td id="style-Jo19R" class="style-Jo19R">
+                            {item.orderNumber}
                           </td>
-                          <td id="style-5TfUG" className="style-5TfUG">
-                            {transaction.paymentMethod}
+                          <td id="style-ZSXx6" class="style-ZSXx6">
+                            {" "}
+                            {item.paymentMethod}
                           </td>
                           <td
                             align="center"
-                            id="ps_1"
+                            id="ps_2"
                             nowrap=""
-                            className="style-xqzgI"
+                            class="style-IMmPp"
                           >
-                            {transaction.status}
+                            {" "}
+                            {item.status}
                           </td>
-                          <td id="style-rU1ow" className="style-rU1ow">
-                            {transaction.balance}
+                          <td id="style-oNohM" class="style-oNohM">
+                            {" "}
+                            ${item.balance}{" "}
                           </td>
-                          <td
-                            align="left"
-                            id="style-iUaKA"
-                            className="style-iUaKA"
-                          >
-                            {transaction.statementDescription}
+                          <td align="left" id="style-F54ZV" class="style-F54ZV">
+                            {" "}
+                            {item.statementDescription}
                           </td>
-                          <td
-                            align="left"
-                            id="style-8dYGL"
-                            className="style-8dYGL"
-                          >
-                            {transaction.invoice ? (
-                              <a
-                                href={`https://your-api-url/invoices/${transaction.invoice}`}
-                                download
-                              >
-                                <DownloadOutlined
-                                  style={{ color: "#81d34a", fontSize: "18px" }}
-                                />
-                              </a>
-                            ) : (
-                              "-"
-                            )}
+                          <td align="left" id="style-CtyZI" class="style-CtyZI">
+                            <a
+                              href="https://my.bidvertiser.com/bdv/BidVertiser/BidVertiserA/bdv_adv_Receipt.dbm?ID_Token=8330690Z116PU6U&amp;Order_Number=85B52036TE4267914&amp;Payment_ID=BV3278231912160717&amp;NEW_PAYMENT_ID_DISPLAY=BV3278231912160717&amp;as=file"
+                              style={{ paddingRight: "5px" }}
+                              download="BidVeritser_Invoice_BV3278231912160717.pdf"
+                              title="Download as PDF"
+                            >
+                              <i
+                                class="fa fa-download"
+                                aria-hidden="true"
+                                style={{ color: "#81d34a" }}
+                              ></i>
+                            </a>
+                            <a href="javascript:receipt_func('&amp;Order_Number=85B52036TE4267914&amp;Payment_ID=BV3278231912160717&amp;NEW_PAYMENT_ID_DISPLAY=BV3278231912160717')">
+                              {item.invoice}
+                            </a>
                           </td>
                         </tr>
                       ))}
