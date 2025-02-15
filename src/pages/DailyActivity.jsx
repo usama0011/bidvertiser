@@ -134,14 +134,31 @@ const DailyActivity = () => {
           },
         }
       );
-      console.log(response.data);
-      setAnalytics(response.data);
+
+      // Check if the response contains the expected data
+      if (!response.data || !Array.isArray(response.data)) {
+        console.error("Unexpected API response:", response.data);
+        setLoading(false);
+        return;
+      }
+
+      // Sorting by date in descending order (latest date first)
+      const sortedData = response.data.sort(
+        (a, b) => new Date(b.Date) - new Date(a.Date) // Ensure it compares actual Date objects
+      );
+
+      console.log(
+        "Sorted Data:",
+        sortedData.map((item) => item.Date)
+      ); // Debugging
+      setAnalytics(sortedData);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching campaigns:", error.message);
       setLoading(false);
     }
   };
+
   const handleGenreateCampaings = () => {
     fetchCampaigns();
   };

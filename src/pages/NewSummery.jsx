@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/Summery.css";
 import Header from "../components/Header";
 import axios from "axios";
-import $ from "jquery"; // Import jQuery
+
 import "jquery-ui/ui/widgets/datepicker"; // Import datepicker widget
 import Test from "./Test";
 const NewSummery = () => {
@@ -57,6 +57,15 @@ const NewSummery = () => {
   };
   const fetchSummaries = async () => {
     try {
+      setLoading(true);
+
+      // Ensure startDate and endDate have valid values
+      if (!startDate || !endDate) {
+        console.error("Error: Start date or end date is missing.");
+        setLoading(false);
+        return;
+      }
+
       const response = await axios.get(
         "https://bidvertiserserver.vercel.app/api/summary",
         {
@@ -66,12 +75,32 @@ const NewSummery = () => {
           },
         }
       );
-      setSummaries(response.data);
+
+      // Ensure response contains an array before setting state
+      if (!response.data || !Array.isArray(response.data)) {
+        console.error("Unexpected API response:", response.data);
+        setLoading(false);
+        return;
+      }
+
+      // Sort summaries by date (latest first)
+      const sortedSummaries = response.data.sort(
+        (a, b) => new Date(b.Date) - new Date(a.Date) // Convert to Date objects before comparison
+      );
+
+      console.log(
+        "Sorted Summaries Data:",
+        sortedSummaries.map((item) => item.Date)
+      ); // Debugging log
+
+      setSummaries(sortedSummaries);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching summaries:", error.message);
+      setLoading(false);
     }
   };
+
   useEffect(() => {
     fetchSummaries();
   }, [startDate, endDate]);

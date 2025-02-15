@@ -76,12 +76,32 @@ const Analytics = () => {
           },
         }
       );
-      setAnalytics(response?.data);
+
+      // Ensure response contains an array
+      if (!response.data || !Array.isArray(response.data)) {
+        console.error("Unexpected API response:", response.data);
+        setLoading(false);
+        return;
+      }
+
+      // Sort data by date (latest first)
+      const sortedData = response.data.sort(
+        (a, b) => new Date(b.Date) - new Date(a.Date) // Convert to Date objects before comparison
+      );
+
+      console.log(
+        "Sorted Analytics Data:",
+        sortedData.map((item) => item.Date)
+      ); // Debugging log
+
+      setAnalytics(sortedData);
       setLoading(false);
     } catch (error) {
-      console.error("Error fetching analytics:", error);
+      console.error("Error fetching analytics:", error.message);
+      setLoading(false);
     }
   };
+
   useEffect(() => {
     fetchAnalytics();
   }, []);
