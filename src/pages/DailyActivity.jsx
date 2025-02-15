@@ -44,13 +44,16 @@ const DailyActivity = () => {
   // Set state variables
   const [startDate, setStartDate] = useState(formattedStartDate);
   const [endDate, setEndDate] = useState(formattedEndDate);
-
   const calculateTotal = (field) => {
-    return analytics.reduce((acc, curr) => {
-      // Remove commas from the value
-      const value = curr[field]?.replace(/,/g, "") || "0";
-      return acc + parseFloat(value);
+    const total = analytics.reduce((acc, curr) => {
+      // Ensure the field exists, remove commas, and parse as a number
+      const value = curr[field]?.replace(/,/g, "").trim() || "0";
+      const parsedValue = parseFloat(value);
+
+      return acc + (isNaN(parsedValue) ? 0 : parsedValue);
     }, 0);
+
+    return total; // Return a number, not a string
   };
 
   const formatNumberWithCommas = (number) => {
@@ -77,14 +80,31 @@ const DailyActivity = () => {
   const handleChange = (event) => {
     setSelectedCampaign(event.target.value);
   };
-  const calculateMaxWinRate = () => {
-    // Iterate through the analytics data to find the maximum win rate
-    return analytics.reduce((max, curr) => {
-      // Remove commas and parse as float, default to 0 if not present
+  const calculateAverageWinRate = () => {
+    if (!analytics.length) return "0.00"; // Return a default value when no data is available
+
+    const totalWinRate = analytics.reduce((acc, curr) => {
       const value = parseFloat(curr.WinRate?.replace(/,/g, "") || "0");
-      return value > max ? value : max;
+      return acc + value;
     }, 0);
+
+    const average = totalWinRate / analytics.length;
+    return isNaN(average) ? "0.00" : average.toFixed(2); // Ensure a valid numeric value
   };
+  const calculateAverage = (field) => {
+    if (!analytics.length) return 0; // Prevent division by zero
+
+    const total = analytics.reduce((acc, curr) => {
+      // Ensure the field exists, remove commas, and parse as a number
+      const value = curr[field]?.replace(/,/g, "").trim() || "0";
+      const parsedValue = parseFloat(value);
+
+      return acc + (isNaN(parsedValue) ? 0 : parsedValue);
+    }, 0);
+
+    return total / analytics.length; // Return the average as a number
+  };
+
   // Function to fetch campaign names from the backend API
   const fetchCampaignNames = async () => {
     try {
@@ -338,7 +358,7 @@ const DailyActivity = () => {
                               id="content-button"
                               type="submit"
                               name="Create_button"
-                              value="Generate"
+                              value={loading ? "loading..." : "Generate"}
                               onClick={handleGenreateCampaings}
                             />
                           </div>
@@ -605,9 +625,7 @@ const DailyActivity = () => {
                   }}
                   nowrap
                 >
-                  <b>
-                    {formatNumberWithCommas(calculateMaxWinRate().toFixed(2))}%
-                  </b>
+                  <b>{formatNumberWithCommas(calculateAverageWinRate())}%</b>
                 </td>
                 <td
                   valign="top"
@@ -622,6 +640,7 @@ const DailyActivity = () => {
                     ${formatNumberWithCommas(calculateTotal("Cost").toFixed(2))}
                   </b>
                 </td>
+
                 <td
                   valign="top"
                   style={{
@@ -632,9 +651,11 @@ const DailyActivity = () => {
                   nowrap
                 >
                   <b>
-                    ${formatNumberWithCommas(calculateTotal("CPC").toFixed(4))}
+                    $
+                    {formatNumberWithCommas(calculateAverage("CPC").toFixed(4))}
                   </b>
                 </td>
+
                 <td
                   style={{
                     paddingLeft: "5px",
