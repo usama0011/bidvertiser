@@ -1493,7 +1493,6 @@ const App = ({ handlepopupclick }) => {
                               type="number"
                               style={{
                                 width: "65px",
-                                minHeight: "1px",
                                 paddingLeft: "4px",
                                 minHeight: "1px",
                                 maxHeight: "25px",

@@ -55,15 +55,23 @@ const NewSummery = () => {
     }
     setshowendtdatepicker((prev) => !prev);
   };
+  const formatAPIDate = (date) => {
+    if (!date) return "";
+    const parts = date.split("/");
+    return `${parts[2]}-${parts[0]}-${parts[1]}`; // Convert MM/DD/YYYY → YYYY-MM-DD
+  };
   // Fetch summary data from API
   const fetchSummaries = async () => {
     try {
       setLoading(true);
-
+      console.log(startDate, endDate);
       const response = await axios.get(
         "https://bidvertiserserver.vercel.app/api/dailyactivity/aggrigation-summary",
         {
-          params: { startDate, endDate },
+          params: {
+            startDate: formatAPIDate(startDate),
+            endDate: formatAPIDate(endDate),
+          },
         }
       );
 
@@ -370,7 +378,9 @@ const NewSummery = () => {
                             <td valign="top">{formatDate(endDate)}</td>
                             <td valign="top">{summary.AdRequests}</td>
                             <td valign="top">{summary.Visits}</td>
-                            <td valign="top">{`$ ${summary?.Cost}`}</td>
+                            <td valign="top">{`$ ${summary?.Cost.toFixed(
+                              2
+                            )}`}</td>
                             <td valign="top">{`$ ${summary?.CPC.toFixed(
                               2
                             )}`}</td>
