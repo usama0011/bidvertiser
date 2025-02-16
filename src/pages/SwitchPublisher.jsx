@@ -202,7 +202,7 @@ const SwitchPublisher = () => {
               style={{
                 marginBottom: "16px",
                 height: "50px",
-                fontWeight: "500",
+                fontWeight: "500",  
               }}
             >
               Upload Transactions CSV

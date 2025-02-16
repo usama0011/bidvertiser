@@ -99,7 +99,6 @@ body {
   line-height: 18px;
 }
 body {
-  overflow: hidden;
   font-family: "Open Sans";
   color: var(--black);
   font-size: 12px;

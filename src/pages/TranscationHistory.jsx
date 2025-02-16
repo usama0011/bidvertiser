@@ -19,7 +19,7 @@ const TranscationHistory = () => {
         setError("Failed to load transactions.");
       } finally {
         setLoading(false);
-      }
+      } 
     };
     fetchTransactions();
   }, []);

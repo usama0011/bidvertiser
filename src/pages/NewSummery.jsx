@@ -55,48 +55,28 @@ const NewSummery = () => {
     }
     setshowendtdatepicker((prev) => !prev);
   };
+  // Fetch summary data from API
   const fetchSummaries = async () => {
     try {
       setLoading(true);
 
-      // Ensure startDate and endDate have valid values
-      if (!startDate || !endDate) {
-        console.error("Error: Start date or end date is missing.");
-        setLoading(false);
-        return;
-      }
-
       const response = await axios.get(
-        "https://bidvertiserserver.vercel.app/api/summary",
+        "https://bidvertiserserver.vercel.app/api/dailyactivity/aggrigation-summary",
         {
-          params: {
-            startDate,
-            endDate,
-          },
+          params: { startDate, endDate },
         }
       );
 
-      // Ensure response contains an array before setting state
-      if (!response.data || !Array.isArray(response.data)) {
+      if (response.data && response.data.campaigns) {
+        setSummaries(response.data.campaigns);
+      } else {
         console.error("Unexpected API response:", response.data);
-        setLoading(false);
-        return;
+        setSummaries([]);
       }
-
-      // Sort summaries by date (latest first)
-      const sortedSummaries = response.data.sort(
-        (a, b) => new Date(b.Date) - new Date(a.Date) // Convert to Date objects before comparison
-      );
-
-      console.log(
-        "Sorted Summaries Data:",
-        sortedSummaries.map((item) => item.Date)
-      ); // Debugging log
-
-      setSummaries(sortedSummaries);
-      setLoading(false);
     } catch (error) {
       console.error("Error fetching summaries:", error.message);
+      setSummaries([]);
+    } finally {
       setLoading(false);
     }
   };
@@ -104,11 +84,18 @@ const NewSummery = () => {
   useEffect(() => {
     fetchSummaries();
   }, [startDate, endDate]);
-
+  console.log(summaries);
   const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    if (!dateString) return "Invalid Date"; // Handle null/undefined cases
+
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // Ensure two-digit format
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`; // Format: YYYY-MM-DD
   };
+
   const handleGenreateSummery = () => {
     fetchSummaries();
   };
@@ -379,14 +366,14 @@ const NewSummery = () => {
                         </tr>
                         {summaries?.map((summary) => (
                           <tr key={summary._id} bgcolor="#FFFFFF">
-                            <td valign="top">
-                              {formatDate(summary.startdate)}
-                            </td>
-                            <td valign="top">{formatDate(summary.endDate)}</td>
+                            <td valign="top">{formatDate(startDate)}</td>
+                            <td valign="top">{formatDate(endDate)}</td>
                             <td valign="top">{summary.AdRequests}</td>
                             <td valign="top">{summary.Visits}</td>
                             <td valign="top">{`$ ${summary?.Cost}`}</td>
-                            <td valign="top">{`$ ${summary?.CPC}`}</td>
+                            <td valign="top">{`$ ${summary?.CPC.toFixed(
+                              2
+                            )}`}</td>
                           </tr>
                         ))}
                       </tbody>

@@ -290,8 +290,7 @@ const Analytics = () => {
                               style={{ float: "left", paddingRight: "12px" }}
                             >
                               <span className="bdv_000000_Text_10">
-                                Date Range: (Min date: 09/01/2023, Max range 2
-                                months)
+                                Date Range: (Min date: 09/01/2023)
                               </span>
                               <br />
                               <div

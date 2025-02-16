@@ -1358,7 +1358,11 @@ const App = ({ handlepopupclick }) => {
                                             "color:var(--darkGreen);cursor:pointer;font-size:14px;opacity:1"
                                           );
                                       }}
-                                      style={{ minHeight: "1px" }}
+                                      style={{
+                                        minHeight: "1px",
+                                        maxHeight: "25px",
+                                        fontSize: "12px",
+                                      }}
                                     />
                                   </div>
                                 </span>
@@ -1491,6 +1495,9 @@ const App = ({ handlepopupclick }) => {
                                 width: "65px",
                                 minHeight: "1px",
                                 paddingLeft: "4px",
+                                minHeight: "1px",
+                                maxHeight: "25px",
+                                fontSize: "12px",
                               }}
                               id="daily_budget799817"
                               className="vlad ad_name_titleled"

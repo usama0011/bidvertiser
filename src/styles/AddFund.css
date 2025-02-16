@@ -56,7 +56,6 @@ body {
   line-height: 18px;
 }
 body {
-  overflow: hidden;
   font-family: "Open Sans";
   color: var(--black);
   font-size: 12px;
@@ -800,7 +799,6 @@ button.function-button:hover {
 }
 #paypal-button-container.style-FlmL5 {
   max-height: 30px;
-  overflow: hidden;
   cursor: pointer;
   pointer-events: auto;
   opacity: 0.01;
@@ -942,7 +940,6 @@ button.function-button:hover {
   gap: 5px;
   row-gap: 15px;
   max-height: 25px;
-  overflow: hidden;
   transition: 0.2s linear;
 }
 #style-KcoAY.style-KcoAY {
@@ -1103,7 +1100,6 @@ button.function-button:hover {
   gap: 5px;
   row-gap: 15px;
   max-height: 30px;
-  overflow: hidden;
   transition: 0.2s linear;
 }
 #style-gex2C.style-gex2C {
@@ -1131,7 +1127,6 @@ button.function-button:hover {
   gap: 5px;
   row-gap: 15px;
   max-height: 25px;
-  overflow: hidden;
   transition: 0.2s linear;
 }
 #style-79x1x.style-79x1x {
@@ -1248,7 +1243,6 @@ button.function-button:hover {
   gap: 5px;
   row-gap: 15px;
   max-height: 25px;
-  overflow: hidden;
   transition: 0.2s linear;
 }
 #style-LNz5o.style-LNz5o {
