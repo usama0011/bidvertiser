@@ -915,9 +915,7 @@ const Analytics = () => {
                                           class="date_picker_item style-Rzczs"
                                           id="style-Rzczs"
                                         >
-                                          <option value="6">
-                                            Last 2 Days{" "}
-                                          </option>
+                                          <option value="6">2 Days </option>
                                         </select>
                                       </div>
                                     </div>
@@ -931,36 +929,8 @@ const Analytics = () => {
                                         id="style-1U7y1"
                                         class="style-1U7y1"
                                       >
-                                        <option value="783397" selected="">
-                                          UNI 3{" "}
-                                        </option>
-                                        <option value="783900">
-                                          Uni 4 [Deleted]{" "}
-                                        </option>
-                                        <option value="783468">
-                                          Uni Test 3{" "}
-                                        </option>
-                                        <option value="783296">
-                                          UniBot Solar{" "}
-                                        </option>
-                                        <option value="800106">
-                                          Usama Ahmad [Deleted]{" "}
-                                        </option>
-                                        <option value="799823">
-                                          Usama Ahmad [Deleted]{" "}
-                                        </option>
-                                        <option value="799822">
-                                          Usama Ahmad [Deleted]{" "}
-                                        </option>
-                                        <option value="800138">
-                                          Usama Ahmad [Deleted]{" "}
-                                        </option>
-                                        <option value="755621">
-                                          new 1 [Deleted]{" "}
-                                        </option>
-                                        <option value="799817">sdas </option>
-                                        <option value="800122">
-                                          testing [Deleted]{" "}
+                                        <option value={selectedCampaign}>
+                                          {selectedCampaign}
                                         </option>
                                       </select>
                                     </div>
@@ -971,11 +941,6 @@ const Analytics = () => {
                                       <br />
                                     </div>
                                     <div id="style-rYWFV" class="style-rYWFV">
-                                      <span class="bdv_000000_Text_10">
-                                        &nbsp;
-                                      </span>
-                                      <br /> Last updated: Feb 17, 2025 10:47:00
-                                      (UTC){" "}
                                       <span
                                         class="fa-stack fa-lg"
                                         onmouseover="return escape('Analytics reports are updated approximatly once an hour');"
@@ -1018,7 +983,7 @@ const Analytics = () => {
                         id="style-i8Xdm"
                       >
                         {" "}
-                        Analytics reports are updated every 2 hours{" "}
+                        Analytics reports are updated{" "}
                       </td>
                     </tr>
                   </tbody>
