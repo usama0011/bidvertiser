@@ -209,14 +209,7 @@ const Analytics = () => {
             <div className="tab" onClick={() => setCurrentTab("hourly")}>
               <div>Hourly</div>
             </div>
-            <div
-              className="tab"
-              onClick={() =>
-                doSubmitFunc(
-                  "https://my.bidvertiser.com/bdv/BidVertiser/BidVertiserA/bdv_adv_report_Sources_tabs.dbm?groupBy=sub_ID&amp;ID_Token=R150TN08K92EGQ9"
-                )
-              }
-            >
+            <div className="tab" onClick={() => setCurrentTab("subid")}>
               <div>Subid</div>
             </div>
             <div
@@ -1125,6 +1118,192 @@ const Analytics = () => {
                   <u>Export</u>
                 </a>
               </div>
+            </div>
+          )}
+          {currentTab === "subid" && (
+            <div>
+              <td class="snipcss-CL729">
+                <div id="style-3iceP" class="style-3iceP">
+                  <div id="style-JxUNp" class="style-JxUNp">
+                    <span class="bdv_000000_Text_10">
+                      Date Range: (Min date: 08/01/2024, Max range 1 month)
+                    </span>
+                    <br />
+                    <div id="style-myvGq" class="style-myvGq">
+                      <select
+                        name="statistic_option"
+                        class="date_picker_item style-1ExLV"
+                        onchange="setTimeFrame(this.value)"
+                        id="style-1ExLV"
+                      >
+                        <option value="1" selected="">
+                          Today{" "}
+                        </option>
+                        <option value="2">Yesterday </option>
+                        <option value="3">Last 7 days </option>
+                        <option value="4">This Month </option>
+                        <option value="5">Last Month </option>
+                        <option value="6">Last 30 days </option>
+                        <option value="7">Select Date Range </option>
+                      </select>
+                      <input
+                        type="text"
+                        id="Start_Date"
+                        onchange="$('#End_Date').datepicker('option', 'maxDate', addMonths(this.value, 1));"
+                        name="Start_Date"
+                        size="8"
+                        onfocus="document.forms.report_form.statistic_option.selectedIndex=6;"
+                        value="02/17/2025"
+                        class="hasDatepicker style-UcFi6"
+                      />
+                      <i
+                        class="fa fa-calendar style-yWUgr"
+                        aria-hidden="true"
+                        onclick="document.getElementById('Start_Date').focus();"
+                        id="style-yWUgr"
+                      ></i>
+                      <input
+                        type="text"
+                        id="End_Date"
+                        name="End_Date"
+                        size="8"
+                        onfocus="document.forms.report_form.statistic_option.selectedIndex=6;"
+                        value="02/17/2025"
+                        class="hasDatepicker style-mjgJQ"
+                      />
+                      <i
+                        class="fa fa-calendar style-5HPx6"
+                        aria-hidden="true"
+                        onclick="document.getElementById('End_Date').focus();"
+                        id="style-5HPx6"
+                      ></i>
+                    </div>
+                  </div>
+                  <div id="style-JZaGU" class="style-JZaGU">
+                    <span class="bdv_000000_Text_10">Filter by Ad:</span>
+                    <br />
+                    <select
+                      name="Selected_Content"
+                      class="form-field style-zoIqG"
+                      id="style-zoIqG"
+                    >
+                      <option value="783397" selected="">
+                        UNI 3{" "}
+                      </option>
+                      <option value="783900">Uni 4 [Deleted] </option>
+                      <option value="783468">Uni Test 3 </option>
+                      <option value="783296">UniBot Solar </option>
+
+                      <option value="755621">new 1 [Deleted] </option>
+                      <option value="799817">sdas </option>
+                      <option value="800122">testing [Deleted] </option>
+                    </select>
+                  </div>
+                  <div id="style-U3nFg" class="style-U3nFg">
+                    <span
+                      class="bdv_000000_Text_10"
+                      style={{ whiteSpace: "nowrap" }}
+                    >
+                      Order by:
+                    </span>
+                    <br />
+                    <select
+                      name="orderBy"
+                      class="form-field style-8BBki"
+                      id="style-8BBki"
+                    >
+                      <option value="Clicks" selected="">
+                        Visits{" "}
+                      </option>
+                      <option value="cost">Cost </option>
+                      <option value="Conversions">Conversions </option>
+                      <option value="Requests">Requests </option>
+                    </select>
+                  </div>
+                  <div id="style-pbLtS" class="style-pbLtS">
+                    <span
+                      class="bdv_000000_Text_10"
+                      style={{ whiteSpace: "nowrap" }}
+                    >
+                      Min:
+                      <span
+                        class="fa-stack fa-lg style-f2AY7"
+                        onmouseover="return escape('This report may be heavy to load when showing all Subids. We recommend filtering out the smaller ones by setting to show at least 10 clicks');"
+                        id="style-f2AY7"
+                      >
+                        <i
+                          class="fa fa-circle fa-stack-1x style-li4yI"
+                          id="style-li4yI"
+                        ></i>
+                        <i
+                          class="fa fa-info-circle fa-stack-1x style-o6dra"
+                          aria-hidden="true"
+                          id="style-o6dra"
+                        ></i>
+                      </span>
+                    </span>
+                    <br />
+                    <input
+                      type="Text"
+                      name="minGroupBy"
+                      id="minGroupByID"
+                      value="1"
+                      size="7"
+                      class="form-field style-iD758"
+                    />
+                  </div>
+                  <div id="style-jNCsd" class="style-jNCsd">
+                    <span
+                      class="bdv_000000_Text_10"
+                      style={{ whiteSpace: "nowrap" }}
+                    >
+                      Filter by Source ID:
+                    </span>
+                    <br />
+                    <input
+                      type="Text"
+                      placeholder="Source ID"
+                      name="subID"
+                      value=""
+                      size="10"
+                      class="form-field style-yr3QD"
+                      id="style-yr3QD"
+                    />
+                  </div>
+                  <div id="style-Jj7Fw" class="style-Jj7Fw">
+                    <span
+                      class="bdv_000000_Text_10"
+                      style={{ whiteSpace: "nowrap" }}
+                    >
+                      Display:
+                    </span>
+                    <br />
+                    <select
+                      name="showBlackListedSubIDs"
+                      class="form-field style-6OP99"
+                      onchange="disableSelection();"
+                      id="style-6OP99"
+                    >
+                      <option value="Active" selected="">
+                        Active{" "}
+                      </option>
+                      <option value="Blacklisted">Blacklisted </option>
+                    </select>
+                  </div>
+                  <div id="style-4xEer" class="style-4xEer">
+                    <span class="bdv_000000_Text_10">&nbsp;</span>
+                    <br />
+                    <input
+                      id="content-button"
+                      type="button"
+                      name="Create_button"
+                      value="Generate"
+                      onclick="doSubmitFunc2(document.location.href);"
+                    />
+                  </div>
+                  <input type="hidden" name="createSubIDReport" value="true" />
+                </div>
+              </td>
             </div>
           )}
         </div>
