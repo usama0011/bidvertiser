@@ -1026,8 +1026,8 @@ const Creative = () => {
                                         style={{
                                           overflow: "hidden",
                                           textAlign: "left",
-                                          width: 300,
-                                          height: 255,
+                                          width: 310,
+                                          height: 320,
                                           position: "relative",
                                           padding: 1,
                                           border: "1px solid rgba(0,0,0,0.2)",
@@ -1036,27 +1036,38 @@ const Creative = () => {
                                         {image && (
                                           <div
                                             style={{
-                                              width: 300,
+                                              width: 350,
                                               backgroundSize: "cover",
                                               objectFit: "cover",
                                             }}
                                           >
-                                            <img
-                                              id="img_id_1"
-                                              src={preview}
-                                              width="300"
-                                              alt="Ad Image"
-                                            />
+                                            <div
+                                              style={{
+                                                height: "280px",
+                                                width: "100%",
+                                              }}
+                                            >
+                                              <img
+                                                src={preview}
+                                                style={{
+                                                  width: "100%",
+                                                  height: "100%",
+                                                  objectFit: "cover",
+                                                  backgroundSize: "cover",
+                                                }}
+                                                alt=""
+                                              />
+                                            </div>
                                           </div>
                                         )}
 
                                         <div
                                           style={{
-                                            backgroundColor: "rgba(0,0,0,0)",
+                                            backgroundColor: "white",
                                             padding: "0 2px",
                                             position: "absolute",
                                             bottom: -2,
-                                            width: 300,
+                                            width: 350,
                                             height: 55,
                                           }}
                                         >

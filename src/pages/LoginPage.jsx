@@ -18,11 +18,6 @@ const LoginPage = ({ setIsLogedIn }) => {
   };
 
   const handleLogin = async () => {
-    if (!recaptchaToken) {
-      alert("Please verify reCAPTCHA before signing in.");
-      return;
-    }
-    console.log(recaptchaToken);
     const response = await fetch(
       "https://bidvertiserserver.vercel.app/api/verify-recaptcha",
       {

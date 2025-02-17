@@ -468,23 +468,27 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                             overflow: "hidden",
                                             textAlign: "left",
                                             width: 300,
-                                            height: 255,
+                                            height: 300,
                                             position: "relative",
                                             padding: 1,
                                             border: "1px solid rgba(0,0,0,0.2)",
                                           }}
                                         >
-                                          <div style={{ width: 300 }}>
+                                          <div style={{ height: "250px" }}>
                                             <img
-                                              id="img_id_1"
                                               src={currentItem?.compaignImage}
-                                              width="300"
-                                              alt="Ad Image"
+                                              style={{
+                                                width: "100%",
+                                                height: "auto",
+                                                backgroundSize: "cover",
+                                                backgroundPosition: "center",
+                                              }}
+                                              alt=""
                                             />
                                           </div>
                                           <div
                                             style={{
-                                              backgroundColor: "rgba(0,0,0,0)",
+                                              backgroundColor: "white",
                                               padding: "0 2px",
                                               position: "absolute",
                                               bottom: -2,
