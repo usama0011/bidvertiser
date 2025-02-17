@@ -509,7 +509,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                                 textDecoration: "none",
                                               }}
                                             >
-                                              Cheap Solar for Home
+                                              {currentItem?.title}
                                             </div>
                                             <div
                                               id="content_1_id_1"
@@ -521,9 +521,9 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                                 color: "#333333",
                                               }}
                                             >
-                                              Get Free Solar From Government
+                                              {currentItem?.descriptionone}
                                               <br />
-                                              Get The Best Solar Quotes for Free
+                                              {currentItem?.descriptiontwo}
                                             </div>
                                             <div
                                               id="link_id_1"
@@ -536,7 +536,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                                 color: "grey",
                                               }}
                                             >
-                                              smartinfoplanet.com
+                                              {currentItem?.displayURL}
                                             </div>
                                           </div>
                                         </div>
