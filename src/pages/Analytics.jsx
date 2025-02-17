@@ -1079,7 +1079,7 @@ const Analytics = () => {
                                   id="style-oE8NV"
                                   class="style-oE8NV"
                                 >
-                                  ${item?.Cost}
+                                  ${item?.CPC}
                                 </td>
                                 <td
                                   valign="top"
@@ -1088,7 +1088,7 @@ const Analytics = () => {
                                   id="style-2WNKn"
                                   class="style-2WNKn"
                                 >
-                                  ${item?.CPC}
+                                  ${item?.Cost}
                                 </td>
                               </tr>
                             ))}
