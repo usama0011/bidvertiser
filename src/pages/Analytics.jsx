@@ -714,9 +714,7 @@ const Analytics = () => {
                   <tr>Loading...</tr>
                   // <tr>
                   //   <div className="activity-log">
-                  //     <div className="no-activity">
-                  //       No activity logged during the chosen time frame.
-                  //     </div>
+                  //
                   //   </div>
                   // </tr>
                 )}

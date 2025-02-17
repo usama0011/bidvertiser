@@ -95,8 +95,7 @@ const LoginPage = ({ setIsLogedIn }) => {
         </div>
         <div className="rechapchabox">
           <ReCAPTCHA
-            sitekey="6LdGv60pAAAAAAVqocqP9G1hl904CXCFiGcxlEi_
-            "
+            sitekey="6LetftkqAAAAAIDNtAezQ70i7QmmbswUeanE1Fvm"
             onChange={handleRecaptchaVerify}
           />
         </div>

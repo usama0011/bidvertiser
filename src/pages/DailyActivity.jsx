@@ -714,9 +714,7 @@ const DailyActivity = () => {
                             marginLeft: "10px",
                           }}
                         >
-                          <div style={{ float: "left", fontSize: "13px" }}>
-                            No activity logged during the chosen time frame.
-                          </div>
+                         
                         </div>
                       </td>
                     </tr>
