@@ -12,10 +12,11 @@ const LoginPage = ({ setIsLogedIn }) => {
   useEffect(() => {
     document.title = "BidVertiser - Login";
   }, []);
-  const handleRecaptchaVerify = async (token) => {
-    console.log("reCAPTCHA v3 token:", token);
+  const handleRecaptchaVerify = (token) => {
+    console.log("reCAPTCHA token:", token);
     setRecaptchaToken(token);
   };
+
   const handleLogin = async () => {
     if (!recaptchaToken) {
       alert("Please verify reCAPTCHA before signing in.");
@@ -115,7 +116,7 @@ const LoginPage = ({ setIsLogedIn }) => {
         </div>
         <div className="rechapchabox">
           <ReCAPTCHA
-            sitekey="6LetftkqAAAAAIDNtAezQ70i7QmmbswUeanE1Fvm"
+            sitekey="6LergdkqAAAAABpd3hMJmZrK7GXzvYjmLes58Yjy"
             size="invisible"
             onChange={handleRecaptchaVerify}
           />
