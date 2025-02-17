@@ -785,7 +785,7 @@ const Creative = () => {
                             </tr>
                             <tr>
                               <td align="left" style={{ verticalAlign: "top" }}>
-                                Description line 1:sssssssssss
+                                Description line 1:
                                 <br />
                                 <div
                                   style={{
@@ -1130,11 +1130,6 @@ const Creative = () => {
                           Destination URL / Tel:
                           <span
                             className="fa-stack fa-lg"
-                            onMouseOver={() =>
-                              alert(
-                                `Destination URL / Tel\n\nThe exact destination where you want the customer that clicks on the ad to be sent to. Any extensions (i.e. tracking code, inner website pages, affiliate IDs, etc.) should be used here.\n\nTelephone number:\nBe sure to use the proper format: Begin with tel: followed by the number.\nUse only digits. No hyphens, no parentheses.\n\nFor example, the proper format of (212) 555-8888 in the URL field is tel:2125558888.\n\nInternational numbers: use the plus symbol (+) followed by the country calling code and telephone number. A complete international number should begin with tel: followed by + followed by the country calling code and telephone number.\n\nFor example, the proper format of +1-300-555-8888 in the URL field is tel:+13005558888.`
-                              )
-                            }
                             style={{ height: "1.2em", lineHeight: "20px" }}
                           >
                             <i

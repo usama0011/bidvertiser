@@ -135,3 +135,1160 @@
 .main_table_style td {
   padding: 2px 5px;
 }
+
+#page {
+  background-color: white;
+  padding: 20px;
+}
+
+a {
+  color: var(--black);
+}
+
+.bdv_000000_Text_10 {
+  line-height: 25px;
+}
+
+.bdv_000000_Text_10 {
+  color: var(--black);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.main_table_style {
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-family: "Open Sans", sans-serif;
+  color: var(--black);
+  font-size: 12px;
+  min-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.main_table_style {
+  line-height: 21px;
+}
+
+.main_table_style thead tr {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: RGBA(17, 115, 183, 1);
+  text-align: left;
+  padding: 2px;
+  border-bottom: 2px solid RGBA(17, 115, 183, 1);
+}
+
+.main_table_style tbody tr {
+  border-bottom: thin solid #dddddd;
+}
+
+.main_table_style tbody tr:nth-of-type(2n + 1) {
+  background-color: #f3f3f3;
+}
+
+.main_table_style tbody tr:nth-of-type(2n + 1) {
+  background-color: #fff;
+}
+
+.main_table_style tbody tr:last-of-type {
+  border-bottom: 1px solid RGBA(17, 115, 183, 1);
+  border-top: 1px solid RGBA(17, 115, 183, 1);
+}
+
+.main_table_style th {
+  padding: 2px 5px;
+}
+
+.main_table_style td {
+  padding: 2px 5px;
+}
+
+.main_table_style td {
+  padding: 0 5px;
+}
+
+.main_table_style tr.work_line td {
+  background-color: rgba(16, 34, 51, 0);
+  color: var(--black);
+}
+
+select {
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  color: var(--black);
+  padding: 5px;
+}
+
+select {
+  -moz-appearance: none;
+  background-position: right center;
+  background-image: url("https://my.bidvertiser.com/BidVertiser/images/select_FF.png");
+  background-repeat: no-repeat;
+  min-width: 150px;
+}
+
+input[type="button"] {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.15);
+  background-position: 0 0;
+  background-color: var(--lightGreen);
+  border: 1px solid var(--lightGreen);
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  padding: 3px 12px;
+  min-height: 30px;
+  min-width: 100px;
+}
+
+.fa-lg {
+  font-size: 1.25em;
+  line-height: 0.05em;
+  vertical-align: -0.075em;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  position: relative;
+  vertical-align: middle;
+  width: 2.5em;
+}
+
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+.fa {
+  font-family: var(--fa-style-family, "Font Awesome 6 Free");
+  font-weight: var(--fa-style, 900);
+}
+
+.fa {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: var(--fa-display, inline-block);
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-rendering: auto;
+}
+
+.fa-stack-1x {
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: var(--fa-stack-z-index, auto);
+}
+
+.fa-stack-1x {
+  line-height: inherit;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-stack-1x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.fa-circle:before {
+  content: "\f111";
+}
+
+.fa-circle-info:before,
+.fa-info-circle:before {
+  content: "\f05a";
+}
+
+.fa-info-circle:before {
+  content: "\f05a";
+}
+
+/* These were inline style tags. Uses id+class to override almost everything */
+#style-43eKM.style-43eKM {
+  display: flex;
+  background: #1b3a5e;
+  border-radius: 5px;
+  padding: 3px 3px 3px 3px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  color: white;
+}
+#regularTAB11.style-Rynfe {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+}
+#regularTAB41.style-2DEAG {
+  font-size: 11px;
+}
+#regularTAB12.style-KWk8O {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB13.style-YR5XS {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB43.style-ap3BX {
+  font-size: 11px;
+}
+#regularTAB14.style-a6wqo {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB44.style-SKn8G {
+  font-size: 11px;
+}
+#regularTAB15.style-EbFp7 {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB45.style-7LXDH {
+  font-size: 11px;
+}
+#regularTAB16.style-OoGkK {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB46.style-9iRNO {
+  font-size: 11px;
+}
+#regularTAB17.style-EI7py {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB47.style-Iw9VR {
+  font-size: 11px;
+}
+#regularTAB18.style-IQ4xR {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB48.style-QmzP1 {
+  font-size: 11px;
+}
+#regularTAB19.style-T6iXo {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB49.style-AITww {
+  font-size: 11px;
+}
+#regularTAB110.style-VOP7K {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB410.style-watBe {
+  font-size: 11px;
+}
+#regularTAB111.style-GA9DD {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB411.style-J7Jxw {
+  font-size: 11px;
+}
+#regularTAB112.style-Jpwpb {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB412.style-FL76x {
+  font-size: 11px;
+}
+#regularTAB113.style-mRgF1 {
+  cursor: pointer;
+  height: 22px;
+  position: relative;
+  width: 12.5%;
+  padding: 5px 20px 0 20px;
+  border-left: 1px dashed grey;
+}
+#regularTAB413.style-nomMP {
+  font-size: 11px;
+}
+#style-DrY9P.style-DrY9P {
+  float: left;
+  padding-right: 12px;
+}
+#style-Ltpt9.style-Ltpt9 {
+  display: flex;
+  font-size: 13px;
+  width: 450px;
+  border: 1px solid lightgrey;
+  box-shadow: inset 0 0 10px 1px rgb(0 0 0 / 5%);
+  background: rgba(255, 255, 255, 1);
+  background-position: 0 0;
+  font-family: "Open Sans", sans-serif;
+  min-height: 25px;
+  outline: none;
+  color: #505050;
+  width: 200px;
+}
+#style-Rzczs.style-Rzczs {
+  all: unset;
+
+  text-align: left;
+
+  padding-left: 10px;
+
+  -webkit-appearance: none;
+
+  line-height: 28px;
+
+  height: 28px;
+
+  width: 195px;
+
+  -moz-appearance: none;
+
+  background-position: right;
+
+  background-image: url("https://my.bidvertiser.com/BidVertiser/Images/select_FF.png");
+
+  background-repeat: no-repeat;
+}
+#style-cF2AF.style-cF2AF {
+  float: left;
+}
+#style-1U7y1.style-1U7y1 {
+  min-width: 277px;
+  max-width: 450px;
+  height: 30px;
+}
+#style-VGrv6.style-VGrv6 {
+  float: left;
+  margin-left: 15px;
+}
+#style-rYWFV.style-rYWFV {
+  float: right;
+  flex-grow: 4;
+  text-align: right;
+}
+#style-3dWYd.style-3dWYd {
+  color: white;
+  font-size: 13px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white;
+}
+#style-ecDxR.style-ecDxR {
+  color: #5d86c9;
+  font-size: 13px;
+}
+#style-GvndM.style-GvndM {
+  color: 990000;
+  font-weight: bold;
+}
+#style-i8Xdm.style-i8Xdm {
+  color: 990000;
+}
+#style-h9xrX.style-h9xrX {
+  margin-bottom: 5px;
+}
+#style-6Vxg3.style-6Vxg3 {
+  font-size: 12px;
+  padding-left: 14px;
+  width: 5%;
+  text-align: left;
+}
+#style-4n4Ge.style-4n4Ge {
+  font-size: 12px;
+  width: 20%;
+  text-align: right;
+}
+#style-tisAH.style-tisAH {
+  font-size: 12px;
+  width: 20%;
+  text-align: right;
+}
+#style-7jyTr.style-7jyTr {
+  font-size: 12px;
+  width: 20%;
+  text-align: right;
+}
+#style-jA7Cm.style-jA7Cm {
+  font-size: 12px;
+  width: 20%;
+  text-align: right;
+  padding-right: 20px;
+}
+#style-txI4o.style-txI4o {
+  line-height: 45px;
+}
+#style-9omeT.style-9omeT {
+  padding-left: 15px;
+}
+#style-2VEwH.style-2VEwH {
+  padding-left: 5px;
+}
+#style-Et1kq.style-Et1kq {
+  padding-left: 5px;
+}
+#style-oE8NV.style-oE8NV {
+  padding-left: 5px;
+}
+#style-2WNKn.style-2WNKn {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-Rag2N.style-Rag2N {
+  line-height: 45px;
+}
+#style-gWAFR.style-gWAFR {
+  padding-left: 15px;
+}
+#style-z8dwH.style-z8dwH {
+  padding-left: 5px;
+}
+#style-dVw3C.style-dVw3C {
+  padding-left: 5px;
+}
+#style-NSJhp.style-NSJhp {
+  padding-left: 5px;
+}
+#style-Leojt.style-Leojt {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-jF1WD.style-jF1WD {
+  line-height: 45px;
+}
+#style-cLigw.style-cLigw {
+  padding-left: 15px;
+}
+#style-m4MQG.style-m4MQG {
+  padding-left: 5px;
+}
+#style-CN9xW.style-CN9xW {
+  padding-left: 5px;
+}
+#style-djPOA.style-djPOA {
+  padding-left: 5px;
+}
+#style-8fJEU.style-8fJEU {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-kvt5z.style-kvt5z {
+  line-height: 45px;
+}
+#style-poIM2.style-poIM2 {
+  padding-left: 15px;
+}
+#style-lqKmH.style-lqKmH {
+  padding-left: 5px;
+}
+#style-9nPqz.style-9nPqz {
+  padding-left: 5px;
+}
+#style-3PiaH.style-3PiaH {
+  padding-left: 5px;
+}
+#style-hhPqS.style-hhPqS {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-njcJV.style-njcJV {
+  line-height: 45px;
+}
+#style-zTaJC.style-zTaJC {
+  padding-left: 15px;
+}
+#style-7Io9E.style-7Io9E {
+  padding-left: 5px;
+}
+#style-VWmR7.style-VWmR7 {
+  padding-left: 5px;
+}
+#style-DOmxa.style-DOmxa {
+  padding-left: 5px;
+}
+#style-7iG1c.style-7iG1c {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-IZAk2.style-IZAk2 {
+  line-height: 45px;
+}
+#style-3nfSp.style-3nfSp {
+  padding-left: 15px;
+}
+#style-VB9ae.style-VB9ae {
+  padding-left: 5px;
+}
+#style-rn1HK.style-rn1HK {
+  padding-left: 5px;
+}
+#style-Hi7iR.style-Hi7iR {
+  padding-left: 5px;
+}
+#style-OacQW.style-OacQW {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-NcLsW.style-NcLsW {
+  line-height: 45px;
+}
+#style-z4HkD.style-z4HkD {
+  padding-left: 15px;
+}
+#style-3GoHl.style-3GoHl {
+  padding-left: 5px;
+}
+#style-oUvwf.style-oUvwf {
+  padding-left: 5px;
+}
+#style-lgp7V.style-lgp7V {
+  padding-left: 5px;
+}
+#style-3EwgY.style-3EwgY {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-BiEI7.style-BiEI7 {
+  line-height: 45px;
+}
+#style-Mr4pb.style-Mr4pb {
+  padding-left: 15px;
+}
+#style-xFL73.style-xFL73 {
+  padding-left: 5px;
+}
+#style-tnEiW.style-tnEiW {
+  padding-left: 5px;
+}
+#style-DSINd.style-DSINd {
+  padding-left: 5px;
+}
+#style-zIbZF.style-zIbZF {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-3rRcw.style-3rRcw {
+  line-height: 45px;
+}
+#style-Wh3j2.style-Wh3j2 {
+  padding-left: 15px;
+}
+#style-64zXL.style-64zXL {
+  padding-left: 5px;
+}
+#style-qoMqH.style-qoMqH {
+  padding-left: 5px;
+}
+#style-H8TQF.style-H8TQF {
+  padding-left: 5px;
+}
+#style-o8wyE.style-o8wyE {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-cUviK.style-cUviK {
+  line-height: 45px;
+}
+#style-kkvnm.style-kkvnm {
+  padding-left: 15px;
+}
+#style-fBBmt.style-fBBmt {
+  padding-left: 5px;
+}
+#style-AWAMU.style-AWAMU {
+  padding-left: 5px;
+}
+#style-ZxKl4.style-ZxKl4 {
+  padding-left: 5px;
+}
+#style-yD9oa.style-yD9oa {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-UieAH.style-UieAH {
+  line-height: 45px;
+}
+#style-o9yAW.style-o9yAW {
+  padding-left: 15px;
+}
+#style-jvoh9.style-jvoh9 {
+  padding-left: 5px;
+}
+#style-O18ar.style-O18ar {
+  padding-left: 5px;
+}
+#style-eFnKo.style-eFnKo {
+  padding-left: 5px;
+}
+#style-pvUIW.style-pvUIW {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-qnm8F.style-qnm8F {
+  line-height: 45px;
+}
+#style-enddZ.style-enddZ {
+  padding-left: 15px;
+}
+#style-x1YG7.style-x1YG7 {
+  padding-left: 5px;
+}
+#style-Fpeqf.style-Fpeqf {
+  padding-left: 5px;
+}
+#style-xpwJb.style-xpwJb {
+  padding-left: 5px;
+}
+#style-tm5sB.style-tm5sB {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-eEqRi.style-eEqRi {
+  line-height: 45px;
+}
+#style-DEq2p.style-DEq2p {
+  padding-left: 15px;
+}
+#style-KQfxl.style-KQfxl {
+  padding-left: 5px;
+}
+#style-y7Tsd.style-y7Tsd {
+  padding-left: 5px;
+}
+#style-4k2sZ.style-4k2sZ {
+  padding-left: 5px;
+}
+#style-YUL5g.style-YUL5g {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-MLybp.style-MLybp {
+  line-height: 45px;
+}
+#style-1Nyi2.style-1Nyi2 {
+  padding-left: 15px;
+}
+#style-UC9W9.style-UC9W9 {
+  padding-left: 5px;
+}
+#style-Nx4vA.style-Nx4vA {
+  padding-left: 5px;
+}
+#style-Qn56I.style-Qn56I {
+  padding-left: 5px;
+}
+#style-msxqb.style-msxqb {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-Kin9Y.style-Kin9Y {
+  line-height: 45px;
+}
+#style-LpBqP.style-LpBqP {
+  padding-left: 15px;
+}
+#style-P3E84.style-P3E84 {
+  padding-left: 5px;
+}
+#style-dR4ER.style-dR4ER {
+  padding-left: 5px;
+}
+#style-GYc6U.style-GYc6U {
+  padding-left: 5px;
+}
+#style-NgTfQ.style-NgTfQ {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-Gn9QK.style-Gn9QK {
+  line-height: 45px;
+}
+#style-GEJZX.style-GEJZX {
+  padding-left: 15px;
+}
+#style-KylJ1.style-KylJ1 {
+  padding-left: 5px;
+}
+#style-kd1lo.style-kd1lo {
+  padding-left: 5px;
+}
+#style-yeUDq.style-yeUDq {
+  padding-left: 5px;
+}
+#style-hYEHf.style-hYEHf {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-oAFoo.style-oAFoo {
+  line-height: 45px;
+}
+#style-lchRL.style-lchRL {
+  padding-left: 15px;
+}
+#style-ZlsNV.style-ZlsNV {
+  padding-left: 5px;
+}
+#style-wRE1T.style-wRE1T {
+  padding-left: 5px;
+}
+#style-J7ksE.style-J7ksE {
+  padding-left: 5px;
+}
+#style-wo373.style-wo373 {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-bw1Ej.style-bw1Ej {
+  line-height: 45px;
+}
+#style-kWXt3.style-kWXt3 {
+  padding-left: 15px;
+}
+#style-AfVXN.style-AfVXN {
+  padding-left: 5px;
+}
+#style-93Jyj.style-93Jyj {
+  padding-left: 5px;
+}
+#style-qJNnl.style-qJNnl {
+  padding-left: 5px;
+}
+#style-YRgAp.style-YRgAp {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-tqe2d.style-tqe2d {
+  line-height: 45px;
+}
+#style-Q6b9r.style-Q6b9r {
+  padding-left: 15px;
+}
+#style-Qo8zs.style-Qo8zs {
+  padding-left: 5px;
+}
+#style-oGSHk.style-oGSHk {
+  padding-left: 5px;
+}
+#style-r465Q.style-r465Q {
+  padding-left: 5px;
+}
+#style-1J9OW.style-1J9OW {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-Hd6bW.style-Hd6bW {
+  line-height: 45px;
+}
+#style-Ed3b8.style-Ed3b8 {
+  padding-left: 15px;
+}
+#style-P8H2o.style-P8H2o {
+  padding-left: 5px;
+}
+#style-3LHP5.style-3LHP5 {
+  padding-left: 5px;
+}
+#style-JVQVt.style-JVQVt {
+  padding-left: 5px;
+}
+#style-WrozC.style-WrozC {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-rnBFX.style-rnBFX {
+  line-height: 45px;
+}
+#style-lZmwl.style-lZmwl {
+  padding-left: 15px;
+}
+#style-6JiIi.style-6JiIi {
+  padding-left: 5px;
+}
+#style-t1liv.style-t1liv {
+  padding-left: 5px;
+}
+#style-zCoYd.style-zCoYd {
+  padding-left: 5px;
+}
+#style-mVBce.style-mVBce {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-7DYna.style-7DYna {
+  line-height: 45px;
+}
+#style-I2vz4.style-I2vz4 {
+  padding-left: 15px;
+}
+#style-5w6dR.style-5w6dR {
+  padding-left: 5px;
+}
+#style-6CUTY.style-6CUTY {
+  padding-left: 5px;
+}
+#style-WMZhc.style-WMZhc {
+  padding-left: 5px;
+}
+#style-YThs2.style-YThs2 {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-Mnr3I.style-Mnr3I {
+  line-height: 45px;
+}
+#style-LOofM.style-LOofM {
+  padding-left: 15px;
+}
+#style-WV6zN.style-WV6zN {
+  padding-left: 5px;
+}
+#style-HD3PT.style-HD3PT {
+  padding-left: 5px;
+}
+#style-NkGC5.style-NkGC5 {
+  padding-left: 5px;
+}
+#style-BSA9d.style-BSA9d {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-3VjEd.style-3VjEd {
+  line-height: 45px;
+}
+#style-o9o1q.style-o9o1q {
+  padding-left: 15px;
+}
+#style-5KkDB.style-5KkDB {
+  padding-left: 5px;
+}
+#style-OyFGT.style-OyFGT {
+  padding-left: 5px;
+}
+#style-3qjtW.style-3qjtW {
+  padding-left: 5px;
+}
+#style-1LJra.style-1LJra {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-FUOvO.style-FUOvO {
+  line-height: 45px;
+}
+#style-sjNXd.style-sjNXd {
+  padding-left: 15px;
+}
+#style-etXUk.style-etXUk {
+  padding-left: 5px;
+}
+#style-KeJqi.style-KeJqi {
+  padding-left: 5px;
+}
+#style-DB7PL.style-DB7PL {
+  padding-left: 5px;
+}
+#style-jEbNq.style-jEbNq {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-2fh8o.style-2fh8o {
+  line-height: 45px;
+}
+#style-Oco3q.style-Oco3q {
+  padding-left: 15px;
+}
+#style-kJCWb.style-kJCWb {
+  padding-left: 5px;
+}
+#style-8IUtH.style-8IUtH {
+  padding-left: 5px;
+}
+#style-j2abi.style-j2abi {
+  padding-left: 5px;
+}
+#style-kbvoZ.style-kbvoZ {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-14B7n.style-14B7n {
+  line-height: 45px;
+}
+#style-ItnWe.style-ItnWe {
+  padding-left: 15px;
+}
+#style-TBpLL.style-TBpLL {
+  padding-left: 5px;
+}
+#style-wz5p7.style-wz5p7 {
+  padding-left: 5px;
+}
+#style-FdcoN.style-FdcoN {
+  padding-left: 5px;
+}
+#style-DPLxm.style-DPLxm {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-BvVLM.style-BvVLM {
+  line-height: 45px;
+}
+#style-MQJM2.style-MQJM2 {
+  padding-left: 15px;
+}
+#style-ClObT.style-ClObT {
+  padding-left: 5px;
+}
+#style-XwmUO.style-XwmUO {
+  padding-left: 5px;
+}
+#style-psvsf.style-psvsf {
+  padding-left: 5px;
+}
+#style-xOgKb.style-xOgKb {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-jgGSJ.style-jgGSJ {
+  line-height: 45px;
+}
+#style-EkGUA.style-EkGUA {
+  padding-left: 15px;
+}
+#style-Kk7v5.style-Kk7v5 {
+  padding-left: 5px;
+}
+#style-xcpJL.style-xcpJL {
+  padding-left: 5px;
+}
+#style-RrTfh.style-RrTfh {
+  padding-left: 5px;
+}
+#style-L1bgt.style-L1bgt {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-E1hkQ.style-E1hkQ {
+  line-height: 45px;
+}
+#style-aY2ES.style-aY2ES {
+  padding-left: 15px;
+}
+#style-3fxpo.style-3fxpo {
+  padding-left: 5px;
+}
+#style-MGchq.style-MGchq {
+  padding-left: 5px;
+}
+#style-Kos1I.style-Kos1I {
+  padding-left: 5px;
+}
+#style-eNZbx.style-eNZbx {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-Cr8CT.style-Cr8CT {
+  line-height: 45px;
+}
+#style-9Uea4.style-9Uea4 {
+  padding-left: 15px;
+}
+#style-18hv2.style-18hv2 {
+  padding-left: 5px;
+}
+#style-QQ22G.style-QQ22G {
+  padding-left: 5px;
+}
+#style-zlfiS.style-zlfiS {
+  padding-left: 5px;
+}
+#style-PDqwl.style-PDqwl {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-WLZpY.style-WLZpY {
+  line-height: 45px;
+}
+#style-m1UxC.style-m1UxC {
+  padding-left: 15px;
+}
+#style-RpNXR.style-RpNXR {
+  padding-left: 5px;
+}
+#style-NVBnw.style-NVBnw {
+  padding-left: 5px;
+}
+#style-mHkSI.style-mHkSI {
+  padding-left: 5px;
+}
+#style-6Ebav.style-6Ebav {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-DDFHn.style-DDFHn {
+  line-height: 45px;
+}
+#style-AOEyC.style-AOEyC {
+  padding-left: 15px;
+}
+#style-nvajr.style-nvajr {
+  padding-left: 5px;
+}
+#style-5RrzU.style-5RrzU {
+  padding-left: 5px;
+}
+#style-74vMJ.style-74vMJ {
+  padding-left: 5px;
+}
+#style-O1w5n.style-O1w5n {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-3eDXy.style-3eDXy {
+  line-height: 45px;
+}
+#style-QeMwn.style-QeMwn {
+  padding-left: 15px;
+}
+#style-Kg7sp.style-Kg7sp {
+  padding-left: 5px;
+}
+#style-yogYj.style-yogYj {
+  padding-left: 5px;
+}
+#style-PiJVi.style-PiJVi {
+  padding-left: 5px;
+}
+#style-tJWyk.style-tJWyk {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-S8Zgr.style-S8Zgr {
+  line-height: 45px;
+}
+#style-lf5eW.style-lf5eW {
+  padding-left: 15px;
+}
+#style-e1Tbf.style-e1Tbf {
+  padding-left: 5px;
+}
+#style-gHRX6.style-gHRX6 {
+  padding-left: 5px;
+}
+#style-2b1U1.style-2b1U1 {
+  padding-left: 5px;
+}
+#style-s8ZsQ.style-s8ZsQ {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-6rcjp.style-6rcjp {
+  line-height: 45px;
+}
+#style-geE3r.style-geE3r {
+  padding-left: 15px;
+}
+#style-dpXgK.style-dpXgK {
+  padding-left: 5px;
+}
+#style-Ao7W4.style-Ao7W4 {
+  padding-left: 5px;
+}
+#style-Pa5rg.style-Pa5rg {
+  padding-left: 5px;
+}
+#style-omook.style-omook {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-9lr4v.style-9lr4v {
+  line-height: 45px;
+}
+#style-qUfwE.style-qUfwE {
+  padding-left: 15px;
+}
+#style-xUNyw.style-xUNyw {
+  padding-left: 5px;
+}
+#style-PiPc5.style-PiPc5 {
+  padding-left: 5px;
+}
+#style-7BkD2.style-7BkD2 {
+  padding-left: 5px;
+  padding-right: 20px;
+}
+#style-GaAo8.style-GaAo8 {
+  margin-bottom: 1px;
+}
