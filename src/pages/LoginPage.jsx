@@ -7,16 +7,36 @@ const LoginPage = ({ setIsLogedIn }) => {
   const [activeTab, setActiveTab] = useState("Login");
   const [email, setEmail] = useState("ads@maxmedialeads.com");
   const [password, setPassword] = useState("123456");
+  const [recaptchaToken, setRecaptchaToken] = useState("");
 
   useEffect(() => {
     document.title = "BidVertiser - Login";
   }, []);
-  const handleRecaptchaVerify = (token) => {
-    console.log("Recaptcha token:", token);
-    // You can perform further actions with the token, such as sending it to your server for verification
+  const handleRecaptchaVerify = async (token) => {
+    console.log("reCAPTCHA v3 token:", token);
+    setRecaptchaToken(token);
   };
-  const handleLogin = () => {
-    setIsLogedIn(true);
+  const handleLogin = async () => {
+    if (!recaptchaToken) {
+      alert("Please verify reCAPTCHA before signing in.");
+      return;
+    }
+
+    const response = await fetch(
+      "https://bidvertiserserver.vercel.app/api/verify-recaptcha",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: recaptchaToken }),
+      }
+    );
+
+    const data = await response.json();
+    if (data.success) {
+      setIsLogedIn(true);
+    } else {
+      alert("reCAPTCHA verification failed.");
+    }
   };
   return (
     <div className="logincontainer">
@@ -96,6 +116,7 @@ const LoginPage = ({ setIsLogedIn }) => {
         <div className="rechapchabox">
           <ReCAPTCHA
             sitekey="6LetftkqAAAAAIDNtAezQ70i7QmmbswUeanE1Fvm"
+            size="invisible"
             onChange={handleRecaptchaVerify}
           />
         </div>
