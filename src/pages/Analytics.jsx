@@ -121,6 +121,7 @@ const Analytics = () => {
           params: {
             startDate: formattedStartDate, // ✅ Correct
             endDate: formattedEndDate, // ✅ Correct
+            campaignname: selectedCampaign,
           },
         }
       );
@@ -156,7 +157,7 @@ const Analytics = () => {
 
   useEffect(() => {
     fetchAnalyticsHourly();
-  }, [startDate, endDate]); // ✅ Now runs when startDate or endDate changes
+  }, [startDate, endDate, selectedCampaign]); // ✅ Now runs when startDate or endDate changes
   const handleGenreateCampaings = () => {
     fetchAnalytics();
   };
