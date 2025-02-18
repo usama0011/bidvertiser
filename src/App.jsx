@@ -790,24 +790,51 @@ const App = ({ handlepopupclick }) => {
                                 alignItems: "center",
                               }}
                             >
-                              <i
-                                className="fa fa-step-forward"
-                                aria-hidden="true"
-                                style={{
-                                  color: "var(--red)",
-                                  width: "11px",
-                                  overflow: "hidden",
-                                }}
-                              ></i>
-                              <i
-                                className="fa fa-pause"
-                                style={{
-                                  color: "#fc7c7c",
-                                  width: "2px",
-                                  overflow: "hidden",
-                                }}
-                                aria-hidden="true"
-                              ></i>
+                              {item?.dailyCap <= 100 ? (
+                                <div>
+                                  <span>
+                                    <i
+                                      class="fa fa-step-forward"
+                                      aria-hidden="true"
+                                      style={{
+                                        color: "#fc7c7c",
+                                        width: "9px",
+                                        overflow: "hidden",
+                                      }}
+                                    ></i>
+                                    <i
+                                      class="fa fa-pause"
+                                      style={{
+                                        color: "#fc7c7c",
+                                        width: "2px",
+                                        overflow: "hidden",
+                                      }}
+                                      aria-hidden="true"
+                                    ></i>
+                                  </span>
+                                </div>
+                              ) : (
+                                <div>
+                                  <i
+                                    class="fa fa-step-forward"
+                                    aria-hidden="true"
+                                    style={{
+                                      color: "var(--darkGreen)",
+                                      width: "9px",
+                                      overflow: "hidden",
+                                    }}
+                                  ></i>
+                                  <i
+                                    class="fa fa-pause"
+                                    style={{
+                                      color: "var(--darkGreen)",
+                                      width: "2px",
+                                      overflow: "hidden",
+                                    }}
+                                    aria-hidden="true"
+                                  ></i>
+                                </div>
+                              )}
                             </div>
                             <span
                               style={{ display: "none" }}
