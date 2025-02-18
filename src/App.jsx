@@ -177,12 +177,12 @@ const App = ({ handlepopupclick }) => {
                     backgroundRepeat: "no-repeat",
                   }}
                 >
+                  <option value="4">This Month</option>
                   <option value="1" selected>
                     Today
                   </option>
                   <option value="2">Yesterday</option>
                   <option value="3">Last 7 days</option>
-                  <option value="4">This Month</option>
                   <option value="5">Last Month</option>
                   <option value="6">Last 30 days</option>
                   <option value="7">Select Date Range</option>
@@ -487,7 +487,7 @@ const App = ({ handlepopupclick }) => {
                         <option value="100">100</option>
                         <option value="4">ALL</option>
                       </select>
-                      Campaigns per page out of 4
+                      Campaigns per page out of 1
                     </div>
                   </div>
                 </td>
@@ -1424,7 +1424,7 @@ const App = ({ handlepopupclick }) => {
                         id="requests799817"
                         title="0"
                       >
-                        {item?.campaignBid}
+                        {Number(item?.campaignBid).toLocaleString()}
                       </td>
                       <td
                         align="left"
@@ -1440,7 +1440,7 @@ const App = ({ handlepopupclick }) => {
                         id="visits799817"
                         title="0"
                       >
-                        {item.visits}
+                        {Number(item.visits)?.toLocaleString()}
                       </td>
                       <td
                         align="right"
@@ -1458,7 +1458,7 @@ const App = ({ handlepopupclick }) => {
                         }}
                         title="0"
                       >
-                        ${item.cost}
+                        ${Number(item?.cost)?.toLocaleString()}
                       </td>
 
                       <td
@@ -1689,9 +1689,7 @@ const App = ({ handlepopupclick }) => {
                 <td
                   style={{ paddingLeft: "5px", textAlign: "left" }}
                   id="vidimp_tot"
-                >
-                  0
-                </td>
+                ></td>
                 <td
                   style={{ paddingLeft: "5px", textAlign: "left" }}
                   id="visits_tot"
@@ -1701,9 +1699,7 @@ const App = ({ handlepopupclick }) => {
                 <td
                   style={{ paddingLeft: "10px", textAlign: "right" }}
                   id="ctr_tot"
-                >
-                  0.00%
-                </td>
+                ></td>
                 <td
                   style={{
                     paddingLeft: "10px",
@@ -1712,7 +1708,7 @@ const App = ({ handlepopupclick }) => {
                   }}
                   id="cost_tot"
                 >
-                  ${totals.totalCost?.toLocaleString()}
+                  ${Number(totals?.totalCost)?.toLocaleString()}
                 </td>
                 <td
                   style={{
@@ -1821,7 +1817,7 @@ const App = ({ handlepopupclick }) => {
                         <option value="100">100</option>
                         <option value="4">ALL</option>
                       </select>
-                      Campaings per page out of 4
+                      Campaings per page out of 1
                     </div>
                   </div>
                 </td>
