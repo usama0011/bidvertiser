@@ -25,7 +25,7 @@ const App = ({ handlepopupclick }) => {
 
   const [endDate, setEndDate] = useState(() => {
     const today = new Date();
-    return `12/31/${today.getFullYear()}`; // Default to December 31st of the current year
+    return `02/28/${today.getFullYear()}`; // Default to December 31st of the current year
   });
 
   const handleNewCompaings = () => {
