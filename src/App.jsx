@@ -20,7 +20,7 @@ const App = ({ handlepopupclick }) => {
   // Set default start and end date to the current month's first and last date
   const [startDate, setStartDate] = useState(() => {
     const today = new Date();
-    return `01/01/${today.getFullYear()}`; // Default to January 1st of the current year
+    return `02/01/${today.getFullYear()}`; // Default to January 1st of the current year
   });
 
   const [endDate, setEndDate] = useState(() => {
