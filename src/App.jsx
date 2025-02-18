@@ -1726,9 +1726,7 @@ const App = ({ handlepopupclick }) => {
                     borderLeft: "1px solid rgba(0, 0, 0, 0.15)",
                   }}
                   id="conv_tot"
-                >
-                  0
-                </td>
+                ></td>
                 <td>&nbsp;</td>
               </tr>
             </tfoot>
