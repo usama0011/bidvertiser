@@ -126,6 +126,7 @@ const App = ({ handlepopupclick }) => {
   useEffect(() => {
     fetchCampaigns();
   }, []);
+  console.log(campaigns);
   return (
     <div className="appcontainer">
       <Header routename="Manage Campaings" />
@@ -1215,6 +1216,7 @@ const App = ({ handlepopupclick }) => {
                                   style={{
                                     color: "var(--darkGreen)",
                                     padding: "0 3px",
+                                    marginTop: "8px",
                                   }}
                                 ></i>
                               </a>
@@ -1248,7 +1250,10 @@ const App = ({ handlepopupclick }) => {
                           <div style={{ float: "right", padding: "2px 5px" }}>
                             <a
                               href="javascript:void(0);"
-                              style={{ textDecoration: "none", width: "20px" }}
+                              style={{
+                                textDecoration: "none",
+                                width: "20px",
+                              }}
                               title="Edit Ad Name"
                               onClick={() => save_name(799817)}
                             >
@@ -1300,6 +1305,16 @@ const App = ({ handlepopupclick }) => {
                                 width: "10px",
                                 padding: "10px 2px 0 10px",
                               }}
+                            ></div>
+                            <div
+                              style={{
+                                width: "100%",
+                                position: "relative",
+                                display: "flex",
+                                alignItems: "center",
+                                marginLeft: "10px",
+                                whiteSpace: "nowrap",
+                              }}
                             >
                               <a
                                 href="javascript:void(0);"
@@ -1310,62 +1325,19 @@ const App = ({ handlepopupclick }) => {
                                   display: "block",
                                   color: "var(--darkGreen)",
                                   fontSize: "13px",
+                                  marginRight: "2px",
                                 }}
                               >
                                 $
                               </a>
-                            </div>
-                            <div
-                              style={{
-                                width: "100%",
-                                position: "relative",
-                                marginLeft: "10px",
-                                whiteSpace: "nowrap",
-                              }}
-                            >
                               <div
                                 style={{
-                                  padding: "2px 0",
-                                  minWidth: "70px",
-                                  position: "relative",
-                                  display: "flex",
+                                  backgroundColor: "white",
+                                  padding: "1px 15px",
+                                  border: "1px solid gainsboro",
                                 }}
                               >
-                                <span
-                                  style={{ cursor: "text", color: "inherit" }}
-                                >
-                                  <div
-                                    className="quantity"
-                                    style={{ paddingTop: "3px" }}
-                                  >
-                                    <input
-                                      type="number"
-                                      title="Bid Range: $0.0020 - $3"
-                                      id="max_bid_id799817"
-                                      className="vlad ad_name_titlele"
-                                      min="0.0001"
-                                      max="100"
-                                      step="0.0001"
-                                      value={item?.bidRequests}
-                                      onClick={() => {
-                                        document.getElementById(
-                                          "UB_799817"
-                                        ).className = "fa fa-send-o";
-                                        document
-                                          .getElementById("UB_799817")
-                                          .setAttribute(
-                                            "style",
-                                            "color:var(--darkGreen);cursor:pointer;font-size:14px;opacity:1"
-                                          );
-                                      }}
-                                      style={{
-                                        minHeight: "1px",
-                                        maxHeight: "25px",
-                                        fontSize: "12px",
-                                      }}
-                                    />
-                                  </div>
-                                </span>
+                                {item?.bidRequests}
                               </div>
                             </div>
                             <div style={{ width: "20px", padding: "10px 5px" }}>
