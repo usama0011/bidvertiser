@@ -177,10 +177,10 @@ const App = ({ handlepopupclick }) => {
                     backgroundRepeat: "no-repeat",
                   }}
                 >
-                  <option value="4">This Month</option>
                   <option value="1" selected>
-                    Today
+                    This Month
                   </option>
+                  <option value="4">Today</option>
                   <option value="2">Yesterday</option>
                   <option value="3">Last 7 days</option>
                   <option value="5">Last Month</option>
