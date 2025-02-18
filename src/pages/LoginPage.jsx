@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const LoginPage = ({ setIsLogedIn }) => {
   const [activeTab, setActiveTab] = useState("Login");
-  const [email, setEmail] = useState("ads@maxmedialeads.com");
+  const [email, setEmail] = useState("ads@nextweblines.com");
   const [password, setPassword] = useState("123456");
   const [recaptchaToken, setRecaptchaToken] = useState("");
 

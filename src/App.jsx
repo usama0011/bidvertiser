@@ -27,7 +27,12 @@ const App = ({ handlepopupclick }) => {
     const today = new Date();
     return `02/28/${today.getFullYear()}`; // Default to December 31st of the current year
   });
-
+  // State for storing totals
+  const [totals, setTotals] = useState({
+    totalBidRequests: 0,
+    totalVisits: 0,
+    totalCost: 0.0,
+  });
   const handleNewCompaings = () => {
     navigate("/newcompaings");
   };
@@ -115,6 +120,22 @@ const App = ({ handlepopupclick }) => {
       console.log(response.data);
       setCampaigns(response.data);
       setLoading(false);
+      // Calculate totals
+      let totalBidRequests = 0;
+      let totalVisits = 0;
+      let totalCost = 0;
+
+      response.data.forEach((campaign) => {
+        totalBidRequests += Number(campaign.campaignBid) || 0;
+        totalVisits += Number(campaign.visits) || 0;
+        totalCost += parseFloat(campaign.cost) || 0;
+      });
+
+      setTotals({
+        totalBidRequests,
+        totalVisits,
+        totalCost: totalCost.toFixed(2), // Ensure two decimal places
+      });
     } catch (error) {
       console.error("Error fetching campaigns:", error.message);
       setLoading(false);
@@ -127,6 +148,7 @@ const App = ({ handlepopupclick }) => {
     fetchCampaigns();
   }, []);
   console.log(campaigns);
+  console.log(totals);
   return (
     <div className="appcontainer">
       <Header routename="Manage Campaings" />
@@ -1662,7 +1684,7 @@ const App = ({ handlepopupclick }) => {
                   style={{ paddingLeft: "5px", textAlign: "left" }}
                   id="requests_tot"
                 >
-                  0
+                  {totals?.totalBidRequests?.toLocaleString()}
                 </td>
                 <td
                   style={{ paddingLeft: "5px", textAlign: "left" }}
@@ -1674,7 +1696,7 @@ const App = ({ handlepopupclick }) => {
                   style={{ paddingLeft: "5px", textAlign: "left" }}
                   id="visits_tot"
                 >
-                  0
+                  {Number(totals?.totalVisits)?.toLocaleString()}
                 </td>
                 <td
                   style={{ paddingLeft: "10px", textAlign: "right" }}
@@ -1690,7 +1712,7 @@ const App = ({ handlepopupclick }) => {
                   }}
                   id="cost_tot"
                 >
-                  $0.00
+                  ${totals.totalCost?.toLocaleString()}
                 </td>
                 <td
                   style={{
