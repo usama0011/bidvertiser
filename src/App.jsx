@@ -9,24 +9,68 @@ import PopUpItem from "./components/PopUpItem";
 import moment from "moment";
 const App = ({ handlepopupclick }) => {
   const navigate = useNavigate();
-  const [timeframe, setTimeFrame] = useState("");
+  const [timeframe, setTimeFrame] = useState("1"); // Default: "This Month"
   const [showcharts, setshowCharts] = useState(false);
-
   const [campaignsPerPage, setCampaignsPerPage] = useState("50");
   const [campaigns, setCampaigns] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
-  // Set default start and end date to the current month's first and last date
-  const [startDate, setStartDate] = useState(() => {
-    const today = new Date();
-    return `02/01/${today.getFullYear()}`; // Default to January 1st of the current year
-  });
 
-  const [endDate, setEndDate] = useState(() => {
-    const today = new Date();
-    return `02/28/${today.getFullYear()}`; // Default to December 31st of the current year
-  });
+  // Function to get start and end date based on selected timeframe
+  const getDateRange = (option) => {
+    let start = "";
+    let end = "";
+
+    switch (option) {
+      case "1": // This Month
+        start = moment().startOf("month").format("YYYY-MM-DD");
+        end = moment().endOf("month").format("YYYY-MM-DD");
+        break;
+      case "2": // Yesterday
+        start = moment().subtract(1, "days").format("YYYY-MM-DD");
+        end = start;
+        break;
+      case "3": // Last 7 Days
+        start = moment().subtract(7, "days").format("YYYY-MM-DD");
+        end = moment().format("YYYY-MM-DD");
+        break;
+      case "4": // Today
+        start = moment().format("YYYY-MM-DD");
+        end = start;
+        break;
+      case "5": // Last Month
+        start = moment()
+          .subtract(1, "months")
+          .startOf("month")
+          .format("YYYY-MM-DD");
+        end = moment()
+          .subtract(1, "months")
+          .endOf("month")
+          .format("YYYY-MM-DD");
+        break;
+      case "6": // Last 30 Days
+        start = moment().subtract(30, "days").format("YYYY-MM-DD");
+        end = moment().format("YYYY-MM-DD");
+        break;
+      case "7": // Custom Range
+        start = "";
+        end = "";
+        break;
+      default:
+        start = moment().startOf("month").format("YYYY-MM-DD");
+        end = moment().endOf("month").format("YYYY-MM-DD");
+    }
+    return { start, end };
+  };
+
+  // Initialize startDate and endDate with "This Month"
+  // Initialize startDate and endDate with "This Month"
+  const [startDate, setStartDate] = useState(getDateRange("1").start);
+  const [endDate, setEndDate] = useState(getDateRange("1").end);
+
+  const [customRange, setCustomRange] = useState(false);
+
   // State for storing totals
   const [totals, setTotals] = useState({
     totalBidRequests: 0,
@@ -106,10 +150,21 @@ const App = ({ handlepopupclick }) => {
   const fetchCampaigns = async () => {
     try {
       setLoading(true);
-      const params = {};
-      if (startDate && endDate) {
+      setLoading(true);
+      const params = {
+        timeframe,
+        customRange: customRange.toString(), // Ensure customRange is sent as "true" or "false"
+      };
+
+      if (customRange && startDate && endDate) {
         params.startDate = startDate;
         params.endDate = endDate;
+      } else {
+        const { start, end } = getDateRange(timeframe);
+        params.startDate = start;
+        params.endDate = end;
+        setStartDate(start);
+        setEndDate(end);
       }
       const response = await axios.get(
         "https://bidvertiserserver.vercel.app/api/newcompaing",
@@ -141,12 +196,32 @@ const App = ({ handlepopupclick }) => {
       setLoading(false);
     }
   };
+
   const handleGenreateCampaings = () => {
     fetchCampaigns();
   };
+  // Handle timeframe selection change
+  const handleTimeframeChange = (e) => {
+    const value = e.target.value;
+    setTimeFrame(value);
+
+    if (value === "7") {
+      // Custom range selected, reset startDate & endDate, user will enter manually
+      setStartDate("");
+      setEndDate("");
+      setCustomRange(true);
+    } else {
+      // Predefined timeframe, update start & end date automatically
+      setCustomRange(false);
+      const { start, end } = getDateRange(value);
+      setStartDate(start);
+      setEndDate(end);
+    }
+  };
+
   useEffect(() => {
     fetchCampaigns();
-  }, []);
+  }, [timeframe, startDate, endDate]); // Fetch only when necessary
   console.log(campaigns);
   console.log(totals);
   return (
@@ -161,7 +236,8 @@ const App = ({ handlepopupclick }) => {
                 <select
                   name="statistic_option"
                   className="date_picker_item selectdatapickerfirst"
-                  onChange={(e) => setTimeFrame(e.target.value)}
+                  onChange={handleTimeframeChange}
+                  value={timeframe}
                   style={{
                     all: "unset",
                     textAlign: "left",
@@ -177,9 +253,7 @@ const App = ({ handlepopupclick }) => {
                     backgroundRepeat: "no-repeat",
                   }}
                 >
-                  <option value="1" selected>
-                    This Month
-                  </option>
+                  <option value="1">This Month</option>
                   <option value="4">Today</option>
                   <option value="2">Yesterday</option>
                   <option value="3">Last 7 days</option>
@@ -190,6 +264,7 @@ const App = ({ handlepopupclick }) => {
                 <div className="maindatecontainermain">
                   <input
                     type="text"
+                    autoComplete="off"
                     id="Start_Date"
                     onClick={handlestartDateClick}
                     name="Start_Date"
@@ -231,6 +306,7 @@ const App = ({ handlepopupclick }) => {
                   <input
                     type="text"
                     id="Start_Date"
+                    autoComplete="off"
                     name="Start_Date"
                     size="8"
                     onFocus={() => {
@@ -277,6 +353,7 @@ const App = ({ handlepopupclick }) => {
                   style={{
                     float: "right",
                     marginLeft: "10px",
+                    height: "35px",
                   }}
                   type="submit"
                   name="Create_button"
@@ -298,6 +375,7 @@ const App = ({ handlepopupclick }) => {
                     backgroundSize: "13px 13px",
                     backgroundPosition: "17px 9px",
                     paddingLeft: "23px",
+                    height: "35px",
                     backgroundColor: "var(--lightBlue)",
                   }}
                 />
@@ -324,6 +402,7 @@ const App = ({ handlepopupclick }) => {
             <div>
               <div style={{ float: "right" }}>
                 <input
+                  style={{ height: "35px" }}
                   type="button"
                   className="function-button"
                   name="new_cmp"
