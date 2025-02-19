@@ -12,7 +12,7 @@ function Test({ selectedDate, setSelectedDate, onClose }) {
         setSelectedDate(date); // Update selected date in the parent component
         onClose(); // Close the calendar after selecting a date
       },
-      defaultDate: selectedDate || new Date(), // Set default date if available
+      defaultDate: selectedDate ? new Date(selectedDate) : new Date(), // Fix issue
     });
 
     // Cleanup function to destroy datepicker on unmount

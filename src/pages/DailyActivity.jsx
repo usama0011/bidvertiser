@@ -713,9 +713,7 @@ const DailyActivity = () => {
                             float: "left",
                             marginLeft: "10px",
                           }}
-                        >
-                         
-                        </div>
+                        ></div>
                       </td>
                     </tr>
                   </tbody>
