@@ -124,12 +124,26 @@ const DailyActivity = () => {
   const fetchCampaigns = async () => {
     try {
       setLoading(true);
+
+      // Function to format date as 'DD-MM-YYYY'
+      const formatDate = (date) => {
+        const d = new Date(date);
+        const day = String(d.getDate()).padStart(2, "0");
+        const month = String(d.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+        const year = d.getFullYear();
+        return `${day}-${month}-${year}`;
+      };
+
+      // Convert startDate and endDate
+      const formattedStartDate = formatDate(startDate);
+      const formattedEndDate = formatDate(endDate);
+
       const response = await axios.get(
         "https://bidvertiserserver.vercel.app/api/dailyactivity",
         {
           params: {
-            startDate,
-            endDate,
+            startDate: formattedStartDate,
+            endDate: formattedEndDate,
             selectedCampaign,
           },
         }
@@ -144,7 +158,9 @@ const DailyActivity = () => {
 
       // Sorting by date in descending order (latest date first)
       const sortedData = response.data.sort(
-        (a, b) => new Date(b.Date) - new Date(a.Date) // Ensure it compares actual Date objects
+        (a, b) =>
+          new Date(b.Date.split("-").reverse().join("-")) -
+          new Date(a.Date.split("-").reverse().join("-"))
       );
 
       console.log(
@@ -236,9 +252,6 @@ const DailyActivity = () => {
                                 >
                                   <input
                                     className="hasDatepicker"
-                                    onFocus={() =>
-                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                    }
                                     onClick={handlestartDateClick}
                                     size="8"
                                     value={startDate}
@@ -288,9 +301,6 @@ const DailyActivity = () => {
                                 >
                                   <input
                                     className="hasDatepicker"
-                                    onFocus={() =>
-                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
-                                    }
                                     onClick={hanleEndDateclick}
                                     size="8"
                                     value={endDate}
