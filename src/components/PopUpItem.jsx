@@ -676,7 +676,7 @@ const PopUpItem = ({ handlepopupclick, currentItem }) => {
                                     borderTop: "1px solid #d3d3d3",
                                     borderRight: "1px solid #d3d3d3",
                                     borderBottom: "1px solid #d3d3d3",
-                                    height: "30 px",
+                                    height: "30px",
                                     padding: "0px 10px",
                                     display: "flex",
                                     alignItems: "center",
