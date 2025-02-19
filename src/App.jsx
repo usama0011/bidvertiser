@@ -1259,47 +1259,45 @@ const App = ({ handlepopupclick }) => {
                             </span>
                           </i>
                         </div>
-                        {item.adFor === "Desktop" ? (
-                          <i
-                            className="fa fa-desktop"
-                            onMouseOver={() =>
-                              escape(
-                                "<div style=width:300px>Desktop Targeting - ALL</div>"
-                              )
-                            }
-                            onClick={() =>
-                              More_Func(0, 799817, 1, 1, "UA_Targeting_Func")
-                            }
-                            aria-hidden="true"
-                            style={{
-                              color: "var(--greyBlue)",
-                              cursor: "pointer",
-                              minWidth: "15px",
-                              textAlign: "center",
-                              fontSize: "14px",
-                              padding: "6px 5px 6px 15px",
-                            }}
-                            title=""
-                            id="what_device_799817"
-                          ></i>
-                        ) : (
-                          <i
-                            class="fa fa-mobile"
-                            onmouseover="return escape('<div style= width:300px>Mobile Targeting - ALL</div>')"
-                            onclick="More_Func(1,783468,2,3,'UA_Targeting_Func');"
-                            aria-hidden="true"
-                            style={{
-                              color: "var(--greyBlue)",
-                              cursor: "pointer",
-                              minWidth: "15px",
-                              textAlign: "center",
-                              fontSize: "17px",
-                              padding: "4px 5px 4px 15px",
-                            }}
-                            title=""
-                            id="what_device_783468"
-                          ></i>
-                        )}
+
+                        <i
+                          className="fa fa-desktop"
+                          onMouseOver={() =>
+                            escape(
+                              "<div style=width:300px>Desktop Targeting - ALL</div>"
+                            )
+                          }
+                          onClick={() =>
+                            More_Func(0, 799817, 1, 1, "UA_Targeting_Func")
+                          }
+                          aria-hidden="true"
+                          style={{
+                            color: "var(--greyBlue)",
+                            cursor: "pointer",
+                            minWidth: "15px",
+                            textAlign: "center",
+                            fontSize: "14px",
+                            padding: "6px 5px 6px 15px",
+                          }}
+                          title="Mobile / Desktop Targeting - All"
+                          id="what_device_799817"
+                        ></i>
+
+                        <i
+                          class="fa fa-mobile"
+                          onmouseover="return escape('<div style= width:300px>Mobile Targeting - ALL</div>')"
+                          onclick="More_Func(1,783468,2,3,'UA_Targeting_Func');"
+                          aria-hidden="true"
+                          title="Mobile / Desktop Targeting - All"
+                          style={{
+                            color: "var(--greyBlue)",
+                            cursor: "pointer",
+                            minWidth: "15px",
+                            textAlign: "center",
+                            fontSize: "17px",
+                          }}
+                          id="what_device_783468"
+                        ></i>
 
                         <span title="Direct" style={{ marginLeft: "5px" }}>
                           {item.adFormat}
