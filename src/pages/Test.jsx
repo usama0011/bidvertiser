@@ -1,39 +1,25 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import "../styles/Test.css";
 
 function Test({ selectedDate, setSelectedDate, onClose }) {
-  return (
-    <div className="">
-      <div className="">
-        <DatePicker
-          onDateChange={(date) => {
-            setSelectedDate(date);
-            onClose(); // Close the calendar after selecting a date
-          }}
-          initialDate={selectedDate}
-        />
-      </div>
-    </div>
-  );
-}
-
-function DatePicker({ onDateChange, initialDate }) {
   const datepickerContainer = useRef();
 
   useEffect(() => {
     // Initialize jQuery datepicker
     window.$(datepickerContainer.current).datepicker({
+      dateFormat: "yy-mm-dd", // Ensure consistent format
       onSelect: (date) => {
-        onDateChange(date); // Trigger date change
+        setSelectedDate(date); // Update selected date in the parent component
+        onClose(); // Close the calendar after selecting a date
       },
-      defaultDate: initialDate,
+      defaultDate: selectedDate || new Date(), // Set default date if available
     });
 
     // Cleanup function to destroy datepicker on unmount
     return () => {
       window.$(datepickerContainer.current).datepicker("destroy");
     };
-  }, [initialDate, onDateChange]);
+  }, [selectedDate, setSelectedDate]);
 
   return <div className="DatePicker" ref={datepickerContainer} />;
 }

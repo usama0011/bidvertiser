@@ -221,9 +221,8 @@ const App = ({ handlepopupclick }) => {
 
   useEffect(() => {
     fetchCampaigns();
-  }, [timeframe, startDate, endDate]); // Fetch only when necessary
-  console.log(campaigns);
-  console.log(totals);
+  }, []); // Fetch only when necessary
+  console.log(startDate, endDate);
   return (
     <div className="appcontainer">
       <Header routename="Manage Campaings" />
@@ -282,8 +281,11 @@ const App = ({ handlepopupclick }) => {
                     <div className="ablutecatecontainer">
                       <Test
                         selectedDate={startDate}
-                        setSelectedDate={setStartDate}
-                        onClose={() => setshowstartdatepicker(false)} // Hide calendar on date select
+                        setSelectedDate={(date) => {
+                          setStartDate(date);
+                          setshowstartdatepicker(false);
+                        }}
+                        onClose={() => setshowstartdatepicker(false)}
                       />
                     </div>
                   )}
@@ -325,7 +327,10 @@ const App = ({ handlepopupclick }) => {
                     <div className="ablutecatecontainerr">
                       <Test
                         selectedDate={endDate}
-                        setSelectedDate={setEndDate}
+                        setSelectedDate={(date) => {
+                          setEndDate(date);
+                          setshowendtdatepicker(false);
+                        }}
                         onClose={() => setshowendtdatepicker(false)}
                       />
                     </div>
