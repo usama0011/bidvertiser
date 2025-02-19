@@ -875,7 +875,7 @@ const App = ({ handlepopupclick }) => {
                                 alignItems: "center",
                               }}
                             >
-                              {item?.dailyCap <= 100 ? (
+                              {item?.dailyCap <= 150 ? (
                                 <div>
                                   <span>
                                     <i
