@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/DailyActivity.css";
 import Header from "../components/Header";
 import axios from "axios";
-import Test from "./Test";
+import ReserverCalender from "../components/ReserverCalender";
 
 const DailyActivity = () => {
   const [analytics, setAnalytics] = useState([]);
@@ -124,26 +124,12 @@ const DailyActivity = () => {
   const fetchCampaigns = async () => {
     try {
       setLoading(true);
-
-      // Function to format date as 'DD-MM-YYYY'
-      const formatDate = (date) => {
-        const d = new Date(date);
-        const day = String(d.getDate()).padStart(2, "0");
-        const month = String(d.getMonth() + 1).padStart(2, "0"); // Months are zero-based
-        const year = d.getFullYear();
-        return `${day}-${month}-${year}`;
-      };
-
-      // Convert startDate and endDate
-      const formattedStartDate = formatDate(startDate);
-      const formattedEndDate = formatDate(endDate);
-
       const response = await axios.get(
         "https://bidvertiserserver.vercel.app/api/dailyactivity",
         {
           params: {
-            startDate: formattedStartDate,
-            endDate: formattedEndDate,
+            startDate,
+            endDate,
             selectedCampaign,
           },
         }
@@ -158,9 +144,7 @@ const DailyActivity = () => {
 
       // Sorting by date in descending order (latest date first)
       const sortedData = response.data.sort(
-        (a, b) =>
-          new Date(b.Date.split("-").reverse().join("-")) -
-          new Date(a.Date.split("-").reverse().join("-"))
+        (a, b) => new Date(b.Date) - new Date(a.Date) // Ensure it compares actual Date objects
       );
 
       console.log(
@@ -252,6 +236,9 @@ const DailyActivity = () => {
                                 >
                                   <input
                                     className="hasDatepicker"
+                                    onFocus={() =>
+                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                    }
                                     onClick={handlestartDateClick}
                                     size="8"
                                     value={startDate}
@@ -269,7 +256,7 @@ const DailyActivity = () => {
                                 </p>
                                 {showstartdatePicker && (
                                   <div className="ablutecatecontainer">
-                                    <Test
+                                    <ReserverCalender
                                       selectedDate={startDate}
                                       setSelectedDate={setStartDate}
                                       onClose={() =>
@@ -301,6 +288,9 @@ const DailyActivity = () => {
                                 >
                                   <input
                                     className="hasDatepicker"
+                                    onFocus={() =>
+                                      (document.forms.report_form.statistic_option.selectedIndex = 6)
+                                    }
                                     onClick={hanleEndDateclick}
                                     size="8"
                                     value={endDate}
@@ -315,7 +305,7 @@ const DailyActivity = () => {
                                 </p>
                                 {showendtdatePicker && (
                                   <div className="ablutecatecontainerr">
-                                    <Test
+                                    <ReserverCalender
                                       selectedDate={endDate}
                                       setSelectedDate={setEndDate}
                                       onClose={() =>

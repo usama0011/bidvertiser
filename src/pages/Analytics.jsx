@@ -4,7 +4,7 @@ import "../styles/Anlalytics.css";
 import axios from "axios";
 import moment from "moment";
 import Test from "./Test";
-
+import ReserverCalender from "../components/ReserverCalender";
 const Analytics = () => {
   const [analytics, setAnalytics] = useState([]);
   const [hourlyData, setHourlyData] = useState([]);
@@ -411,7 +411,7 @@ const Analytics = () => {
                                       </p>
                                       {showstartdatePicker && (
                                         <div className="ablutecatecontainer">
-                                          <Test
+                                          <ReserverCalender
                                             selectedDate={startDate}
                                             setSelectedDate={setStartDate}
                                             onClose={() =>
@@ -461,7 +461,7 @@ const Analytics = () => {
                                       </p>
                                       {showendtdatePicker && (
                                         <div className="ablutecatecontainerr">
-                                          <Test
+                                          <ReserverCalender
                                             selectedDate={endDate}
                                             setSelectedDate={setEndDate}
                                             onClose={() =>

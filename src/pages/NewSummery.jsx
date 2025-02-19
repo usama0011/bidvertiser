@@ -5,6 +5,7 @@ import axios from "axios";
 
 import "jquery-ui/ui/widgets/datepicker"; // Import datepicker widget
 import Test from "./Test";
+import ReserverCalender from "../components/ReserverCalender";
 const NewSummery = () => {
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
@@ -211,7 +212,7 @@ const NewSummery = () => {
                                     </p>
                                     {showstartdatePicker && (
                                       <div className="ablutecatecontainer">
-                                        <Test
+                                        <ReserverCalender
                                           selectedDate={startDate}
                                           setSelectedDate={setStartDate}
                                           onClose={() =>
@@ -262,7 +263,7 @@ const NewSummery = () => {
                                     </p>
                                     {showendtdatePicker && (
                                       <div className="ablutecatecontainerr">
-                                        <Test
+                                        <ReserverCalender
                                           selectedDate={endDate}
                                           setSelectedDate={setEndDate}
                                           onClose={() =>
