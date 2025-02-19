@@ -56,6 +56,7 @@ import UploadDailyActivity from "./src/pages/UploadDailyActivity.jsx";
 import UploadSummery from "./src/pages/UploadSummery.jsx";
 import UploadDailyAnalytics from "./src/pages/UploadDailyAnalytics.jsx";
 import UploadTransaction from "./src/pages/UploadTransactionCSV.jsx";
+import NewCampaigsnUpload from "./src/pages/NewCampaigsnUpload.jsx";
 
 const InitializeApp = () => {
   const [islogedIn, setIsLogedIn] = useState(false);
@@ -88,6 +89,10 @@ const InitializeApp = () => {
               />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/managecompaings" element={<ManageComapings />} />
+              <Route
+                path="/newcampaingsupload"
+                element={<NewCampaigsnUpload />}
+              />
               <Route
                 path="/uploadmontlyinvocies"
                 element={<UploadMonthlyInvoices />}

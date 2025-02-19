@@ -202,10 +202,24 @@ const SwitchPublisher = () => {
               style={{
                 marginBottom: "16px",
                 height: "50px",
-                fontWeight: "500",  
+                fontWeight: "500",
               }}
             >
               Upload Transactions CSV
+            </Button>
+          </Col>
+          <Col span={8}>
+            <Button
+              type="primary"
+              block
+              onClick={() => navigate("/newcampaingsupload")}
+              style={{
+                marginBottom: "16px",
+                height: "50px",
+                fontWeight: "500",
+              }}
+            >
+              Upload New Campaings CSV
             </Button>
           </Col>
         </Row>
