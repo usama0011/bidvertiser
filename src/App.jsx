@@ -172,7 +172,7 @@ const App = ({ handlepopupclick }) => {
           params,
         }
       );
-      console.log(response.data);
+      console.log(response.data, "campaingsdatahere");
       setCampaigns(response.data);
       setLoading(false);
       // Calculate totals
@@ -829,6 +829,7 @@ const App = ({ handlepopupclick }) => {
                       className="work_line active_work_line"
                       onClick={() => workLine("line_799817")}
                     >
+                      {console.log(item, "Currentitemmainpage")}
                       <td
                         nowrap
                         style={{
