@@ -3,7 +3,6 @@ import Header from "../components/Header";
 import "../styles/Anlalytics.css";
 import axios from "axios";
 import moment from "moment";
-import Test from "./Test";
 import ReserverCalender from "../components/ReserverCalender";
 const Analytics = () => {
   const [analytics, setAnalytics] = useState([]);

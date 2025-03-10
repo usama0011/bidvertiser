@@ -8,6 +8,7 @@ import Test from "./Test";
 import ReserverCalender from "../components/ReserverCalender";
 const NewSummery = () => {
   const [showstartdatePicker, setshowstartdatepicker] = useState(false);
+  const [timeFrame, setTimeFrame] = useState("1"); // ✅ Fix: Added missing state
   const [showendtdatePicker, setshowendtdatepicker] = useState(false);
   const currentDate = new Date();
 
@@ -155,9 +156,10 @@ const NewSummery = () => {
                                   <select
                                     name="statistic_option"
                                     className="myselesele"
+                                    value={timeFrame} // ✅ Fix: Bind state to the select
                                     onChange={(e) =>
                                       setTimeFrame(e.target.value)
-                                    }
+                                    } // ✅ Fix: Now it updates correctly
                                     style={{
                                       all: "unset",
                                       textAlign: "left",
